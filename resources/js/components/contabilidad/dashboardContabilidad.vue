@@ -35,7 +35,7 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
-                            <v-btn icon slot="activator" class="navbar_button green--text text--accent-4"
+                            <v-btn icon slot="activator" class="navbar_button green--text2"
                                    :to="{name:'anticipo.new'}"
                             >
                                 <v-icon>add</v-icon>
@@ -44,7 +44,7 @@
                         </v-tooltip>
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
-                            <v-btn icon slot="activator" class="navbar_button green--text text--accent-4"
+                            <v-btn icon slot="activator" class="navbar_button green--text2"
                                    :to="{name:'anticipo.show'}"
                             >
                                 <v-icon>visibility</v-icon>

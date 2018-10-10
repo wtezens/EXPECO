@@ -13,9 +13,9 @@
                     </li>
                 </v-alert>
                 <v-card>
-                    <v-card-title primary-title class="center blue-grey lighten-4">
+                    <v-card-title primary-title class="center diagradient">
                         <div>
-                            <h3 class="headline " v-if="New">Nuevo Registro</h3>
+                            <h3 class="headline white--text" v-if="New">Nuevo Registro</h3>
                             <h3 class="headline white--text" v-else>Actualizar Registro</h3>
                         </div>
                     </v-card-title>
@@ -63,11 +63,12 @@
                                     v-model="sin_cuenta"
                                     color="red darken-4"
                             ></v-checkbox>
-                            <v-btn block color="primary white--text"
+                            <v-btn block outline class="green--text2"
                             :disabled="!valido"
                             @click="submit"
                             >
-                            Enviar
+                            guardar
+                                <v-icon right dark>send</v-icon>
                             </v-btn>
                         </v-form>
                     </v-card-text>

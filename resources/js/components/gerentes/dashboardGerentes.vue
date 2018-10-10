@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-layout row justify-center mb-4>
+        <!--v-layout row justify-center mb-4>
             <v-flex xs12 sm10 md9 lg8 xl8>
                 <v-card>
                     <v-card-title primary-title
@@ -11,29 +11,30 @@
                     </v-card-title>
                 </v-card>
             </v-flex>
-        </v-layout>
-        <v-layout>
-            <v-flex xs12 sm6 offset-sm3>
-                <v-card>
+        </v-layout-->
+        <h4 class="display-1 blue--text2 text-xs-center mb-4">SISTEMA DE CONTROL DE EXPEDIENTES</h4>
+        <v-layout justify-center align-center>
+            <v-flex xs12 sm10 md8 lg6>
+                <v-card class="bt-box-card-black diagradient">
                     <v-img
                             src="/img/50a.png"
-                            height="200px"
+                            height="180px"
                     ></v-img>
 
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Bienvenido</h3>
+                            <h3 class="headline white--text mb-0">Módulo: Autorización Anticipos</h3>
                         </div>
                     </v-card-title>
 
                     <v-card-actions>
                         <div>
-                            <h3 class="pa-2">Acciones:</h3>
+                            <h3 class="white--text pa-2">Acciones:</h3>
                         </div>
-                        <v-btn flat color="orange"
+                        <v-btn color="white black--text"
                                :to="{path: 'anticipo/create'}"
                         >Crear nuevo anticipo</v-btn>
-                        <v-btn flat color="orange"
+                        <v-btn color="white black--text"
                                :to="{path: 'anticipo/show'}"
                         >Ver mis autorizaciones</v-btn>
                     </v-card-actions>

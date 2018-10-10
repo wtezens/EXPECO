@@ -15,7 +15,7 @@
         <h4 class="display-1 blue--text2 text-xs-center mb-4">SISTEMA DE CONTROL DE EXPEDIENTES</h4>
         <v-layout justify-center align-center>
             <v-flex xs12 sm10 md8 lg6>
-                <v-card class="bt-box-card blue-darken-2">
+                <v-card class="bt-box-card-black diagradient">
                     <v-img
                             src="/img/50a.png"
                             height="180px"
@@ -31,10 +31,10 @@
                         <div>
                             <h3 class="pa-2 white--text">Acciones:</h3>
                         </div>
-                        <v-btn class="green-2 white--text"
+                        <v-btn class="white black--text"
                                @click="modal_buscar=!modal_buscar"
                         >Buscar Expediente</v-btn>
-                        <!-- clase anterior flat -->
+                        <!-- clase anterior green-2 white--text -->
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -46,12 +46,12 @@
             >
                 <v-card>
                     <v-card-title
-                            class="headline blue white--text"
-
+                            class="headline black--text text-xs-center"
                     >
-                        Buscar expediente
+                        <!-- class = blue -->
+                        BUSCAR EXPEDIENTE
                     </v-card-title>
-
+                    <v-divider class="blue-darken-2"></v-divider>
                     <v-card-text>
                         <v-form ref="numero_expediente" v-model="valid">
                             <v-text-field
@@ -73,11 +73,13 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                                color="primary"
+                                class="green--text2"
                                 flat
                                 @click="buscarExpediente"
                         >
+                            <!--color ="primary" flat -->
                             Buscar
+                            <v-icon right dark>send</v-icon>
                         </v-btn>
                     </v-card-actions>
                 </v-card>

@@ -1,7 +1,7 @@
 <template>
     <v-layout>
         <v-flex xs12>
-            <v-toolbar flat color="teal">
+            <v-toolbar class="diagradient">
                 <v-toolbar-title class="white--text">Anticipos autorizados</v-toolbar-title>
                 <v-divider
                         class="mx-2"
@@ -18,16 +18,16 @@
                     :rows-per-page-text="RegPorPagina"
             >
                 <template slot="items" slot-scope="props">
-                    <td class="text-xl-left" v-text="props.item.id"></td>
-                    <td class="text-xl-left" v-text="props.item.created_at"></td>
-                    <td class="text-xl-left" v-text="props.item.cantidad"></td>
-                    <td class="text-xl-left" v-text="props.item.credit_id"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.created_at"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.cantidad"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.credit_id"></td>
                 </template>
                 <template slot="pageText" slot-scope="props">
                     {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
                 </template>
                 <template slot="no-data">
-                    <v-alert :value="true" color="error" icon="warning">
+                    <v-alert outline dismissible :value="true" color="error" icon="warning">
                         No hay datos a mostrar :(
                     </v-alert>
                 </template>

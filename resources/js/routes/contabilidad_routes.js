@@ -8,7 +8,7 @@ const routes = [
         path:'/logout',
         name:'contabilidad.logout',
         component:require('../components/login/AppLogout'),
-        props:{redirect:'contabilidad'}
+        props:{redirect:'/contabilidad/panel'}
     },
     {
         path:'/expediente/:idexpediente',

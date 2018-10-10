@@ -17,8 +17,9 @@
             </v-btn>
         </v-snackbar>
         <v-flex xs12 sm12 md6 lg6 xl4>
-            <v-toolbar flat color="teal">
-                <v-toolbar-title class="white--text">Crédito</v-toolbar-title>
+            <v-toolbar flat class="diagradient">
+                <!-- color="teal" -->
+                <v-toolbar-title class="white--text">Expediente</v-toolbar-title>
                 <v-divider
                         class="mx-2"
                         inset
@@ -35,9 +36,9 @@
                     primary
             >
                 <template slot="items" slot-scope="props">
-                    <td class="text-xl-left" v-text="props.item.id"></td>
-                    <td class="text-xl-left" v-text="props.item.descripcion"></td>
-                    <td class="text-xl-left" v-text="formatDate(props.item.created_at)"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="props.item.id"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="props.item.descripcion"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                 </template>
                 <template slot="no-data">
                     <v-alert :value="true" color="error" icon="warning">
@@ -46,7 +47,7 @@
                 </template>
             </v-data-table>
         </v-flex>
-        <v-flex xs12 sm12  md6 lg6 px-2 py-2>
+        <v-flex xs12 sm12  md6 lg6 px-2>
             <v-card>
                 <v-layout row wrap>
                     <v-flex xs12 sm6 md6 lg6>

@@ -37095,7 +37095,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { staticClass: "blue-darken-2", attrs: { app: "" } },
+    { staticClass: "navbar_default", attrs: { app: "" } },
     [
       _c("span", { staticClass: "white--text ml-2" }, [
         _vm._v("© Derechos Reservados - ECOSABA R. L.,")
@@ -37169,6 +37169,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -37446,12 +37447,12 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
+                    _c("h3", { staticClass: "headline white--text" }, [
                       _vm._v("Cambiar contraseña")
                     ])
                   ])
@@ -37520,9 +37521,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Nueva contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37554,9 +37552,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Confirmar contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37584,18 +37579,23 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
+                          staticClass: " green--text2",
                           attrs: {
                             block: "",
-                            color: "primary white--text",
+                            outline: "",
                             disabled: !_vm.valido
                           },
                           on: { click: _vm.submit }
                         },
                         [
                           _vm._v(
-                            "\n                        Enviar\n                    "
-                          )
-                        ]
+                            "\n                        guardar cambios\n                        "
+                          ),
+                          _c("v-icon", { attrs: { right: "", dark: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -37972,7 +37972,7 @@ var routes = [{
     path: '/logout',
     name: 'gerentes.logout',
     component: __webpack_require__(43),
-    props: { redirect: 'gerente' }
+    props: { redirect: '/gerentes/panel' }
 }, {
     path: '/password',
     name: 'password.change',
@@ -38088,6 +38088,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "dashboardGerencia"
@@ -38105,60 +38106,30 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "v-layout",
-        { attrs: { row: "", "justify-center": "", "mb-4": "" } },
-        [
-          _c(
-            "v-flex",
-            { attrs: { xs12: "", sm10: "", md9: "", lg8: "", xl8: "" } },
-            [
-              _c(
-                "v-card",
-                [
-                  _c(
-                    "v-card-title",
-                    {
-                      staticClass:
-                        "card-home center blue-grey--text text--lighten-5 elevation-4",
-                      attrs: { "primary-title": "" }
-                    },
-                    [
-                      _c("div", [
-                        _c("h6", { staticClass: "headline" }, [
-                          _vm._v("SISTEMA DE CONTROL DE EXPEDIENTES")
-                        ])
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
+      _c("h4", { staticClass: "display-1 blue--text2 text-xs-center mb-4" }, [
+        _vm._v("SISTEMA DE CONTROL DE EXPEDIENTES")
+      ]),
       _vm._v(" "),
       _c(
         "v-layout",
+        { attrs: { "justify-center": "", "align-center": "" } },
         [
           _c(
             "v-flex",
-            { attrs: { xs12: "", sm6: "", "offset-sm3": "" } },
+            { attrs: { xs12: "", sm10: "", md8: "", lg6: "" } },
             [
               _c(
                 "v-card",
+                { staticClass: "bt-box-card-black diagradient" },
                 [
                   _c("v-img", {
-                    attrs: { src: "/img/50a.png", height: "200px" }
+                    attrs: { src: "/img/50a.png", height: "180px" }
                   }),
                   _vm._v(" "),
                   _c("v-card-title", { attrs: { "primary-title": "" } }, [
                     _c("div", [
-                      _c("h3", { staticClass: "headline mb-0" }, [
-                        _vm._v("Bienvenido")
+                      _c("h3", { staticClass: "headline white--text mb-0" }, [
+                        _vm._v("Módulo: Autorización Anticipos")
                       ])
                     ])
                   ]),
@@ -38167,15 +38138,16 @@ var render = function() {
                     "v-card-actions",
                     [
                       _c("div", [
-                        _c("h3", { staticClass: "pa-2" }, [_vm._v("Acciones:")])
+                        _c("h3", { staticClass: "white--text pa-2" }, [
+                          _vm._v("Acciones:")
+                        ])
                       ]),
                       _vm._v(" "),
                       _c(
                         "v-btn",
                         {
                           attrs: {
-                            flat: "",
-                            color: "orange",
+                            color: "white black--text",
                             to: { path: "anticipo/create" }
                           }
                         },
@@ -38186,8 +38158,7 @@ var render = function() {
                         "v-btn",
                         {
                           attrs: {
-                            flat: "",
-                            color: "orange",
+                            color: "white black--text",
                             to: { path: "anticipo/show" }
                           }
                         },
@@ -38546,7 +38517,7 @@ var render = function() {
                   _c(
                     "v-card-title",
                     {
-                      staticClass: "center blue-grey lighten-4",
+                      staticClass: "center white--text diagradient",
                       attrs: { "primary-title": "" }
                     },
                     [
@@ -38557,8 +38528,6 @@ var render = function() {
                       ])
                     ]
                   ),
-                  _vm._v(" "),
-                  _c("v-divider", { staticClass: "green" }),
                   _vm._v(" "),
                   _c(
                     "v-card-text",
@@ -38657,7 +38626,7 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("v-flex", { attrs: { xs12: "", sm7: "" } }, [
-                            _c("div", { staticClass: "display-1" }, [
+                            _c("div", { staticClass: "title" }, [
                               _vm._v("Recuerde:")
                             ]),
                             _vm._v(" "),
@@ -38669,7 +38638,7 @@ var render = function() {
                                   {
                                     attrs: {
                                       value: true,
-                                      color: "info",
+                                      color: "primary",
                                       outline: ""
                                     }
                                   },
@@ -38732,7 +38701,7 @@ var render = function() {
                     },
                     [
                       _c("div", [
-                        _c("div", { staticClass: "headline teal--text" }, [
+                        _c("h5", { staticClass: "headline teal--text" }, [
                           _vm._v("Datos importantes")
                         ]),
                         _vm._v(" "),
@@ -38748,14 +38717,14 @@ var render = function() {
                   _c("v-divider", { staticClass: "amber darken-4" }),
                   _vm._v(" "),
                   _c("v-card-text", [
-                    _c("div", [_vm._v("Correlativo:")]),
+                    _c("h4", [_vm._v("Correlativo:")]),
                     _vm._v(" "),
                     _c("div", {
                       staticClass: "blue--text title",
                       domProps: { textContent: _vm._s(_vm.correlativo) }
                     }),
                     _vm._v(" "),
-                    _c("div", [_vm._v("Clave de validación:")]),
+                    _c("h4", [_vm._v("Clave de validación:")]),
                     _vm._v(" "),
                     _c("div", {
                       staticClass: "blue--text title",
@@ -38951,7 +38920,7 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { flat: "", color: "teal" } },
+            { staticClass: "diagradient" },
             [
               _c("v-toolbar-title", { staticClass: "white--text" }, [
                 _vm._v("Anticipos autorizados")
@@ -38987,22 +38956,22 @@ var render = function() {
                   fn: function(props) {
                     return [
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.id) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.created_at) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.cantidad) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.credit_id) }
                       })
                     ]
@@ -39033,7 +39002,15 @@ var render = function() {
                 [
                   _c(
                     "v-alert",
-                    { attrs: { value: true, color: "error", icon: "warning" } },
+                    {
+                      attrs: {
+                        outline: "",
+                        dismissible: "",
+                        value: true,
+                        color: "error",
+                        icon: "warning"
+                      }
+                    },
                     [
                       _vm._v(
                         "\n                    No hay datos a mostrar :(\n                "

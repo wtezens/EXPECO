@@ -1837,6 +1837,10 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   text-decoration: none;
 }
 
+.txt-blue-card {
+  color: #0073b9;
+}
+
 .green--text2 {
   color: #009844 !important;
 }
@@ -1861,6 +1865,13 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   background-color: #dce6ee !important;
 }
 
+.diagradient {
+  background: #018647;
+  background: -webkit-gradient(linear, left top, right top, from(#018647), color-stop(50%, #008570), to(#008685));
+  background: linear-gradient(to right, #018647 0%, #008570 50%, #008685 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#018647', endColorstr='#008685', GradientType=1);
+}
+
 .navbar--title {
   font-size: 23px;
   color: #00853f;
@@ -1878,7 +1889,7 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 fieldset {
   border: 1px solid #00171f;
-  min-height: 220px;
+  min-height: 260px;
 }
 
 .legend--case-file {
@@ -1996,8 +2007,16 @@ h3.titulo {
   border-top: 4px solid #232f3e;
 }
 
-.txt-blue-card {
-  color: #0073b9;
+.bt-box-card-yellow {
+  border-top: 4px solid yellow;
+}
+
+.bt-box-card-green {
+  border-top: 4px solid #01c84b;
+}
+
+.bt-box-card-black {
+  border-top: 4px solid #000;
 }
 
 #style-3::-webkit-scrollbar-track {

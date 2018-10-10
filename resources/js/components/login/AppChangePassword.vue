@@ -18,9 +18,10 @@
                 </v-btn>
             </v-snackbar>
             <v-card>
-                <v-card-title primary-title class="center blue-grey lighten-4">
+                <v-card-title primary-title class="center diagradient">
+                    <!-- class = blue-grey lighten-4 -->
                     <div>
-                        <h3 class="headline">Cambiar contraseña</h3>
+                        <h3 class="headline white--text">Cambiar contraseña</h3>
                     </div>
                 </v-card-title>
                 <v-divider class="green"></v-divider>
@@ -45,7 +46,6 @@
                             <v-text-field
                                     validate-on-blur
                                     prepend-icon="lock"
-                                    :append-icon="visualizar ? 'visibility_off' : 'visibility'"
                                     ref="cpassword"
                                     v-model="password_nuevo"
                                     label="Nueva contraseña"
@@ -60,7 +60,6 @@
                             <v-text-field
                                     validate-on-blur
                                     prepend-icon="lock"
-                                    :append-icon="visualizar ? 'visibility_off' : 'visibility'"
                                     ref="cpassword"
                                     v-model="password_confirm"
                                     label="Confirmar contraseña"
@@ -72,11 +71,13 @@
                             </v-text-field>
                         </v-flex>
                         <br>
-                        <v-btn block color="primary white--text"
+                        <v-btn block outline class=" green--text2"
                                :disabled="!valido"
                                @click="submit"
                         >
-                            Enviar
+                            <!-- color="primary white--text"-->
+                            guardar cambios
+                            <v-icon right dark>send</v-icon>
                         </v-btn>
                     </v-form>
                 </v-card-text>

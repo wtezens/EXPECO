@@ -37095,7 +37095,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { staticClass: "blue-darken-2", attrs: { app: "" } },
+    { staticClass: "navbar_default", attrs: { app: "" } },
     [
       _c("span", { staticClass: "white--text ml-2" }, [
         _vm._v("© Derechos Reservados - ECOSABA R. L.,")
@@ -37169,6 +37169,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -37446,12 +37447,12 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
+                    _c("h3", { staticClass: "headline white--text" }, [
                       _vm._v("Cambiar contraseña")
                     ])
                   ])
@@ -37520,9 +37521,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Nueva contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37554,9 +37552,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Confirmar contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37584,18 +37579,23 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
+                          staticClass: " green--text2",
                           attrs: {
                             block: "",
-                            color: "primary white--text",
+                            outline: "",
                             disabled: !_vm.valido
                           },
                           on: { click: _vm.submit }
                         },
                         [
                           _vm._v(
-                            "\n                        Enviar\n                    "
-                          )
-                        ]
+                            "\n                        guardar cambios\n                        "
+                          ),
+                          _c("v-icon", { attrs: { right: "", dark: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -38364,7 +38364,7 @@ var routes = [{
     path: '/logout',
     name: 'contabilidad.logout',
     component: __webpack_require__(43),
-    props: { redirect: 'contabilidad' }
+    props: { redirect: '/contabilidad/panel' }
 }, {
     path: '/expediente/:idexpediente',
     name: 'expediente.show',
@@ -38827,8 +38827,7 @@ var render = function() {
                           _c(
                             "v-btn",
                             {
-                              staticClass:
-                                "navbar_button green--text text--accent-4",
+                              staticClass: "navbar_button green--text2",
                               attrs: {
                                 slot: "activator",
                                 icon: "",
@@ -38854,8 +38853,7 @@ var render = function() {
                           _c(
                             "v-btn",
                             {
-                              staticClass:
-                                "navbar_button green--text text--accent-4",
+                              staticClass: "navbar_button green--text2",
                               attrs: {
                                 slot: "activator",
                                 icon: "",

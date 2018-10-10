@@ -17,8 +17,9 @@
             </v-btn>
         </v-snackbar>
         <v-flex xs12 sm12 md6 lg6 xl4>
-            <v-toolbar flat color="teal">
-                <v-toolbar-title class="white--text">Crédito</v-toolbar-title>
+            <v-toolbar flat class="diagradient">
+                <!-- color="teal" -->
+                <v-toolbar-title class="white--text">Expediente</v-toolbar-title>
                 <v-divider
                         class="mx-2"
                         inset
@@ -26,7 +27,7 @@
                 ></v-divider>
                 <h6 class="pl-1 subheading white--text" v-text="DatosExpediente.id"></h6>
                 <v-spacer></v-spacer>
-                <v-btn class="v-btn--small"
+                <v-btn class="v-btn--small green--text2"
                         @click.native="siguienteEstatus"> Nuevo Estatus</v-btn
                 >
             </v-toolbar>
@@ -38,9 +39,9 @@
                     primary
             >
                 <template slot="items" slot-scope="props">
-                    <td class="text-xl-left blue--text2  font-weight-bold" v-text="props.item.id"></td>
-                    <td class="text-xl-left blue--text2  font-weight-bold" v-text="props.item.descripcion"></td>
-                    <td class="text-xl-left blue--text2  font-weight-bold" v-text="formatDate(props.item.created_at)"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="props.item.id"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="props.item.descripcion"></td>
+                    <td class="text-xl-left blue--text2  font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                 </template>
                 <template slot="no-data">
                     <v-alert :value="true" color="error" icon="warning">

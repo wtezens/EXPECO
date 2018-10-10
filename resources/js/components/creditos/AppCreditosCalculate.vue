@@ -132,20 +132,22 @@
                                     </v-layout>
                                 </fieldset>
                             </v-flex>
-                            <v-layout row justify-center class="pt-2">
-                                <v-flex xs3 class="mr-4">
-                                    <v-btn block color="primary"
+                            <v-layout row wrap justify-center class="pt-2">
+                                <v-flex xs12 sm3 class="mr-4">
+                                    <v-btn outline block class="green--text2"
                                            :disabled="!valido"
                                            @click="CalcularDatos"
                                     >
                                         Calcular
+                                        <v-icon right dark>done</v-icon>
                                     </v-btn>
                                 </v-flex>
                                 <v-flex xs12 sm2 class="ml-4">
-                                    <v-btn block color="error"
+                                    <v-btn outline block color="error"
                                            @click="clear"
                                     >
                                         Limpiar
+                                        <v-icon right dark>clear</v-icon>
                                     </v-btn>
                                 </v-flex>
                             </v-layout>

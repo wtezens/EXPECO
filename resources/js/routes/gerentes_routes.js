@@ -8,7 +8,7 @@ const routes = [
         path:'/logout',
         name:'gerentes.logout',
         component:require('../components/login/AppLogout'),
-        props: {redirect:'gerente'}
+        props: {redirect:'/gerentes/panel'}
     },
     {
         path:'/password',

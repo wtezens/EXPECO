@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-layout row justify-center mb-4>
+        <!--v-layout row justify-center mb-4>
             <v-flex xs12 sm10 md9 lg8 xl8>
                 <v-card>
                     <v-card-title primary-title
@@ -11,29 +11,31 @@
                     </v-card-title>
                 </v-card>
             </v-flex>
-        </v-layout>
-        <v-layout>
-            <v-flex xs12 sm6 offset-sm3>
-                <v-card class="bt-box-card">
+        </v-layout-->
+        <h4 class="display-1 blue--text2 text-xs-center mb-4">SISTEMA DE CONTROL DE EXPEDIENTES</h4>
+        <v-layout justify-center align-center>
+            <v-flex xs12 sm10 md8 lg6>
+                <v-card class="bt-box-card-black diagradient">
                     <v-img
                             src="/img/50a.png"
-                            height="200px"
+                            height="180px"
                     ></v-img>
-
+                    <!-- alto anterior 200px -->
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Módulo: Jefe de Agencia</h3>
+                            <h3 class="headline mb-0 white--text">Módulo: Jefe de Agencia</h3>
                         </div>
                     </v-card-title>
 
                     <v-card-actions>
                         <div>
-                            <h3 class="pa-2">Acciones:</h3>
+                            <h3 class="pa-2 white--text">Acciones:</h3>
                         </div>
-                        <v-btn flat color="blue"
+                        <v-btn class="white black--text"
                                @click="modal_buscar=!modal_buscar"
-                        >Buscar por expediente</v-btn>
-                        <v-btn flat color="blue"
+                        >Buscar Expediente</v-btn>
+                        <!-- clase anterior green-2 white--text -->
+                        <v-btn class="white black--text"
                                :to="{name:'asociado.show'}"
                         >Buscar por cif</v-btn>
                     </v-card-actions>
@@ -47,12 +49,12 @@
             >
                 <v-card>
                     <v-card-title
-                            class="headline blue white--text"
+                            class="headline black--text text-xs-center"
 
                     >
                         Buscar expediente
                     </v-card-title>
-
+                    <v-divider class="blue-darken-2"></v-divider>
                     <v-card-text>
                         <v-form ref="numero_expediente" v-model="valid">
                             <v-text-field
@@ -74,11 +76,13 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                                color="primary"
+                                class="green--text2"
                                 flat
                                 @click="buscarExpediente"
                         >
+                            <!--color ="primary" flat -->
                             Buscar
+                            <v-icon right dark>send</v-icon>
                         </v-btn>
                     </v-card-actions>
                 </v-card>

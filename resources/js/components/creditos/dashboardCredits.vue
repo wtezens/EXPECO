@@ -4,7 +4,7 @@
             <v-flex xs12 sm10 md9 lg8 xl8 pa-1>
                 <v-card>
                     <v-card-title primary-title
-                                  class="card-home center elevation-4" >
+                                  class="diagradient center elevation-4" >
                         <div>
                             <h6 class=" headline white--text">SISTEMA DE CONTROL DE EXPEDIENTES</h6>
                         </div>

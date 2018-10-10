@@ -37,7 +37,7 @@
         </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar class="white" absolute clipped-left app fixed>
+    <v-toolbar color="white" clipped-left app fixed>
         <!--clase anterior = navbar_default-->
         <v-toolbar-side-icon
                 @click.stop="left_menu = !left_menu"
@@ -54,6 +54,7 @@
         </v-btn>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button green--text2" depressed>
                 <!-- clase anterior white--text -->
@@ -73,7 +74,7 @@
         </v-menu>
     </v-toolbar>
 
-    <v-content class="cyan-lighten-5">
+    <v-content class="grey lighten-4">
         <!--clase anterior = grey lighten-5 -->
         <v-container fluid>
             <router-view></router-view>
@@ -84,11 +85,12 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline blue white--text"
+                                class="headline black--text"
 
                         >
                             Buscar expediente
                         </v-card-title>
+                        <v-divider class="blue-darken-2"></v-divider>
 
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
@@ -111,11 +113,12 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
+                                    class="green--text2"
                                     flat
                                     @click="buscarExpediente"
                             >
                                 Buscar
+                                <v-icon right dark>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -126,5 +129,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.16')}}"></script>
+    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.18')}}"></script>
 @stop

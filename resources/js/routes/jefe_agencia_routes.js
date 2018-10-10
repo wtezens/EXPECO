@@ -8,7 +8,7 @@ const routes = [
         path:'/logout',
         name:'jefes.logout',
         component:require('../components/login/AppLogout'),
-        props:{redirect:'jefe'}
+        props:{redirect:'/agencias/jefes'}
     },
     {
         path:'/expediente/:idexpediente',

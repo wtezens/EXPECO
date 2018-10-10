@@ -238,11 +238,12 @@
                             </v-flex>
                             <v-layout row justify-center class="pt-2">
                                 <v-flex xs3>
-                                    <v-btn block color="primary"
+                                    <v-btn outline block class="green--text2"
                                            :disabled="!valido"
                                            @click="CalcularDatos"
                                     >
                                         Calcular
+                                        <v-icon right dark>done</v-icon>
                                     </v-btn>
                                 </v-flex>
                             </v-layout>

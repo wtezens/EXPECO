@@ -37095,7 +37095,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { staticClass: "blue-darken-2", attrs: { app: "" } },
+    { staticClass: "navbar_default", attrs: { app: "" } },
     [
       _c("span", { staticClass: "white--text ml-2" }, [
         _vm._v("© Derechos Reservados - ECOSABA R. L.,")
@@ -37169,6 +37169,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -37446,12 +37447,12 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
+                    _c("h3", { staticClass: "headline white--text" }, [
                       _vm._v("Cambiar contraseña")
                     ])
                   ])
@@ -37520,9 +37521,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Nueva contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37554,9 +37552,6 @@ var render = function() {
                             attrs: {
                               "validate-on-blur": "",
                               "prepend-icon": "lock",
-                              "append-icon": _vm.visualizar
-                                ? "visibility_off"
-                                : "visibility",
                               label: "Confirmar contraseña",
                               rules: _vm.passwordRules,
                               required: "",
@@ -37584,18 +37579,23 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
+                          staticClass: " green--text2",
                           attrs: {
                             block: "",
-                            color: "primary white--text",
+                            outline: "",
                             disabled: !_vm.valido
                           },
                           on: { click: _vm.submit }
                         },
                         [
                           _vm._v(
-                            "\n                        Enviar\n                    "
-                          )
-                        ]
+                            "\n                        guardar cambios\n                        "
+                          ),
+                          _c("v-icon", { attrs: { right: "", dark: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -38445,6 +38445,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['New'],
@@ -38611,13 +38612,13 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
                     _vm.New
-                      ? _c("h3", { staticClass: "headline " }, [
+                      ? _c("h3", { staticClass: "headline white--text" }, [
                           _vm._v("Nuevo Registro")
                         ])
                       : _c("h3", { staticClass: "headline white--text" }, [
@@ -38724,18 +38725,23 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
+                          staticClass: "green--text2",
                           attrs: {
                             block: "",
-                            color: "primary white--text",
+                            outline: "",
                             disabled: !_vm.valido
                           },
                           on: { click: _vm.submit }
                         },
                         [
                           _vm._v(
-                            "\n                            Enviar\n                            "
-                          )
-                        ]
+                            "\n                            guardar\n                                "
+                          ),
+                          _c("v-icon", { attrs: { right: "", dark: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -39437,7 +39443,7 @@ var routes = [{
     path: '/logout',
     name: 'creditos.logout',
     component: __webpack_require__(43),
-    props: { redirect: 'creditos' }
+    props: { redirect: '/creditos/panel' }
 }, {
     path: '/expediente/:idexpediente',
     name: 'expediente.show',
@@ -39788,7 +39794,7 @@ var render = function() {
                   _c(
                     "v-card-title",
                     {
-                      staticClass: "card-home center elevation-4",
+                      staticClass: "diagradient center elevation-4",
                       attrs: { "primary-title": "" }
                     },
                     [
@@ -40580,19 +40586,17 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
+                    _c("h3", { staticClass: "headline white--text" }, [
                       _vm._v("Búsqueda de asociado")
                     ])
                   ])
                 ]
               ),
-              _vm._v(" "),
-              _c("v-divider", { staticClass: "green" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -40659,7 +40663,7 @@ var render = function() {
                               _c(
                                 "v-btn",
                                 {
-                                  attrs: { color: "primary" },
+                                  attrs: { flat: "", color: "primary" },
                                   on: { click: _vm.BuscarAsociado }
                                 },
                                 [_c("v-icon", [_vm._v("search")])],
@@ -40699,7 +40703,7 @@ var render = function() {
                                     [
                                       _c(
                                         "v-card-title",
-                                        { staticClass: "teal lighten-2" },
+                                        { staticClass: "blue-grey lighten-4" },
                                         [
                                           _c("div", [
                                             _c(
@@ -40710,6 +40714,8 @@ var render = function() {
                                           ])
                                         ]
                                       ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "green" }),
                                       _vm._v(" "),
                                       _c(
                                         "v-layout",
@@ -40827,7 +40833,8 @@ var render = function() {
                                               fn: function(props) {
                                                 return [
                                                   _c("td", {
-                                                    staticClass: "text-xl-left",
+                                                    staticClass:
+                                                      "text-xl-left font-weight-medium",
                                                     domProps: {
                                                       textContent: _vm._s(
                                                         props.item.id
@@ -40836,7 +40843,8 @@ var render = function() {
                                                   }),
                                                   _vm._v(" "),
                                                   _c("td", {
-                                                    staticClass: "text-xl-left",
+                                                    staticClass:
+                                                      "text-xl-left font-weight-medium",
                                                     domProps: {
                                                       textContent: _vm._s(
                                                         props.item.monto_credito
@@ -40845,7 +40853,8 @@ var render = function() {
                                                   }),
                                                   _vm._v(" "),
                                                   _c("td", {
-                                                    staticClass: "text-xl-left",
+                                                    staticClass:
+                                                      "text-xl-left font-weight-medium",
                                                     domProps: {
                                                       textContent: _vm._s(
                                                         props.item
@@ -40855,7 +40864,8 @@ var render = function() {
                                                   }),
                                                   _vm._v(" "),
                                                   _c("td", {
-                                                    staticClass: "text-xl-left",
+                                                    staticClass:
+                                                      "text-xl-left font-weight-medium",
                                                     domProps: {
                                                       textContent: _vm._s(
                                                         props.item.agency_id
@@ -40864,7 +40874,8 @@ var render = function() {
                                                   }),
                                                   _vm._v(" "),
                                                   _c("td", {
-                                                    staticClass: "text-xl-left",
+                                                    staticClass:
+                                                      "text-xl-left font-weight-medium",
                                                     domProps: {
                                                       textContent: _vm._s(
                                                         _vm.formatDate(
@@ -40885,7 +40896,7 @@ var render = function() {
                                                         "v-icon",
                                                         {
                                                           staticClass:
-                                                            "mr-2 amber--text text--darken-2",
+                                                            "mr-2 green--text2",
                                                           on: {
                                                             click: function(
                                                               $event
@@ -40937,6 +40948,8 @@ var render = function() {
                                                 "v-alert",
                                                 {
                                                   attrs: {
+                                                    outline: "",
+                                                    dismissible: "",
                                                     value: true,
                                                     color: "error",
                                                     icon: "warning"
@@ -40969,11 +40982,15 @@ var render = function() {
                     ],
                     1
                   )
-                : _c("v-card-text", [
-                    _vm._v(
-                      "\n                No hay datos disponibles.\n            "
-                    )
-                  ])
+                : _c(
+                    "v-card-text",
+                    { staticClass: "red--text text--darken-3" },
+                    [
+                      _vm._v(
+                        "\n                No hay datos disponibles.\n            "
+                      )
+                    ]
+                  )
             ],
             1
           )
@@ -41047,6 +41064,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -42593,18 +42611,25 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
+                                      staticClass: "green--text2",
                                       attrs: {
+                                        outline: "",
                                         block: "",
-                                        color: "primary",
                                         disabled: !_vm.valido
                                       },
                                       on: { click: _vm.CalcularDatos }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    Calcular\n                                "
+                                        "\n                                    Calcular\n                                    "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { right: "", dark: "" } },
+                                        [_vm._v("done")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -43218,6 +43243,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -44104,28 +44131,38 @@ var render = function() {
                             "v-layout",
                             {
                               staticClass: "pt-2",
-                              attrs: { row: "", "justify-center": "" }
+                              attrs: { row: "", wrap: "", "justify-center": "" }
                             },
                             [
                               _c(
                                 "v-flex",
-                                { staticClass: "mr-4", attrs: { xs3: "" } },
+                                {
+                                  staticClass: "mr-4",
+                                  attrs: { xs12: "", sm3: "" }
+                                },
                                 [
                                   _c(
                                     "v-btn",
                                     {
+                                      staticClass: "green--text2",
                                       attrs: {
+                                        outline: "",
                                         block: "",
-                                        color: "primary",
                                         disabled: !_vm.valido
                                       },
                                       on: { click: _vm.CalcularDatos }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    Calcular\n                                "
+                                        "\n                                    Calcular\n                                    "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { right: "", dark: "" } },
+                                        [_vm._v("done")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -44141,14 +44178,24 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      attrs: { block: "", color: "error" },
+                                      attrs: {
+                                        outline: "",
+                                        block: "",
+                                        color: "error"
+                                      },
                                       on: { click: _vm.clear }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    Limpiar\n                                "
+                                        "\n                                    Limpiar\n                                    "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { right: "", dark: "" } },
+                                        [_vm._v("clear")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -45219,10 +45266,10 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { flat: "", color: "teal" } },
+            { attrs: { flat: "", color: "diagradient" } },
             [
               _c("v-toolbar-title", { staticClass: "white--text" }, [
-                _vm._v("Crédito")
+                _vm._v("Expediente")
               ]),
               _vm._v(" "),
               _c("v-divider", {
@@ -45240,7 +45287,7 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  staticClass: "v-btn--small",
+                  staticClass: "v-btn--small white green--text2",
                   nativeOn: {
                     click: function($event) {
                       return _vm.siguienteEstatus($event)
@@ -45269,19 +45316,19 @@ var render = function() {
                   fn: function(props) {
                     return [
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.id) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(props.item.descripcion)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
                             _vm.formatDate(props.item.created_at)

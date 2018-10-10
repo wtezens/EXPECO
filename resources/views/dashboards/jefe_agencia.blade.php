@@ -18,7 +18,8 @@
                 </v-flex>
             </v-layout>
         </v-img>
-        <v-divider class="pink darken-2"></v-divider>
+        <v-divider class="pink darken-4"></v-divider>
+        <!--class="pink darken-2"-->
         <v-list>
             <v-list-tile >
                 <v-subheader>Mi usuario</v-subheader>
@@ -37,22 +38,27 @@
         </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar class="navbar_default" absolute clipped-left app fixed>
+    <v-toolbar color="white"  clipped-left app fixed>
+        <!--clase anterior = navbar_default-->
         <v-toolbar-side-icon
                 @click.stop="left_menu = !left_menu"
-                color="white--text"
+                color="black--text"
         >
+            <!--clase anterior = white--text -->
         </v-toolbar-side-icon>
-        <router-link :to="{name:'home'}" class="navbar--title">E<span>XPECO</span></router-link>
-
+        <router-link :to="{name:'home'}" class="navbar--title">E<span class="black--text">XPECO</span></router-link>
+        <!--la etiqueta span no contenia una clase-->
         <v-spacer></v-spacer>
-        <v-btn @click.stop="dialog_search=!dialog_search" class="navbar_button white--text" depressed>
+        <v-btn @click.stop="dialog_search=!dialog_search" class="navbar_button green--text2" depressed>
+            <!-- clase anterior white--text -->
             <v-icon dark left>search</v-icon>Buscar
         </v-btn>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
-            <v-btn slot="activator" class="navbar_button white--text" depressed>
+            <v-btn slot="activator" class="navbar_button green--text2" depressed>
+                <!-- clase anterior white--text -->
                 Mi usuario
                 <v-icon dark right>account_circle</v-icon>
             </v-btn>
@@ -69,7 +75,8 @@
         </v-menu>
     </v-toolbar>
 
-    <v-content class="grey lighten-5">
+    <v-content class="grey lighten-4">
+        <!--clase anterior = grey lighten-5 -->
         <v-container fluid>
             <router-view></router-view>
             <div class="text-xs-center">
@@ -79,12 +86,12 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline blue white--text"
+                                class="headline black--text text-xs-center"
 
                         >
                             Buscar expediente
                         </v-card-title>
-
+                        <v-divider class="blue-darken-2"></v-divider>
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
                                 <v-text-field
@@ -106,11 +113,12 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
+                                    class="green--text2"
                                     flat
                                     @click="buscarExpediente"
                             >
                                 Buscar
+                                <v-icon right dark>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -121,5 +129,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/jefeagencia/jefe_agencia.js?version=1.0.9')}}"></script>
+    <script src="{{asset('js/jefeagencia/jefe_agencia.js?version=1.0.13')}}"></script>
 @stop

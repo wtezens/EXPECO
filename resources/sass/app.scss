@@ -35,6 +35,10 @@
   text-decoration: none;
 }
 
+//txt-blue-link
+.txt-blue-card{
+  color:#0073b9;
+}
 .green--text2{
   color:#009844 !important;
 }
@@ -59,6 +63,13 @@
   background-color: #dce6ee !important;
 }
 
+.diagradient{
+  background: #018647;
+  background: -moz-linear-gradient(left, #018647 0%, #008570 50%, #008685 100%);
+  background: -webkit-linear-gradient(left, #018647 0%, #008570 50%, #008685 100%);
+  background: linear-gradient(to right, #018647 0%, #008570 50%, #008685 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#018647', endColorstr='#008685', GradientType=1);
+}
 
 
 .navbar--title{
@@ -79,7 +90,7 @@
 //fieldset
 fieldset {
   border:1px solid #00171f;
-  min-height: 220px;
+  min-height: 260px;
 }
 
 .legend--case-file{
@@ -190,11 +201,16 @@ h3.titulo{
 .bt-box-card{
   border-top: 4px solid #232f3e;
 }
-
-//txt-blue-link
-.txt-blue-card{
-  color:#0073b9;
+.bt-box-card-yellow{
+  border-top: 4px solid yellow;
 }
+.bt-box-card-green{
+  border-top: 4px solid #01c84b;
+}
+.bt-box-card-black{
+  border-top: 4px solid #000;
+}
+
 
 
 //scrollbar

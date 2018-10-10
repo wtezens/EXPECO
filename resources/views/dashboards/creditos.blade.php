@@ -87,6 +87,7 @@
             <v-menu offset-y transition="scale-transition"
                     class="hidden-sm-and-up"
                     slot="activator"
+                    origin="center center"
             >
                 <v-btn icon slot="activator" class="navbar_button white--text" >
                     <v-icon>account_box</v-icon>
@@ -109,6 +110,7 @@
             <v-menu offset-y transition="scale-transition"
                     class="hidden-sm-and-up"
                     slot="activator"
+                    origin="center center"
             >
                 <v-btn icon slot="activator" class="navbar_button white--text" depressed>
                     <v-icon >folder_open</v-icon>
@@ -135,6 +137,7 @@
         </v-btn>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button white--text" depressed>
                 <v-icon dark left>account_box</v-icon>Asociados
@@ -153,6 +156,7 @@
 
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button white--text" depressed>
                 <v-icon dark left >folder_open</v-icon>Créditos
@@ -170,6 +174,7 @@
         </v-menu>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button white--text" depressed>
                 Mi usuario
@@ -198,12 +203,12 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline blue white--text"
+                                class="headline black--text text-xs-center"
 
                         >
                             Buscar expediente
                         </v-card-title>
-
+                        <v-divider class="blue-darken-2"></v-divider>
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
                                 <v-text-field
@@ -225,11 +230,12 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
+                                    class="green--text2"
                                     flat
                                     @click="buscarExpediente"
                             >
                                 Buscar
+                                <v-icon right dark>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -240,5 +246,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/app.js?version=1.0.13')}}"></script>
+    <script src="{{asset('js/app.js?version=1.0.14')}}"></script>
 @stop

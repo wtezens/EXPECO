@@ -31,7 +31,7 @@ const routes = [
         path:'/logout',
         name:'creditos.logout',
         component:require('../components/login/AppLogout'),
-        props:{redirect:'creditos'}
+        props:{redirect:'/creditos/panel'}
     },
     {
         path:'/expediente/:idexpediente',

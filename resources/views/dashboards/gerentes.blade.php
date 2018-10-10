@@ -38,19 +38,20 @@
         </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar class="navbar_default" absolute clipped-left app fixed>
+    <v-toolbar class="white" absolute clipped-left app fixed>
         <v-toolbar-side-icon
                 @click.stop="left_menu = !left_menu"
-                color="white--text"
+                color="black--text"
         >
         </v-toolbar-side-icon>
-        <router-link :to="{name:'home'}" class="navbar--title">E<span>XPECO</span></router-link>
+        <router-link :to="{name:'home'}" class="navbar--title">E<span class="black--text">XPECO</span></router-link>
 
         <v-spacer></v-spacer>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
-            <v-btn slot="activator" class="navbar_button white--text" depressed>
+            <v-btn slot="activator" class="white green--text2" depressed>
                 Mi usuario
                 <v-icon dark right>account_circle</v-icon>
             </v-btn>
@@ -68,7 +69,7 @@
 
     </v-toolbar>
 
-    <v-content class="grey lighten-5">
+    <v-content class="grey lighten-4">
         <v-container fluid>
             <router-view></router-view>
         </v-container>
@@ -76,5 +77,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/gerentes/gerentes.js?version=1.0.12')}}"></script>
+    <script src="{{asset('js/gerentes/gerentes.js?version=1.0.15')}}"></script>
 @stop

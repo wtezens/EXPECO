@@ -2,12 +2,11 @@
     <v-layout row wrap my-1 justify-center>
         <v-flex xs12>
             <v-card>
-                <v-card-title primary-title class="center blue-grey lighten-4">
+                <v-card-title primary-title class="center diagradient">
                     <div>
-                        <h3 class="headline">Búsqueda de asociado</h3>
+                        <h3 class="headline white--text">Búsqueda de asociado</h3>
                     </div>
                 </v-card-title>
-                <v-divider class="green"></v-divider>
                 <v-card-text>
                     <v-form  ref="form" v-model="valido" lazy-validation>
                         <v-layout row wrap>
@@ -26,7 +25,7 @@
                                 </v-text-field>
                             </v-flex>
                             <v-flex xs3 pt-2>
-                                <v-btn color="primary"
+                                <v-btn flat color="primary"
                                         @click="BuscarAsociado"
                                 >
                                     <v-icon>search</v-icon>
@@ -40,11 +39,12 @@
                         <v-card>
                             <v-layout row wrap>
                                 <v-flex xs12>
-                                    <v-card-title class="teal lighten-2">
+                                    <v-card-title class="blue-grey lighten-4">
                                         <div>
                                             <h3 class="headline mb-0">Asociado</h3>
                                         </div>
                                     </v-card-title>
+                                    <v-divider class="green"></v-divider>
                                     <v-layout row wrap>
                                         <v-flex xs2 sm2 md2 pa-2>
                                             <p class="blue--text" v-text="DatosCliente.id"></p>
@@ -70,15 +70,15 @@
                                             :rows-per-page-text="RegPorPagina"
                                     >
                                         <template slot="items" slot-scope="props">
-                                            <td class="text-xl-left" v-text="props.item.id"></td>
-                                            <td class="text-xl-left" v-text="props.item.monto_credito"></td>
-                                            <td class="text-xl-left" v-text="props.item.monto_ampliacion"></td>
-                                            <td class="text-xl-left" v-text="props.item.agency_id"></td>
-                                            <td class="text-xl-left" v-text="formatDate(props.item.created_at)"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.monto_credito"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.monto_ampliacion"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.agency_id"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                                             <td class="justify-center layout px-0">
                                                 <v-icon
 
-                                                        class="mr-2 amber--text text--darken-2"
+                                                        class="mr-2 green--text2"
                                                         @click="showItem(props.item.id)"
                                                 >
                                                     visibility
@@ -89,7 +89,7 @@
                                             {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
                                         </template>
                                         <template slot="no-data">
-                                            <v-alert :value="true" color="error" icon="warning">
+                                            <v-alert outline dismissible :value="true" color="error" icon="warning">
                                                 No hay datos a mostrar :(
                                             </v-alert>
                                         </template>
@@ -99,7 +99,7 @@
                         </v-card>
                     </v-flex>
                 </v-card-text>
-                <v-card-text v-else="hayDatos">
+                <v-card-text v-else="hayDatos" class="red--text text--darken-3">
                     No hay datos disponibles.
                 </v-card-text>
             </v-card>
