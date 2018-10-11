@@ -2,8 +2,8 @@
     <v-container fluid fill-height>
         <v-layout row align-center justify-center>
             <v-flex xs12 md10 lg8 xl6>
-                <v-toolbar flat color="teal">
-                    <v-toolbar-title class="white--text">Liquidaciones</v-toolbar-title>
+                <v-toolbar flat class="diagradient">
+                    <v-toolbar-title class="white--text">LIQUIDACIONES</v-toolbar-title>
                     <v-divider
                             class="mx-2"
                             inset
@@ -20,13 +20,13 @@
                         :rows-per-page-text="RegPorPagina"
                 >
                     <template slot="items" slot-scope="props">
-                        <td class="text-xl-left" v-text="props.item.correlativo"></td>
-                        <td class="text-xl-left" v-text="formatDate(props.item.creado)"></td>
-                        <td class="text-xl-left" v-text="formatDate(props.item.fecha_pago)"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.correlativo"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.creado)"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.fecha_pago)"></td>
                         <td class="justify-center layout px-0">
                             <v-icon
 
-                                    class="mr-2 amber--text text--darken-2"
+                                    class="mr-2 green--text2"
                                     @click="showItem(props.item.id)"
                             >
                                 visibility

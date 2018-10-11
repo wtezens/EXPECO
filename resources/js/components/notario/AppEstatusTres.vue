@@ -38,13 +38,14 @@
             </v-date-picker>
         </v-menu>
 
-        <v-divider class="green"></v-divider>
-        <v-btn block color="primary"
+        <v-btn block flat class="green--text2"
                :disabled="!valid"
                @click="agregarEstatus3"
         >
             Guardar
+            <v-icon dark right>send</v-icon>
         </v-btn>
+        <v-divider class="green"></v-divider>
     </v-form>
 </template>
 

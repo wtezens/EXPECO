@@ -17,8 +17,8 @@
             </v-btn>
         </v-snackbar>
         <v-flex xs12 sm12 md6 lg6 xl4>
-            <v-toolbar flat color="teal">
-                <v-toolbar-title class="white--text">Crédito</v-toolbar-title>
+            <v-toolbar flat color="diagradient">
+                <v-toolbar-title class="white--text">Expediente</v-toolbar-title>
                 <v-divider
                         class="mx-2"
                         inset
@@ -26,7 +26,7 @@
                 ></v-divider>
                 <h6 class="pl-1 subheading white--text" v-text="DatosExpediente.id"></h6>
                 <v-spacer></v-spacer>
-                <v-btn class="v-btn--small"
+                <v-btn class="v-btn--small white green--text2"
                        @click.native="siguienteEstatus"> Nuevo Estatus</v-btn
                 >
             </v-toolbar>
@@ -38,9 +38,9 @@
                     primary
             >
                 <template slot="items" slot-scope="props">
-                    <td class="text-xl-left" v-text="props.item.id"></td>
-                    <td class="text-xl-left" v-text="props.item.descripcion"></td>
-                    <td class="text-xl-left" v-text="formatDate(props.item.created_at)"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="props.item.descripcion"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                 </template>
                 <template slot="no-data">
                     <v-alert :value="true" color="error" icon="warning">
@@ -138,11 +138,12 @@
                   max-width="400"
         >
             <v-card>
-                <v-card-title class="headline blue-grey lighten-4 black--text">
+                <v-card-title class="headline black--text">
                     Datos requeridos
                     <v-spacer></v-spacer>
                     <button @click="modal_estatus_3=!modal_estatus_3" class="red--text text--darken-1">X</button>
                 </v-card-title>
+                <v-divider class="blue-darken-2"></v-divider>
                 <v-card-text>
                     <app-estatus-tres @agregarEstatus3="modal_estatus_3=$event"
                                       @updated="recibirNuevosDatos" :expediente="DatosExpediente.id"
@@ -156,11 +157,12 @@
                   max-width="400"
         >
             <v-card>
-                <v-card-title class="headline blue-grey lighten-4 black--text">
+                <v-card-title class="headline black--text">
                     Datos requeridos
                     <v-spacer></v-spacer>
                     <button @click="modal_inscripcion=!modal_inscripcion" class="red--text text--darken-1">X</button>
                 </v-card-title>
+                <v-divider class="blue-darken-2"></v-divider>
                 <v-card-text>
                     <app-incripcion-expediente :expediente="DatosExpediente.id"
                                                :monto_credito="DatosExpediente.monto_credito"
@@ -179,11 +181,12 @@
                   max-width="400"
         >
             <v-card>
-                <v-card-title class="headline blue-grey lighten-4 black--text">
+                <v-card-title class="headline black--text">
                     Datos requeridos
                     <v-spacer></v-spacer>
                     <button @click="modal_rechazo=!modal_rechazo" class="red--text text--darken-1">X</button>
                 </v-card-title>
+                <v-divider class="blue-darken-2"></v-divider>
                 <v-card-text>
                     <app-agregar-rechazo @AddRechazo="modal_rechazo=$event"
                                       @updated="recibirNuevosDatos" :expediente="DatosExpediente.id"
@@ -327,6 +330,17 @@
 
                 })
                 switch (estatus){
+                    case 1:{
+                        swal({
+                            type:'info',
+                            title:'Estatus 2.',
+                            text:'La encargada de créditos debe ingresar el sig. estatus',
+                            buttonsStyling:false,
+                            confirmButtonClass:'v-btn primary'
+                        })
+                        estatus=0;
+                        break;
+                    }
                     case 2:{
                         this.modal_estatus_3=true;
                         estatus=0;
@@ -379,7 +393,7 @@
                         swal({
                             type:'info',
                             title:'En proceso de Liquidación.',
-                            text:'No se puede realizar mas acciones sobre el expediente',
+                            text:'No se puede realizar más acciones sobre el expediente.',
                             buttonsStyling:false,
                             confirmButtonClass:'v-btn primary'
                         })

@@ -37453,7 +37453,7 @@ var render = function() {
                 [
                   _c("div", [
                     _c("h3", { staticClass: "headline white--text" }, [
-                      _vm._v("Cambiar contraseña")
+                      _vm._v("CAMBIAR CONTRASEÑA")
                     ])
                   ])
                 ]

@@ -2,12 +2,11 @@
     <v-layout row wrap my-1 justify-center>
         <v-flex xs12>
             <v-card>
-                <v-card-title primary-title class="center blue-grey lighten-4">
+                <v-card-title primary-title class="center diagradient ">
                     <div>
-                        <h3 class="headline">Envio de expedientes</h3>
+                        <h3 class="headline white--text">GENERAR ENVIO DE EXPEDIENTES</h3>
                     </div>
                 </v-card-title>
-                <v-divider class="green"></v-divider>
                 <v-card-text>
                     <v-form  ref="form" v-model="valido" lazy-validation>
                         <v-layout row wrap>
@@ -23,7 +22,7 @@
                                 ></v-select>
                             </v-flex>
                             <v-flex xs3 pt-2>
-                                <v-btn  color="primary"
+                                <v-btn color="primary"
                                         @click="NotarioEnvios"
                                 >
                                     Obtener datos
@@ -48,7 +47,7 @@
                                 >
                                     <template slot="selection" slot-scope="data">
                                         <v-chip
-                                                color="teal"
+                                                color="blue-darken-1"
                                                 text-color="white"
                                                 :selected="data.selected"
                                                 :key="JSON.stringify(data.item)"
@@ -76,16 +75,17 @@
                                 </v-select>
                             </v-flex>
                             <v-flex xs3>
-                                <v-btn  color="info"
+                                <v-btn flat class="green--text2"
                                         @click="GenerarEnvio"
                                 >
                                     Generar Envio
+                                    <v-icon dark right>send</v-icon>
                                 </v-btn>
                             </v-flex>
                         </v-layout>
                     </v-form>
                 </v-card-text>
-                <v-card-text v-else="hayDatos">
+                <v-card-text v-else="hayDatos" class="red--text text--darken-3">
                     No hay datos disponibles.
                 </v-card-text>
             </v-card>

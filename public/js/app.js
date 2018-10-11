@@ -37453,7 +37453,7 @@ var render = function() {
                 [
                   _c("div", [
                     _c("h3", { staticClass: "headline white--text" }, [
-                      _vm._v("Cambiar contraseña")
+                      _vm._v("CAMBIAR CONTRASEÑA")
                     ])
                   ])
                 ]
@@ -38823,6 +38823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AppAgregarDesembolso",
@@ -39163,16 +39164,21 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("v-divider", { staticClass: "green" }),
-      _vm._v(" "),
       _c(
         "v-btn",
         {
-          attrs: { block: "", color: "primary", disabled: !_vm.valid },
+          staticClass: "green--text2",
+          attrs: { block: "", flat: "", disabled: !_vm.valid },
           on: { click: _vm.agregarDesembolso }
         },
-        [_vm._v("\n        Guardar\n    ")]
-      )
+        [
+          _vm._v("\n        Guardar\n        "),
+          _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider", { staticClass: "green" })
     ],
     1
   )
@@ -44918,6 +44924,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -45649,7 +45656,7 @@ var render = function() {
             [
               _c(
                 "v-card-title",
-                { staticClass: "headline blue-grey lighten-4 black--text" },
+                { staticClass: "headline black--text" },
                 [
                   _vm._v(
                     "\n                Datos requeridos\n                "
@@ -45671,6 +45678,8 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "blue-darken-2" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -46082,19 +46091,17 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient ",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
-                      _vm._v("Envio de expedientes")
+                    _c("h3", { staticClass: "headline white--text" }, [
+                      _vm._v("GENERAR ENVIO DE EXPEDIENTES")
                     ])
                   ])
                 ]
               ),
-              _vm._v(" "),
-              _c("v-divider", { staticClass: "green" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -46230,7 +46237,7 @@ var render = function() {
                                                 staticClass:
                                                   "chip--select-multi",
                                                 attrs: {
-                                                  color: "teal",
+                                                  color: "blue-darken-1",
                                                   "text-color": "white",
                                                   selected: data.selected,
                                                   close: ""
@@ -46335,14 +46342,21 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      attrs: { color: "info" },
+                                      staticClass: "green--text2",
+                                      attrs: { flat: "" },
                                       on: { click: _vm.GenerarEnvio }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                Generar Envio\n                            "
+                                        "\n                                Generar Envio\n                                "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { dark: "", right: "" } },
+                                        [_vm._v("send")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -46356,11 +46370,15 @@ var render = function() {
                     ],
                     1
                   )
-                : _c("v-card-text", [
-                    _vm._v(
-                      "\n                No hay datos disponibles.\n            "
-                    )
-                  ])
+                : _c(
+                    "v-card-text",
+                    { staticClass: "red--text text--darken-3" },
+                    [
+                      _vm._v(
+                        "\n                No hay datos disponibles.\n            "
+                      )
+                    ]
+                  )
             ],
             1
           )

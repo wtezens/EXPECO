@@ -80,6 +80,7 @@
         </v-btn>
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button white--text" depressed>
                 Mi usuario
@@ -108,11 +109,11 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline blue white--text"
+                                class="headline black--text"
                         >
                             Buscar expediente
                         </v-card-title>
-
+                        <v-divider class="blue-darken-2"></v-divider>
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
                                 <v-text-field
@@ -134,11 +135,12 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
+                                    class="green--text2"
                                     flat
                                     @click="buscarExpediente"
                             >
                                 Buscar
+                                <v-icon dark right>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -151,16 +153,16 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline amber darken-2 white--text"
+                                class="headline black--text"
                         >
                             Nota de desembolso
                         </v-card-title>
-
+                        <v-divider class="amber darken-4 "></v-divider>
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
                                 <v-text-field
                                         v-model="expediente"
-                                        label="ingrese el numero"
+                                        label="ingrese el no. de expediente"
                                         type="number"
                                         min="0"
                                         required
@@ -183,11 +185,11 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
-                                    flat
+                                    class="green-2 white--text"
                                     @click="NotaExpediente"
                             >
-                                Buscar
+                                generar
+                                <v-icon dark right>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -198,5 +200,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/notario/notarios.js?version=1.08')}}"></script>
+    <script src="{{asset('js/notario/notarios.js?version=1.10')}}"></script>
 @stop

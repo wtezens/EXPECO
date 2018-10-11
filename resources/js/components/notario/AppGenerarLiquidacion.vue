@@ -2,12 +2,11 @@
     <v-layout row wrap my-1 justify-center>
         <v-flex xs12>
             <v-card>
-                <v-card-title primary-title class="center blue-grey lighten-4">
+                <v-card-title primary-title class="center diagradient">
                     <div>
-                        <h3 class="headline">Generar Liquidación</h3>
+                        <h3 class="headline white--text">GENERAR LIQUIDACIÓN</h3>
                     </div>
                 </v-card-title>
-                <v-divider class="green"></v-divider>
                 <v-card-text>
                     <v-form  ref="form" v-model="valido" lazy-validation>
                         <v-layout row wrap>
@@ -91,16 +90,17 @@
                         </v-layout>
                         <v-layout row wrap>
                             <v-flex xs3>
-                                <v-btn  color="teal white--text"
+                                <v-btn flat class="green--text2"
                                         @click="GenerarLiquidacion"
                                 >
                                     Generar Liquidación
+                                    <v-icon dark right>send</v-icon>
                                 </v-btn>
                             </v-flex>
                         </v-layout>
                     </v-form>
                 </v-card-text>
-                <v-card-text v-else="hayDatos">
+                <v-card-text v-else="hayDatos" class="red--text text--darken-3">
                     No hay datos disponibles.
                 </v-card-text>
 

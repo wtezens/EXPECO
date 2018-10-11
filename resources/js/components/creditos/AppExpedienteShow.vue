@@ -125,11 +125,12 @@
                   max-width="400"
         >
             <v-card>
-                <v-card-title class="headline blue-grey lighten-4 black--text">
+                <v-card-title class="headline black--text">
                     Datos requeridos
                     <v-spacer></v-spacer>
                     <button @click="modal_desembolso=!modal_desembolso" class="red--text text--darken-1">X</button>
                 </v-card-title>
+                <v-divider class="blue-darken-2"></v-divider>
                 <v-card-text>
                     <app-agregar-desembolso @agregarDesembolso="modal_desembolso=$event"
                                             @updated="recibirNuevosDatos" :expediente="DatosExpediente.id"

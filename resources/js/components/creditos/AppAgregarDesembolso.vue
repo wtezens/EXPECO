@@ -36,13 +36,14 @@
                 <v-btn flat color="primary" @click="$refs.menu.save(fecha)">Aceptar</v-btn>
             </v-date-picker>
         </v-menu>
-        <v-divider class="green"></v-divider>
-        <v-btn block color="primary"
+        <v-btn block flat class="green--text2"
                :disabled="!valid"
                @click="agregarDesembolso"
         >
             Guardar
+            <v-icon dark right>send</v-icon>
         </v-btn>
+        <v-divider class="green"></v-divider>
     </v-form>
 </template>
 

@@ -21,7 +21,7 @@
                 <v-card-title primary-title class="center diagradient">
                     <!-- class = blue-grey lighten-4 -->
                     <div>
-                        <h3 class="headline white--text">Cambiar contraseña</h3>
+                        <h3 class="headline white--text">CAMBIAR CONTRASEÑA</h3>
                     </div>
                 </v-card-title>
                 <v-divider class="green"></v-divider>

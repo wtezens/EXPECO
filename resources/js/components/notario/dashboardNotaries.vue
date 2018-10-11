@@ -4,7 +4,8 @@
             <v-flex xs12 sm10 md9 lg8 xl8>
                 <v-card>
                     <v-card-title primary-title
-                                  class="card-home center white--text elevation-4" >
+                                  class="diagradient center white--text elevation-4" >
+                        <!-- class = card-home"-->
                         <div>
                             <h6 class="headline">SISTEMA DE CONTROL DE EXPEDIENTES</h6>
                         </div>
@@ -242,12 +243,12 @@
             >
                 <v-card>
                     <v-card-title
-                            class="headline blue white--text"
+                            class="headline black--text"
 
                     >
                         Buscar expediente
                     </v-card-title>
-
+                    <v-divider class="blue-darken-2"></v-divider>
                     <v-card-text>
                         <v-form ref="numero_expediente" v-model="valid">
                             <v-text-field
@@ -269,11 +270,12 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                                color="primary"
+                                class="green--text2"
                                 flat
                                 @click="buscarExpediente"
                         >
                             Buscar
+                            <v-icon dark right>send</v-icon>
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -293,7 +295,7 @@
                 reglasExpediente:[
                     v => !!v || 'Ingrese un número',
                     v => v.length <=10 || 'ingrese menos de 10 digitos',
-                    v => /^[1-9][0-9]+$/.test(v)||'el número debe ser válido'
+                    v => /^[0-9]+$/.test(v)||'el número debe ser válido'
                 ],
 
                 datos:[],

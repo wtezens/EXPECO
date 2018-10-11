@@ -37453,7 +37453,7 @@ var render = function() {
                 [
                   _c("div", [
                     _c("h3", { staticClass: "headline white--text" }, [
-                      _vm._v("Cambiar contraseña")
+                      _vm._v("CAMBIAR CONTRASEÑA")
                     ])
                   ])
                 ]
@@ -38578,6 +38578,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AppEstatusTres",
@@ -38849,16 +38850,21 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("v-divider", { staticClass: "green" }),
-      _vm._v(" "),
       _c(
         "v-btn",
         {
-          attrs: { block: "", color: "primary", disabled: !_vm.valid },
+          staticClass: "green--text2",
+          attrs: { block: "", flat: "", disabled: !_vm.valid },
           on: { click: _vm.agregarEstatus3 }
         },
-        [_vm._v("\n        Guardar\n    ")]
-      )
+        [
+          _vm._v("\n        Guardar\n        "),
+          _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider", { staticClass: "green" })
     ],
     1
   )
@@ -38926,6 +38932,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -39184,16 +39191,21 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("v-divider", { staticClass: "green" }),
-      _vm._v(" "),
       _c(
         "v-btn",
         {
-          attrs: { block: "", color: "primary", disabled: !_vm.valid },
+          staticClass: "green--text2",
+          attrs: { block: "", flat: "", disabled: !_vm.valid },
           on: { click: _vm.InscripcionExpediente }
         },
-        [_vm._v("\n        Guardar\n    ")]
-      )
+        [
+          _vm._v("\n        Guardar\n        "),
+          _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider", { staticClass: "green" })
     ],
     1
   )
@@ -39261,6 +39273,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -39453,16 +39466,21 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("v-divider", { staticClass: "green" }),
-      _vm._v(" "),
       _c(
         "v-btn",
         {
-          attrs: { block: "", color: "primary", disabled: !_vm.valid },
+          staticClass: "green--text2",
+          attrs: { block: "", flat: "", disabled: !_vm.valid },
           on: { click: _vm.addRechazo }
         },
-        [_vm._v("\n        Guardar\n    ")]
-      )
+        [
+          _vm._v("\n        Guardar\n        "),
+          _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider", { staticClass: "green" })
     ],
     1
   )
@@ -39852,6 +39870,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "dashboardNotaries",
@@ -39865,7 +39885,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, function (v) {
                 return v.length <= 10 || 'ingrese menos de 10 digitos';
             }, function (v) {
-                return (/^[1-9][0-9]+$/.test(v) || 'el número debe ser válido'
+                return (/^[0-9]+$/.test(v) || 'el número debe ser válido'
                 );
             }],
 
@@ -39974,7 +39994,7 @@ var render = function() {
                   _c(
                     "v-card-title",
                     {
-                      staticClass: "card-home center white--text elevation-4",
+                      staticClass: "diagradient center white--text elevation-4",
                       attrs: { "primary-title": "" }
                     },
                     [
@@ -40616,15 +40636,13 @@ var render = function() {
               _c(
                 "v-card",
                 [
-                  _c(
-                    "v-card-title",
-                    { staticClass: "headline blue white--text" },
-                    [
-                      _vm._v(
-                        "\n                    Buscar expediente\n                "
-                      )
-                    ]
-                  ),
+                  _c("v-card-title", { staticClass: "headline black--text" }, [
+                    _vm._v(
+                      "\n                    Buscar expediente\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("v-divider", { staticClass: "blue-darken-2" }),
                   _vm._v(" "),
                   _c(
                     "v-card-text",
@@ -40677,14 +40695,19 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
-                          attrs: { color: "primary", flat: "" },
+                          staticClass: "green--text2",
+                          attrs: { flat: "" },
                           on: { click: _vm.buscarExpediente }
                         },
                         [
                           _vm._v(
-                            "\n                        Buscar\n                    "
-                          )
-                        ]
+                            "\n                        Buscar\n                        "
+                          ),
+                          _c("v-icon", { attrs: { dark: "", right: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -41073,6 +41096,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AppExpedienteShow",
@@ -41198,6 +41224,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             });
             switch (estatus) {
+                case 1:
+                    {
+                        swal({
+                            type: 'info',
+                            title: 'Estatus 2.',
+                            text: 'La encargada de créditos debe ingresar el sig. estatus',
+                            buttonsStyling: false,
+                            confirmButtonClass: 'v-btn primary'
+                        });
+                        estatus = 0;
+                        break;
+                    }
                 case 2:
                     {
                         this.modal_estatus_3 = true;
@@ -41257,7 +41295,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         swal({
                             type: 'info',
                             title: 'En proceso de Liquidación.',
-                            text: 'No se puede realizar mas acciones sobre el expediente',
+                            text: 'No se puede realizar más acciones sobre el expediente.',
                             buttonsStyling: false,
                             confirmButtonClass: 'v-btn primary'
                         });
@@ -41386,10 +41424,10 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { flat: "", color: "teal" } },
+            { attrs: { flat: "", color: "diagradient" } },
             [
               _c("v-toolbar-title", { staticClass: "white--text" }, [
-                _vm._v("Crédito")
+                _vm._v("Expediente")
               ]),
               _vm._v(" "),
               _c("v-divider", {
@@ -41407,7 +41445,7 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  staticClass: "v-btn--small",
+                  staticClass: "v-btn--small white green--text2",
                   nativeOn: {
                     click: function($event) {
                       return _vm.siguienteEstatus($event)
@@ -41436,19 +41474,19 @@ var render = function() {
                   fn: function(props) {
                     return [
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.id) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(props.item.descripcion)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
                             _vm.formatDate(props.item.created_at)
@@ -41811,7 +41849,7 @@ var render = function() {
             [
               _c(
                 "v-card-title",
-                { staticClass: "headline blue-grey lighten-4 black--text" },
+                { staticClass: "headline black--text" },
                 [
                   _vm._v(
                     "\n                Datos requeridos\n                "
@@ -41833,6 +41871,8 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "blue-darken-2" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -41877,7 +41917,7 @@ var render = function() {
             [
               _c(
                 "v-card-title",
-                { staticClass: "headline blue-grey lighten-4 black--text" },
+                { staticClass: "headline black--text" },
                 [
                   _vm._v(
                     "\n                Datos requeridos\n                "
@@ -41899,6 +41939,8 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "blue-darken-2" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -41947,7 +41989,7 @@ var render = function() {
             [
               _c(
                 "v-card-title",
-                { staticClass: "headline blue-grey lighten-4 black--text" },
+                { staticClass: "headline black--text" },
                 [
                   _vm._v(
                     "\n                Datos requeridos\n                "
@@ -41969,6 +42011,8 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "blue-darken-2" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -42294,19 +42338,17 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
-                      _vm._v("Envio de expedientes a revisión")
+                    _c("h3", { staticClass: "headline white--text" }, [
+                      _vm._v("ENVIO DE EXPEDIENTES A REVISIÓN")
                     ])
                   ])
                 ]
               ),
-              _vm._v(" "),
-              _c("v-divider", { staticClass: "green" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -42442,7 +42484,7 @@ var render = function() {
                                                 staticClass:
                                                   "chip--select-multi",
                                                 attrs: {
-                                                  color: "teal",
+                                                  color: "blue-darken-2",
                                                   "text-color": "white",
                                                   selected: data.selected,
                                                   close: ""
@@ -42547,14 +42589,21 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      attrs: { color: "success" },
+                                      staticClass: "green--text2",
+                                      attrs: { flat: "" },
                                       on: { click: _vm.GenerarEnvio }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                Generar Envio\n                            "
+                                        "\n                                Generar Envio\n                                "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { dark: "", right: "" } },
+                                        [_vm._v("send")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -42568,11 +42617,15 @@ var render = function() {
                     ],
                     1
                   )
-                : _c("v-card-text", [
-                    _vm._v(
-                      "\n                No hay datos disponibles.\n            "
-                    )
-                  ])
+                : _c(
+                    "v-card-text",
+                    { staticClass: "red--text text--darken-3" },
+                    [
+                      _vm._v(
+                        "\n                No hay datos disponibles.\n            "
+                      )
+                    ]
+                  )
             ],
             1
           )
@@ -42951,19 +43004,17 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
-                    _c("h3", { staticClass: "headline" }, [
-                      _vm._v("Generar Liquidación")
+                    _c("h3", { staticClass: "headline white--text" }, [
+                      _vm._v("GENERAR LIQUIDACIÓN")
                     ])
                   ])
                 ]
               ),
-              _vm._v(" "),
-              _c("v-divider", { staticClass: "green" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -43238,14 +43289,21 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      attrs: { color: "teal white--text" },
+                                      staticClass: "green--text2",
+                                      attrs: { flat: "" },
                                       on: { click: _vm.GenerarLiquidacion }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                Generar Liquidación\n                            "
+                                        "\n                                Generar Liquidación\n                                "
+                                      ),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { dark: "", right: "" } },
+                                        [_vm._v("send")]
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -43259,11 +43317,15 @@ var render = function() {
                     ],
                     1
                   )
-                : _c("v-card-text", [
-                    _vm._v(
-                      "\n                No hay datos disponibles.\n            "
-                    )
-                  ])
+                : _c(
+                    "v-card-text",
+                    { staticClass: "red--text text--darken-3" },
+                    [
+                      _vm._v(
+                        "\n                No hay datos disponibles.\n            "
+                      )
+                    ]
+                  )
             ],
             1
           )
@@ -43489,10 +43551,10 @@ var render = function() {
             [
               _c(
                 "v-toolbar",
-                { attrs: { flat: "", color: "teal" } },
+                { staticClass: "diagradient", attrs: { flat: "" } },
                 [
                   _c("v-toolbar-title", { staticClass: "white--text" }, [
-                    _vm._v("Liquidaciones")
+                    _vm._v("LIQUIDACIONES")
                   ]),
                   _vm._v(" "),
                   _c("v-divider", {
@@ -43527,14 +43589,14 @@ var render = function() {
                       fn: function(props) {
                         return [
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: {
                               textContent: _vm._s(props.item.correlativo)
                             }
                           }),
                           _vm._v(" "),
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: {
                               textContent: _vm._s(
                                 _vm.formatDate(props.item.creado)
@@ -43543,7 +43605,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: {
                               textContent: _vm._s(
                                 _vm.formatDate(props.item.fecha_pago)
@@ -43558,8 +43620,7 @@ var render = function() {
                               _c(
                                 "v-icon",
                                 {
-                                  staticClass:
-                                    "mr-2 amber--text text--darken-2",
+                                  staticClass: "mr-2 green--text2",
                                   on: {
                                     click: function($event) {
                                       _vm.showItem(props.item.id)
