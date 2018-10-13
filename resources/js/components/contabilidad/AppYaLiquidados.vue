@@ -1,25 +1,10 @@
 <template>
     <v-container fluid fill-height>
-        <v-snackbar
-                v-model="alertErrors"
-                :timeout="4500"
-                :color="snackbarColor"
-                :top="y==='top'"
-        >
-            <li v-for="value in errors" v-text="convertToString(value)">
-            </li>
-            <v-btn
-                    color="white"
-                    flat
-                    @click="alertErrors = false"
-            >
-                Cerrar
-            </v-btn>
-        </v-snackbar>
+
         <v-layout row align-center justify-center>
-            <v-flex xs12 sm12 md10 lg8 xl6>
+            <v-flex xs12 xl6>
                 <v-toolbar flat class="diagradient">
-                    <v-toolbar-title class="white--text">LISTOS A LIQUIDAR</v-toolbar-title>
+                    <v-toolbar-title class="white--text">YA LIQUIDADOS</v-toolbar-title>
                     <v-divider
                             class="mx-2"
                             inset
@@ -37,6 +22,8 @@
                 >
                     <template slot="items" slot-scope="props">
                         <td class="text-xl-left font-weight-medium" v-text="props.item.correlativo"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.agencia"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.pago)"></td>
                         <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.creado)"></td>
                         <td class="text-xl-left font-weight-medium" v-text="props.item.nombre"></td>
                         <td class="text-xl-left font-weight-medium" v-text="roundedNumeric(props.item.monto,2)"></td>
@@ -54,8 +41,6 @@
                             >
                                 done_all
                             </v-icon-->
-                            <v-btn flat outline small class="green--text2" @click="SubmitLiquidar(props.item.id)"
-                            >Liquidar</v-btn>
                         </td>
                     </template>
                     <template slot="pageText" slot-scope="props">
@@ -69,46 +54,14 @@
                 </v-data-table>
             </v-flex>
         </v-layout>
-        <v-dialog
-                v-model="dialog_liquidar"
-                width="320"
-        >
-            <v-card>
-                <v-card-title
-                        class="headline black--text"
-
-                >
-                    Registrar pago
-                </v-card-title>
-                <v-divider class="blue-darken-2"></v-divider>
-                <v-card-text>
-                    <app-realizar-pago-liquidacion
-                            :CorrelativoLiquidacion="CorrelativoLiquidacion"
-                            @agregarPago="dialog_liquidar=$event"
-                            @updated="recibirNuevosDatos"
-                            @errors="errors=$event"
-                    ></app-realizar-pago-liquidacion>
-                </v-card-text>
-
-                <v-divider></v-divider>
-            </v-card>
-        </v-dialog>
     </v-container>
 </template>
 
 <script>
     export default {
-        name: "AppPagarLiquidacion",
+        name: "AppYaLiquidados",
         data:()=>{
             return {
-                //errors
-                y:'top',
-                snackbarColor:'red lighten-1',
-                alertErrors:false,
-                errors:[],
-
-                dialog_liquidar:false,
-                CorrelativoLiquidacion:0,
                 liquidaciones:[],
                 pagination: {
                     rowsPerPage: 10
@@ -116,35 +69,21 @@
                 RegPorPagina:'Registros por página',
                 headers: [
                     {text:'Correlativo.', value:'correlativo'},
+                    {text:'Agencia', value:'agencia'},
                     {text: 'Generado', value:'creado'},
+                    {text: 'Pagado', value:'pago'},
                     {text: 'Notario', value:'nombre'},
                     {text: 'Monto en Q.', value:'monto'},
                     {text: 'Acciones', sortable:false}
                 ]
             }
         },
-        watch:{
-            errors:function () {
-                this.alertErrors=true;
-            }
-        },
         created(){
             this.getLiquidados();
         },
         methods:{
-            /**
-             * Convierte el objeto cadena en un string
-             * @param cadena
-             * @returns {string}
-             */
-            convertToString(cadena){
-                return cadena.toString();
-            },
-            recibirNuevosDatos:function () {
-                this.getLiquidados();
-            },
             getLiquidados:function () {
-                axios.get('/contabilidad/liquidar')
+                axios.get('/contabilidad/liquidados')
                     .then(response => {
                         if(response.data){
                             this.liquidaciones = response.data;

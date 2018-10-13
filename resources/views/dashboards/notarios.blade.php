@@ -149,7 +149,7 @@
             <div class="text-xs-center">
                 <v-dialog
                         v-model="dialog_note"
-                        width="300"
+                        width="400"
                 >
                     <v-card>
                         <v-card-title
@@ -200,5 +200,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/notario/notarios.js?version=1.10')}}"></script>
+    <script src="{{asset('js/notario/notarios.js?version=1.11')}}"></script>
 @stop

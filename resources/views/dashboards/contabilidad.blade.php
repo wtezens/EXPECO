@@ -169,6 +169,7 @@
         </v-menu-->
         <v-menu offset-y transition="scale-transition"
                 class="hidden-xs-only"
+                origin="center center"
         >
             <v-btn slot="activator" class="navbar_button white--text" depressed>
                 Mi usuario
@@ -197,12 +198,12 @@
                 >
                     <v-card>
                         <v-card-title
-                                class="headline blue white--text"
+                                class="headline black--text"
 
                         >
                             Buscar expediente
                         </v-card-title>
-
+                        <v-divider class="blue-darken-2"></v-divider>
                         <v-card-text>
                             <v-form ref="expediente" v-model="valid">
                                 <v-text-field
@@ -224,11 +225,12 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
-                                    color="primary"
+                                    class="green--text2"
                                     flat
                                     @click="buscarExpediente"
                             >
                                 Buscar
+                                <v-icon dark right>send</v-icon>
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -239,5 +241,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/contabilidad/contabilidad.js?version=1.0.23')}}"></script>
+    <script src="{{asset('js/contabilidad/contabilidad.js?version=1.0.37')}}"></script>
 @stop

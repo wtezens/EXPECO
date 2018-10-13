@@ -19,7 +19,7 @@
                 <td >{{ $expediente->escritura }}</td>
                 <td >{{ $expediente->fecha }}</td>
                 <td >{{ $expediente->asociado }}</td>
-                <td >Q. {{ $expediente->monto_ampliacion }}</td>
+                <td >Q. {{ $expediente->monto_credito }}</td>
             </tr>
         @endforeach
         </tbody>

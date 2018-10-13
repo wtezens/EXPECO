@@ -38301,6 +38301,7 @@ Vue.use(Vuetify);
 
 Vue.component('app-footer', __webpack_require__(35));
 Vue.component('app-change-password', __webpack_require__(37));
+Vue.component('app-realizar-pago-liquidacion', __webpack_require__(175));
 
 /**
  * CREDITOS
@@ -38382,6 +38383,10 @@ var routes = [{
     path: '/liquidar',
     name: 'liquidar.create',
     component: __webpack_require__(169)
+}, {
+    path: '/liquidados',
+    name: 'liquidar.show',
+    component: __webpack_require__(180)
 }, {
     path: '/password',
     name: 'password.change',
@@ -38740,12 +38745,12 @@ var render = function() {
                   _c(
                     "v-card-title",
                     {
-                      staticClass: "card-home center elevation-4",
+                      staticClass: "diagradient center elevation-4",
                       attrs: { "primary-title": "" }
                     },
                     [
                       _c("div", [
-                        _c("h6", { staticClass: " headline white--text" }, [
+                        _c("h6", { staticClass: "headline white--text" }, [
                           _vm._v("SISTEMA DE CONTROL DE EXPEDIENTES")
                         ])
                       ])
@@ -38968,15 +38973,18 @@ var render = function() {
                             "v-btn",
                             {
                               staticClass: "navbar_button blue--text",
-                              attrs: { slot: "activator", icon: "" },
-                              on: { click: _vm.test },
+                              attrs: {
+                                slot: "activator",
+                                icon: "",
+                                to: { name: "liquidar.show" }
+                              },
                               slot: "activator"
                             },
                             [_c("v-icon", [_vm._v("visibility")])],
                             1
                           ),
                           _vm._v(" "),
-                          _c("span", [_vm._v("Ver anticipos")])
+                          _c("span", [_vm._v("Ver liquidados")])
                         ],
                         1
                       )
@@ -39053,8 +39061,11 @@ var render = function() {
                             "v-btn",
                             {
                               staticClass: "navbar_button blue--text",
-                              attrs: { slot: "activator", icon: "" },
-                              on: { click: _vm.test },
+                              attrs: {
+                                slot: "activator",
+                                icon: "",
+                                to: { name: "liquidar.show" }
+                              },
                               slot: "activator"
                             },
                             [_c("v-icon", [_vm._v("add")])],
@@ -39612,10 +39623,10 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { flat: "", color: "teal" } },
+            { staticClass: "diagradient", attrs: { flat: "" } },
             [
               _c("v-toolbar-title", { staticClass: "white--text" }, [
-                _vm._v("Crédito")
+                _vm._v("Expediente")
               ]),
               _vm._v(" "),
               _c("v-divider", {
@@ -39649,19 +39660,19 @@ var render = function() {
                   fn: function(props) {
                     return [
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.id) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(props.item.descripcion)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
                             _vm.formatDate(props.item.created_at)
@@ -39867,7 +39878,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("th", [
                                 _c("span", {
-                                  staticClass: "blue--text",
+                                  staticClass: "blue--text ",
                                   domProps: {
                                     textContent: _vm._s(
                                       _vm.DatosExpediente.timbre_notarial
@@ -40557,14 +40568,14 @@ var render = function() {
               _c(
                 "v-card-title",
                 {
-                  staticClass: "center blue-grey lighten-4",
+                  staticClass: "center diagradient",
                   attrs: { "primary-title": "" }
                 },
                 [
                   _c("div", [
                     _vm.New
-                      ? _c("h3", { staticClass: "headline black--text" }, [
-                          _vm._v("Ingresar nuevo anticipo")
+                      ? _c("h3", { staticClass: "headline white--text" }, [
+                          _vm._v("NUEVO ANTICIPO")
                         ])
                       : _c("h3", { staticClass: "headline white--text" }, [
                           _vm._v("Actualizar Registro")
@@ -40572,8 +40583,6 @@ var render = function() {
                   ])
                 ]
               ),
-              _vm._v(" "),
-              _c("v-divider", { staticClass: "green" }),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -40672,18 +40681,23 @@ var render = function() {
                       _c(
                         "v-btn",
                         {
+                          staticClass: "green--text2",
                           attrs: {
                             block: "",
-                            color: "primary white--text",
+                            outline: "",
                             disabled: !_vm.valido
                           },
                           on: { click: _vm.submit }
                         },
                         [
                           _vm._v(
-                            "\n                        Enviar\n                    "
-                          )
-                        ]
+                            "\n                        Enviar\n                        "
+                          ),
+                          _c("v-icon", { attrs: { dark: "", right: "" } }, [
+                            _vm._v("send")
+                          ])
+                        ],
+                        1
                       )
                     ],
                     1
@@ -40877,10 +40891,10 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { flat: "", color: "teal" } },
+            { staticClass: "diagradient", attrs: { flat: "" } },
             [
               _c("v-toolbar-title", { staticClass: "white--text" }, [
-                _vm._v("Anticipos autorizados")
+                _vm._v("ANTICIPOS AUTORIZADOS")
               ]),
               _vm._v(" "),
               _c("v-divider", {
@@ -40913,22 +40927,22 @@ var render = function() {
                   fn: function(props) {
                     return [
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.id) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.created_at) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.cantidad) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        staticClass: "text-xl-left",
+                        staticClass: "text-xl-left font-weight-medium",
                         domProps: { textContent: _vm._s(props.item.credit_id) }
                       })
                     ]
@@ -40959,7 +40973,15 @@ var render = function() {
                 [
                   _c(
                     "v-alert",
-                    { attrs: { value: true, color: "error", icon: "warning" } },
+                    {
+                      attrs: {
+                        outline: "",
+                        dismissible: "",
+                        value: true,
+                        color: "error",
+                        icon: "warning"
+                      }
+                    },
                     [
                       _vm._v(
                         "\n                    No hay datos a mostrar :(\n                "
@@ -41097,24 +41119,92 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AppPagarLiquidacion",
     data: function data() {
         return {
+            //errors
+            y: 'top',
+            snackbarColor: 'red lighten-1',
+            alertErrors: false,
+            errors: [],
+
+            dialog_liquidar: false,
+            CorrelativoLiquidacion: 0,
             liquidaciones: [],
             pagination: {
                 rowsPerPage: 10
             },
             RegPorPagina: 'Registros por página',
-            headers: [{ text: 'Correlativo.', value: 'correlativo' }, { text: 'Generado', value: 'creado' }, { text: 'Notario', value: 'nombre' }, { text: 'Acciones', sortable: false }]
+            headers: [{ text: 'Correlativo.', value: 'correlativo' }, { text: 'Generado', value: 'creado' }, { text: 'Notario', value: 'nombre' }, { text: 'Monto en Q.', value: 'monto' }, { text: 'Acciones', sortable: false }]
         };
+    },
+    watch: {
+        errors: function errors() {
+            this.alertErrors = true;
+        }
     },
     created: function created() {
         this.getLiquidados();
     },
 
     methods: {
+        /**
+         * Convierte el objeto cadena en un string
+         * @param cadena
+         * @returns {string}
+         */
+        convertToString: function convertToString(cadena) {
+            return cadena.toString();
+        },
+
+        recibirNuevosDatos: function recibirNuevosDatos() {
+            this.getLiquidados();
+        },
         getLiquidados: function getLiquidados() {
             var _this = this;
 
@@ -41172,8 +41262,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return day + ' ' + monthNames[parseInt(monthIndex)] + ' ' + year;
             }
         },
+        roundedNumeric: function roundedNumeric(value, decimals) {
+            //return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+            return parseFloat(value).toFixed(decimals);
+        },
         showItem: function showItem(item) {
             window.open('/contabilidad/liquidacion/' + item);
+        },
+        SubmitLiquidar: function SubmitLiquidar(item) {
+            this.dialog_liquidar = true;
+            this.CorrelativoLiquidacion = item;
         }
     }
 });
@@ -41191,19 +41289,58 @@ var render = function() {
     { attrs: { fluid: "", "fill-height": "" } },
     [
       _c(
+        "v-snackbar",
+        {
+          attrs: {
+            timeout: 4500,
+            color: _vm.snackbarColor,
+            top: _vm.y === "top"
+          },
+          model: {
+            value: _vm.alertErrors,
+            callback: function($$v) {
+              _vm.alertErrors = $$v
+            },
+            expression: "alertErrors"
+          }
+        },
+        [
+          _vm._l(_vm.errors, function(value) {
+            return _c("li", {
+              domProps: { textContent: _vm._s(_vm.convertToString(value)) }
+            })
+          }),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "white", flat: "" },
+              on: {
+                click: function($event) {
+                  _vm.alertErrors = false
+                }
+              }
+            },
+            [_vm._v("\n            Cerrar\n        ")]
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
         "v-layout",
         { attrs: { row: "", "align-center": "", "justify-center": "" } },
         [
           _c(
             "v-flex",
-            { attrs: { xs12: "", md10: "", lg8: "", xl6: "" } },
+            { attrs: { xs12: "", sm12: "", md10: "", lg8: "", xl6: "" } },
             [
               _c(
                 "v-toolbar",
-                { attrs: { flat: "", color: "teal" } },
+                { staticClass: "diagradient", attrs: { flat: "" } },
                 [
                   _c("v-toolbar-title", { staticClass: "white--text" }, [
-                    _vm._v("Listos a Liquidar")
+                    _vm._v("LISTOS A LIQUIDAR")
                   ]),
                   _vm._v(" "),
                   _c("v-divider", {
@@ -41238,14 +41375,14 @@ var render = function() {
                       fn: function(props) {
                         return [
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: {
                               textContent: _vm._s(props.item.correlativo)
                             }
                           }),
                           _vm._v(" "),
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: {
                               textContent: _vm._s(
                                 _vm.formatDate(props.item.creado)
@@ -41254,8 +41391,17 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("td", {
-                            staticClass: "text-xl-left",
+                            staticClass: "text-xl-left font-weight-medium",
                             domProps: { textContent: _vm._s(props.item.nombre) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.roundedNumeric(props.item.monto, 2)
+                              )
+                            }
                           }),
                           _vm._v(" "),
                           _c(
@@ -41265,8 +41411,7 @@ var render = function() {
                               _c(
                                 "v-icon",
                                 {
-                                  staticClass:
-                                    "mr-2 amber--text text--darken-2",
+                                  staticClass: "mr-2 blue--text2",
                                   on: {
                                     click: function($event) {
                                       _vm.showItem(props.item.id)
@@ -41281,10 +41426,885 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _c(
+                                "v-btn",
+                                {
+                                  staticClass: "green--text2",
+                                  attrs: { flat: "", outline: "", small: "" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.SubmitLiquidar(props.item.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Liquidar")]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    },
+                    {
+                      key: "pageText",
+                      fn: function(props) {
+                        return [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(props.pageStart) +
+                              " - " +
+                              _vm._s(props.pageStop) +
+                              " de " +
+                              _vm._s(props.itemsLength) +
+                              "\n                "
+                          )
+                        ]
+                      }
+                    }
+                  ])
+                },
+                [
+                  _c(
+                    "template",
+                    { slot: "no-data" },
+                    [
+                      _c(
+                        "v-alert",
+                        {
+                          attrs: {
+                            outline: "",
+                            dismissible: "",
+                            value: true,
+                            color: "error",
+                            icon: "warning"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        No hay datos a mostrar :(\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "320" },
+          model: {
+            value: _vm.dialog_liquidar,
+            callback: function($$v) {
+              _vm.dialog_liquidar = $$v
+            },
+            expression: "dialog_liquidar"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline black--text" }, [
+                _vm._v("\n                Registrar pago\n            ")
+              ]),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "blue-darken-2" }),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c("app-realizar-pago-liquidacion", {
+                    attrs: {
+                      CorrelativoLiquidacion: _vm.CorrelativoLiquidacion
+                    },
+                    on: {
+                      agregarPago: function($event) {
+                        _vm.dialog_liquidar = $event
+                      },
+                      updated: _vm.recibirNuevosDatos,
+                      errors: function($event) {
+                        _vm.errors = $event
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider")
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-46e1db34", module.exports)
+  }
+}
+
+/***/ }),
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(176)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(178)
+/* template */
+var __vue_template__ = __webpack_require__(179)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2ee54442"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ee54442", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ee54442", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(177);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(52)("66262e12", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(51)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 178 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "AppEfectuarPagoLiquidacion",
+    props: ['CorrelativoLiquidacion'],
+    data: function data() {
+        return {
+            valid: true,
+            fecha: null,
+            menu: false,
+            requiredOption: [function (v) {
+                return !!v || 'seleccione una fecha';
+            }]
+        };
+    },
+    methods: {
+        SubmitLiquidar: function SubmitLiquidar() {
+            var _this = this;
+
+            if (this.$refs.form.validate()) {
+                this.$emit("agregarPago", false);
+                var swalWithBootstrapButtons = swal.mixin({
+                    confirmButtonClass: 'v-btn info',
+                    cancelButtonClass: 'v-btn error',
+                    buttonsStyling: false
+
+                });
+
+                swalWithBootstrapButtons({
+                    title: '¿Desea pagar la liquidación No.' + this.CorrelativoLiquidacion + '?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Continuar',
+                    cancelButtonText: 'Cancelar',
+                    reverseButtons: true
+                }).then(function (result) {
+                    if (result.value) {
+                        axios.post('/contabilidad/pagar/liquidacion/' + _this.CorrelativoLiquidacion, {
+                            fecha_pago: _this.fecha
+                        }).then(function (response) {
+                            console.log(response.data);
+                            if (response.data.estatus === 'fail') {
+                                swal({
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (response.data.estatus === 'not empty') {
+                                swal({
+                                    type: 'error',
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (response.data.estatus === 'ok') {
+                                _this.clear();
+                                swal({
+                                    type: 'success',
+                                    title: 'Datos guardados correctamente.',
+                                    showConfirmButton: true,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                                _this.$emit("updated", true);
+                            } else {
+                                swal({
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            }
+                        }).catch(function (error) {
+                            if (error.response.data.errors) {
+                                _this.$emit("errors", error.response.data.errors);
+                            } else if (error.response.status === 403) {
+                                swal({
+                                    type: 'error',
+                                    title: '403. Forbidden',
+                                    text: 'No tiene autorización para realizar esta acción.',
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (error.response.status === 404) {
+                                swal({
+                                    type: 'error',
+                                    title: 'Fallo en la operación.',
+                                    text: 'No pudimos completar la acción con los datos enviados.',
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else {
+                                swal({
+                                    title: error.toString(),
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            }
+                        });
+                    } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel) {
+                        _this.$emit("agregarPago", true);
+                    }
+                });
+            }
+        },
+        clear: function clear() {
+            this.$refs.form.reset();
+        }
+    },
+    computed: {
+        current_date: function current_date() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+
+            today = yyyy + '-' + mm + '-' + dd;
+            return today.toString();
+        }
+    }
+});
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-form",
+        {
+          ref: "form",
+          attrs: { "lazy-validation": "" },
+          model: {
+            value: _vm.valid,
+            callback: function($$v) {
+              _vm.valid = $$v
+            },
+            expression: "valid"
+          }
+        },
+        [
+          _c(
+            "v-menu",
+            {
+              ref: "menu",
+              attrs: {
+                "close-on-content-click": false,
+                "nudge-right": 40,
+                "return-value": _vm.fecha,
+                lazy: "",
+                transition: "scale-transition",
+                "offset-y": "",
+                "full-width": "",
+                "min-width": "290px"
+              },
+              on: {
+                "update:returnValue": function($event) {
+                  _vm.fecha = $event
+                }
+              },
+              model: {
+                value: _vm.menu,
+                callback: function($$v) {
+                  _vm.menu = $$v
+                },
+                expression: "menu"
+              }
+            },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  slot: "activator",
+                  label: "seleccione una fecha",
+                  "prepend-icon": "event",
+                  readonly: "",
+                  rules: _vm.requiredOption
+                },
+                slot: "activator",
+                model: {
+                  value: _vm.fecha,
+                  callback: function($$v) {
+                    _vm.fecha = $$v
+                  },
+                  expression: "fecha"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "v-date-picker",
+                {
+                  attrs: {
+                    "no-title": "",
+                    scrollable: "",
+                    max: _vm.current_date,
+                    locale: "es-mx"
+                  },
+                  model: {
+                    value: _vm.fecha,
+                    callback: function($$v) {
+                      _vm.fecha = $$v
+                    },
+                    expression: "fecha"
+                  }
+                },
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "", color: "primary" },
+                      on: {
+                        click: function($event) {
+                          _vm.menu = false
+                        }
+                      }
+                    },
+                    [_vm._v("Cancelar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "", color: "primary" },
+                      on: {
+                        click: function($event) {
+                          _vm.$refs.menu.save(_vm.fecha)
+                        }
+                      }
+                    },
+                    [_vm._v("Aceptar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "green--text2",
+              attrs: { block: "", flat: "", disabled: !_vm.valid },
+              on: { click: _vm.SubmitLiquidar }
+            },
+            [
+              _vm._v("\n            Guardar\n            "),
+              _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider", { staticClass: "green" })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ee54442", module.exports)
+  }
+}
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(183)
+/* template */
+var __vue_template__ = __webpack_require__(185)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/contabilidad/AppYaLiquidados.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-46235b88", Component.options)
+  } else {
+    hotAPI.reload("data-v-46235b88", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 181 */,
+/* 182 */,
+/* 183 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "AppYaLiquidados",
+    data: function data() {
+        return {
+            liquidaciones: [],
+            pagination: {
+                rowsPerPage: 10
+            },
+            RegPorPagina: 'Registros por página',
+            headers: [{ text: 'Correlativo.', value: 'correlativo' }, { text: 'Agencia', value: 'agencia' }, { text: 'Generado', value: 'creado' }, { text: 'Pagado', value: 'pago' }, { text: 'Notario', value: 'nombre' }, { text: 'Monto en Q.', value: 'monto' }, { text: 'Acciones', sortable: false }]
+        };
+    },
+    created: function created() {
+        this.getLiquidados();
+    },
+
+    methods: {
+        getLiquidados: function getLiquidados() {
+            var _this = this;
+
+            axios.get('/contabilidad/liquidados').then(function (response) {
+                if (response.data) {
+                    _this.liquidaciones = response.data;
+                } else {
+                    swal({
+                        title: 'El registro no existe',
+                        type: 'error',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'v-btn primary'
+                    });
+                }
+            }).catch(function (error) {
+                if (error.response.status === 403) {
+                    swal({
+                        type: 'error',
+                        title: '403. Forbidden',
+                        text: 'No tiene autorización para ver este registro.',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'v-btn primary'
+                    });
+                } else if (error.response.status === 404) {
+                    swal({
+                        type: 'error',
+                        title: 'Fallo en la operación.',
+                        text: 'No pudimos completar esta acción.',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'v-btn primary'
+                    });
+                } else {
+                    swal({
+                        text: 'No pudimos obtener el registro, intente nuevamente.',
+                        type: 'warning',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'v-btn primary'
+                    });
+                }
+            });
+        },
+        formatDate: function formatDate(date) {
+            if (date == null || date == undefined) {
+                return '-';
+            } else {
+                var only_date = date.split(' ');
+                var fecha = only_date[0].split('-');
+
+                var monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.", "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
+
+                var day = fecha[2];
+                var monthIndex = fecha[1] - 1;
+                var year = fecha[0];
+
+                return day + ' ' + monthNames[parseInt(monthIndex)] + ' ' + year;
+            }
+        },
+        roundedNumeric: function roundedNumeric(value, decimals) {
+            //return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+            return parseFloat(value).toFixed(decimals);
+        },
+        showItem: function showItem(item) {
+            window.open('/contabilidad/liquidacion/' + item);
+        },
+        SubmitLiquidar: function SubmitLiquidar(item) {
+            this.dialog_liquidar = true;
+            this.CorrelativoLiquidacion = item;
+        }
+    }
+});
+
+/***/ }),
+/* 184 */,
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "", "fill-height": "" } },
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", "align-center": "", "justify-center": "" } },
+        [
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", xl6: "" } },
+            [
+              _c(
+                "v-toolbar",
+                { staticClass: "diagradient", attrs: { flat: "" } },
+                [
+                  _c("v-toolbar-title", { staticClass: "white--text" }, [
+                    _vm._v("YA LIQUIDADOS")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-divider", {
+                    staticClass: "mx-2",
+                    attrs: { inset: "", vertical: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("v-spacer")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-data-table",
+                {
+                  staticClass: "elevation-1 success",
+                  attrs: {
+                    primary: "",
+                    headers: _vm.headers,
+                    items: _vm.liquidaciones,
+                    pagination: _vm.pagination,
+                    "rows-per-page-text": _vm.RegPorPagina
+                  },
+                  on: {
+                    "update:pagination": function($event) {
+                      _vm.pagination = $event
+                    }
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "items",
+                      fn: function(props) {
+                        return [
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(props.item.correlativo)
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(props.item.agencia)
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.formatDate(props.item.pago)
+                              )
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.formatDate(props.item.creado)
+                              )
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: { textContent: _vm._s(props.item.nombre) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.roundedNumeric(props.item.monto, 2)
+                              )
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "justify-center layout px-0" },
+                            [
+                              _c(
                                 "v-icon",
                                 {
-                                  staticClass:
-                                    "mr-2 green--text text--darken-2",
+                                  staticClass: "mr-2 blue--text2",
                                   on: {
                                     click: function($event) {
                                       _vm.showItem(props.item.id)
@@ -41293,7 +42313,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                            done_all\n                        "
+                                    "\n                            visibility\n                        "
                                   )
                                 ]
                               )
@@ -41330,6 +42350,8 @@ var render = function() {
                         "v-alert",
                         {
                           attrs: {
+                            outline: "",
+                            dismissible: "",
                             value: true,
                             color: "error",
                             icon: "warning"
@@ -41363,7 +42385,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-46e1db34", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-46235b88", module.exports)
   }
 }
 

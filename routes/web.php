@@ -104,8 +104,16 @@ Route::prefix('contabilidad')->group(function (){
     //---------------------Listar los anticipos autorizados-------------//
     Route::get('/anticipos/list','Contabilidad\AnticiposController@show');
 
-    //---------------------Listar las liquidaciones-------------//
+    //---------------------Listar las liquidaciones pendientes de pagar-------------//
     Route::get('/liquidar','Contabilidad\LiquidacionesController@listosParaLiquidar');
+
+    //---------------------Listar las liquidaciones ya pagadas-------------//
+    Route::get('/liquidados','Contabilidad\LiquidacionesController@YaLiquidados');
+
+    //---------------------Efectuar el pago de una liquidación-------------//
+    Route::post('/pagar/liquidacion/{correlativo}',
+        'Contabilidad\LiquidacionesController@EfectuarFechaPagoLiquidacion')
+        ->where('correlativo','^\d{0,8}$');
 });
 
 /*************************************************************************************

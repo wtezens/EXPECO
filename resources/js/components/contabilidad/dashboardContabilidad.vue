@@ -4,9 +4,9 @@
             <v-flex xs12 sm10 md9 lg8 xl8 pa-1>
                 <v-card>
                     <v-card-title primary-title
-                                  class="card-home center elevation-4" >
+                                  class="diagradient center elevation-4" >
                         <div>
-                            <h6 class=" headline white--text">SISTEMA DE CONTROL DE EXPEDIENTES</h6>
+                            <h6 class="headline white--text">SISTEMA DE CONTROL DE EXPEDIENTES</h6>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -85,11 +85,11 @@
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   @click="test"
+                                   :to="{name:'liquidar.show'}"
                             >
                                 <v-icon>visibility</v-icon>
                             </v-btn>
-                            <span>Ver anticipos</span>
+                            <span>Ver liquidados</span>
                         </v-tooltip>
                     </v-card-actions>
                 </v-card>
@@ -116,7 +116,7 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   @click="test"
+                                   :to="{name:'liquidar.show'}"
                             >
                                 <v-icon>add</v-icon>
                             </v-btn>

@@ -19,13 +19,12 @@
             </v-snackbar>
 
             <v-card>
-                <v-card-title primary-title class="center blue-grey lighten-4">
+                <v-card-title primary-title class="center diagradient">
                     <div>
-                        <h3 class="headline black--text" v-if="New">Ingresar nuevo anticipo</h3>
+                        <h3 class="headline white--text" v-if="New">NUEVO ANTICIPO</h3>
                         <h3 class="headline white--text" v-else>Actualizar Registro</h3>
                     </div>
                 </v-card-title>
-                <v-divider class="green"></v-divider>
                 <v-card-text>
                     <v-form id="form" ref="form" v-model="valido" lazy-validation>
                         <v-text-field
@@ -73,11 +72,12 @@
                                 reverse
                         >
                         </v-text-field>
-                        <v-btn block color="primary white--text"
+                        <v-btn block outline class="green--text2"
                                :disabled="!valido"
                                @click="submit"
                         >
                             Enviar
+                            <v-icon dark right>send</v-icon>
                         </v-btn>
                     </v-form>
                 </v-card-text>

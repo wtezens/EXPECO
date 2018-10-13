@@ -32,6 +32,11 @@ const routes = [
         component:require('../components/contabilidad/AppPagarLiquidacion'),
     },
     {
+        path:'/liquidados',
+        name:'liquidar.show',
+        component:require('../components/contabilidad/AppYaLiquidados'),
+    },
+    {
         path:'/password',
         name:'password.change',
         component:require('../components/login/AppFormChangePassword'),

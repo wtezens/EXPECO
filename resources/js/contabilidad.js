@@ -15,6 +15,7 @@ Vue.use(Vuetify);
 
 Vue.component('app-footer', require('./components/AppFooter.vue'));
 Vue.component('app-change-password',require('./components/login/AppChangePassword'));
+Vue.component('app-realizar-pago-liquidacion',require('./components/contabilidad/AppEfectuarPagoLiquidacion'));
 
 /**
  * CREDITOS
