@@ -37824,12 +37824,7 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */
+/* 46 */
 /***/ (function(module, exports) {
 
 /*
@@ -37911,7 +37906,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 52 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -38139,6 +38134,11 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
 /* 53 */
 /***/ (function(module, exports) {
 
@@ -38283,7 +38283,7 @@ module.exports = __webpack_require__(153);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_contabilidad_routes__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_contabilidad_routes__ = __webpack_require__(159);
 __webpack_require__(11);
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -38301,7 +38301,7 @@ Vue.use(Vuetify);
 
 Vue.component('app-footer', __webpack_require__(35));
 Vue.component('app-change-password', __webpack_require__(37));
-Vue.component('app-realizar-pago-liquidacion', __webpack_require__(175));
+Vue.component('app-realizar-pago-liquidacion', __webpack_require__(154));
 
 /**
  * CREDITOS
@@ -38354,13 +38354,437 @@ var app_contabilidad = new Vue({
 
 /***/ }),
 /* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(155)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(157)
+/* template */
+var __vue_template__ = __webpack_require__(158)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2ee54442"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ee54442", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ee54442", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(156);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(47)("66262e12", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(46)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 157 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "AppEfectuarPagoLiquidacion",
+    props: ['CorrelativoLiquidacion'],
+    data: function data() {
+        return {
+            valid: true,
+            fecha: null,
+            menu: false,
+            requiredOption: [function (v) {
+                return !!v || 'seleccione una fecha';
+            }]
+        };
+    },
+    methods: {
+        SubmitLiquidar: function SubmitLiquidar() {
+            var _this = this;
+
+            if (this.$refs.form.validate()) {
+                this.$emit("agregarPago", false);
+                var swalWithBootstrapButtons = swal.mixin({
+                    confirmButtonClass: 'v-btn info',
+                    cancelButtonClass: 'v-btn error',
+                    buttonsStyling: false
+
+                });
+
+                swalWithBootstrapButtons({
+                    title: '¿Desea pagar la liquidación No.' + this.CorrelativoLiquidacion + '?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Continuar',
+                    cancelButtonText: 'Cancelar',
+                    reverseButtons: true
+                }).then(function (result) {
+                    if (result.value) {
+                        axios.post('/contabilidad/pagar/liquidacion/' + _this.CorrelativoLiquidacion, {
+                            fecha_pago: _this.fecha
+                        }).then(function (response) {
+                            console.log(response.data);
+                            if (response.data.estatus === 'fail') {
+                                swal({
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (response.data.estatus === 'not empty') {
+                                swal({
+                                    type: 'error',
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (response.data.estatus === 'ok') {
+                                _this.clear();
+                                swal({
+                                    type: 'success',
+                                    title: 'Datos guardados correctamente.',
+                                    showConfirmButton: true,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                                _this.$emit("updated", true);
+                            } else {
+                                swal({
+                                    title: response.data.descripcion,
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            }
+                        }).catch(function (error) {
+                            if (error.response.data.errors) {
+                                _this.$emit("errors", error.response.data.errors);
+                            } else if (error.response.status === 403) {
+                                swal({
+                                    type: 'error',
+                                    title: '403. Forbidden',
+                                    text: 'No tiene autorización para realizar esta acción.',
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else if (error.response.status === 404) {
+                                swal({
+                                    type: 'error',
+                                    title: 'Fallo en la operación.',
+                                    text: 'No pudimos completar la acción con los datos enviados.',
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            } else {
+                                swal({
+                                    title: error.toString(),
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'v-btn primary'
+                                });
+                            }
+                        });
+                    } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel) {
+                        _this.$emit("agregarPago", true);
+                    }
+                });
+            }
+        },
+        clear: function clear() {
+            this.$refs.form.reset();
+        }
+    },
+    computed: {
+        current_date: function current_date() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+
+            today = yyyy + '-' + mm + '-' + dd;
+            return today.toString();
+        }
+    }
+});
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-form",
+        {
+          ref: "form",
+          attrs: { "lazy-validation": "" },
+          model: {
+            value: _vm.valid,
+            callback: function($$v) {
+              _vm.valid = $$v
+            },
+            expression: "valid"
+          }
+        },
+        [
+          _c(
+            "v-menu",
+            {
+              ref: "menu",
+              attrs: {
+                "close-on-content-click": false,
+                "nudge-right": 40,
+                "return-value": _vm.fecha,
+                lazy: "",
+                transition: "scale-transition",
+                "offset-y": "",
+                "full-width": "",
+                "min-width": "290px"
+              },
+              on: {
+                "update:returnValue": function($event) {
+                  _vm.fecha = $event
+                }
+              },
+              model: {
+                value: _vm.menu,
+                callback: function($$v) {
+                  _vm.menu = $$v
+                },
+                expression: "menu"
+              }
+            },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  slot: "activator",
+                  label: "seleccione una fecha",
+                  "prepend-icon": "event",
+                  readonly: "",
+                  rules: _vm.requiredOption
+                },
+                slot: "activator",
+                model: {
+                  value: _vm.fecha,
+                  callback: function($$v) {
+                    _vm.fecha = $$v
+                  },
+                  expression: "fecha"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "v-date-picker",
+                {
+                  attrs: {
+                    "no-title": "",
+                    scrollable: "",
+                    max: _vm.current_date,
+                    locale: "es-mx"
+                  },
+                  model: {
+                    value: _vm.fecha,
+                    callback: function($$v) {
+                      _vm.fecha = $$v
+                    },
+                    expression: "fecha"
+                  }
+                },
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "", color: "primary" },
+                      on: {
+                        click: function($event) {
+                          _vm.menu = false
+                        }
+                      }
+                    },
+                    [_vm._v("Cancelar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "", color: "primary" },
+                      on: {
+                        click: function($event) {
+                          _vm.$refs.menu.save(_vm.fecha)
+                        }
+                      }
+                    },
+                    [_vm._v("Aceptar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "green--text2",
+              attrs: { block: "", flat: "", disabled: !_vm.valid },
+              on: { click: _vm.SubmitLiquidar }
+            },
+            [
+              _vm._v("\n            Guardar\n            "),
+              _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider", { staticClass: "green" })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ee54442", module.exports)
+  }
+}
+
+/***/ }),
+/* 159 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var routes = [{
     path: '/',
     name: 'home',
-    component: __webpack_require__(155)
+    component: __webpack_require__(160)
 }, {
     path: '/logout',
     name: 'contabilidad.logout',
@@ -38369,24 +38793,24 @@ var routes = [{
 }, {
     path: '/expediente/:idexpediente',
     name: 'expediente.show',
-    component: __webpack_require__(160)
+    component: __webpack_require__(165)
 }, {
     path: '/anticipo/new',
     name: 'anticipo.new',
-    component: __webpack_require__(163),
+    component: __webpack_require__(168),
     props: { New: true }
 }, {
     path: '/anticipo/show',
     name: 'anticipo.show',
-    component: __webpack_require__(166)
+    component: __webpack_require__(171)
 }, {
     path: '/liquidar',
     name: 'liquidar.create',
-    component: __webpack_require__(169)
+    component: __webpack_require__(174)
 }, {
     path: '/liquidados',
     name: 'liquidar.show',
-    component: __webpack_require__(180)
+    component: __webpack_require__(177)
 }, {
     path: '/password',
     name: 'password.change',
@@ -38397,19 +38821,19 @@ var routes = [{
 /* harmony default export */ __webpack_exports__["a"] = (routes);
 
 /***/ }),
-/* 155 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(156)
+  __webpack_require__(161)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(158)
+var __vue_script__ = __webpack_require__(163)
 /* template */
-var __vue_template__ = __webpack_require__(159)
+var __vue_template__ = __webpack_require__(164)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -38448,17 +38872,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 156 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(157);
+var content = __webpack_require__(162);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(52)("79df265b", content, false, {});
+var update = __webpack_require__(47)("79df265b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -38474,10 +38898,10 @@ if(false) {
 }
 
 /***/ }),
-/* 157 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(51)(false);
+exports = module.exports = __webpack_require__(46)(false);
 // imports
 
 
@@ -38488,7 +38912,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 158 */
+/* 163 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38712,7 +39136,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 159 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -38797,7 +39221,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline center  mb-0" }, [
+                    _c("h3", { staticClass: "title center  mb-0" }, [
                       _vm._v("Anticipos")
                     ])
                   ]),
@@ -38911,7 +39335,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline center  mb-0" }, [
+                    _c("h3", { staticClass: "title center  mb-0" }, [
                       _vm._v("Pago Liquidación")
                     ])
                   ]),
@@ -39025,7 +39449,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline center  mb-0" }, [
+                    _c("h3", { staticClass: "title center  mb-0" }, [
                       _vm._v("Reportes")
                     ])
                   ]),
@@ -39136,7 +39560,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline center  mb-0" }, [
+                    _c("h3", { staticClass: "title center  mb-0" }, [
                       _vm._v("Ajuste por Liquidación")
                     ])
                   ]),
@@ -39234,15 +39658,15 @@ if (false) {
 }
 
 /***/ }),
-/* 160 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(161)
+var __vue_script__ = __webpack_require__(166)
 /* template */
-var __vue_template__ = __webpack_require__(162)
+var __vue_template__ = __webpack_require__(167)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -39281,7 +39705,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 161 */
+/* 166 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39567,7 +39991,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 162 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -39675,7 +40099,7 @@ var render = function() {
                         staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
-                            _vm.formatDate(props.item.created_at)
+                            _vm.formatDate(props.item.pivot.created_at)
                           )
                         }
                       })
@@ -40166,15 +40590,15 @@ if (false) {
 }
 
 /***/ }),
-/* 163 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(164)
+var __vue_script__ = __webpack_require__(169)
 /* template */
-var __vue_template__ = __webpack_require__(165)
+var __vue_template__ = __webpack_require__(170)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40213,7 +40637,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 164 */
+/* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40508,7 +40932,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 165 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -40726,15 +41150,15 @@ if (false) {
 }
 
 /***/ }),
-/* 166 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(167)
+var __vue_script__ = __webpack_require__(172)
 /* template */
-var __vue_template__ = __webpack_require__(168)
+var __vue_template__ = __webpack_require__(173)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40773,7 +41197,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 167 */
+/* 172 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40875,7 +41299,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 168 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -41012,15 +41436,15 @@ if (false) {
 }
 
 /***/ }),
-/* 169 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(170)
+var __vue_script__ = __webpack_require__(175)
 /* template */
-var __vue_template__ = __webpack_require__(171)
+var __vue_template__ = __webpack_require__(176)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -41059,7 +41483,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 170 */
+/* 175 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41277,7 +41701,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 171 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -41562,442 +41986,15 @@ if (false) {
 }
 
 /***/ }),
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(176)
-}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(178)
 /* template */
 var __vue_template__ = __webpack_require__(179)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-2ee54442"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2ee54442", Component.options)
-  } else {
-    hotAPI.reload("data-v-2ee54442", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 176 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(177);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(52)("66262e12", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ee54442\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AppEfectuarPagoLiquidacion.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 177 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(51)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 178 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "AppEfectuarPagoLiquidacion",
-    props: ['CorrelativoLiquidacion'],
-    data: function data() {
-        return {
-            valid: true,
-            fecha: null,
-            menu: false,
-            requiredOption: [function (v) {
-                return !!v || 'seleccione una fecha';
-            }]
-        };
-    },
-    methods: {
-        SubmitLiquidar: function SubmitLiquidar() {
-            var _this = this;
-
-            if (this.$refs.form.validate()) {
-                this.$emit("agregarPago", false);
-                var swalWithBootstrapButtons = swal.mixin({
-                    confirmButtonClass: 'v-btn info',
-                    cancelButtonClass: 'v-btn error',
-                    buttonsStyling: false
-
-                });
-
-                swalWithBootstrapButtons({
-                    title: '¿Desea pagar la liquidación No.' + this.CorrelativoLiquidacion + '?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Continuar',
-                    cancelButtonText: 'Cancelar',
-                    reverseButtons: true
-                }).then(function (result) {
-                    if (result.value) {
-                        axios.post('/contabilidad/pagar/liquidacion/' + _this.CorrelativoLiquidacion, {
-                            fecha_pago: _this.fecha
-                        }).then(function (response) {
-                            console.log(response.data);
-                            if (response.data.estatus === 'fail') {
-                                swal({
-                                    title: response.data.descripcion,
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            } else if (response.data.estatus === 'not empty') {
-                                swal({
-                                    type: 'error',
-                                    title: response.data.descripcion,
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            } else if (response.data.estatus === 'ok') {
-                                _this.clear();
-                                swal({
-                                    type: 'success',
-                                    title: 'Datos guardados correctamente.',
-                                    showConfirmButton: true,
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                                _this.$emit("updated", true);
-                            } else {
-                                swal({
-                                    title: response.data.descripcion,
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            }
-                        }).catch(function (error) {
-                            if (error.response.data.errors) {
-                                _this.$emit("errors", error.response.data.errors);
-                            } else if (error.response.status === 403) {
-                                swal({
-                                    type: 'error',
-                                    title: '403. Forbidden',
-                                    text: 'No tiene autorización para realizar esta acción.',
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            } else if (error.response.status === 404) {
-                                swal({
-                                    type: 'error',
-                                    title: 'Fallo en la operación.',
-                                    text: 'No pudimos completar la acción con los datos enviados.',
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            } else {
-                                swal({
-                                    title: error.toString(),
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'v-btn primary'
-                                });
-                            }
-                        });
-                    } else if (
-                    // Read more about handling dismissals
-                    result.dismiss === swal.DismissReason.cancel) {
-                        _this.$emit("agregarPago", true);
-                    }
-                });
-            }
-        },
-        clear: function clear() {
-            this.$refs.form.reset();
-        }
-    },
-    computed: {
-        current_date: function current_date() {
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1; //January is 0!
-            var yyyy = today.getFullYear();
-
-            if (dd < 10) {
-                dd = '0' + dd;
-            }
-
-            if (mm < 10) {
-                mm = '0' + mm;
-            }
-
-            today = yyyy + '-' + mm + '-' + dd;
-            return today.toString();
-        }
-    }
-});
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "v-form",
-        {
-          ref: "form",
-          attrs: { "lazy-validation": "" },
-          model: {
-            value: _vm.valid,
-            callback: function($$v) {
-              _vm.valid = $$v
-            },
-            expression: "valid"
-          }
-        },
-        [
-          _c(
-            "v-menu",
-            {
-              ref: "menu",
-              attrs: {
-                "close-on-content-click": false,
-                "nudge-right": 40,
-                "return-value": _vm.fecha,
-                lazy: "",
-                transition: "scale-transition",
-                "offset-y": "",
-                "full-width": "",
-                "min-width": "290px"
-              },
-              on: {
-                "update:returnValue": function($event) {
-                  _vm.fecha = $event
-                }
-              },
-              model: {
-                value: _vm.menu,
-                callback: function($$v) {
-                  _vm.menu = $$v
-                },
-                expression: "menu"
-              }
-            },
-            [
-              _c("v-text-field", {
-                attrs: {
-                  slot: "activator",
-                  label: "seleccione una fecha",
-                  "prepend-icon": "event",
-                  readonly: "",
-                  rules: _vm.requiredOption
-                },
-                slot: "activator",
-                model: {
-                  value: _vm.fecha,
-                  callback: function($$v) {
-                    _vm.fecha = $$v
-                  },
-                  expression: "fecha"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "v-date-picker",
-                {
-                  attrs: {
-                    "no-title": "",
-                    scrollable: "",
-                    max: _vm.current_date,
-                    locale: "es-mx"
-                  },
-                  model: {
-                    value: _vm.fecha,
-                    callback: function($$v) {
-                      _vm.fecha = $$v
-                    },
-                    expression: "fecha"
-                  }
-                },
-                [
-                  _c("v-spacer"),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { flat: "", color: "primary" },
-                      on: {
-                        click: function($event) {
-                          _vm.menu = false
-                        }
-                      }
-                    },
-                    [_vm._v("Cancelar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { flat: "", color: "primary" },
-                      on: {
-                        click: function($event) {
-                          _vm.$refs.menu.save(_vm.fecha)
-                        }
-                      }
-                    },
-                    [_vm._v("Aceptar")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              staticClass: "green--text2",
-              attrs: { block: "", flat: "", disabled: !_vm.valid },
-              on: { click: _vm.SubmitLiquidar }
-            },
-            [
-              _vm._v("\n            Guardar\n            "),
-              _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("v-divider", { staticClass: "green" })
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2ee54442", module.exports)
-  }
-}
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(183)
-/* template */
-var __vue_template__ = __webpack_require__(185)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -42036,9 +42033,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 181 */,
-/* 182 */,
-/* 183 */
+/* 178 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42192,8 +42187,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 184 */,
-/* 185 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

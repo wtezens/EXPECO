@@ -1853,6 +1853,14 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   background-color: #009844 !important;
 }
 
+.red-2 {
+  background-color: #c1132a !important;
+}
+
+.red--text2 {
+  color: #c1132a !important;
+}
+
 .blue-darken-2 {
   background-color: #00416b !important;
 }
@@ -1869,10 +1877,25 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   background-color: #dce6ee !important;
 }
 
+.toolbar--gradient {
+  color: #fff;
+  background: #c1132a;
+  background: -webkit-gradient(linear, left top, right top, from(#c1132a), to(#0bb4b7));
+  background: linear-gradient(to right, #c1132a 0%, #0bb4b7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c1132a',endColorstr='#0bb4b7',GradientType=1);
+}
+
 .diagradient {
   background: #018647;
   background: -webkit-gradient(linear, left top, right top, from(#018647), color-stop(50%, #008570), to(#008685));
   background: linear-gradient(to right, #018647 0%, #008570 50%, #008685 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#018647', endColorstr='#008685', GradientType=1);
+}
+
+.diagradient-red {
+  background: #862223;
+  background: -webkit-gradient(linear, left top, right top, from(#db3f36), color-stop(50%, #d22824), to(#d6615d));
+  background: linear-gradient(to right, #db3f36 0%, #d22824 50%, #d6615d 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#018647', endColorstr='#008685', GradientType=1);
 }
 

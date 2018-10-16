@@ -37,7 +37,7 @@
                 <template slot="items" slot-scope="props">
                     <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
                     <td class="text-xl-left font-weight-medium" v-text="props.item.descripcion"></td>
-                    <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
+                    <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.pivot.created_at)"></td>
                 </template>
                 <template slot="no-data">
                     <v-alert :value="true" color="error" icon="warning">

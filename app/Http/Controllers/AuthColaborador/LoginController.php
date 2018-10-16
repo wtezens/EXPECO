@@ -91,7 +91,7 @@ class LoginController extends Controller
                 return '/creditos/panel';
                 break;
             case 'credit_assistant':
-                return '/colaborador/asistente';
+                return '/asistente/panel';
                 break;
             case 'assistant_accounting':
                 return '/contabilidad/panel';

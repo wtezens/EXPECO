@@ -37824,7 +37824,9 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 46 */,
+/* 47 */,
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -37832,7 +37834,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(49)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -37871,7 +37873,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -37898,15 +37900,15 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -37945,7 +37947,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38000,7 +38002,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -38113,8 +38115,6 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */,
-/* 52 */,
 /* 53 */,
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -38287,9 +38287,9 @@ window.Vuetify = __webpack_require__(34);
 
 Vue.use(Vuetify);
 
-Vue.component('my-component', __webpack_require__(46));
+Vue.component('my-component', __webpack_require__(48));
 Vue.component('app-footer', __webpack_require__(35));
-Vue.component('app-modal-search', __webpack_require__(48));
+Vue.component('app-modal-search', __webpack_require__(50));
 Vue.component('app-asociado-create', __webpack_require__(54));
 Vue.component('app-agregar-desembolso', __webpack_require__(55));
 Vue.component('app-change-password', __webpack_require__(37));
@@ -39699,6 +39699,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -39758,7 +39760,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         showItem: function showItem(item) {
-            window.open('/creditos/creditos#/expediente/' + item);
+            window.open('/creditos/panel#/expediente/' + item);
         },
         reporte: function reporte() {
             window.open('/creditos/reportesinliquidar');
@@ -39852,9 +39854,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline mb-0" }, [
-                      _vm._v("Agencia")
-                    ])
+                    _c("h3", { staticClass: "title mb-0" }, [_vm._v("Agencia")])
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.panel.agencia, function(agencia) {
@@ -39923,7 +39923,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline center  mb-0" }, [
+                    _c("h3", { staticClass: "title center  mb-0" }, [
                       _vm._v("Créditos")
                     ])
                   ]),
@@ -39988,7 +39988,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline mb-0 center " }, [
+                    _c("h3", { staticClass: "title mb-0 center " }, [
                       _vm._v("Liquidados")
                     ])
                   ]),
@@ -40053,7 +40053,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "headline mb-0 center " }, [
+                    _c("h3", { staticClass: "title mb-0 center " }, [
                       _vm._v("En trámite")
                     ])
                   ]),
@@ -40103,11 +40103,13 @@ var render = function() {
                 [
                   _c(
                     "v-toolbar",
-                    { attrs: { flat: "", color: "green accent-1" } },
+                    { staticClass: "toolbar--gradient", attrs: { flat: "" } },
                     [
-                      _c("v-toolbar-title", { staticClass: "hidden-xs-only" }, [
-                        _vm._v("No liquidados mayores a 2 meses")
-                      ]),
+                      _c(
+                        "v-toolbar-title",
+                        { staticClass: "hidden-xs-only white--text" },
+                        [_vm._v("No liquidados mayores a 2 meses")]
+                      ),
                       _vm._v(" "),
                       _c("v-divider", {
                         staticClass: "mx-2 hidden-xs-only",
@@ -40136,12 +40138,8 @@ var render = function() {
                       _c(
                         "v-icon",
                         {
-                          staticClass: "pl-2",
-                          attrs: {
-                            large: "",
-                            outline: "",
-                            color: "teal darken-3"
-                          },
+                          staticClass: "pl-2 black--text",
+                          attrs: { large: "", outline: "" },
                           on: { click: _vm.reporte }
                         },
                         [_vm._v("get_app")]
@@ -40173,42 +40171,42 @@ var render = function() {
                           fn: function(props) {
                             return [
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(props.item.expediente)
                                 }
                               }),
                               _vm._v(" "),
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(props.item.monto_credito)
                                 }
                               }),
                               _vm._v(" "),
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(props.item.cif)
                                 }
                               }),
                               _vm._v(" "),
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(props.item.asociado)
                                 }
                               }),
                               _vm._v(" "),
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(props.item.notario)
                                 }
                               }),
                               _vm._v(" "),
                               _c("td", {
-                                staticClass: "text-xl-left",
+                                staticClass: "text-xl-left font-weight-medium",
                                 domProps: {
                                   textContent: _vm._s(
                                     _vm.formatDate(props.item.created_at)
@@ -40223,7 +40221,7 @@ var render = function() {
                                   _c(
                                     "v-icon",
                                     {
-                                      staticClass: "mr-2 blue--text",
+                                      staticClass: "mr-2 green--text2",
                                       on: {
                                         click: function($event) {
                                           _vm.showItem(props.item.expediente)
@@ -45338,7 +45336,7 @@ var render = function() {
                         staticClass: "text-xl-left font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
-                            _vm.formatDate(props.item.created_at)
+                            _vm.formatDate(props.item.pivot.created_at)
                           )
                         }
                       })

@@ -20,7 +20,7 @@
                         <div>
                             <v-icon class="purple--text text--darken-4" style="font-size:35px;">payment</v-icon>
                         </div>
-                        <h3 class="headline center  mb-0">Anticipos</h3>
+                        <h3 class="title center  mb-0">Anticipos</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p ></p>
@@ -60,7 +60,7 @@
                         <div>
                             <v-icon class="blue--text text--darken-1" style="font-size:35px;">attach_money</v-icon>
                         </div>
-                        <h3 class="headline center  mb-0">Pago Liquidación</h3>
+                        <h3 class="title center  mb-0">Pago Liquidación</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p ></p>
@@ -100,7 +100,7 @@
                         <div>
                             <v-icon class="red--text text--darken-1" style="font-size:35px;">insert_chart_outlined</v-icon>
                         </div>
-                        <h3 class="headline center  mb-0">Reportes</h3>
+                        <h3 class="title center  mb-0">Reportes</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p ></p>
@@ -140,7 +140,7 @@
                         <div>
                             <v-icon class="green--text text--darken-1" style="font-size:35px;">done</v-icon>
                         </div>
-                        <h3 class="headline center  mb-0">Ajuste por Liquidación</h3>
+                        <h3 class="title center  mb-0">Ajuste por Liquidación</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p ></p>

@@ -129,5 +129,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/jefeagencia/jefe_agencia.js?version=1.0.13')}}"></script>
+    <script src="{{asset('js/jefeagencia/jefe_agencia.js?version=1.0.14')}}"></script>
 @stop

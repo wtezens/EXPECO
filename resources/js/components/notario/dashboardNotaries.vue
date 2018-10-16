@@ -20,7 +20,7 @@
                         <div>
                             <v-icon class="blue--text text--darken-3" style="font-size:40px;">assignment</v-icon>
                         </div>
-                        <h3 class="headline mb-0">Créditos Asignados</h3>
+                        <h3 class="title mb-0">Créditos Asignados</h3>
                     </v-card-title>
                     <v-card-text class="display-1 center"
                     >
@@ -46,7 +46,7 @@
                         <div>
                             <v-icon class="green--text" style="font-size:40px;">trending_up</v-icon>
                         </div>
-                        <h3 class="headline mb-0">Liquidados</h3>
+                        <h3 class="title mb-0">Liquidados</h3>
                     </v-card-title>
                     <v-card-text class="display-1 center">
                         <p class="txt-blue-card" v-text="datos.liquidados"></p>
@@ -70,7 +70,7 @@
                         <div>
                             <v-icon class="red--text text--darken3" style="font-size:40px;">whatshot</v-icon>
                         </div>
-                        <h3 class="headline mb-0">En tr&aacute;mite</h3>
+                        <h3 class="title mb-0">En tr&aacute;mite</h3>
                     </v-card-title>
                     <v-card-text class="display-1 center">
                         <p class="txt-blue-card" v-text="datos.pendientes"></p>
@@ -94,7 +94,7 @@
             <v-flex xs12>
                 <v-card class="elevation-3">
                     <v-card-title primary-title>
-                        <div class="headline blue--text text--darken-4">Acciones</div>
+                        <div class="title blue--text text--darken-4">Acciones</div>
                         <v-divider class="primary"></v-divider>
                     </v-card-title>
                     <v-layout row wrap>
@@ -181,8 +181,8 @@
         </v-layout>
         <v-layout row wrap pt-4 v-if="expedientes.length>0">
             <v-flex xs12 md10 lg12 xl12>
-                <v-toolbar flat color="green accent-1">
-                    <v-toolbar-title class="hidden-xs-only">No liquidados mayores a 2 meses</v-toolbar-title>
+                <v-toolbar flat class="diagradient-red">
+                    <v-toolbar-title class="white--text hidden-xs-only">No liquidados mayores a 2 meses</v-toolbar-title>
                     <v-divider
                             class="mx-2 hidden-xs-only"
                             inset
@@ -210,15 +210,15 @@
                         :search="search"
                 >
                     <template slot="items" slot-scope="props">
-                        <td class="text-xl-left" v-text="props.item.expediente"></td>
-                        <td class="text-xl-left" v-text="props.item.monto_credito"></td>
-                        <td class="text-xl-left" v-text="props.item.cif"></td>
-                        <td class="text-xl-left" v-text="props.item.asociado"></td>
-                        <td class="text-xl-left" v-text="formatDate(props.item.created_at)"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.expediente"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.monto_credito"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.cif"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.asociado"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                         <td class="justify-center layout px-0">
                             <v-icon
 
-                                    class="mr-2 blue--text"
+                                    class="mr-2 green--text2"
                                     @click="showItem(props.item.expediente)"
                             >
                                 visibility
@@ -243,7 +243,7 @@
             >
                 <v-card>
                     <v-card-title
-                            class="headline black--text"
+                            class="headlineblack--text"
 
                     >
                         Buscar expediente

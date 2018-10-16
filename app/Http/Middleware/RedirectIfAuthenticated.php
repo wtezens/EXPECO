@@ -27,25 +27,25 @@ class RedirectIfAuthenticated
                     $role = auth('colaborador')->user()->role()->first();
                     switch ($role->nombre){
                         case 'technical_support':
-                            return redirect('/colaborador/soporte');
+                            return redirect('/soporte/panel');
                             break;
                         case 'credit_secretary':
-                            return redirect('/colaborador/creditos');
+                            return redirect('/creditos/panel');
                             break;
                         case 'credit_assistant':
-                            return redirect('/colaborador/asistente');
+                            return redirect('/asistente/panel');
                             break;
                         case 'assistant_accounting':
-                            return redirect('/colaborador/contabilidad');
+                            return redirect('/contabilidad/panel');
                             break;
                         case 'secretary_of_management':
-                            return redirect('/colaborador/gerencia');
+                            return redirect('/gerencia/panel');
                             break;
                         case 'agency_leader':
-                            return redirect('/colaborador/jefe');
+                            return redirect('/agencias/jefes');
                             break;
                         default:
-                            return redirect('/colaborador/gerente');
+                            return redirect('/gerentes/panel');
                             break;
                     }
                 }

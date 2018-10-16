@@ -20,7 +20,7 @@
                         <div>
                             <v-icon class="blue--text" style="font-size:40px;">business</v-icon>
                         </div>
-                        <h3 class="headline mb-0">Agencia</h3>
+                        <h3 class="title mb-0">Agencia</h3>
                     </v-card-title>
                     <div v-for="agencia in panel.agencia">
                         <v-card-text class="headline center"
@@ -48,7 +48,7 @@
                         <div>
                             <v-icon class="purple--text text--darken-1" style="font-size:40px;">assignment</v-icon>
                         </div>
-                        <h3 class="headline center  mb-0">Cr&eacute;ditos</h3>
+                        <h3 class="title center  mb-0">Cr&eacute;ditos</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p class="txt-blue-card" v-text="panel.total_creditos"></p>
@@ -72,7 +72,7 @@
                         <div>
                             <v-icon class="green--text" style="font-size:40px;">trending_up</v-icon>
                         </div>
-                        <h3 class="headline mb-0 center ">Liquidados</h3>
+                        <h3 class="title mb-0 center ">Liquidados</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p class="txt-blue-card" v-text="panel.total_liquidados"></p>
@@ -96,7 +96,7 @@
                         <div>
                             <v-icon class="red--text text--darken-2" style="font-size:40px;">whatshot</v-icon>
                         </div>
-                        <h3 class="headline mb-0 center ">En tr&aacute;mite</h3>
+                        <h3 class="title mb-0 center ">En tr&aacute;mite</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
                         <p class="txt-blue-card" v-text="panel.pendientes"></p>
@@ -118,8 +118,9 @@
 
         <v-layout row wrap pt-4 v-if="expedientes.length>0">
             <v-flex xs12 md10 lg12 xl12>
-                <v-toolbar flat color="green accent-1">
-                    <v-toolbar-title class="hidden-xs-only">No liquidados mayores a 2 meses</v-toolbar-title>
+                <v-toolbar flat class="toolbar--gradient">
+                    <!--color=white -->
+                    <v-toolbar-title class="hidden-xs-only white--text">No liquidados mayores a 2 meses</v-toolbar-title>
                     <v-divider
                             class="mx-2 hidden-xs-only"
                             inset
@@ -134,7 +135,8 @@
                             single-line
                             solo
                     ></v-text-field>
-                    <v-icon large outline color="teal darken-3" class="pl-2"
+
+                    <v-icon large outline class="pl-2 black--text"
                     @click="reporte">get_app</v-icon>
                 </v-toolbar>
                 <v-data-table
@@ -147,16 +149,16 @@
                         :search="search"
                 >
                     <template slot="items" slot-scope="props">
-                        <td class="text-xl-left" v-text="props.item.expediente"></td>
-                        <td class="text-xl-left" v-text="props.item.monto_credito"></td>
-                        <td class="text-xl-left" v-text="props.item.cif"></td>
-                        <td class="text-xl-left" v-text="props.item.asociado"></td>
-                        <td class="text-xl-left" v-text="props.item.notario"></td>
-                        <td class="text-xl-left" v-text="formatDate(props.item.created_at)"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.expediente"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.monto_credito"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.cif"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.asociado"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.notario"></td>
+                        <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.created_at)"></td>
                         <td class="justify-center layout px-0">
                             <v-icon
 
-                                    class="mr-2 blue--text"
+                                    class="mr-2 green--text2"
                                     @click="showItem(props.item.expediente)"
                             >
                                 visibility
@@ -248,7 +250,7 @@
                 }
             },
             showItem(item){
-                window.open('/creditos/creditos#/expediente/'+item);
+                window.open('/creditos/panel#/expediente/'+item);
             },
             reporte(){
                 window.open('/creditos/reportesinliquidar');

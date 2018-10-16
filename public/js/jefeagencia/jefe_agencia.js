@@ -38790,7 +38790,7 @@ var render = function() {
                           "text-xl-left blue--text2  font-weight-medium",
                         domProps: {
                           textContent: _vm._s(
-                            _vm.formatDate(props.item.created_at)
+                            _vm.formatDate(props.item.pivot.created_at)
                           )
                         }
                       })

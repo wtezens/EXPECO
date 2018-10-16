@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="{{asset('css/vuetify.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/app.css?version=1.0.07')}}" rel="stylesheet">
+    <link href="{{asset('css/app.css?version=1.0.08')}}" rel="stylesheet">
     <title>{{$PageTitle}} {{($PageTitle !="")? "|":""}}</title>
 </head>
 <body>

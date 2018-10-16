@@ -37,7 +37,7 @@
                         {{ props.pageStart }} - {{ props.pageStop }} de {{ props.itemsLength }}
                     </template>
                     <template slot="no-data">
-                        <v-alert :value="true" color="error" icon="warning">
+                        <v-alert outline dismissible :value="true" color="error" icon="warning">
                             No hay datos a mostrar :(
                         </v-alert>
                     </template>
