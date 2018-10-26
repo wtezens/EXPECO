@@ -298,3 +298,6 @@ Route::get('/enviar',function (){
 Route::get('spinner',function (){
    return view('spinner');
 });
+Route::get('500',function (){
+    return view('errors.500');
+});
