@@ -15,6 +15,7 @@
             crossorigin="anonymous">
     </script-->
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
         *{
             margin : 0;
             padding : 0;
@@ -22,7 +23,8 @@
         body {
             background: #f5f5f5;
             color:#000000;
-            font-family: "Lucida Console", Monaco, monospace;
+            /*font-family: "Lucida Console", Monaco, monospace;*/
+            font-family: 'Open Sans', sans-serif, Ebrima;
             line-height: 1.5;
             cursor: not-allowed;
         }
@@ -31,6 +33,9 @@
             color: #fff;
             cursor: pointer;
             border-bottom: solid 2px;
+        }
+        a:hover{
+            color: #f5f5f5;
         }
         @media (max-width: 639px){
             body{

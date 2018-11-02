@@ -43644,22 +43644,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var porcentaje = 0.0015;
             var MontoPrestamo = parseFloat(this.monto_prestamo);
-            if (MontoPrestamo < 10000) {
+            var monto = (MontoPrestamo - 10000) * porcentaje;
+            /*if(MontoPrestamo<10000){
                 return 0;
-            } else {
-                var monto = (MontoPrestamo - 10000) * porcentaje;
-                var entero = parseInt(monto);
-                var decimal = monto - entero;
-                if (decimal === 0.5) {
+            }else{
+                let monto=(MontoPrestamo - 10000) * porcentaje;
+                let entero = parseInt(monto);
+                let decimal = monto - entero;
+                if(decimal ===0.5){
                     return monto;
-                } else if (decimal > 0.5) {
+                }else if(decimal>0.5){
                     return entero + 2;
-                } else if (decimal == 0) {
-                    return monto;
-                } else {
-                    return entero + 1.5;
                 }
-            }
+                else if(decimal==0){
+                    return monto;
+                }
+                else{
+                    return entero+1.5;
+                }
+            }*/
+            return monto;
         },
         ConsultaElectronica: function ConsultaElectronica() {
             var monto = 20.00 + 20 * this.finca_extra;

@@ -274,7 +274,23 @@ login
  */
 .login{
   background-color: $color_azul !important;
+  /*opacity: .5;
+  display: flex;
+  position: relative;
+
+  &:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #00853f;
+    position: absolute;
+  }*/
 }
+.application--wrap{
+  //position: relative;
+}
+
+
 .navbar_default {
   background-color: $color_azul2 !important;
 }

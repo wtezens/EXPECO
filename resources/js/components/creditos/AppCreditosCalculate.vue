@@ -388,7 +388,8 @@
 
                 let porcentaje =0.0015;
                 let MontoPrestamo = parseFloat(this.monto_prestamo);
-                if(MontoPrestamo<10000){
+                let monto=(MontoPrestamo - 10000) * porcentaje;
+                /*if(MontoPrestamo<10000){
                     return 0;
                 }else{
                     let monto=(MontoPrestamo - 10000) * porcentaje;
@@ -405,7 +406,8 @@
                     else{
                         return entero+1.5;
                     }
-                }
+                }*/
+                return monto;
             },
             ConsultaElectronica:function () {
                 let monto = 20.00 + (20 * this.finca_extra);

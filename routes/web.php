@@ -301,3 +301,9 @@ Route::get('spinner',function (){
 Route::get('500',function (){
     return view('errors.500');
 });
+Route::get('404',function (){
+    return view('errors.404');
+});
+Route::get('403',function (){
+    return view('errors.403');
+});

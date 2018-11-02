@@ -7,79 +7,174 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="ECOSABAR R. L.,">
     <meta name="author" content="Super User">
-    <title>403 Forbidden </title>
+    <title>500 Internal Server Error</title>
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <!--script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script-->
     <style>
-        body {
-            background: #f5f5f5; font-family: 'Roboto', sans-serif;}
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+        :root {
+            --main-color: #eaeaea;
+            --stroke-color: black;
 
-        .mini {
-            font-size: 1em;
-            color: #000;
-            line-height: 9em;
-            text-indent: 2.5em;
-            position: absolute;
-            left: 50%;
-            top: 50%;
         }
-        .mega, .bola{
-            line-height: 1.65em;
-            font-weight: bold;
-            font-size: 11em;
-            color: black;
-            font-family: 'Roboto', sans-serif;
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -150px;
-            margin-top: -150px;}
-        .primary {
-            background-color: #1976d2 !important;
-            border-color: #1976d2 !important;
-            color:#fff;
+        /**/
+        body {
+            background: var(--main-color);
         }
-        .v-btn {
-            align-items: center;
-            border-radius: 2px;
-            cursor: pointer;
-            display: inline-flex;
-            height: 36px;
-            flex: 0 1 auto;
-            font-size: 14px;
-            font-weight: 500;
-            justify-content: center;
-            margin: 6px 8px;
-            min-width: 88px;
-            outline: 0;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
+        h1 {
+            margin: 100px auto 0 auto;
+            color: var(--stroke-color);
+            font-family: 'Open Sans', sans-serif, Ebrima;
+            font-size: 7rem; line-height: 7rem;
+            font-weight: 200;
+            text-align: center;
+        }
+        h2 {
+            margin: 20px auto 30px auto;
+            font-family: 'Open Sans', sans-serif, Ebrima;
+            font-size: 1.5rem;
+            font-weight: 200;
+            text-align: center;
+        }
+        h1, h2 {
+            -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
+            transition: opacity 0.5s linear, margin-top 0.5s linear;
+        }
+        .loading h1, .loading h2 {
+            margin-top: 0px;
+            opacity: 0;
+        }
+        .gears {
             position: relative;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            margin: 0 auto;
+            width: auto; height: 0;
         }
-        .v-btn:not(.v-btn--depressed) {
-            will-change: box-shadow;
-            box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+        .gear {
+            position: relative;
+            z-index: 0;
+            width: 120px; height: 120px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: var(--stroke-color);
         }
-        .v-btn {
-            padding: 0 16px;
+        .gear:before{
+            position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
+            z-index: 2;
+            content: "";
+            border-radius: 50%;
+            background: var(--main-color);
         }
-        .v-btn {
-            font-size: 14px;
-            font-weight: 500;
+        .gear:after {
+            position: absolute; left: 25px; top: 25px;
+            z-index: 3;
+            content: "";
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            border: 5px solid var(--stroke-color);
+            box-sizing: border-box;
+            background: var(--main-color);
+        }
+        .gear.one {
+            left: -130px;
+        }
+        .gear.two {
+            top: -75px;
+        }
+        .gear.three {
+            top: -235px;
+            left: 130px;
+        }
+        .gear .bar {
+            position: absolute; left: -15px; top: 50%;
+            z-index: 0;
+            width: 150px; height: 30px;
+            margin-top: -15px;
+            border-radius: 5px;
+            background: var(--stroke-color);
+        }
+        .gear .bar:before {
+            position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
+            z-index: 1;
+            content: "";
+            border-radius: 2px;
+            background: var(--main-color);
+        }
+        .gear .bar:nth-child(2) {
+            transform: rotate(60deg);
+            -webkit-transform: rotate(60deg);
+        }
+        .gear .bar:nth-child(3) {
+            transform: rotate(120deg);
+            -webkit-transform: rotate(120deg);
+        }
+        @-webkit-keyframes clockwise {
+            0% { -webkit-transform: rotate(0deg);}
+            100% { -webkit-transform: rotate(360deg);}
+        }
+        @-webkit-keyframes anticlockwise {
+            0% { -webkit-transform: rotate(360deg);}
+            100% { -webkit-transform: rotate(0deg);}
+        }
+        @-webkit-keyframes clockwiseError {
+            0% { -webkit-transform: rotate(0deg);}
+            20% { -webkit-transform: rotate(30deg);}
+            40% { -webkit-transform: rotate(25deg);}
+            60% { -webkit-transform: rotate(30deg);}
+            100% { -webkit-transform: rotate(0deg);}
+        }
+        @-webkit-keyframes anticlockwiseErrorStop {
+            0% { -webkit-transform: rotate(0deg);}
+            20% { -webkit-transform: rotate(-30deg);}
+            60% { -webkit-transform: rotate(-30deg);}
+            100% { -webkit-transform: rotate(0deg);}
+        }
+        @-webkit-keyframes anticlockwiseError {
+            0% { -webkit-transform: rotate(0deg);}
+            20% { -webkit-transform: rotate(-30deg);}
+            40% { -webkit-transform: rotate(-25deg);}
+            60% { -webkit-transform: rotate(-30deg);}
+            100% { -webkit-transform: rotate(0deg);}
+        }
+        .gear.one {
+            -webkit-animation: anticlockwiseErrorStop 2s linear infinite;
+        }
+        .gear.two {
+            -webkit-animation: anticlockwiseError 2s linear infinite;
+        }
+        .gear.three {
+            -webkit-animation: clockwiseError 2s linear infinite;
+        }
+        .loading .gear.one, .loading .gear.three {
+            -webkit-animation: clockwise 3s linear infinite;
+        }
+        .loading .gear.two {
+            -webkit-animation: anticlockwise 3s linear infinite;
         }
     </style>
 </head>
 <body>
-<p class="mega">500<div class="bola">
-</div></p>
-<p class="mini">INTERNAL SERVER ERROR :(</p>
-
+<h1>500</h1>
+<h2>Unexpected Error <b>:(</b></h2>
+<div class="gears">
+    <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
 </body>
 </html>
