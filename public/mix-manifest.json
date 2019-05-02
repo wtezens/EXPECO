@@ -1,10 +1,10 @@
 {
-    "/js/notario/notarios.js": "/js/notario/notarios.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/contabilidad/contabilidad.js": "/js/contabilidad/contabilidad.js",
-    "/js/jefeagencia/jefe_agencia.js": "/js/jefeagencia/jefe_agencia.js",
-    "/js/gerentes/gerentes.js": "/js/gerentes/gerentes.js",
     "/js/gerencia/secretaria_gerencia.js": "/js/gerencia/secretaria_gerencia.js",
-    "/js/login/login.js": "/js/login/login.js"
+    "/js/gerentes/gerentes.js": "/js/gerentes/gerentes.js",
+    "/js/jefeagencia/jefe_agencia.js": "/js/jefeagencia/jefe_agencia.js",
+    "/js/login/login.js": "/js/login/login.js",
+    "/js/notario/notarios.js": "/js/notario/notarios.js"
 }

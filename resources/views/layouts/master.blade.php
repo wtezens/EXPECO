@@ -4,7 +4,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="ECOSABAR R. L.,">
+    <meta name="description" content="ECOSABA R. L.,">
     <meta name="author" content="Super User">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
