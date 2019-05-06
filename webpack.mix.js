@@ -19,5 +19,6 @@ mix.js('resources/js/app.js','public/js')
     .js('resources/js/jefe_agencia.js','public/js/jefeagencia')
     .js('resources/js/contabilidad.js','public/js/contabilidad')
 ;
-mix.sass('resources/sass/app.scss','public/css');
-mix.browserSync('http://www.expeco.local');
+mix.sass('resources/sass/app.scss','public/css')
+    .sass('resources/sass/ecosaba.scss','public/css')
+mix.browserSync('http://www.expeco.local')

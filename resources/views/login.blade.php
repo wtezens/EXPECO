@@ -9,8 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="{{asset('css/vuetify.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/app.css?vernsion=1.0.1')}}" rel="stylesheet">
+    <link href="{{asset('css/app.css?vernsion=1.0.2')}}" rel="stylesheet">
     <title>Login |</title>
+    <style>html{overflow-y: hidden}</style>
 </head>
 <body>
 <div id="login">
@@ -37,7 +38,7 @@
                                 </v-btn>
                             </v-snackbar>
                         </div>
-                        <v-card class="elevation-8">
+                        <v-card class="elevation-8 box-login">
                             <!--v-card-title class="card-login center pt-3 pb-2 "-->
                             <v-card-title class="center pt-3 pb-2 blue-grey lighten-5">
                                 <div class="card-header text-center">

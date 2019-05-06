@@ -5,13 +5,12 @@ require('./vuetify');
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
-window.Vuetify = require('vuetify');
+import Vue from 'vue';
+import Vuetify from 'vuetify'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 
 
 Vue.component('my-component', require('./components/Example-component.vue'));
@@ -25,7 +24,8 @@ Vue.component('app-update-account',require('./components/creditos/AppUpdateCuent
 /**
  * CREDITOS
  */
-import routes from './routes/creditos_routes';
+
+import routes from './routes/creditos_routes'
 
 const router = new VueRouter({
     routes

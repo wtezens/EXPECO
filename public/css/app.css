@@ -1917,7 +1917,12 @@ login
  */
 
 .login {
-  background-color: #00254c !important;
+  /*background-color: $color_azul !important;*/
+  background: url("/img/home.jpg") no-repeat center center fixed !important;
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   /*opacity: .5;
   display: flex;
   position: relative;
@@ -1929,6 +1934,10 @@ login
     background-color: #00853f;
     position: absolute;
   }*/
+}
+
+.box-login {
+  border-radius: 15px !important;
 }
 
 .navbar_default {

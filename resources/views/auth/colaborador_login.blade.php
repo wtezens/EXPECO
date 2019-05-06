@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('login')
 
 @section('route')
     <v-flex xs12>
