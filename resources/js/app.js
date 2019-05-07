@@ -13,8 +13,10 @@ Vue.use(Vuetify);
 Vue.use(VueRouter);
 
 
+import AppFooter from './components/AppFooter'
+
 Vue.component('my-component', require('./components/Example-component.vue'));
-Vue.component('app-footer', require('./components/AppFooter.vue'));
+Vue.component('app-footer', AppFooter);
 Vue.component('app-modal-search',require('./components/AppModalSearch.vue'));
 Vue.component('app-asociado-create',require('./components/creditos/AppAsociadoCreate.vue'));
 Vue.component('app-agregar-desembolso',require('./components/creditos/AppAgregarDesembolso'));

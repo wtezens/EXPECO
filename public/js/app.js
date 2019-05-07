@@ -4828,6 +4828,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'dashboardCredits',
   data: function data() {
     return {
       search: '',
@@ -52428,7 +52429,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes_creditos_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/creditos_routes */ "./resources/js/routes/creditos_routes.js");
+/* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
+/* harmony import */ var _routes_creditos_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes/creditos_routes */ "./resources/js/routes/creditos_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -52442,8 +52444,9 @@ __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('my-component', __webpack_require__(/*! ./components/Example-component.vue */ "./resources/js/components/Example-component.vue"));
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', __webpack_require__(/*! ./components/AppFooter.vue */ "./resources/js/components/AppFooter.vue"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-modal-search', __webpack_require__(/*! ./components/AppModalSearch.vue */ "./resources/js/components/AppModalSearch.vue"));
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-asociado-create', __webpack_require__(/*! ./components/creditos/AppAsociadoCreate.vue */ "./resources/js/components/creditos/AppAsociadoCreate.vue"));
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-agregar-desembolso', __webpack_require__(/*! ./components/creditos/AppAgregarDesembolso */ "./resources/js/components/creditos/AppAgregarDesembolso.vue"));
@@ -52455,7 +52458,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-update-account', __web
 
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  routes: _routes_creditos_routes__WEBPACK_IMPORTED_MODULE_3__["default"]
+  routes: _routes_creditos_routes__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 var app_creditos = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   router: router,
@@ -53552,56 +53555,41 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_creditos_dashboardCredits__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/creditos/dashboardCredits */ "./resources/js/components/creditos/dashboardCredits.vue");
+/* harmony import */ var _components_creditos_AppAsociadoCreate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/creditos/AppAsociadoCreate */ "./resources/js/components/creditos/AppAsociadoCreate.vue");
+/* harmony import */ var _components_creditos_AppVerAsociado__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/creditos/AppVerAsociado */ "./resources/js/components/creditos/AppVerAsociado.vue");
+/* harmony import */ var _components_creditos_AppCreditosCreate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/creditos/AppCreditosCreate */ "./resources/js/components/creditos/AppCreditosCreate.vue");
+/* harmony import */ var _components_creditos_AppCreditosCalculate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/creditos/AppCreditosCalculate */ "./resources/js/components/creditos/AppCreditosCalculate.vue");
+/* harmony import */ var _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue");
+/* harmony import */ var _components_creditos_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/creditos/AppExpedienteShow */ "./resources/js/components/creditos/AppExpedienteShow.vue");
+/* harmony import */ var _components_creditos_AppEnvioAbogado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/creditos/AppEnvioAbogado */ "./resources/js/components/creditos/AppEnvioAbogado.vue");
+/* harmony import */ var _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue");
+
+
+
+
+
+
+
+
+
 var routes = [{
   path: '/',
   name: 'home',
-  component: __webpack_require__(/*! ../components/creditos/dashboardCredits */ "./resources/js/components/creditos/dashboardCredits.vue")
+  component: _components_creditos_dashboardCredits__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/asociado/create',
   name: 'asociado.create',
-  component: __webpack_require__(/*! ../components/creditos/AppAsociadoCreate */ "./resources/js/components/creditos/AppAsociadoCreate.vue"),
+  component: _components_creditos_AppAsociadoCreate__WEBPACK_IMPORTED_MODULE_1__["default"],
   props: {
     New: true
   }
 }, {
   path: '/asociado/show',
   name: 'asociado.show',
-  component: __webpack_require__(/*! ../components/creditos/AppVerAsociado */ "./resources/js/components/creditos/AppVerAsociado.vue"),
+  component: _components_creditos_AppVerAsociado__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: {
     New: true
-  }
-}, {
-  path: '/creditos/create',
-  name: 'creditos.create',
-  component: __webpack_require__(/*! ../components/creditos/AppCreditosCreate */ "./resources/js/components/creditos/AppCreditosCreate.vue"),
-  props: {
-    New: true
-  }
-}, {
-  path: '/creditos/calculate',
-  name: 'creditos.calculate',
-  component: __webpack_require__(/*! ../components/creditos/AppCreditosCalculate */ "./resources/js/components/creditos/AppCreditosCalculate.vue")
-}, {
-  path: '/logout',
-  name: 'creditos.logout',
-  component: __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue"),
-  props: {
-    redirect: '/creditos/panel'
-  }
-}, {
-  path: '/expediente/:idexpediente',
-  name: 'expediente.show',
-  component: __webpack_require__(/*! ../components/creditos/AppExpedienteShow */ "./resources/js/components/creditos/AppExpedienteShow.vue")
-}, {
-  path: '/envios',
-  name: 'expedientes.notario',
-  component: __webpack_require__(/*! ../components/creditos/AppEnvioAbogado */ "./resources/js/components/creditos/AppEnvioAbogado.vue")
-}, {
-  path: '/password',
-  name: 'password.change',
-  component: __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue"),
-  props: {
-    colaborador: true
   }
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);

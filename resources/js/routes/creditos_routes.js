@@ -1,54 +1,64 @@
+import DashboardCreditos from '../components/creditos/dashboardCredits';
+import AsociadoCreate from '../components/creditos/AppAsociadoCreate'
+import VerAsociado from '../components/creditos/AppVerAsociado'
+import CreditosCreate from '../components/creditos/AppCreditosCreate'
+import CreditosCalculate from '../components/creditos/AppCreditosCalculate'
+import Logout from '../components/login/AppLogout'
+import ExpedienteShow from '../components/creditos/AppExpedienteShow'
+import EnvioAbogado from '../components/creditos/AppEnvioAbogado'
+import ChangePassword from '../components/login/AppFormChangePassword'
+
 const routes = [
     {
         path:'/',
         name:'home',
-        component: require('../components/creditos/dashboardCredits')
+        component: DashboardCreditos
     },
     {
         path:'/asociado/create',
         name:'asociado.create',
-        component: require('../components/creditos/AppAsociadoCreate'),
+        component: AsociadoCreate,
         props:{New:true}
     },
     {
         path:'/asociado/show',
         name:'asociado.show',
-        component: require('../components/creditos/AppVerAsociado'),
+        component: VerAsociado,
         props:{New:true}
     },
-    {
+    /*{
         path:'/creditos/create',
         name:'creditos.create',
-        component:require('../components/creditos/AppCreditosCreate'),
+        component: CreditosCreate,
         props: { New:true }
     },
     {
         path:'/creditos/calculate',
         name:'creditos.calculate',
-        component:require('../components/creditos/AppCreditosCalculate'),
+        component: CreditosCalculate,
     },
     {
         path:'/logout',
         name:'creditos.logout',
-        component:require('../components/login/AppLogout'),
+        component: Logout,
         props:{redirect:'/creditos/panel'}
     },
     {
         path:'/expediente/:idexpediente',
         name:'expediente.show',
-        component:require('../components/creditos/AppExpedienteShow')
+        component: ExpedienteShow
     },
     {
         path:'/envios',
         name:'expedientes.notario',
-        component:require('../components/creditos/AppEnvioAbogado')
+        component: EnvioAbogado
     },
     {
         path:'/password',
         name:'password.change',
-        component:require('../components/login/AppFormChangePassword'),
+        component: ChangePassword,
         props:{colaborador:true}
-    }
+    }*/
 ];
 
 export default routes

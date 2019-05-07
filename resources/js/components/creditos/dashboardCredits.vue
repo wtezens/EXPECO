@@ -181,6 +181,7 @@
 
 <script>
     export default {
+        name: 'dashboardCredits',
         data(){
             return{
                 search: '',

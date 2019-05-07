@@ -111,7 +111,7 @@
             submit(){
                 if(this.$refs.form.validate()){
                      axios.post('/creditos/asociados',{
-                        asociado:this.params()
+                        asociado: this.params()
                     })
                      .then(response =>{
                             if(response.data.estatus==='ok'){
