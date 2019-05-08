@@ -99,9 +99,9 @@
                         </v-card>
                     </v-flex>
                 </v-card-text>
-                <v-card-text v-else="hayDatos" class="red--text text--darken-3">
-                    No hay datos disponibles.
-                </v-card-text>
+                <!--v-card-text v-else="hayDatos" class="red--text text--darken-3">
+                    <span >No hay datos disponibles</span>
+                </v-card-text-->
             </v-card>
         </v-flex>
     </v-layout>

@@ -32,6 +32,18 @@ const routes = [
         component: CreditosCreate,
         props: { New:true }
     },
+
+
+    {
+        path:'/expediente/:idexpediente',
+        name:'expediente.show',
+        component: ExpedienteShow
+    },
+    {
+        path:'/envios',
+        name:'expedientes.notario',
+        component: EnvioAbogado
+    },*/
     {
         path:'/creditos/calculate',
         name:'creditos.calculate',
@@ -44,21 +56,11 @@ const routes = [
         props:{redirect:'/creditos/panel'}
     },
     {
-        path:'/expediente/:idexpediente',
-        name:'expediente.show',
-        component: ExpedienteShow
-    },
-    {
-        path:'/envios',
-        name:'expedientes.notario',
-        component: EnvioAbogado
-    },
-    {
         path:'/password',
         name:'password.change',
         component: ChangePassword,
         props:{colaborador:true}
-    }*/
+    }
 ];
 
 export default routes

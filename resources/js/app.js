@@ -14,14 +14,15 @@ Vue.use(VueRouter);
 
 
 import AppFooter from './components/AppFooter'
+import AppChangePassword from './components/login/AppChangePassword'
 
-Vue.component('my-component', require('./components/Example-component.vue'));
+//Vue.component('my-component', require('./components/Example-component.vue'));
 Vue.component('app-footer', AppFooter);
-Vue.component('app-modal-search',require('./components/AppModalSearch.vue'));
-Vue.component('app-asociado-create',require('./components/creditos/AppAsociadoCreate.vue'));
-Vue.component('app-agregar-desembolso',require('./components/creditos/AppAgregarDesembolso'));
-Vue.component('app-change-password',require('./components/login/AppChangePassword'));
-Vue.component('app-update-account',require('./components/creditos/AppUpdateCuentaAsociado'));
+//Vue.component('app-modal-search',require('./components/AppModalSearch.vue'));
+//Vue.component('app-asociado-create',require('./components/creditos/AppAsociadoCreate.vue'));
+//Vue.component('app-agregar-desembolso',require('./components/creditos/AppAgregarDesembolso'));
+Vue.component('AppChangePassword', AppChangePassword);
+//Vue.component('app-update-account',require('./components/creditos/AppUpdateCuentaAsociado'));
 
 /**
  * CREDITOS

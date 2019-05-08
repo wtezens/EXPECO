@@ -1,7 +1,7 @@
 <template>
-    <app-change-password :colaborador="colaborador">
+    <AppChangePassword :colaborador="colaborador">
 
-    </app-change-password>
+    </AppChangePassword>
 </template>
 
 <script>
