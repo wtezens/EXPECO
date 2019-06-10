@@ -16,7 +16,7 @@ class CreateAdvancesTable extends Migration
         Schema::create('advances', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('credit_id')->nullable();
+            $table->unsignedBigInteger('credit_id')->nullable();
             $table->string('clave',255);
             $table->decimal('cantidad',7,2)->nullable();
             $table->timestamps();

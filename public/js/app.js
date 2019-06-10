@@ -2085,24 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['New'],
   data: function data() {
@@ -2110,7 +2092,6 @@ __webpack_require__.r(__webpack_exports__);
       valido: false,
       alertErrors: false,
       errors: [],
-      sin_cuenta: false,
       cif: '',
       nombre: '',
       cuenta: '',
@@ -2125,12 +2106,12 @@ __webpack_require__.r(__webpack_exports__);
         return v.length <= 60 || 'nombre muy largo';
       }, function (v) {
         return /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\xDC\xFC\s-]{5,60}$/.test(v) || 'nombre inválido';
-      }],
-      RulesAccount: [function (v) {
-        return !!v || 'ingrese la cuenta';
-      }, function (v) {
-        return /^\d{9,10}$/.test(v) || 'Min. 9 - Max. 10 dígitos';
       }]
+      /*RulesAccount: [
+          v => !!v || 'ingrese la cuenta',
+          v => /^\d{9,10}$/.test(v)||'Min. 9 - Max. 10 dígitos'
+      ]*/
+
     };
   },
   methods: {
@@ -2188,32 +2169,16 @@ __webpack_require__.r(__webpack_exports__);
       return cadena.toString();
     },
     params: function params() {
-      var asociado;
-
-      if (this.sin_cuenta) {
-        asociado = {
-          cif: this.cif,
-          nombre: this.nombre,
-          sin_cuenta: true //no tiene cuenta
-
-        };
-      } else {
-        asociado = {
-          cif: this.cif,
-          nombre: this.nombre,
-          cuenta: this.cuenta,
-          sin_cuenta: false //si tiene cuenta
-
-        };
-      }
-
+      var asociado = {
+        cif: this.cif,
+        nombre: this.nombre
+      };
       return asociado;
     },
     clear: function clear() {
       this.$refs.form.reset();
       this.cif = '';
       this.nombre = '';
-      this.cuenta = '';
     }
   }
 });
@@ -4463,6 +4428,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppVerAsociado",
   data: function data() {
@@ -4483,6 +4449,9 @@ __webpack_require__.r(__webpack_exports__);
       headers: [{
         text: 'Expediente.',
         value: 'id'
+      }, {
+        text: 'Cuenta',
+        value: 'cuenta'
       }, {
         text: 'Monto base',
         value: 'monto_credito'
@@ -6708,42 +6677,6 @@ var render = function() {
                             _vm.nombre = $$v
                           },
                           expression: "nombre"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.sin_cuenta
-                        ? _c("div")
-                        : _c("v-text-field", {
-                            ref: "cuenta",
-                            attrs: {
-                              "validate-on-blur": "",
-                              label: "Numero de cuenta",
-                              "prepend-icon": "filter_1",
-                              mask: "##########",
-                              rules: _vm.RulesAccount,
-                              counter: "10",
-                              required: ""
-                            },
-                            model: {
-                              value: _vm.cuenta,
-                              callback: function($$v) {
-                                _vm.cuenta = $$v
-                              },
-                              expression: "cuenta"
-                            }
-                          }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: {
-                          label: "No se dispone de la cuenta en este momento.",
-                          color: "red darken-4"
-                        },
-                        model: {
-                          value: _vm.sin_cuenta,
-                          callback: function($$v) {
-                            _vm.sin_cuenta = $$v
-                          },
-                          expression: "sin_cuenta"
                         }
                       }),
                       _vm._v(" "),
@@ -10338,31 +10271,6 @@ var render = function() {
                                                 }
                                               })
                                             ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-flex",
-                                            {
-                                              attrs: {
-                                                xs12: "",
-                                                sm5: "",
-                                                md3: "",
-                                                "pa-2": ""
-                                              }
-                                            },
-                                            [
-                                              _c("p", [
-                                                _vm._v("Cuenta No. "),
-                                                _c("span", {
-                                                  staticClass: "blue--text",
-                                                  domProps: {
-                                                    textContent: _vm._s(
-                                                      _vm.DatosCliente.cuenta
-                                                    )
-                                                  }
-                                                })
-                                              ])
-                                            ]
                                           )
                                         ],
                                         1
@@ -10409,6 +10317,16 @@ var render = function() {
                                                 key: "items",
                                                 fn: function(props) {
                                                   return [
+                                                    _c("td", {
+                                                      staticClass:
+                                                        "text-xl-left font-weight-medium",
+                                                      domProps: {
+                                                        textContent: _vm._s(
+                                                          props.item.id
+                                                        )
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
                                                     _c("td", {
                                                       staticClass:
                                                         "text-xl-left font-weight-medium",
@@ -10521,7 +10439,7 @@ var render = function() {
                                             ],
                                             null,
                                             false,
-                                            3503323251
+                                            720356385
                                           )
                                         },
                                         [
@@ -53256,13 +53174,15 @@ var routes = [{
   props: {
     New: true
   }
+}, {
+  path: '/creditos/create',
+  name: 'creditos.create',
+  component: _components_creditos_AppCreditosCreate__WEBPACK_IMPORTED_MODULE_3__["default"],
+  props: {
+    New: true
+  }
 },
-/*{
-    path:'/creditos/create',
-    name:'creditos.create',
-    component: CreditosCreate,
-    props: { New:true }
-},
+/*
     {
     path:'/expediente/:idexpediente',
     name:'expediente.show',

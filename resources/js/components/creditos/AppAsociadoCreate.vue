@@ -45,24 +45,6 @@
                                     required
                             >
                             </v-text-field>
-                            <div v-if="sin_cuenta"></div>
-                            <v-text-field v-else
-                                    validate-on-blur
-                                    ref="cuenta"
-                                    label="Numero de cuenta"
-                                    prepend-icon="filter_1"
-                                    v-model="cuenta"
-                                    mask="##########"
-                                    :rules="RulesAccount"
-                                    counter="10"
-                                    required
-                            >
-                            </v-text-field>
-                            <v-checkbox
-                                    label="No se dispone de la cuenta en este momento."
-                                    v-model="sin_cuenta"
-                                    color="red darken-4"
-                            ></v-checkbox>
                             <v-btn block outline class="green--text2"
                             :disabled="!valido"
                             @click="submit"
@@ -87,7 +69,6 @@
                 valido:false,
                 alertErrors:false,
                 errors:[],
-                sin_cuenta: false,
 
                 cif:'',
                 nombre:'',
@@ -101,10 +82,10 @@
                     v => v.length <=60 || 'nombre muy largo',
                     v => /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\xDC\xFC\s-]{5,60}$/.test(v) || 'nombre inválido'
                 ],
-                RulesAccount: [
+                /*RulesAccount: [
                     v => !!v || 'ingrese la cuenta',
                     v => /^\d{9,10}$/.test(v)||'Min. 9 - Max. 10 dígitos'
-                ]
+                ]*/
             }
         },
         methods: {
@@ -161,29 +142,16 @@
                 return cadena.toString();
             },
             params(){
-                let asociado;
-                if(this.sin_cuenta){
-                    asociado = {
-                        cif: this.cif,
-                        nombre: this.nombre,
-                        sin_cuenta: true //no tiene cuenta
-                    }
-                }else{
-                    asociado = {
-                        cif: this.cif,
-                        nombre: this.nombre,
-                        cuenta: this.cuenta,
-                        sin_cuenta:false //si tiene cuenta
-                    }
+                let asociado = {
+                    cif: this.cif,
+                    nombre: this.nombre,
                 }
-
                 return asociado;
             },
             clear () {
                 this.$refs.form.reset();
                 this.cif='';
                 this.nombre='';
-                this.cuenta='';
             }
         }
     }

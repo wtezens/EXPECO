@@ -29,9 +29,9 @@ class NewAsociadoRequest extends FormRequest
             'asociado.cif'   => 'required|numeric|unique:partners,id',
             'asociado.cif'   => 'min:3|max:6',
             'asociado.nombre'=> 'required|string|max:65',
-            'asociado.cuenta'=> 'numeric|unique:partners,cuenta',
+            /*'asociado.cuenta'=> 'numeric|unique:partners,cuenta',
             'asociado.cuenta'=> 'min:9|max:10',
-            'asociado.sin_cuenta'=>'boolean'
+            'asociado.sin_cuenta'=>'boolean'*/
         ];
     }
 }

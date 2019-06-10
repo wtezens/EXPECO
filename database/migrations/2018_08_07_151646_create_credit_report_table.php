@@ -17,7 +17,7 @@ class CreateCreditReportTable extends Migration
         Schema::create('credit_report', function (Blueprint $table) {
             $table->string('correlativo',30);
             $table->unsignedInteger('report_id');
-            $table->unsignedInteger('credit_id');
+            $table->unsignedBigInteger('credit_id');
             $table->timestamps();
             $table->foreign('report_id')
                 ->references('id')

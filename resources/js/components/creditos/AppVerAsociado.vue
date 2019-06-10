@@ -52,9 +52,9 @@
                                         <v-flex xs10 sm5 md3 pa-2>
                                             <p v-text="DatosCliente.nombre"></p>
                                         </v-flex>
-                                        <v-flex xs12 sm5 md3 pa-2>
+                                        <!--v-flex xs12 sm5 md3 pa-2>
                                             <p>Cuenta No. <span class="blue--text" v-text="DatosCliente.cuenta"></span></p>
-                                        </v-flex>
+                                        </v-flex-->
                                     </v-layout>
                                 </v-flex>
                             </v-layout>
@@ -70,6 +70,7 @@
                                             :rows-per-page-text="RegPorPagina"
                                     >
                                         <template slot="items" slot-scope="props">
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.monto_credito"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.monto_ampliacion"></td>
@@ -126,6 +127,7 @@
                 RegPorPagina:'Registros por página',
                 headers: [
                     {text:'Expediente.', value:'id'},
+                    {text:'Cuenta', value:'cuenta'},
                     {text: 'Monto base', value:'monto_credito'},
                     {text: 'Monto Ampliacion', value:'monto_ampliacion'},
                     {text: 'Agencia', value:'agency_id'},

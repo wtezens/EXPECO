@@ -11,7 +11,6 @@ class Partner extends Model
     protected $fillable = [
         'id',
         'nombre',
-        'cuenta',
         'user_id'
     ];
 

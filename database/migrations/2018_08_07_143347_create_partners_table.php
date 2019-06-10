@@ -16,9 +16,7 @@ class CreatePartnersTable extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->unsignedInteger('id')->comment('CIF');
             $table->string('nombre',200);
-            $table->BigInteger('cuenta');
             $table->primary('id');
-            $table->unique('cuenta');
             $table->unsignedInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')
@@ -30,7 +28,7 @@ class CreatePartnersTable extends Migration
             $table->charset='utf8';
             $table->collation='utf8_general_ci';
         });
-        DB::statement('ALTER TABLE partners MODIFY COLUMN cuenta BIGINT(11) ZEROFILL');
+
     }
 
     /**

@@ -14,6 +14,7 @@ class Credit extends Model
         'agency_id',
         'notary_id',
         'liquidation_id',
+        'cuenta',
         'monto_credito',
         'monto_ampliacion',
         'monto_cobrado',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Creditos;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateAsociadoCuentaRequest;
 use App\Http\Requests\NewAsociadoRequest;
+use \Illuminate\Database\QueryException;
 use App\Models\Credit;
 use App\Models\Partner;
 use Auth;
@@ -21,37 +22,23 @@ class AsociadosController extends Controller
      * Store a newly created resource in storage.
      *
      * @param NewAsociadoRequest $request
-     * @return array|\Exception|\Illuminate\Database\QueryException
+     * @return array|Exception|QueryException
      */
     public function store(NewAsociadoRequest $request)
     {
         try{
-            /*--- @sin_cuenta : true|false    true == 'no tiene cuenta'    false == 'tiene cuenta' ---*/
 
-            if($request->asociado['sin_cuenta']==false){
-                Partner::create([
-                    'id'=>$request->asociado['cif'],
-                    'nombre'=>strtoupper($request->asociado['nombre']),
-                    'cuenta'=>$request->asociado['cuenta'],
-                    'user_id'=>session('id')
-                ]);
-            }else{
-                /**
-                 * no tiene cuenta,
-                 * campo cuenta = null
-                 */
-                Partner::create([
-                    'id'=>$request->asociado['cif'],
-                    'nombre'=>strtoupper($request->asociado['nombre']),
-                    'user_id'=>session('id')
-                ]);
-            }
+            Partner::create([
+                'id'=>$request->asociado['cif'],
+                'nombre'=>strtoupper($request->asociado['nombre']),
+                'user_id'=>session('id')
+            ]);
 
             if(request()->wantsJson()){
                 return array('estatus'=>'ok');
             }
         }
-        catch (\Illuminate\Database\QueryException $e){
+        catch (QueryException $e){
             $error_code = $e->errorInfo[1];
             if($error_code == 1062){
                 if(request()->wantsJson()){
@@ -95,7 +82,7 @@ class AsociadosController extends Controller
                 return array('estatus'=>'save_fail','descripcion'=>'Error al guardar los datos');
             }
         }
-        catch (\Illuminate\Database\QueryException $e){
+        catch (QueryException $e){
             $error_code = $e->errorInfo[1];
             if($error_code == 1062){
                 if(request()->wantsJson()){
@@ -143,7 +130,7 @@ class AsociadosController extends Controller
      */
     public function listOfCredits($cif){
         $listado = Partner::with('listOfCredits')->where('id', $cif)
-            ->select('id','nombre','cuenta')->first();
+            ->select('id','nombre')->first();
 
         return $listado;
     }

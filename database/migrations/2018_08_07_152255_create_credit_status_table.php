@@ -15,7 +15,7 @@ class CreateCreditStatusTable extends Migration
     public function up()
     {
         Schema::create('credit_status', function (Blueprint $table) {
-            $table->unsignedInteger('credit_id');
+            $table->unsignedBigInteger('credit_id');
             $table->unsignedInteger('status_id');
             $table->timestamps();
             $table->unique(['credit_id','status_id']);
