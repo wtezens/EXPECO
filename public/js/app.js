@@ -3849,6 +3849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4187,7 +4188,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppUpdateCuentaAsociado",
-  props: ['asociado'],
+  props: ['expediente'],
   data: function data() {
     return {
       valid: true,
@@ -4211,7 +4212,7 @@ __webpack_require__.r(__webpack_exports__);
           buttonsStyling: false
         });
         swalWithBootstrapButtons({
-          title: '¿Actualizar asociado?',
+          title: '¿Actualizar cuenta?',
           type: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Si',
@@ -4219,7 +4220,7 @@ __webpack_require__.r(__webpack_exports__);
           reverseButtons: true
         }).then(function (result) {
           if (result.value) {
-            axios.put('/colaborador/asociados/' + _this.asociado, {
+            axios.post('/creditos/expediente/' + _this.expediente + '/cuenta', {
               cuenta: _this.cuenta
             }).then(function (response) {
               if (response.data.estatus === 'duplicate key') {
@@ -9620,14 +9621,28 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm.DatosExpediente.partner.cuenta
+                          _vm.DatosExpediente.credito_id
+                            ? _c("div", [
+                                _vm._v("No. Prestamo. "),
+                                _c("span", {
+                                  staticClass: "blue--text",
+                                  domProps: {
+                                    textContent: _vm._s(
+                                      _vm.DatosExpediente.credito_id
+                                    )
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.DatosExpediente.cuenta
                             ? _c("div", [
                                 _vm._v("Cuenta No. "),
                                 _c("span", {
                                   staticClass: "blue--text",
                                   domProps: {
                                     textContent: _vm._s(
-                                      _vm.DatosExpediente.partner.cuenta
+                                      _vm.DatosExpediente.cuenta
                                     )
                                   }
                                 })
@@ -9963,7 +9978,7 @@ var render = function() {
                 "v-card-text",
                 [
                   _c("app-update-cuenta-asociado", {
-                    attrs: { asociado: _vm.DatosExpediente.partner.id },
+                    attrs: { expediente: _vm.DatosExpediente.id },
                     on: {
                       updateCuenta: function($event) {
                         _vm.modal_cuenta = $event
@@ -10332,7 +10347,7 @@ var render = function() {
                                                         "text-xl-left font-weight-medium",
                                                       domProps: {
                                                         textContent: _vm._s(
-                                                          props.item.id
+                                                          props.item.cuenta
                                                         )
                                                       }
                                                     }),
@@ -10439,7 +10454,7 @@ var render = function() {
                                             ],
                                             null,
                                             false,
-                                            720356385
+                                            3819725124
                                           )
                                         },
                                         [
@@ -53181,19 +53196,15 @@ var routes = [{
   props: {
     New: true
   }
-},
-/*
-    {
-    path:'/expediente/:idexpediente',
-    name:'expediente.show',
-    component: ExpedienteShow
-},
-{
-    path:'/envios',
-    name:'expedientes.notario',
-    component: EnvioAbogado
-},*/
-{
+}, {
+  path: '/expediente/:idexpediente',
+  name: 'expediente.show',
+  component: _components_creditos_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_6__["default"]
+}, {
+  path: '/envios',
+  name: 'expedientes.notario',
+  component: _components_creditos_AppEnvioAbogado__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, {
   path: '/creditos/calculate',
   name: 'creditos.calculate',
   component: _components_creditos_AppCreditosCalculate__WEBPACK_IMPORTED_MODULE_4__["default"]

@@ -1,38 +1,46 @@
+import DashboardNotarios from '../components/notario/dashboardNotaries'
+import Logout from '../components/login/AppLogoutNotario'
+import ExpedienteShow from '../components/notario/AppExpedienteShow'
+import ExpedienteRevision from '../components/notario/AppEnvioRevision'
+import ExpedienteLiquidacion from '../components/notario/AppGenerarLiquidacion'
+import Liquidaciones from '../components/notario/AppVerLiquidaciones'
+import ChangePassword from '../components/login/AppFormChangePassword'
+
 const routes = [
     {
         path:'/',
         name:'home',
-        component: require('../components/notario/dashboardNotaries')
+        component: DashboardNotarios
     },
     {
         path:'/logout',
         name:'notarios.logout',
-        component:require('../components/login/AppLogoutNotario'),
+        component: Logout,
     },
     {
         path:'/expediente/:idexpediente',
         name:'expediente.show',
-        component:require('../components/notario/AppExpedienteShow')
+        component: ExpedienteShow
     },
     {
         path:'/revision',
         name:'expedientes.revision',
-        component:require('../components/notario/AppEnvioRevision')
+        component: ExpedienteRevision
     },
     {
         path:'/liquidacion',
         name:'expedientes.liquidacion',
-        component:require('../components/notario/AppGenerarLiquidacion')
+        component: ExpedienteLiquidacion
     },
     {
         path:'/liquidaciones',
         name:'liquidaciones.show',
-        component:require('../components/notario/AppVerLiquidaciones')
+        component: Liquidaciones
     },
     {
         path:'/password',
         name:'password.change',
-        component:require('../components/login/AppFormChangePassword'),
+        component: ChangePassword,
         props:{colaborador:false}
     }
 ];

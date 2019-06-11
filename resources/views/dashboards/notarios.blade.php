@@ -200,5 +200,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/notario/notarios.js?version=1.16')}}"></script>
+    <script src="{{asset('js/notario/notarios.js?version=1.17')}}"></script>
 @stop

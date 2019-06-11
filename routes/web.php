@@ -57,6 +57,9 @@ Route::prefix('creditos')->group(function (){
     Route::get('/expediente/{expediente}','Creditos\CreditosController@show')->name('creditos.show')
         ->where('idexpediente','^\d+$');
 
+    Route::post('/expediente/{expediente}/cuenta','Creditos\CreditosController@updateCuenta')->name('creditos.cuenta.store')
+        ->where('idexpediente','^\d+$');
+
     //--------------------------- AGREGAR ESTATUS 4------------------------------//
     Route::post('/estatus4/expediente/{idexpediente}','Creditos\CreditosController@estatusCuatro')
         ->where('idexpediente','^\d+$');

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Creditos;
 
+use App\Http\Requests\UpdateCreditoCuentaRequest;
+use App\Models\Partner;
 use Auth;
 use App\Models\Credit;
 use App\Models\Agency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewCreditoRequest;
 use App\Http\Requests\AddDesembolsoRequest;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
 class CreditosController extends Controller
@@ -207,5 +210,48 @@ class CreditosController extends Controller
             ->get();
 
         return $no_liquidados;
+    }
+
+
+    /**
+     * Actualizar Cuenta Credito
+     * @param UpdateCreditoCuentaRequest $request
+     * @param $cif
+     * @return array|\Exception|\Illuminate\Database\QueryException
+     */
+    public function updateCuenta(UpdateCreditoCuentaRequest $request, $id){
+
+        try{
+            $expediente = Credit::where('id',$id)->whereNull('cuenta')->firstOrFail();
+
+            $expediente->cuenta = $request->cuenta;
+
+            if($expediente->save()){
+                return array('estatus'=>'ok','descripcion'=>'Cuenta agregada correctamente.');
+            }
+            else{
+                return array('estatus'=>'save_fail','descripcion'=>'Error al guardar los datos');
+            }
+        }
+        catch (QueryException $e){
+            $error_code = $e->errorInfo[1];
+            if($error_code == 1062){
+                if(request()->wantsJson()){
+                    return array('estatus'=>'duplicate key','descripcion'=>'El número de cuenta ya existe.');
+                }
+            }else if($error_code==1366){
+                if(request()->wantsJson()){
+                    return array('estatus'=>'incorrect type value', 'descripcion'=>'Los tipos de datos enviados no coinciden.');
+                }
+            }
+            else{
+                if(request()->wantsJson()){
+                    return $e;
+                }
+            }
+        }
+        catch (NotFoundHttpException $ex) {
+            return array('estatus'=>'fail','descripcion'=>'Asegurese de que el registro no contenga ya los datos a guardar.');
+        }
     }
 }

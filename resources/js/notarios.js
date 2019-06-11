@@ -5,22 +5,29 @@ require('./vuetify');
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
 
-window.Vuetify = require('vuetify');
+import Vue from 'vue';
+import Vuetify from 'vuetify'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify);
+Vue.use(VueRouter);
+
+import AppFooter from './components/AppFooter'
+import AppChangePassword from './components/login/AppChangePassword'
+import AppEstatusTres from './components/notario/AppEstatusTres'
+import AppModalSearch from './components/AppModalSearch'
+import AppInscripcionExpediente from './components/notario/AppIncripcionExpediente'
+import AppAgregarRechazo from './components/notario/AppAgregarRechazo'
 
 
 Vue.component('my-component', require('./components/Example-component.vue'));
-Vue.component('app-footer', require('./components/AppFooter.vue'));
-Vue.component('app-modal-search',require('./components/AppModalSearch.vue'));
-Vue.component('app-estatus-tres',require('./components/notario/AppEstatusTres'));
-Vue.component('app-incripcion-expediente',require('./components/notario/AppIncripcionExpediente'));
-Vue.component('app-change-password',require('./components/login/AppChangePassword'));
-Vue.component('app-agregar-rechazo',require('./components/notario/AppAgregarRechazo'));
+Vue.component('app-footer', AppFooter);
+Vue.component('app-modal-search', AppModalSearch);
+Vue.component('app-estatus-tres', AppEstatusTres);
+Vue.component('app-incripcion-expediente', AppInscripcionExpediente);
+Vue.component('app-change-password', AppChangePassword);
+Vue.component('app-agregar-rechazo', AppAgregarRechazo);
 
 /**
  * CREDITOS

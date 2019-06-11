@@ -1,24 +1,29 @@
+import DashboardGerencia from '../components/gerencia/dashboardGerencia'
+import Logout from '../components/login/AppLogout'
+import ExpedienteShow from '../components/gerencia/AppExpedienteShow'
+import ChangePassword from '../components/login/AppChangePassword'
+
 const routes = [
     {
         path:'/',
         name:'home',
-        component: require('../components/gerencia/dashboardGerencia')
+        component: DashboardGerencia
     },
     {
         path:'/logout',
         name:'creditos.logout',
-        component:require('../components/login/AppLogout'),
+        component: Logout,
         props:{redirect:'/gerencia/panel'}
     },
     {
         path:'/expediente/:idexpediente',
         name:'expediente.show',
-        component:require('../components/gerencia/AppExpedienteShow')
+        component: ExpedienteShow
     },
     {
         path:'/password',
         name:'password.change',
-        component:require('../components/login/AppFormChangePassword'),
+        component: ChangePassword,
         props:{colaborador:true}
     }
 ];

@@ -71,7 +71,7 @@
                                     >
                                         <template slot="items" slot-scope="props">
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
-                                            <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
+                                            <td class="text-xl-left font-weight-medium" v-text="props.item.cuenta"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.monto_credito"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.monto_ampliacion"></td>
                                             <td class="text-xl-left font-weight-medium" v-text="props.item.agency_id"></td>

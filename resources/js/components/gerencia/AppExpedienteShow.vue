@@ -59,7 +59,7 @@
                                 <h3 class="headline mb-0">Asociado</h3>
                                 <div class="blue--text" v-text="DatosExpediente.partner_id"></div>
                                 <div v-text="DatosExpediente.partner.nombre"></div>
-                                <div>Cuenta No. <span class="blue--text" v-text="DatosExpediente.partner.cuenta"></span></div>
+                                <div>Cuenta No. <span class="blue--text" v-text="DatosExpediente.cuenta"></span></div>
                             </div>
                         </v-card-title>
                     </v-flex>

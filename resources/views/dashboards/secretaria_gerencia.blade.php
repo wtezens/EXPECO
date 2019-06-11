@@ -129,5 +129,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.19')}}"></script>
+    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.21')}}"></script>
 @stop

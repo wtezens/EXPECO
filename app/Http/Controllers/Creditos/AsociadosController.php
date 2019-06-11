@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Creditos;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateAsociadoCuentaRequest;
+use App\Http\Requests\UpdateCreditoCuentaRequest;
 use App\Http\Requests\NewAsociadoRequest;
 use \Illuminate\Database\QueryException;
 use App\Models\Credit;
@@ -59,48 +59,6 @@ class AsociadosController extends Controller
             if(request()->wantsJson()){
                 return $e;
             }
-        }
-    }
-
-    /**
-     * Actualizar Cuenta Asociado
-     * @param UpdateAsociadoCuentaRequest $request
-     * @param $cif
-     * @return array|\Exception|\Illuminate\Database\QueryException
-     */
-    public function update(UpdateAsociadoCuentaRequest $request, $cif){
-
-        try{
-            $asociado = Partner::where('id',$cif)->whereNull('cuenta')->firstOrFail();
-
-            $asociado->cuenta = $request->cuenta;
-
-            if($asociado->save()){
-                return array('estatus'=>'ok','descripcion'=>'Cuenta agregada correctamente.');
-            }
-            else{
-                return array('estatus'=>'save_fail','descripcion'=>'Error al guardar los datos');
-            }
-        }
-        catch (QueryException $e){
-            $error_code = $e->errorInfo[1];
-            if($error_code == 1062){
-                if(request()->wantsJson()){
-                    return array('estatus'=>'duplicate key','descripcion'=>'El número de cuenta ya existe.');
-                }
-            }else if($error_code==1366){
-                if(request()->wantsJson()){
-                    return array('estatus'=>'incorrect type value', 'descripcion'=>'Los tipos de datos enviados no coinciden.');
-                }
-            }
-            else{
-                if(request()->wantsJson()){
-                    return $e;
-                }
-            }
-        }
-        catch (NotFoundHttpException $ex) {
-            return array('estatus'=>'fail','descripcion'=>'Asegurese de que el registro no contenga ya los datos a guardar.');
         }
     }
 

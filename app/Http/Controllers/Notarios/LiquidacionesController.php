@@ -113,7 +113,7 @@ class LiquidacionesController extends Controller
 
         $datos_credito = Credit::select('credits.id as expediente','credits.credito_id','partners.id as cif',
                 'credits.numero_escritura as escritura', 'credits.fecha_escritura','partners.nombre',
-                'partners.cuenta','credits.monto_credito','credits.timbre_notarial','credits.gasto_papeleria',
+                'credits.cuenta','credits.monto_credito','credits.timbre_notarial','credits.gasto_papeleria',
                 'credits.consulta_electronica','credits.honorario_notario','credits.honorario_registro',
                 'advances.cantidad')
             ->Join('partners','credits.partner_id','=','partners.id')

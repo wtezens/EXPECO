@@ -27,7 +27,7 @@
     export default {
         name: "AppUpdateCuentaAsociado",
         props:[
-            'asociado',
+            'expediente',
         ],
         data:()=>{
             return{
@@ -51,7 +51,7 @@
                     })
 
                     swalWithBootstrapButtons({
-                        title: '¿Actualizar asociado?',
+                        title: '¿Actualizar cuenta?',
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonText: 'Si',
@@ -59,7 +59,7 @@
                         reverseButtons: true
                     }).then((result) => {
                         if (result.value) {
-                            axios.put('/colaborador/asociados/'+this.asociado,{
+                            axios.post('/creditos/expediente/'+this.expediente+'/cuenta',{
                                 cuenta: this.cuenta
                             })
                                 .then (response=>{

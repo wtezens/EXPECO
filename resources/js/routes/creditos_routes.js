@@ -32,9 +32,6 @@ const routes = [
         component: CreditosCreate,
         props: { New:true }
     },
-    /*
-
-
     {
         path:'/expediente/:idexpediente',
         name:'expediente.show',
@@ -44,7 +41,7 @@ const routes = [
         path:'/envios',
         name:'expedientes.notario',
         component: EnvioAbogado
-    },*/
+    },
     {
         path:'/creditos/calculate',
         name:'creditos.calculate',

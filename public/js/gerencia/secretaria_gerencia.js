@@ -2557,28 +2557,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AppFormChangePassword",
-  props: ['colaborador']
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/login/AppLogout.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/login/AppLogout.vue?vue&type=script&lang=js& ***!
@@ -4089,9 +4067,7 @@ var render = function() {
                             _c("span", {
                               staticClass: "blue--text",
                               domProps: {
-                                textContent: _vm._s(
-                                  _vm.DatosExpediente.partner.cuenta
-                                )
+                                textContent: _vm._s(_vm.DatosExpediente.cuenta)
                               }
                             })
                           ])
@@ -4663,30 +4639,6 @@ var render = function() {
     ],
     1
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("AppChangePassword", { attrs: { colaborador: _vm.colaborador } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -45745,75 +45697,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/login/AppFormChangePassword.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/login/AppFormChangePassword.vue ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppFormChangePassword.vue?vue&type=template&id=3d5853e2& */ "./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2&");
-/* harmony import */ var _AppFormChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppFormChangePassword.vue?vue&type=script&lang=js& */ "./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _AppFormChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/login/AppFormChangePassword.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppFormChangePassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/login/AppFormChangePassword.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormChangePassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2& ***!
-  \************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppFormChangePassword.vue?vue&type=template&id=3d5853e2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/login/AppFormChangePassword.vue?vue&type=template&id=3d5853e2&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormChangePassword_vue_vue_type_template_id_3d5853e2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/login/AppLogout.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/login/AppLogout.vue ***!
@@ -45892,25 +45775,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_gerencia_dashboardGerencia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/gerencia/dashboardGerencia */ "./resources/js/components/gerencia/dashboardGerencia.vue");
+/* harmony import */ var _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue");
+/* harmony import */ var _components_gerencia_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/gerencia/AppExpedienteShow */ "./resources/js/components/gerencia/AppExpedienteShow.vue");
+/* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
+
+
+
+
 var routes = [{
   path: '/',
   name: 'home',
-  component: __webpack_require__(/*! ../components/gerencia/dashboardGerencia */ "./resources/js/components/gerencia/dashboardGerencia.vue")
+  component: _components_gerencia_dashboardGerencia__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/logout',
   name: 'creditos.logout',
-  component: __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue"),
+  component: _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_1__["default"],
   props: {
     redirect: '/gerencia/panel'
   }
 }, {
   path: '/expediente/:idexpediente',
   name: 'expediente.show',
-  component: __webpack_require__(/*! ../components/gerencia/AppExpedienteShow */ "./resources/js/components/gerencia/AppExpedienteShow.vue")
+  component: _components_gerencia_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/password',
   name: 'password.change',
-  component: __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue"),
+  component: _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: {
     colaborador: true
   }
@@ -45928,8 +45819,14 @@ var routes = [{
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes_secretaria_gerencia_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/secretaria_gerencia_routes */ "./resources/js/routes/secretaria_gerencia_routes.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
+/* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
+/* harmony import */ var _routes_secretaria_gerencia_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/secretaria_gerencia_routes */ "./resources/js/routes/secretaria_gerencia_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -45938,22 +45835,24 @@ __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
  */
 
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Vuetify = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-Vue.use(Vuetify);
-Vue.component('app-footer', __webpack_require__(/*! ./components/AppFooter.vue */ "./resources/js/components/AppFooter.vue"));
-Vue.component('app-change-password', __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue"));
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /**
  * CREDITOS
  */
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: _routes_secretaria_gerencia_routes__WEBPACK_IMPORTED_MODULE_1__["default"]
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  routes: _routes_secretaria_gerencia_routes__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
-var app_secretaria_gerencia = new Vue({
+var app_secretaria_gerencia = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#secretaria_gerencia',
   router: router,
   data: function data() {

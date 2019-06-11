@@ -5,16 +5,18 @@ require('./vuetify');
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
-window.Vuetify = require('vuetify');
+import Vue from 'vue';
+import Vuetify from 'vuetify'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 
-Vue.component('app-footer', require('./components/AppFooter.vue'));
-Vue.component('app-change-password',require('./components/login/AppChangePassword'));
+import AppFooter from './components/AppFooter'
+import AppChangePassword from './components/login/AppChangePassword'
+
+Vue.component('app-footer', AppFooter);
+Vue.component('app-change-password', AppChangePassword);
 
 /**
  * CREDITOS

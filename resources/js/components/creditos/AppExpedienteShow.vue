@@ -58,7 +58,8 @@
                                 <h3 class="headline mb-0">Asociado</h3>
                                 <div class="blue--text" v-text="DatosExpediente.partner_id"></div>
                                 <div v-text="DatosExpediente.partner.nombre"></div>
-                                <div v-if="DatosExpediente.partner.cuenta">Cuenta No. <span class="blue--text" v-text="DatosExpediente.partner.cuenta"></span></div>
+                                <div v-if="DatosExpediente.credito_id">No. Prestamo. <span class="blue--text" v-text="DatosExpediente.credito_id"></span></div>
+                                <div v-if="DatosExpediente.cuenta">Cuenta No. <span class="blue--text" v-text="DatosExpediente.cuenta"></span></div>
                                 <div v-else>
                                     <v-btn flat small color="error" class="pl-0 ml-0"
                                            @click="modal_cuenta=!modal_cuenta"
@@ -151,7 +152,7 @@
                 </v-card-title>
                 <v-card-text>
                     <app-update-cuenta-asociado @updateCuenta="modal_cuenta=$event"
-                                                :asociado="DatosExpediente.partner.id"
+                                                :expediente="DatosExpediente.id"
                                                 @updated="recibirNuevosDatos"
                                                 @errors="errors=$event"
                     >
