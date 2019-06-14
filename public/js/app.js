@@ -2451,12 +2451,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   props: ['New'],
   data: function data() {
     return {
-      dialog: false,
+      dialog: true,
       valido: true,
       alertErrors: false,
       errors: [],
@@ -7264,7 +7305,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("v-toolbar-title", [
-                        _vm._v("Datos para Escrituración")
+                        _vm._v("Datos para la resolución")
                       ]),
                       _vm._v(" "),
                       _c("v-spacer")
@@ -7273,400 +7314,207 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "v-content",
+                    "v-container",
+                    { attrs: { fluid: "" } },
                     [
                       _c(
-                        "v-container",
-                        { attrs: { fluid: "" } },
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
                         [
                           _c(
-                            "v-layout",
-                            { attrs: { row: "", wrap: "" } },
+                            "v-flex",
+                            { attrs: { xs12: "", md4: "" } },
                             [
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Monto base")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.monto_prestamo)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
+                              _c("v-subheader", [
+                                _vm._v("Informacion del Financiamiento")
+                              ]),
                               _vm._v(" "),
                               _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
+                                "v-layout",
+                                { attrs: { row: "", wrap: "" } },
                                 [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Fincas Adicionales")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.MontoFincaExtra)
-                                      }
-                                    })
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass: "subheading text-xs-left"
+                                      },
+                                      [_vm._v("Ampliación")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "blue--text text-xs-center mb-0"
+                                      },
+                                      [
+                                        _vm._v("Q. "),
+                                        _c("span", {
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              _vm.monto_prestamo
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass: "subheading text-xs-left"
+                                      },
+                                      [_vm._v("Saldo Actual")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "blue--text text-xs-center mb-0"
+                                      },
+                                      [
+                                        _vm._v("Q. "),
+                                        _c("span", {
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              _vm.monto_prestamo
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass: "subheading text-xs-left"
+                                      },
+                                      [_vm._v("Sub. Total")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "blue--text text-xs-center mb-0"
+                                      },
+                                      [
+                                        _vm._v("Q. "),
+                                        _c("span", {
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              _vm.monto_prestamo
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass: "subheading text-xs-left"
+                                      },
+                                      [_vm._v("(+) Gastos")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "blue--text text-xs-center mb-0"
+                                      },
+                                      [
+                                        _vm._v("Q. "),
+                                        _c("span", {
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              _vm.monto_prestamo
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass: "subheading text-xs-left"
+                                      },
+                                      [_vm._v("Nuevo Saldo")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "blue--text text-xs-center mb-0"
+                                      },
+                                      [
+                                        _vm._v("Q. "),
+                                        _c("span", {
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              _vm.monto_prestamo
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    )
                                   ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Honorarios Abogado")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(
-                                          _vm.MontoHonorariosNotario
-                                        )
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("IVA 12%")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.MontoIVA)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Gastos(papeleria)")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.GastosPapeleria)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Gastos Protocolo")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.GastosProtocolo)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Timbre Notarial")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.TimbreNotarial)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Cuota Arancel")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.CuotaArancel)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Prima Arancel")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.PrimaArancel)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Consulta Electónica")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(
-                                          _vm.ConsultaElectronica
-                                        )
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Referencia Registro")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.ReferenciaRGP)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Imprevistos 10%")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.Imprevistos)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Razón Registral")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.RazonRegistral)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-divider"),
-                          _vm._v(" "),
-                          _c(
-                            "v-list",
-                            { attrs: { "three-line": "", subheader: "" } },
-                            [
-                              _c(
-                                "v-subheader",
-                                { staticClass: "pink--text text--darken-3" },
-                                [_vm._v("Totales")]
+                                ],
+                                1
                               )
                             ],
                             1
                           ),
                           _vm._v(" "),
                           _c(
-                            "v-layout",
-                            { attrs: { row: "", wrap: "" } },
+                            "v-flex",
+                            { attrs: { xs12: "", md4: "" } },
                             [
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Gastos generados")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.TotalGastos)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
+                              _c("v-subheader", [
+                                _vm._v("Gastos Administrativos")
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Gastos escrituración")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(
-                                          _vm.GastosEscrituracion
-                                        )
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
+                              _c("h1", { staticClass: "subheading" }, [
+                                _vm._v("Monto base")
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Total ampliación")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.TotalAmpliacion)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
+                              _c("p", { staticClass: "blue--text" }, [
+                                _vm._v("Q. "),
+                                _c("span", {
+                                  domProps: {
+                                    textContent: _vm._s(_vm.monto_prestamo)
+                                  }
+                                })
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { xs12: "", md4: "" } },
+                            [
+                              _c("v-subheader", [
+                                _vm._v("Gastos de Escrituracion")
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs6: "", sm4: "", md3: "", lg3: "" }
-                                },
-                                [
-                                  _c("h1", { staticClass: "subheading" }, [
-                                    _vm._v("Nuevo saldo")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "blue--text" }, [
-                                    _vm._v("Q. "),
-                                    _c("span", {
-                                      domProps: {
-                                        textContent: _vm._s(_vm.NuevoSaldo)
-                                      }
-                                    })
-                                  ])
-                                ]
-                              )
+                              _c("h1", { staticClass: "subheading" }, [
+                                _vm._v("Monto base")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "blue--text" }, [
+                                _vm._v("Q. "),
+                                _c("span", {
+                                  domProps: {
+                                    textContent: _vm._s(_vm.monto_prestamo)
+                                  }
+                                })
+                              ])
                             ],
                             1
                           )
@@ -7675,7 +7523,17 @@ var render = function() {
                       )
                     ],
                     1
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Ampliacion")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Saldo actual")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Sub. Total")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("(+) Gastos")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Nuevo Saldo")])
                 ],
                 1
               )

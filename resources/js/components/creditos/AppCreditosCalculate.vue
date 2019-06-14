@@ -163,11 +163,52 @@
                         <v-btn icon dark @click.native="dialog = false">
                             <v-icon>close</v-icon>
                         </v-btn>
-                        <v-toolbar-title>Datos para Escrituración</v-toolbar-title>
+                        <v-toolbar-title>Datos para la resoluci&oacute;n</v-toolbar-title>
                         <v-spacer></v-spacer>
 
                     </v-toolbar>
-                    <v-content>
+
+
+                        <v-container fluid>
+                            <v-layout row wrap>
+
+                                <v-flex xs12 md4>
+                                    <v-subheader>Informacion del Financiamiento</v-subheader>
+                                    <v-layout row wrap>
+                                        <v-flex xs12>
+                                            <h1 class="subheading text-xs-left">Ampliaci&oacute;n</h1>
+                                            <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
+                                            <h1 class="subheading text-xs-left">Saldo Actual</h1>
+                                            <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
+                                            <h1 class="subheading text-xs-left">Sub. Total</h1>
+                                            <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
+                                            <h1 class="subheading text-xs-left">(+) Gastos</h1>
+                                            <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
+                                            <h1 class="subheading text-xs-left">Nuevo Saldo</h1>
+                                            <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
+                                        </v-flex>
+
+                                    </v-layout>
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-subheader>Gastos Administrativos</v-subheader>
+                                    <h1 class="subheading">Monto base</h1>
+                                    <p class="blue--text">Q. <span v-text="monto_prestamo" ></span></p>
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-subheader>Gastos de Escrituracion</v-subheader>
+                                    <h1 class="subheading">Monto base</h1>
+                                    <p class="blue--text">Q. <span v-text="monto_prestamo" ></span></p>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+
+                    <p>Ampliacion</p>
+                    <p>Saldo actual</p>
+                    <p>Sub. Total</p>
+                    <p>(+) Gastos</p>
+                    <p>Nuevo Saldo</p>
+                    <!--v-content>
                         <v-container fluid>
                             <v-layout row wrap>
                                 <v-flex xs6 sm4 md3 lg3>
@@ -247,7 +288,7 @@
                                 </v-flex>
                             </v-layout>
                         </v-container>
-                    </v-content>
+                    </v-content-->
                 </v-card>
             </v-dialog>
         </v-layout>
@@ -263,7 +304,7 @@
         ],
         data:()=>{
             return{
-                dialog: false,
+                dialog: true,
                 valido:true,
                 alertErrors:false,
                 errors:[],
