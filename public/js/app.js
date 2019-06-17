@@ -2492,6 +2492,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   props: ['New'],
@@ -7333,137 +7337,140 @@ var render = function() {
                                 "v-layout",
                                 { attrs: { row: "", wrap: "" } },
                                 [
-                                  _c("v-flex", { attrs: { xs12: "" } }, [
-                                    _c(
-                                      "h1",
-                                      {
-                                        staticClass: "subheading text-xs-left"
-                                      },
-                                      [_vm._v("Ampliación")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "blue--text text-xs-center mb-0"
-                                      },
-                                      [
-                                        _vm._v("Q. "),
-                                        _c("span", {
-                                          domProps: {
-                                            textContent: _vm._s(
-                                              _vm.monto_prestamo
-                                            )
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "h1",
-                                      {
-                                        staticClass: "subheading text-xs-left"
-                                      },
-                                      [_vm._v("Saldo Actual")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "blue--text text-xs-center mb-0"
-                                      },
-                                      [
-                                        _vm._v("Q. "),
-                                        _c("span", {
-                                          domProps: {
-                                            textContent: _vm._s(
-                                              _vm.monto_prestamo
-                                            )
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "h1",
-                                      {
-                                        staticClass: "subheading text-xs-left"
-                                      },
-                                      [_vm._v("Sub. Total")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "blue--text text-xs-center mb-0"
-                                      },
-                                      [
-                                        _vm._v("Q. "),
-                                        _c("span", {
-                                          domProps: {
-                                            textContent: _vm._s(
-                                              _vm.monto_prestamo
-                                            )
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "h1",
-                                      {
-                                        staticClass: "subheading text-xs-left"
-                                      },
-                                      [_vm._v("(+) Gastos")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "blue--text text-xs-center mb-0"
-                                      },
-                                      [
-                                        _vm._v("Q. "),
-                                        _c("span", {
-                                          domProps: {
-                                            textContent: _vm._s(
-                                              _vm.monto_prestamo
-                                            )
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "h1",
-                                      {
-                                        staticClass: "subheading text-xs-left"
-                                      },
-                                      [_vm._v("Nuevo Saldo")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "blue--text text-xs-center mb-0"
-                                      },
-                                      [
-                                        _vm._v("Q. "),
-                                        _c("span", {
-                                          domProps: {
-                                            textContent: _vm._s(
-                                              _vm.monto_prestamo
-                                            )
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ])
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "" } },
+                                    [
+                                      _c(
+                                        "h1",
+                                        { staticClass: "body-2 text-xs-left" },
+                                        [_vm._v("Ampliación")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "blue--text text-xs-center mb-0"
+                                        },
+                                        [
+                                          _vm._v("Q. "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                _vm.monto_prestamo
+                                              )
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "mx-5" }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "h1",
+                                        { staticClass: "body-2 text-xs-left" },
+                                        [_vm._v("Saldo Actual")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "blue--text text-xs-center mb-0"
+                                        },
+                                        [
+                                          _vm._v("Q. "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                _vm.monto_prestamo
+                                              )
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "mx-5" }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "h1",
+                                        { staticClass: "body-2 text-xs-left" },
+                                        [_vm._v("Sub. Total")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "blue--text text-xs-center mb-0"
+                                        },
+                                        [
+                                          _vm._v("Q. "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                _vm.monto_prestamo
+                                              )
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "mx-5" }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "h1",
+                                        { staticClass: "body-2 text-xs-left" },
+                                        [_vm._v("(+) Gastos")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "blue--text text-xs-center mb-0"
+                                        },
+                                        [
+                                          _vm._v("Q. "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                _vm.monto_prestamo
+                                              )
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "mx-5" }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "h1",
+                                        { staticClass: "body-2 text-xs-left" },
+                                        [_vm._v("Nuevo Saldo")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "blue--text text-xs-center mb-0"
+                                        },
+                                        [
+                                          _vm._v("Q. "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                _vm.monto_prestamo
+                                              )
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )

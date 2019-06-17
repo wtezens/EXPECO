@@ -176,15 +176,19 @@
                                     <v-subheader>Informacion del Financiamiento</v-subheader>
                                     <v-layout row wrap>
                                         <v-flex xs12>
-                                            <h1 class="subheading text-xs-left">Ampliaci&oacute;n</h1>
+                                            <h1 class="body-2 text-xs-left">Ampliaci&oacute;n</h1>
                                             <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
-                                            <h1 class="subheading text-xs-left">Saldo Actual</h1>
+                                            <v-divider class="mx-5"></v-divider>
+                                            <h1 class="body-2 text-xs-left">Saldo Actual</h1>
                                             <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
-                                            <h1 class="subheading text-xs-left">Sub. Total</h1>
+                                            <v-divider class="mx-5"></v-divider>
+                                            <h1 class="body-2 text-xs-left">Sub. Total</h1>
                                             <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
-                                            <h1 class="subheading text-xs-left">(+) Gastos</h1>
+                                            <v-divider class="mx-5"></v-divider>
+                                            <h1 class="body-2 text-xs-left">(+) Gastos</h1>
                                             <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
-                                            <h1 class="subheading text-xs-left">Nuevo Saldo</h1>
+                                            <v-divider class="mx-5"></v-divider>
+                                            <h1 class="body-2 text-xs-left">Nuevo Saldo</h1>
                                             <p class="blue--text text-xs-center mb-0">Q. <span v-text="monto_prestamo" ></span></p>
                                         </v-flex>
 
