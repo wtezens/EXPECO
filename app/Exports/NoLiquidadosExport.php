@@ -26,10 +26,11 @@ class NoLiquidadosExport implements FromCollection, Responsable, WithHeadings, S
         $this->idAgency=session('agency_id');
 
         return DB::table('no_liquidados')
-            ->select('expediente','monto_credito','cif','asociado','notario','created_at',
-                'observaciones','diferencia')
+            ->select('expediente','monto_credito','cif','asociado','notario','created_at',)
             ->where('agency_id',$this->idAgency)
             ->get();
+
+        //TODO SE QUITO OBSERVACIONES Y DIFERENCIA DEL REPORTE
     }
 
     /**
