@@ -2684,34 +2684,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   props: ['New'],
   data: function data() {
     return {
-      dialog: false,
+      dialog: true,
       valido: true,
       alertErrors: false,
       errors: [],
@@ -7853,17 +7831,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -7895,17 +7875,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -7934,17 +7916,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -7973,17 +7957,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8080,17 +8066,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8122,17 +8110,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8164,17 +8154,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8206,17 +8198,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8248,17 +8242,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8290,17 +8286,19 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider", { staticClass: "mx-5" }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        { attrs: { row: "", wrap: "" } },
-                                        [
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
                                           _c("v-flex", { attrs: { xs6: "" } }, [
                                             _c(
                                               "h1",
@@ -8332,51 +8330,55 @@ var render = function() {
                                                 })
                                               ]
                                             )
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-layout",
-                                        {
-                                          staticClass: "mt-5",
-                                          attrs: { row: "", wrap: "" }
-                                        },
-                                        [
-                                          _c("v-flex", { attrs: { xs6: "" } }, [
-                                            _c(
-                                              "h1",
-                                              {
-                                                staticClass:
-                                                  "body-2 text-xs-left"
-                                              },
-                                              [_vm._v("Total Ampliación")]
-                                            )
                                           ]),
                                           _vm._v(" "),
-                                          _c("v-flex", { attrs: { xs6: "" } }, [
-                                            _c(
-                                              "p",
-                                              {
-                                                staticClass:
-                                                  "blue--text text--darken-4 mb-2"
-                                              },
-                                              [
-                                                _vm._v("Q. "),
-                                                _c("span", {
-                                                  domProps: {
-                                                    textContent: _vm._s(
-                                                      _vm.roundedNumeric(
-                                                        _vm.TotalAmpliacion,
-                                                        2
+                                          _c(
+                                            "v-flex",
+                                            {
+                                              staticClass: "mt-5",
+                                              attrs: { xs6: "" }
+                                            },
+                                            [
+                                              _c(
+                                                "h1",
+                                                {
+                                                  staticClass:
+                                                    "body-2 text-xs-left"
+                                                },
+                                                [_vm._v("Total Ampliación")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            {
+                                              staticClass: "mt-5",
+                                              attrs: { xs6: "" }
+                                            },
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "blue--text text--darken-4 mb-2"
+                                                },
+                                                [
+                                                  _vm._v("Q. "),
+                                                  _c("span", {
+                                                    domProps: {
+                                                      textContent: _vm._s(
+                                                        _vm.roundedNumeric(
+                                                          _vm.TotalAmpliacion,
+                                                          2
+                                                        )
                                                       )
-                                                    )
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ])
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
                                         ],
                                         1
                                       )

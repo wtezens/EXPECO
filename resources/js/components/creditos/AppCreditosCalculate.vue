@@ -178,30 +178,22 @@
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(monto_prestamo,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6><h1 class="body-2 text-xs-left">Saldo Actual</h1></v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(saldo_actual,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6><h1 class="body-2 text-xs-left">Sub. Total</h1></v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="SubTotal" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6><h1 class="body-2 text-xs-left">(+) Gastos</h1></v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="TotalGastos" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6><h1 class="body-2 text-xs-left">Nuevo Saldo</h1></v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="NuevoSaldo" ></span></p>
@@ -221,66 +213,52 @@
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(GastosEscrituracion,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">Intereses S/P</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(interes_sp,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">Avaluo</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(avaluo,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">Seguro de vida</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(seguro_vida,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">saldo Aport.</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(saldo_aportacion,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">Saldo ahorros</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(saldo_ahorro,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-divider class="mx-5"></v-divider>
-                                            <v-layout row wrap>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
                                                     <h1 class="body-2 text-xs-left">Total</h1>
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(TotalGastos,2)" ></span></p>
                                                 </v-flex>
-                                            </v-layout>
-                                            <v-layout row wrap class="mt-5">
-                                                <v-flex xs6>
+                                                <v-flex xs6 class="mt-5">
                                                     <h1 class="body-2 text-xs-left">Total Ampliaci&oacute;n</h1>
                                                 </v-flex>
-                                                <v-flex xs6>
+                                                <v-flex xs6 class="mt-5">
                                                     <p class="blue--text text--darken-4 mb-2">Q. <span v-text="roundedNumeric(TotalAmpliacion,2)" ></span></p>
                                                 </v-flex>
                                             </v-layout>
@@ -518,7 +496,7 @@
         ],
         data:()=>{
             return{
-                dialog: false,
+                dialog: true,
                 valido:true,
                 alertErrors:false,
                 errors:[],
