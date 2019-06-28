@@ -2689,7 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['New'],
   data: function data() {
     return {
-      dialog: true,
+      dialog: false,
       valido: true,
       alertErrors: false,
       errors: [],
@@ -3685,6 +3685,9 @@ __webpack_require__.r(__webpack_exports__);
           _this3.dialog = false;
 
           if (response.data.estatus === 'ok') {
+            _this3.$root.panel.total_creditos++;
+            _this3.$root.panel.pendientes++;
+
             _this3.clear();
 
             swal({
@@ -5265,38 +5268,10 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Acciones',
         sortable: false
-      }],
-      panel: [],
-      expedientes: []
+      }]
     };
   },
-  created: function created() {
-    this.getDatosDashboard();
-    this.getAtrasados();
-  },
   methods: {
-    getDatosDashboard: function getDatosDashboard() {
-      var _this = this;
-
-      axios.get('/creditos/dashboard').then(function (response) {
-        _this.panel = response.data;
-      })["catch"](function (error) {
-        swal({
-          title: 'No se ha completado la solicitud de datos.'
-        });
-      });
-    },
-    getAtrasados: function getAtrasados() {
-      var _this2 = this;
-
-      axios.get('/creditos/sinliquidar').then(function (response) {
-        _this2.expedientes = response.data;
-      })["catch"](function (error) {
-        swal({
-          title: 'No se ha completado la solicitud de datos.'
-        });
-      });
-    },
     formatDate: function formatDate(date) {
       if (date == null || date == undefined) {
         return '-';
@@ -12757,7 +12732,7 @@ var render = function() {
                     _c("h3", { staticClass: "title mb-0" }, [_vm._v("Agencia")])
                   ]),
                   _vm._v(" "),
-                  _vm._l(_vm.panel.agencia, function(agencia) {
+                  _vm._l(this.$root.panel.agencia, function(agencia) {
                     return _c(
                       "div",
                       [
@@ -12832,7 +12807,7 @@ var render = function() {
                     _c("p", {
                       staticClass: "txt-blue-card",
                       domProps: {
-                        textContent: _vm._s(_vm.panel.total_creditos)
+                        textContent: _vm._s(this.$root.panel.total_creditos)
                       }
                     }),
                     _vm._v(" "),
@@ -12897,7 +12872,7 @@ var render = function() {
                     _c("p", {
                       staticClass: "txt-blue-card",
                       domProps: {
-                        textContent: _vm._s(_vm.panel.total_liquidados)
+                        textContent: _vm._s(this.$root.panel.total_liquidados)
                       }
                     }),
                     _vm._v(" "),
@@ -12961,7 +12936,9 @@ var render = function() {
                   _c("v-card-text", { staticClass: "headline center" }, [
                     _c("p", {
                       staticClass: "txt-blue-card",
-                      domProps: { textContent: _vm._s(_vm.panel.pendientes) }
+                      domProps: {
+                        textContent: _vm._s(this.$root.panel.pendientes)
+                      }
                     }),
                     _vm._v(" "),
                     _c(
@@ -12992,7 +12969,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.expedientes.length > 0
+      this.$root.expedientes.length > 0
         ? _c(
             "v-layout",
             { attrs: { row: "", wrap: "", "pt-4": "" } },
@@ -13055,7 +13032,7 @@ var render = function() {
                       attrs: {
                         primary: "",
                         headers: _vm.headers,
-                        items: _vm.expedientes,
+                        items: this.$root.expedientes,
                         pagination: _vm.pagination,
                         "rows-per-page-text": _vm.RegPorPagina,
                         search: _vm.search
@@ -54380,23 +54357,45 @@ var app_creditos = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         return v.length <= 10 || 'ingrese menos de 10 digitos';
       }, function (v) {
         return /^[0-9]+$/.test(v) || 'el número debe ser válido';
-      }]
+      }],
+      //Datos del dashboard
+      panel: [],
+      expedientes: []
     };
   },
+  created: function created() {
+    this.getDatosDashboard();
+    this.getAtrasados();
+  },
   methods: {
+    getDatosDashboard: function getDatosDashboard() {
+      var _this = this;
+
+      axios.get('/creditos/dashboard').then(function (response) {
+        _this.panel = response.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No se ha completado la solicitud de datos.'
+        });
+      });
+    },
+    getAtrasados: function getAtrasados() {
+      var _this2 = this;
+
+      axios.get('/creditos/sinliquidar').then(function (response) {
+        _this2.expedientes = response.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No se ha completado la solicitud de datos.'
+        });
+      });
+    },
     buscarExpediente: function buscarExpediente() {
-      if (this.ValidarExpediente()) {
+      if (this.$refs.expediente.validate()) {
         window.location.hash = '/expediente/' + this.expediente;
         this.dialog_search = false;
         this.$refs.expediente.reset();
         this.expediente = '';
-      }
-    },
-    ValidarExpediente: function ValidarExpediente() {
-      if (this.$refs.expediente.validate()) {
-        return true;
-      } else {
-        return false;
       }
     }
   }

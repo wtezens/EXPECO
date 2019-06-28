@@ -77,26 +77,48 @@ const app_creditos = new Vue({
                 v => !!v || 'Ingrese un número',
                 v => v.length <=10 || 'ingrese menos de 10 digitos',
                 v => /^[0-9]+$/.test(v)||'el número debe ser válido'
-            ]
+            ],
+
+            //Datos del dashboard
+            panel:[],
+            expedientes:[]
 
         };
     },
+    created(){
+        this.getDatosDashboard();
+        this.getAtrasados();
+    },
     methods:{
+        getDatosDashboard:function () {
+            axios.get('/creditos/dashboard')
+                .then(response => {
+                    this.panel = response.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: 'No se ha completado la solicitud de datos.'
+                    })
+                });
+        },
+        getAtrasados:function () {
+            axios.get('/creditos/sinliquidar')
+                .then(response => {
+                    this.expedientes = response.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: 'No se ha completado la solicitud de datos.'
+                    })
+                });
+        },
         buscarExpediente(){
-            if(this.ValidarExpediente()){
+            if(this.$refs.expediente.validate()){
                 window.location.hash='/expediente/'+this.expediente;
                 this.dialog_search=false;
                 this.$refs.expediente.reset();
                 this.expediente='';
             }
         },
-        ValidarExpediente(){
-            if(this.$refs.expediente.validate()){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
     }
 });

@@ -753,6 +753,8 @@
                         .then(response =>{
                             this.dialog=false;
                             if(response.data.estatus==='ok'){
+                                this.$root.panel.total_creditos++;
+                                this.$root.panel.pendientes++;
                                 this.clear();
                                 swal({
                                     type: 'success',

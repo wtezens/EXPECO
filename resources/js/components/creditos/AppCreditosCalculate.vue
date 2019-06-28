@@ -496,7 +496,7 @@
         ],
         data:()=>{
             return{
-                dialog: true,
+                dialog: false,
                 valido:true,
                 alertErrors:false,
                 errors:[],

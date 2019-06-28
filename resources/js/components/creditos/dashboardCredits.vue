@@ -22,7 +22,7 @@
                         </div>
                         <h3 class="title mb-0">Agencia</h3>
                     </v-card-title>
-                    <div v-for="agencia in panel.agencia">
+                    <div v-for="agencia in this.$root.panel.agencia">
                         <v-card-text class="headline center"
                         >
                             <p class="txt-blue-card" v-text="agencia.nombre"></p>
@@ -51,7 +51,7 @@
                         <h3 class="title center  mb-0">Cr&eacute;ditos</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
-                        <p class="txt-blue-card" v-text="panel.total_creditos"></p>
+                        <p class="txt-blue-card" v-text="this.$root.panel.total_creditos"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -75,7 +75,7 @@
                         <h3 class="title mb-0 center ">Liquidados</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
-                        <p class="txt-blue-card" v-text="panel.total_liquidados"></p>
+                        <p class="txt-blue-card" v-text="this.$root.panel.total_liquidados"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -99,7 +99,7 @@
                         <h3 class="title mb-0 center ">En tr&aacute;mite</h3>
                     </v-card-title>
                     <v-card-text class="headline center">
-                        <p class="txt-blue-card" v-text="panel.pendientes"></p>
+                        <p class="txt-blue-card" v-text="this.$root.panel.pendientes"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -116,7 +116,7 @@
             </v-flex>
         </v-layout>
 
-        <v-layout row wrap pt-4 v-if="expedientes.length>0">
+        <v-layout row wrap pt-4 v-if="this.$root.expedientes.length>0">
             <v-flex xs12 md10 lg12 xl12>
                 <v-toolbar flat class="toolbar--gradient">
                     <!--color=white -->
@@ -142,7 +142,7 @@
                 <v-data-table
                         primary
                         :headers="headers"
-                        :items="expedientes"
+                        :items="this.$root.expedientes"
                         class="elevation-1 success"
                         :pagination.sync="pagination"
                         :rows-per-page-text="RegPorPagina"
@@ -198,37 +198,9 @@
                     {text: 'Creado', value:'created_at'},
                     {text: 'Acciones', sortable:false}
                 ],
-                panel:[],
-                expedientes:[]
             }
         },
-        created(){
-            this.getDatosDashboard();
-            this.getAtrasados();
-        },
         methods:{
-            getDatosDashboard:function () {
-                axios.get('/creditos/dashboard')
-                    .then(response => {
-                        this.panel = response.data;
-                    })
-                    .catch(error => {
-                        swal({
-                            title: 'No se ha completado la solicitud de datos.'
-                        })
-                    });
-            },
-            getAtrasados:function () {
-                axios.get('/creditos/sinliquidar')
-                    .then(response => {
-                        this.expedientes = response.data;
-                    })
-                    .catch(error => {
-                        swal({
-                            title: 'No se ha completado la solicitud de datos.'
-                        })
-                    });
-            },
             formatDate:function (date) {
                 if(date == null || date == undefined){
                     return '-';
