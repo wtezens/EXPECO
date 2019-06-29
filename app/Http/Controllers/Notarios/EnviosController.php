@@ -88,7 +88,7 @@ class EnviosController extends Controller
      */
     public function generarReporteRevision($correlativo){
 
-        $reporte = Credit::select('credits.id as expediente','partners.nombre as asociado',
+        $reporte = Credit::select('credits.id as expediente','partners.nombre as asociado','credits.partner_id as cif',
                 'credits.fecha_escritura as fecha','credits.numero_escritura as escritura','credits.monto_ampliacion',
             'credits.monto_credito')
             ->Join('partners','partners.id','=','credits.partner_id')

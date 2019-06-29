@@ -31,7 +31,8 @@ table {
 
 table tr th,
 table tr td {
-    font-size: 0.775em;
+    font-size: 0.65em;
+    /*font-size: 0.775em;*/
     color: #222222;
     border: 1px solid #dddddd;
     padding: 0;

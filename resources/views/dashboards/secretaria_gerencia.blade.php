@@ -103,6 +103,7 @@
                                         :rules="expedienteRules"
                                         counter="10"
                                         validate-on-blur
+                                        autofocus
                                 >
                                 </v-text-field>
                             </v-form>
@@ -129,5 +130,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.21')}}"></script>
+    <script src="{{asset('js/gerencia/secretaria_gerencia.js?version=1.0.23')}}"></script>
 @stop

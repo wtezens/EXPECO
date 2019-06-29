@@ -2293,6 +2293,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "dashboardGerencia",
   data: function data() {
@@ -4342,7 +4343,8 @@ var render = function() {
                               required: "",
                               rules: _vm.reglasExpediente,
                               counter: "10",
-                              "validate-on-blur": ""
+                              "validate-on-blur": "",
+                              autofocus: ""
                             },
                             model: {
                               value: _vm.numero_expediente,

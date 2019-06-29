@@ -4074,7 +4074,6 @@ __webpack_require__.r(__webpack_exports__);
       }, function (v) {
         return /^[0-9]+$/.test(v) || 'el número debe ser válido';
       }],
-      datos: [],
       search: '',
       pagination: {
         rowsPerPage: 10
@@ -4098,51 +4097,17 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Acciones',
         sortable: false
-      }],
-      expedientes: []
+      }]
     };
   },
-  created: function created() {
-    this.getDatos();
-    this.getAtrasados();
-  },
   methods: {
-    getDatos: function getDatos() {
-      var _this = this;
-
-      axios.get('/notario/dashboard').then(function (res) {
-        _this.datos = res.data;
-      })["catch"](function (error) {
-        swal({
-          title: 'No se ha completado la solicitud de datos.'
-        });
-      });
-    },
     buscarExpediente: function buscarExpediente() {
-      if (this.ValidarExpediente()) {
+      if (this.$refs.numero_expediente.validate()) {
         window.location.hash = '/expediente/' + this.numero_expediente;
         this.modal_buscar = false;
         this.$refs.numero_expediente.reset();
         this.numero_expediente = '';
       }
-    },
-    ValidarExpediente: function ValidarExpediente() {
-      if (this.$refs.numero_expediente.validate()) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getAtrasados: function getAtrasados() {
-      var _this2 = this;
-
-      axios.get('/notario/sinliquidar').then(function (response) {
-        _this2.expedientes = response.data;
-      })["catch"](function (error) {
-        swal({
-          title: 'No se ha completado la solicitud de datos.'
-        });
-      });
     },
     formatDate: function formatDate(date) {
       if (date == null || date == undefined) {
@@ -7889,7 +7854,9 @@ var render = function() {
                   _c("v-card-text", { staticClass: "display-1 center" }, [
                     _c("p", {
                       staticClass: "txt-blue-card",
-                      domProps: { textContent: _vm._s(_vm.datos.creditos) }
+                      domProps: {
+                        textContent: _vm._s(this.$root.datos.creditos)
+                      }
                     }),
                     _vm._v(" "),
                     _c(
@@ -7949,7 +7916,9 @@ var render = function() {
                   _c("v-card-text", { staticClass: "display-1 center" }, [
                     _c("p", {
                       staticClass: "txt-blue-card",
-                      domProps: { textContent: _vm._s(_vm.datos.liquidados) }
+                      domProps: {
+                        textContent: _vm._s(this.$root.datos.liquidados)
+                      }
                     }),
                     _vm._v(" "),
                     _c(
@@ -8009,7 +7978,9 @@ var render = function() {
                   _c("v-card-text", { staticClass: "display-1 center" }, [
                     _c("p", {
                       staticClass: "txt-blue-card",
-                      domProps: { textContent: _vm._s(_vm.datos.pendientes) }
+                      domProps: {
+                        textContent: _vm._s(this.$root.datos.pendientes)
+                      }
                     }),
                     _vm._v(" "),
                     _c(
@@ -8273,7 +8244,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.expedientes.length > 0
+      this.$root.expedientes.length > 0
         ? _c(
             "v-layout",
             { attrs: { row: "", wrap: "", "pt-4": "" } },
@@ -8326,7 +8297,7 @@ var render = function() {
                       attrs: {
                         primary: "",
                         headers: _vm.headers,
-                        items: _vm.expedientes,
+                        items: this.$root.expedientes,
                         pagination: _vm.pagination,
                         "rows-per-page-text": _vm.RegPorPagina,
                         search: _vm.search
@@ -50378,12 +50349,20 @@ var app_notario = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         return v.length <= 10 || 'ingrese menos de 10 digitos';
       }, function (v) {
         return /^[0-9]+$/.test(v) || 'el número debe ser válido';
-      }]
+      }],
+      //datos generales del dashboard
+      datos: [],
+      expedientes: [] //expedientes atrasados
+
     };
+  },
+  created: function created() {
+    this.getDatos();
+    this.getAtrasados();
   },
   methods: {
     buscarExpediente: function buscarExpediente() {
-      if (this.ValidarExpediente()) {
+      if (this.$refs.expediente.validate()) {
         window.location.hash = '/expediente/' + this.expediente;
         this.dialog_search = false;
         this.$refs.expediente.reset();
@@ -50391,19 +50370,34 @@ var app_notario = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
     },
     NotaExpediente: function NotaExpediente() {
-      if (this.ValidarExpediente()) {
+      if (this.$refs.expediente.validate()) {
         window.open('/notario/nota/expediente/' + this.expediente + '?&o=' + encodeURI(this.observaciones));
         this.dialog_note = false;
         this.$refs.expediente.reset();
         this.expediente = '';
       }
     },
-    ValidarExpediente: function ValidarExpediente() {
-      if (this.$refs.expediente.validate()) {
-        return true;
-      } else {
-        return false;
-      }
+    getDatos: function getDatos() {
+      var _this = this;
+
+      axios.get('/notario/dashboard').then(function (res) {
+        _this.datos = res.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No se ha completado la solicitud de datos.'
+        });
+      });
+    },
+    getAtrasados: function getAtrasados() {
+      var _this2 = this;
+
+      axios.get('/notario/sinliquidar').then(function (response) {
+        _this2.expedientes = response.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No se ha completado la solicitud de datos.'
+        });
+      });
     }
   }
 });

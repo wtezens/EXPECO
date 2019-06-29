@@ -24,7 +24,7 @@
                     </v-card-title>
                     <v-card-text class="display-1 center"
                     >
-                        <p class="txt-blue-card" v-text="datos.creditos"></p>
+                        <p class="txt-blue-card" v-text="this.$root.datos.creditos"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -49,7 +49,7 @@
                         <h3 class="title mb-0">Liquidados</h3>
                     </v-card-title>
                     <v-card-text class="display-1 center">
-                        <p class="txt-blue-card" v-text="datos.liquidados"></p>
+                        <p class="txt-blue-card" v-text="this.$root.datos.liquidados"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -73,7 +73,7 @@
                         <h3 class="title mb-0">En tr&aacute;mite</h3>
                     </v-card-title>
                     <v-card-text class="display-1 center">
-                        <p class="txt-blue-card" v-text="datos.pendientes"></p>
+                        <p class="txt-blue-card" v-text="this.$root.datos.pendientes"></p>
                         <div class="pl-5 pr-5">
                             <v-progress-linear
                                     color="teal accent-4"
@@ -179,7 +179,7 @@
                 </v-card>
             </v-flex>
         </v-layout>
-        <v-layout row wrap pt-4 v-if="expedientes.length>0">
+        <v-layout row wrap pt-4 v-if="this.$root.expedientes.length>0">
             <v-flex xs12 md10 lg12 xl12>
                 <v-toolbar flat class="diagradient-red">
                     <v-toolbar-title class="white--text hidden-xs-only">No liquidados mayores a 2 meses</v-toolbar-title>
@@ -203,7 +203,7 @@
                 <v-data-table
                         primary
                         :headers="headers"
-                        :items="expedientes"
+                        :items="this.$root.expedientes"
                         class="elevation-1 success"
                         :pagination.sync="pagination"
                         :rows-per-page-text="RegPorPagina"
@@ -298,8 +298,6 @@
                     v => /^[0-9]+$/.test(v)||'el número debe ser válido'
                 ],
 
-                datos:[],
-
                 search: '',
                 pagination: {
                     rowsPerPage: 10
@@ -312,51 +310,17 @@
                     {text: 'Asociado', value:'asociado'},
                     {text: 'Creado', value:'created_at'},
                     {text: 'Acciones', sortable:false}
-                ],
-                expedientes:[],
+                ]
             }
         },
-        created(){
-            this.getDatos();
-            this.getAtrasados();
-        },
         methods: {
-            getDatos:function () {
-                axios.get('/notario/dashboard')
-                    .then(res => {
-                        this.datos =res.data;
-                    })
-                    .catch(error => {
-                        swal({
-                            title: 'No se ha completado la solicitud de datos.'
-                        })
-                    });
-            },
             buscarExpediente(){
-                if(this.ValidarExpediente()){
+                if(this.$refs.numero_expediente.validate()){
                     window.location.hash='/expediente/'+this.numero_expediente;
                     this.modal_buscar=false;
                     this.$refs.numero_expediente.reset();
                     this.numero_expediente='';
                 }
-            },
-            ValidarExpediente(){
-                if(this.$refs.numero_expediente.validate()){
-                    return true;
-                }else{
-                    return false;
-                }
-            },
-            getAtrasados:function () {
-                axios.get('/notario/sinliquidar')
-                    .then(response => {
-                        this.expedientes = response.data;
-                    })
-                    .catch(error => {
-                        swal({
-                            title: 'No se ha completado la solicitud de datos.'
-                        })
-                    });
             },
             formatDate:function (date) {
                 if(date == null || date == undefined){

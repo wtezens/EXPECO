@@ -67,11 +67,18 @@ const app_notario = new Vue({
             ],
 
 
+            //datos generales del dashboard
+            datos:[],
+            expedientes:[], //expedientes atrasados
         };
+    },
+    created(){
+        this.getDatos();
+        this.getAtrasados();
     },
     methods:{
         buscarExpediente(){
-            if(this.ValidarExpediente()){
+            if(this.$refs.expediente.validate()){
                 window.location.hash='/expediente/'+this.expediente;
                 this.dialog_search=false;
                 this.$refs.expediente.reset();
@@ -79,19 +86,34 @@ const app_notario = new Vue({
             }
         },
         NotaExpediente(){
-            if(this.ValidarExpediente()){
+            if(this.$refs.expediente.validate()){
                 window.open('/notario/nota/expediente/'+this.expediente+'?&o='+encodeURI(this.observaciones));
                 this.dialog_note=false;
                 this.$refs.expediente.reset();
                 this.expediente='';
             }
         },
-        ValidarExpediente(){
-            if(this.$refs.expediente.validate()){
-                return true;
-            }else{
-                return false;
-            }
-        }
+        getDatos:function () {
+            axios.get('/notario/dashboard')
+                .then(res => {
+                    this.datos =res.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: 'No se ha completado la solicitud de datos.'
+                    })
+                });
+        },
+        getAtrasados:function () {
+            axios.get('/notario/sinliquidar')
+                .then(response => {
+                    this.expedientes = response.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: 'No se ha completado la solicitud de datos.'
+                    })
+                });
+        },
     }
 });

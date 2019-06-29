@@ -63,6 +63,7 @@
                                     :rules="reglasExpediente"
                                     counter="10"
                                     validate-on-blur
+                                    autofocus
                             >
                             </v-text-field>
                         </v-form>
