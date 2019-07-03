@@ -31,7 +31,7 @@ Route::prefix('creditos')->group(function (){
     Route::get('/panel','Creditos\CreditosController@index')->name('creditos.panel');
 
     //----------------------------DATOS DEL DASHBOARD----------------------------//
-    Route::get('/dashboard','Creditos\creditosController@DatosDashboard')
+    Route::get('/dashboard','Creditos\CreditosController@DatosDashboard')
         ->name('datos.dashboard');
 
     //----------------------------- NO LIQUIDADOS------------------------------//
