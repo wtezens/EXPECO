@@ -5,17 +5,19 @@ require('./vuetify');
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
-window.Vuetify = require('vuetify');
+import Vue from 'vue';
+import Vuetify from 'vuetify'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 
-Vue.component('app-footer', require('./components/AppFooter.vue'));
-Vue.component('app-change-password',require('./components/login/AppChangePassword'));
-Vue.component('app-realizar-pago-liquidacion',require('./components/contabilidad/AppEfectuarPagoLiquidacion'));
+import AppFooter from './components/AppFooter'
+import AppChangePassword from './components/login/AppChangePassword'
+
+Vue.component('app-footer', AppFooter);
+Vue.component('app-change-password',AppChangePassword);
+Vue.component('app-realizar-pago-liquidacion', require('./components/contabilidad/AppEfectuarPagoLiquidacion'));
 
 /**
  * CREDITOS
@@ -49,20 +51,12 @@ const app_contabilidad = new Vue({
     },
     methods:{
         buscarExpediente(){
-            if(this.ValidarExpediente()){
+            if(this.$refs.expediente.validate()){
                 window.location.hash='/expediente/'+this.expediente;
                 this.dialog_search=false;
                 this.$refs.expediente.reset();
                 this.expediente='';
             }
-        },
-        ValidarExpediente(){
-            if(this.$refs.expediente.validate()){
-                return true;
-            }else{
-                return false;
-            }
         }
-
     }
 });

@@ -98,7 +98,7 @@
                 <v-card class="elevation-3 hover bt-box-card">
                     <v-card-title primary-title>
                         <div>
-                            <v-icon class="red--text text--darken-1" style="font-size:35px;">insert_chart_outlined</v-icon>
+                            <v-icon class="red--text text--darken-1" style="font-size:35px;">assessment</v-icon>
                         </div>
                         <h3 class="title center  mb-0">Reportes</h3>
                     </v-card-title>

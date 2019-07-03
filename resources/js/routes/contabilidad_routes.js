@@ -1,19 +1,24 @@
+import DashboardContabilidad from '../components/contabilidad/dashboardContabilidad';
+import ExpedienteShow from '../components/contabilidad/AppExpedienteShow'
+import Logout from '../components/login/AppLogout'
+import ChangePassword from '../components/login/AppFormChangePassword'
+
 const routes = [
     {
         path:'/',
         name:'home',
-        component: require('../components/contabilidad/dashboardContabilidad')
+        component: DashboardContabilidad
     },
     {
         path:'/logout',
         name:'contabilidad.logout',
-        component:require('../components/login/AppLogout'),
+        component: Logout,
         props:{redirect:'/contabilidad/panel'}
     },
     {
         path:'/expediente/:idexpediente',
         name:'expediente.show',
-        component:require('../components/contabilidad/AppExpedienteShow')
+        component: ExpedienteShow
     },
     {
         path:'/anticipo/new',
@@ -39,7 +44,7 @@ const routes = [
     {
         path:'/password',
         name:'password.change',
-        component:require('../components/login/AppFormChangePassword'),
+        component: ChangePassword,
         props:{colaborador:true}
     },
 ];

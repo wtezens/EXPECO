@@ -5214,14 +5214,14 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm.DatosExpediente.partner.cuenta
+                          _vm.DatosExpediente.cuenta
                             ? _c("div", [
                                 _vm._v("Cuenta No. "),
                                 _c("span", {
                                   staticClass: "blue--text",
                                   domProps: {
                                     textContent: _vm._s(
-                                      _vm.DatosExpediente.partner.cuenta
+                                      _vm.DatosExpediente.cuenta
                                     )
                                   }
                                 })
@@ -6804,7 +6804,7 @@ var render = function() {
                             staticClass: "red--text text--darken-1",
                             staticStyle: { "font-size": "35px" }
                           },
-                          [_vm._v("insert_chart_outlined")]
+                          [_vm._v("assessment")]
                         )
                       ],
                       1
@@ -48840,8 +48840,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
+/* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
+/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -48850,23 +48856,25 @@ __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
  */
 
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Vuetify = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-Vue.use(Vuetify);
-Vue.component('app-footer', __webpack_require__(/*! ./components/AppFooter.vue */ "./resources/js/components/AppFooter.vue"));
-Vue.component('app-change-password', __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue"));
-Vue.component('app-realizar-pago-liquidacion', __webpack_require__(/*! ./components/contabilidad/AppEfectuarPagoLiquidacion */ "./resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"));
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidacion', __webpack_require__(/*! ./components/contabilidad/AppEfectuarPagoLiquidacion */ "./resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"));
 /**
  * CREDITOS
  */
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_1__["default"]
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
-var app_contabilidad = new Vue({
+var app_contabilidad = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#contabilidad',
   router: router,
   data: function data() {
@@ -48887,18 +48895,11 @@ var app_contabilidad = new Vue({
   },
   methods: {
     buscarExpediente: function buscarExpediente() {
-      if (this.ValidarExpediente()) {
+      if (this.$refs.expediente.validate()) {
         window.location.hash = '/expediente/' + this.expediente;
         this.dialog_search = false;
         this.$refs.expediente.reset();
         this.expediente = '';
-      }
-    },
-    ValidarExpediente: function ValidarExpediente() {
-      if (this.$refs.expediente.validate()) {
-        return true;
-      } else {
-        return false;
       }
     }
   }
@@ -48915,21 +48916,29 @@ var app_contabilidad = new Vue({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_contabilidad_dashboardContabilidad__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/contabilidad/dashboardContabilidad */ "./resources/js/components/contabilidad/dashboardContabilidad.vue");
+/* harmony import */ var _components_contabilidad_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/contabilidad/AppExpedienteShow */ "./resources/js/components/contabilidad/AppExpedienteShow.vue");
+/* harmony import */ var _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue");
+/* harmony import */ var _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue");
+
+
+
+
 var routes = [{
   path: '/',
   name: 'home',
-  component: __webpack_require__(/*! ../components/contabilidad/dashboardContabilidad */ "./resources/js/components/contabilidad/dashboardContabilidad.vue")
+  component: _components_contabilidad_dashboardContabilidad__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/logout',
   name: 'contabilidad.logout',
-  component: __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue"),
+  component: _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: {
     redirect: '/contabilidad/panel'
   }
 }, {
   path: '/expediente/:idexpediente',
   name: 'expediente.show',
-  component: __webpack_require__(/*! ../components/contabilidad/AppExpedienteShow */ "./resources/js/components/contabilidad/AppExpedienteShow.vue")
+  component: _components_contabilidad_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: '/anticipo/new',
   name: 'anticipo.new',
@@ -48952,7 +48961,7 @@ var routes = [{
 }, {
   path: '/password',
   name: 'password.change',
-  component: __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue"),
+  component: _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: {
     colaborador: true
   }

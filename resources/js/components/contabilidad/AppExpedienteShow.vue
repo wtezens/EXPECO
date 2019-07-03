@@ -55,7 +55,7 @@
                                 <h3 class="headline mb-0">Asociado</h3>
                                 <div class="blue--text" v-text="DatosExpediente.partner_id"></div>
                                 <div v-text="DatosExpediente.partner.nombre"></div>
-                                <div v-if="DatosExpediente.partner.cuenta">Cuenta No. <span class="blue--text" v-text="DatosExpediente.partner.cuenta"></span></div>
+                                <div v-if="DatosExpediente.cuenta">Cuenta No. <span class="blue--text" v-text="DatosExpediente.cuenta"></span></div>
                                 <div v-else class="red--text"><span class="red--text">No dispone de una cuenta.</span> Es necesario para liquidar.</div>
                             </div>
                         </v-card-title>
