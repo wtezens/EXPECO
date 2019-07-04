@@ -7,7 +7,6 @@ use App\Models\Credit;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EstatusTresRequest;
-use App\Http\Requests\AddRechazoExpediente;
 use App\Http\Requests\AddInscripcionExpedienteRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -119,37 +118,6 @@ class CreditosController extends Controller
             ->get();
 
         return $no_liquidados;
-    }
-
-    public function AddRechazo($idexpediente, AddRechazoExpediente $request){
-        try {
-            $credito = Credit::where('id',$idexpediente)->whereNull('rechazo')->firstOrFail();
-
-            /**
-             * verificamos si puede modificar los datos
-             * Politica: el notario solo puede modificar los creditos que tiene asignado
-             */
-            $this->authorize('assigned', $credito);
-
-            $credito->rechazo = $request->rechazo;
-
-            if($credito->save()){
-                return array('estatus'=>'ok','descripcion'=>'Rechazo agregado correctamente');
-            }
-            else{
-                return array('estatus'=>'save_fail','descripcion'=>'Error al guardar los datos');
-            }
-
-        }catch (\Illuminate\Database\QueryException $e){
-            $error_code = $e->errorInfo[1];
-            if($error_code==1366){
-                if(request()->wantsJson()){
-                    return array('estatus'=>'incorrect type value','descripcion'=>'Los tipos de datos enviados no coinciden.');
-                }
-            }
-        }catch (ModelNotFoundException $ex) {
-            return array('estatus'=>'fail','descripcion'=>'Asegurese de que el registro no contenga ya los datos a guardar.');
-        }
     }
 
 }

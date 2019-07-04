@@ -2,7 +2,7 @@
 # Bienvenido al Sistema de Administración de Expedientes "EXPECO"
 
 Lo primero que debe hacer es ir al siguiente link. <br>
-@component('mail::button', ['url' => 'http://10.40.131.123:3000/colaborador/login'])
+@component('mail::button', ['url' => 'https://www.expeco.rl/colaborador/login'])
     Iniciar Sesión
 @endcomponent
 

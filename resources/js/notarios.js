@@ -18,7 +18,6 @@ import AppChangePassword from './components/login/AppChangePassword'
 import AppEstatusTres from './components/notario/AppEstatusTres'
 import AppModalSearch from './components/AppModalSearch'
 import AppInscripcionExpediente from './components/notario/AppIncripcionExpediente'
-import AppAgregarRechazo from './components/notario/AppAgregarRechazo'
 
 
 Vue.component('my-component', require('./components/Example-component.vue'));
@@ -27,7 +26,6 @@ Vue.component('app-modal-search', AppModalSearch);
 Vue.component('app-estatus-tres', AppEstatusTres);
 Vue.component('app-incripcion-expediente', AppInscripcionExpediente);
 Vue.component('app-change-password', AppChangePassword);
-Vue.component('app-agregar-rechazo', AppAgregarRechazo);
 
 /**
  * CREDITOS

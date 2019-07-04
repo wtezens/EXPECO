@@ -224,10 +224,6 @@ Route::prefix('notario')->group(function (){
     //Route::get('/reportesinliquidar','Creditos\ExportsController@export')
         //->name('reportesinliquidar');
 
-    //-------------------------------AÑADIR RECHAZO-----------------------------------//
-    Route::post('/rechazo/{expediente}','Notarios\CreditosController@AddRechazo')
-        ->where('expediente','^[0-9]+$');
-
     //---------------------------RUTAS PARA LIQUIDACION------------------------------//
     Route::get('/creditos/liquidacion/{agencia}','Notarios\LiquidacionesController@showLiquidaciones')->where('agencia','^[1-9][0-9]{0,5}$');
     Route::post('/creditos/liquidacion','Notarios\LiquidacionesController@generarLiquidacion');
@@ -297,20 +293,16 @@ Route::get('/enviar',function (){
     //    });*/
     //
     //    Mail::to('wilmer.tezen@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    Mail::to('wilmer.tezen@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    return "Se envío el email";
-    //return new \App\Mail\BienvenidoColaborador();
-});
+    Mail::to('elvira.patzan@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
+    Mail::to('floridalma.puluc@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
+    Mail::to('yeimi.castro@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
+    Mail::to('mayra.sequen@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
 
-Route::get('spinner',function (){
-   return view('spinner');
-});
-Route::get('500',function (){
-    return view('errors.500');
-});
-Route::get('404',function (){
-    return view('errors.404');
-});
-Route::get('403',function (){
-    return view('errors.403');
+    if(Mail::failures()){
+        return 'email incorrecto';
+    }else{
+        return 'email exitoso';
+    }
+
+    //return new \App\Mail\BienvenidoColaborador();
 });

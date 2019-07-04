@@ -2106,166 +2106,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AppAgregarRechazo",
-  props: ['expediente'],
-  data: function data() {
-    return {
-      valid: true,
-      razon_rechazo: '',
-      menu: false,
-      requiredOption: [function (v) {
-        return !!v || 'ingrese una descripcion';
-      }, function (v) {
-        return /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\xDC\xFC\s\d,-]{10,151}$/.test(v) || 'min:10 - max:150, no caracteres especiales (!"#$&/()[]}{)';
-      }]
-    };
-  },
-  methods: {
-    addRechazo: function addRechazo() {
-      var _this = this;
-
-      if (this.$refs.form.validate()) {
-        this.$emit("AddRechazo", false);
-        var swalWithBootstrapButtons = swal.mixin({
-          confirmButtonClass: 'v-btn info',
-          cancelButtonClass: 'v-btn error',
-          buttonsStyling: false
-        });
-        swalWithBootstrapButtons({
-          title: '¿Está seguro de agregar este rechazo?',
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Si',
-          cancelButtonText: 'Cancelar',
-          reverseButtons: true
-        }).then(function (result) {
-          if (result.value) {
-            axios.post('/notario/rechazo/' + _this.expediente, {
-              rechazo: _this.razon_rechazo
-            }).then(function (response) {
-              if (response.data.estatus === 'fail') {
-                swal({
-                  title: response.data.descripcion,
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-              } else if (response.data.estatus === 'ok') {
-                _this.clear();
-
-                swal({
-                  type: 'success',
-                  title: 'Datos guardados correctamente.',
-                  showConfirmButton: true,
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-
-                _this.$emit("updated", true);
-              } else {
-                swal({
-                  title: response.data.descripcion,
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-              }
-            })["catch"](function (error) {
-              if (error.response.data.errors) {
-                _this.$emit("errors", error.response.data.errors);
-              } else if (error.response.status === 403) {
-                swal({
-                  type: 'error',
-                  title: '403. Forbidden',
-                  text: 'No tiene autorización para realizar esta acción.',
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-              } else if (error.response.status === 404) {
-                swal({
-                  type: 'error',
-                  title: 'Fallo en la operación.',
-                  text: 'No pudimos completar la acción con los datos enviados.',
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-              } else {
-                swal({
-                  title: error.toString(),
-                  buttonsStyling: false,
-                  confirmButtonClass: 'v-btn primary'
-                });
-              }
-            });
-          } else if ( // Read more about handling dismissals
-          result.dismiss === swal.DismissReason.cancel) {
-            _this.$emit("AddRechazo", true);
-          }
-        });
-      }
-    },
-    clear: function clear() {
-      this.$refs.form.reset();
-      this.fecha = '';
-      this.escritura = '';
-    }
-  },
-  computed: {
-    current_date: function current_date() {
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth() + 1; //January is 0!
-
-      var yyyy = today.getFullYear();
-
-      if (dd < 10) {
-        dd = '0' + dd;
-      }
-
-      if (mm < 10) {
-        mm = '0' + mm;
-      }
-
-      today = yyyy + '-' + mm + '-' + dd;
-      return today.toString();
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/notario/AppEnvioRevision.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/notario/AppEnvioRevision.vue?vue&type=script&lang=js& ***!
@@ -5814,81 +5654,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div")
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40&":
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40& ***!
-  \****************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-form",
-    {
-      ref: "form",
-      attrs: { "lazy-validation": "" },
-      model: {
-        value: _vm.valid,
-        callback: function($$v) {
-          _vm.valid = $$v
-        },
-        expression: "valid"
-      }
-    },
-    [
-      _c("v-textarea", {
-        ref: "rechazo",
-        attrs: {
-          "validate-on-blur": "",
-          rules: _vm.requiredOption,
-          "prepend-icon": "font_download",
-          name: "input-7-1",
-          label: "ingrese la razón del rechazo",
-          "auto-grow": "",
-          counter: "150"
-        },
-        model: {
-          value: _vm.razon_rechazo,
-          callback: function($$v) {
-            _vm.razon_rechazo = $$v
-          },
-          expression: "razon_rechazo"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "v-btn",
-        {
-          staticClass: "green--text2",
-          attrs: { block: "", flat: "", disabled: !_vm.valid },
-          on: { click: _vm.addRechazo }
-        },
-        [
-          _vm._v("\n        Guardar\n        "),
-          _c("v-icon", { attrs: { dark: "", right: "" } }, [_vm._v("send")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("v-divider", { staticClass: "green" })
-    ],
-    1
-  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49707,75 +49472,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/notario/AppAgregarRechazo.vue":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/notario/AppAgregarRechazo.vue ***!
-  \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppAgregarRechazo.vue?vue&type=template&id=d2afde40& */ "./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40&");
-/* harmony import */ var _AppAgregarRechazo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppAgregarRechazo.vue?vue&type=script&lang=js& */ "./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _AppAgregarRechazo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/notario/AppAgregarRechazo.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppAgregarRechazo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppAgregarRechazo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppAgregarRechazo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40& ***!
-  \**********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppAgregarRechazo.vue?vue&type=template&id=d2afde40& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/notario/AppAgregarRechazo.vue?vue&type=template&id=d2afde40&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppAgregarRechazo_vue_vue_type_template_id_d2afde40___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/notario/AppEnvioRevision.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/notario/AppEnvioRevision.vue ***!
@@ -50278,8 +49974,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_notario_AppEstatusTres__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/notario/AppEstatusTres */ "./resources/js/components/notario/AppEstatusTres.vue");
 /* harmony import */ var _components_AppModalSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/AppModalSearch */ "./resources/js/components/AppModalSearch.vue");
 /* harmony import */ var _components_notario_AppIncripcionExpediente__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/notario/AppIncripcionExpediente */ "./resources/js/components/notario/AppIncripcionExpediente.vue");
-/* harmony import */ var _components_notario_AppAgregarRechazo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/notario/AppAgregarRechazo */ "./resources/js/components/notario/AppAgregarRechazo.vue");
-/* harmony import */ var _routes_notarios_routes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routes/notarios_routes */ "./resources/js/routes/notarios_routes.js");
+/* harmony import */ var _routes_notarios_routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routes/notarios_routes */ "./resources/js/routes/notarios_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -50298,21 +49993,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('my-component', __webpack_require__(/*! ./components/Example-component.vue */ "./resources/js/components/Example-component.vue"));
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-modal-search', _components_AppModalSearch__WEBPACK_IMPORTED_MODULE_6__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-estatus-tres', _components_notario_AppEstatusTres__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-incripcion-expediente', _components_notario_AppIncripcionExpediente__WEBPACK_IMPORTED_MODULE_7__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-agregar-rechazo', _components_notario_AppAgregarRechazo__WEBPACK_IMPORTED_MODULE_8__["default"]);
 /**
  * CREDITOS
  */
 
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  routes: _routes_notarios_routes__WEBPACK_IMPORTED_MODULE_9__["default"]
+  routes: _routes_notarios_routes__WEBPACK_IMPORTED_MODULE_8__["default"]
 });
 var app_notario = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#notario',
