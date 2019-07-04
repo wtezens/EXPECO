@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Gerencia;
 
-use App\Http\Controllers\Controller;
-use App\Models\Credit;
 use Auth;
+use App\Models\Credit;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationReadyForRegistration;
 
 class GerenciaController extends Controller
 {
@@ -65,11 +67,16 @@ class GerenciaController extends Controller
 
     public function estatusSeis($idexpediente){
         try {
-            $credito=Credit::where('id',$idexpediente)->firstOrFail();
+            $credito = Credit::where('id', $idexpediente)->firstOrFail();
 
             $this->authorize('gerencia',$credito);
 
-            $credito->statuses()->attach(6);
+            //$credito->statuses()->attach(6);
+
+            $email = $credito->partner->name;
+            /*Mail::to('wilmer.tezen@ecosabarl.com')
+                ->send(new NotificationReadyForRegistration($credito));*/
+
             return array('estatus'=>'ok','descripcion'=>'Estatus agregado correctamente');
 
         } catch (\Illuminate\Database\QueryException $e){
