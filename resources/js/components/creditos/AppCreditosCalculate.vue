@@ -42,9 +42,9 @@
                                         <v-flex xs6 sm4 md4 lg3 xl3 px-1>
                                             <v-text-field
                                                     validate-on-blur
-                                                    ref="avaluo"
-                                                    label="Avalúo"
-                                                    v-model="avaluo"
+                                                    ref="seguro_sp"
+                                                    label="Seguro S/P:"
+                                                    v-model="seguro_sp"
                                                     :rules="defaultMontoRules"
                                                     suffix="Q."
                                                     required
@@ -58,6 +58,19 @@
                                                     ref="interes_sp"
                                                     label="Interés S/P:"
                                                     v-model="interes_sp"
+                                                    :rules="defaultMontoRules"
+                                                    suffix="Q."
+                                                    required
+                                                    reverse
+                                            >
+                                            </v-text-field>
+                                        </v-flex>
+                                        <v-flex xs6 sm4 md4 lg3 xl3 px-1>
+                                            <v-text-field
+                                                    validate-on-blur
+                                                    ref="avaluo"
+                                                    label="Avalúo"
+                                                    v-model="avaluo"
                                                     :rules="defaultMontoRules"
                                                     suffix="Q."
                                                     required
@@ -212,6 +225,13 @@
                                                 </v-flex>
                                                 <v-flex xs6>
                                                     <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(GastosEscrituracion,2)" ></span></p>
+                                                </v-flex>
+                                                <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
+                                                <v-flex xs6>
+                                                    <h1 class="body-2 text-xs-left">Seguro S/P</h1>
+                                                </v-flex>
+                                                <v-flex xs6>
+                                                    <p class="blue--text mb-2">Q. <span v-text="roundedNumeric(seguro_sp,2)" ></span></p>
                                                 </v-flex>
                                                 <v-flex xs12><v-divider class="mx-5"></v-divider></v-flex>
                                                 <v-flex xs6>
@@ -505,6 +525,7 @@
                 monto_prestamo:'',
                 nuevo_saldo:'',
                 avaluo:'',
+                seguro_sp:'',
                 interes_sp:'',
                 seguro_vida:'',
                 saldo_actual:'',
@@ -547,16 +568,16 @@
                 return cadena.toString();
             },
             clear () {
-                this.$refs.form.reset();
-                console.log('normal');
                 this.monto_prestamo='';
                 this.avaluo='';
+                this.seguro_sp='';
                 this.interes_sp='';
                 this.seguro_vida='';
                 this.saldo_actual='';
                 this.finca_extra='';
                 this.saldo_ahorro='';
                 this.saldo_aportacion='';
+                //this.$refs.form.reset();
             }
         },
         computed:{
@@ -683,8 +704,9 @@
                  * SeguroSobrePrestamo + InteresSobrePrestamo + SeguroVida + SaldoActual + GastosEscrituracion
                  * + SaldoAportacion + SaldoAhorro
                  */
-                let monto = parseFloat(this.avaluo) + parseFloat(this.interes_sp) + parseFloat(this.seguro_vida) +
-                    parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro) + this.GastosEscrituracion;
+                let monto = parseFloat(this.seguro_sp) + parseFloat(this.avaluo) + parseFloat(this.interes_sp)
+                    + parseFloat(this.seguro_vida) + parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro)
+                    + this.GastosEscrituracion;
 
                 return this.roundedNumeric(monto,2);
             },

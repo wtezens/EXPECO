@@ -2684,6 +2684,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   props: ['New'],
@@ -2697,6 +2717,7 @@ __webpack_require__.r(__webpack_exports__);
       monto_prestamo: '',
       nuevo_saldo: '',
       avaluo: '',
+      seguro_sp: '',
       interes_sp: '',
       seguro_vida: '',
       saldo_actual: '',
@@ -2743,16 +2764,15 @@ __webpack_require__.r(__webpack_exports__);
       return cadena.toString();
     },
     clear: function clear() {
-      this.$refs.form.reset();
-      console.log('normal');
       this.monto_prestamo = '';
       this.avaluo = '';
+      this.seguro_sp = '';
       this.interes_sp = '';
       this.seguro_vida = '';
       this.saldo_actual = '';
       this.finca_extra = '';
       this.saldo_ahorro = '';
-      this.saldo_aportacion = '';
+      this.saldo_aportacion = ''; //this.$refs.form.reset();
     }
   },
   computed: {
@@ -2874,7 +2894,7 @@ __webpack_require__.r(__webpack_exports__);
        * SeguroSobrePrestamo + InteresSobrePrestamo + SeguroVida + SaldoActual + GastosEscrituracion
        * + SaldoAportacion + SaldoAhorro
        */
-      var monto = parseFloat(this.avaluo) + parseFloat(this.interes_sp) + parseFloat(this.seguro_vida) + parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro) + this.GastosEscrituracion;
+      var monto = parseFloat(this.seguro_sp) + parseFloat(this.avaluo) + parseFloat(this.interes_sp) + parseFloat(this.seguro_vida) + parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro) + this.GastosEscrituracion;
       return this.roundedNumeric(monto, 2);
     },
     SubTotal: function SubTotal() {
@@ -3542,6 +3562,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   props: ['New'],
@@ -3561,6 +3603,7 @@ __webpack_require__.r(__webpack_exports__);
       monto_prestamo: '',
       nuevo_saldo: '',
       avaluo: '',
+      seguro_sp: '',
       interes_sp: '',
       seguro_vida: '',
       saldo_actual: '',
@@ -3757,6 +3800,7 @@ __webpack_require__.r(__webpack_exports__);
       this.notario = '';
       this.monto_prestamo = '';
       this.avaluo = '';
+      this.seguro_sp = '';
       this.interes_sp = '';
       this.seguro_vida = '';
       this.saldo_actual = '';
@@ -3864,7 +3908,7 @@ __webpack_require__.r(__webpack_exports__);
     Imprevistos: function Imprevistos() {
       /**
        * @imprevisto int = 0.1
-       * (CuotaArancel + PrimaArancel+ConsultaElectronica+ReferenciaRGP)* Imprevisto(%)
+       * (CuotaArancel + PrimaArancel + ConsultaElectronica + ReferenciaRGP) * Imprevisto(%)
        */
       var porcentaje = 0.1;
       var monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
@@ -3875,10 +3919,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     GastosEscrituracion: function GastosEscrituracion() {
       /**
-       * MontoFincaExtra + MontoHonorariosNotario + MontoIVA + GastosPapeleria + TimbreNotarial + CuotaArancel
+       * MontoFincaExtra + MontoHonorariosNotario + MontoIVA + TimbreNotarial + CuotaArancel
        * + PrimaArancel + ConsultaElectronica + ReferenciaRGP + Imprevistos + RazonRegistral + GastosPapeleria
+       * + GastoProtocolo
        */
-      var monto = this.MontoFincaExtra + this.MontoHonorariosNotario + this.MontoIVA + this.GastosPapeleria + this.TimbreNotarial + this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP + this.Imprevistos + this.RazonRegistral + this.GastosProtocolo;
+      var monto = this.MontoFincaExtra + this.MontoHonorariosNotario + this.MontoIVA + this.TimbreNotarial + this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP + this.Imprevistos + this.RazonRegistral + this.GastosPapeleria + this.GastosProtocolo;
       return this.roundedNumeric(monto, 2);
     },
     SubTotal: function SubTotal() {
@@ -3890,7 +3935,7 @@ __webpack_require__.r(__webpack_exports__);
        * SeguroSobrePrestamo + InteresSobrePrestamo + SeguroVida + SaldoActual + GastosEscrituracion
        * + SaldoAportacion + SaldoAhorro
        */
-      var monto = parseFloat(this.avaluo) + parseFloat(this.interes_sp) + parseFloat(this.seguro_vida) + parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro) + this.GastosEscrituracion;
+      var monto = parseFloat(this.seguro_sp) + parseFloat(this.interes_sp) + parseFloat(this.seguro_vida) + parseFloat(this.avaluo) + parseFloat(this.saldo_aportacion) + parseFloat(this.saldo_ahorro) + this.GastosEscrituracion;
       return this.roundedNumeric(monto, 2);
     },
     TotalAmpliacion: function TotalAmpliacion() {
@@ -7359,21 +7404,21 @@ var render = function() {
                                         },
                                         [
                                           _c("v-text-field", {
-                                            ref: "avaluo",
+                                            ref: "seguro_sp",
                                             attrs: {
                                               "validate-on-blur": "",
-                                              label: "Avalúo",
+                                              label: "Seguro S/P:",
                                               rules: _vm.defaultMontoRules,
                                               suffix: "Q.",
                                               required: "",
                                               reverse: ""
                                             },
                                             model: {
-                                              value: _vm.avaluo,
+                                              value: _vm.seguro_sp,
                                               callback: function($$v) {
-                                                _vm.avaluo = $$v
+                                                _vm.seguro_sp = $$v
                                               },
-                                              expression: "avaluo"
+                                              expression: "seguro_sp"
                                             }
                                           })
                                         ],
@@ -7409,6 +7454,41 @@ var render = function() {
                                                 _vm.interes_sp = $$v
                                               },
                                               expression: "interes_sp"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          attrs: {
+                                            xs6: "",
+                                            sm4: "",
+                                            md4: "",
+                                            lg3: "",
+                                            xl3: "",
+                                            "px-1": ""
+                                          }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            ref: "avaluo",
+                                            attrs: {
+                                              "validate-on-blur": "",
+                                              label: "Avalúo",
+                                              rules: _vm.defaultMontoRules,
+                                              suffix: "Q.",
+                                              required: "",
+                                              reverse: ""
+                                            },
+                                            model: {
+                                              value: _vm.avaluo,
+                                              callback: function($$v) {
+                                                _vm.avaluo = $$v
+                                              },
+                                              expression: "avaluo"
                                             }
                                           })
                                         ],
@@ -8034,6 +8114,50 @@ var render = function() {
                                                     textContent: _vm._s(
                                                       _vm.roundedNumeric(
                                                         _vm.GastosEscrituracion,
+                                                        2
+                                                      )
+                                                    )
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c("v-divider", {
+                                                staticClass: "mx-5"
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c("v-flex", { attrs: { xs6: "" } }, [
+                                            _c(
+                                              "h1",
+                                              {
+                                                staticClass:
+                                                  "body-2 text-xs-left"
+                                              },
+                                              [_vm._v("Seguro S/P")]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("v-flex", { attrs: { xs6: "" } }, [
+                                            _c(
+                                              "p",
+                                              {
+                                                staticClass: "blue--text mb-2"
+                                              },
+                                              [
+                                                _vm._v("Q. "),
+                                                _c("span", {
+                                                  domProps: {
+                                                    textContent: _vm._s(
+                                                      _vm.roundedNumeric(
+                                                        _vm.seguro_sp,
                                                         2
                                                       )
                                                     )
@@ -9352,21 +9476,21 @@ var render = function() {
                                         },
                                         [
                                           _c("v-text-field", {
-                                            ref: "avaluo",
+                                            ref: "seguro_sp",
                                             attrs: {
                                               "validate-on-blur": "",
-                                              label: "Avalúo",
+                                              label: "Seguro S/P:",
                                               rules: _vm.defaultMontoRules,
                                               suffix: "Q.",
                                               required: "",
                                               reverse: ""
                                             },
                                             model: {
-                                              value: _vm.avaluo,
+                                              value: _vm.seguro_sp,
                                               callback: function($$v) {
-                                                _vm.avaluo = $$v
+                                                _vm.seguro_sp = $$v
                                               },
-                                              expression: "avaluo"
+                                              expression: "seguro_sp"
                                             }
                                           })
                                         ],
@@ -9402,6 +9526,41 @@ var render = function() {
                                                 _vm.interes_sp = $$v
                                               },
                                               expression: "interes_sp"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          attrs: {
+                                            xs6: "",
+                                            sm4: "",
+                                            md4: "",
+                                            lg4: "",
+                                            xl3: "",
+                                            "px-1": ""
+                                          }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            ref: "avaluo",
+                                            attrs: {
+                                              "validate-on-blur": "",
+                                              label: "Avalúo",
+                                              rules: _vm.defaultMontoRules,
+                                              suffix: "Q.",
+                                              required: "",
+                                              reverse: ""
+                                            },
+                                            model: {
+                                              value: _vm.avaluo,
+                                              callback: function($$v) {
+                                                _vm.avaluo = $$v
+                                              },
+                                              expression: "avaluo"
                                             }
                                           })
                                         ],
@@ -10219,6 +10378,48 @@ var render = function() {
                                                     textContent: _vm._s(
                                                       _vm.roundedNumeric(
                                                         _vm.GastosEscrituracion,
+                                                        2
+                                                      )
+                                                    )
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ])
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-divider", { staticClass: "mx-5" }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-layout",
+                                        { attrs: { row: "", wrap: "" } },
+                                        [
+                                          _c("v-flex", { attrs: { xs6: "" } }, [
+                                            _c(
+                                              "h1",
+                                              {
+                                                staticClass:
+                                                  "body-2 text-xs-left"
+                                              },
+                                              [_vm._v("Seguro S/P")]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("v-flex", { attrs: { xs6: "" } }, [
+                                            _c(
+                                              "p",
+                                              {
+                                                staticClass: "blue--text mb-2"
+                                              },
+                                              [
+                                                _vm._v("Q. "),
+                                                _c("span", {
+                                                  domProps: {
+                                                    textContent: _vm._s(
+                                                      _vm.roundedNumeric(
+                                                        _vm.seguro_sp,
                                                         2
                                                       )
                                                     )
