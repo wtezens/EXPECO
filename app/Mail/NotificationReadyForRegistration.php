@@ -7,22 +7,22 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotificationReadyForRegistration extends Mailable
+class NotificationReadyForRegistration extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     public $subject = 'Inscripción registral';
 
-    public $credit;
+    public $credito;
 
     /**
      * Create a new message instance.
      * @var $credit
      * @return void
      */
-    public function __construct($credit)
+    public function __construct($credito)
     {
-        //
+        $this->credito = $credito;
     }
 
     /**
@@ -32,7 +32,7 @@ class NotificationReadyForRegistration extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.notification_gerency');
+        return $this->markdown('emails.notification_gerency');
     }
 
 }

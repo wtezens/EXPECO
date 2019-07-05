@@ -64,18 +64,22 @@ class GerenciaController extends Controller
         }
     }
 
-
+    /**
+     * @param $idexpediente
+     * @return array|\Exception|\Illuminate\Database\QueryException
+     * Estatus 6: Envio a Inscripción Registral
+     */
     public function estatusSeis($idexpediente){
         try {
             $credito = Credit::where('id', $idexpediente)->firstOrFail();
 
-            $this->authorize('gerencia',$credito);
+            $this->authorize('gerencia', $credito);
 
-            //$credito->statuses()->attach(6);
+            $credito->statuses()->attach(6);
 
-            $email = $credito->partner->name;
-            /*Mail::to('wilmer.tezen@ecosabarl.com')
-                ->send(new NotificationReadyForRegistration($credito));*/
+            //Enviar confirmación al correo del notario
+            Mail::to($credito->notary->email)
+                ->send(new NotificationReadyForRegistration($credito));
 
             return array('estatus'=>'ok','descripcion'=>'Estatus agregado correctamente');
 
