@@ -13,7 +13,10 @@ class SoporteController extends Controller
         $this->middleware('auth:colaborador');
     }
 
+//    public function home(){
+//        return view('dashboards.soporte');
+//    }
     public function home(){
-        return view('dashboards.soporte');
+        return view('dashboards.soporte')->with('PageTitle','Soporte');
     }
 }
