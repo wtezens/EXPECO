@@ -1,11 +1,11 @@
 import Logout from '../components/login/AppLogout'
 import ChangePassword from '../components/login/AppChangePassword'
-import DashboardSoporte from '../components/soporte/dashboardSoporte'
+import dashboardSoporte from '../components/soporte/dashboardSoporte'
 const routes = [
     {
         path:'/',
         name:'home',
-        component: DashboardSoporte,
+        component: dashboardSoporte,
     },
     {
         path:'/logout',
