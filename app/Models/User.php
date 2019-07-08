@@ -33,12 +33,18 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Models\Role');
     }
 
-    public function hasRole(){
-        $role=$this->role();
 
-        foreach($role as $name)
-        {
-            return $name->nombre;
+    /**
+     * Evaluamos si un usuario posee alguno de los roles enviados en el array
+     * @param array $roles
+     * @return bool
+     */
+    public function hasRole(array $roles){
+        foreach ($roles as $role){
+            if ($this->role->nombre === $role){
+                return true;
+            }
         }
+        return false;
     }
 }
