@@ -46,7 +46,7 @@
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button green--text2"
-                                   :to="{name:'anticipo.show'}"
+                                   :to="{name:'usuario.show'}"
                             >
                                 <v-icon>visibility</v-icon>
                             </v-btn>
@@ -78,20 +78,20 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   :to="{name:'liquidar.create'}"
+                                   :to="{name:'notario.create'}"
                             >
                                 <v-icon>add</v-icon>
                             </v-btn>
-                            <span>Pagar Liquidacion</span>
+                            <span>Nuevo notario</span>
                         </v-tooltip>
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   :to="{name:'liquidar.show'}"
+                                   :to="{name:'notario.show'}"
                             >
                                 <v-icon>visibility</v-icon>
                             </v-btn>
-                            <span>Ver liquidados</span>
+                            <span>Ver notarios</span>
                         </v-tooltip>
                     </v-card-actions>
                 </v-card>
@@ -119,11 +119,11 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   :to="{name:'liquidar.show'}"
+                                   :to="{name:'reporte.show'}"
                             >
                                 <v-icon>add</v-icon>
                             </v-btn>
-                            <span>Nuevo anticipo</span>
+                            <span>Nuevo reporte</span>
                         </v-tooltip>
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
@@ -132,7 +132,7 @@
                             >
                                 <v-icon>visibility</v-icon>
                             </v-btn>
-                            <span>Ver anticipos</span>
+                            <span>Ver Reportes</span>
                         </v-tooltip>
                     </v-card-actions>
                 </v-card>
@@ -155,30 +155,7 @@
             test:function () {
                 alert('mensaje');
             },
-            formatDate:function(date){
-                if (date == null || date == undefined ){
-                    return '-';
-                }else{
-                    let only_date=date.split(' ');
-                    let fecha = only_date[0].split('-');
 
-                    let monthNames = [
-                        "Ene.", "Feb.", "Mar.",
-                        "Abr.", "May.", "Jun.", "Jul.",
-                        "Ago.", "Sep.", "Oct.",
-                        "Nov.", "Dic."
-                    ];
-
-                    let day = fecha[2];
-                    let monthIndex = fecha[1]-1;
-                    let year = fecha[0];
-
-                    return day + ' ' + monthNames[parseInt(monthIndex)] + ' ' + year;
-                }
-            },
-            // showItem(item){
-            //     window.open('/colaborador/');
-            // }
         }
     }
 </script>

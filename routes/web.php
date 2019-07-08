@@ -187,8 +187,13 @@ Route::prefix('colaborador')->group(function (){
  ************************************************************************************/
 Route::prefix('soporte')->group(function (){
     Route::get('/panel','Soporte\SoporteController@home')->name('soporte.home');
-});
+    Route::get ( '/list/roles','Soporte\SoporteController@getRoles')->name('listado_roles');
+    Route::post( '/validar/email','Soporte\SoporteController@validateEmail')->name('validar_email');
+    Route::get ( '/usuarios','Soporte\SoporteController@getUsers')->name('usuarios');
+    Route::post( '/usuario/store','Soporte\SoporteController@storeUser')->name('nuevo_usuario');
+    Route::post( '/usuario/{user}/state','Soporte\SoporteController@updateUserState')->where( 'user','[0-9]+')->name('cambiar_estado');
 
+});
 Route::prefix('notario')->group(function (){
     /**************************************************************************
      * LOGIN NOTARIO                                                          *

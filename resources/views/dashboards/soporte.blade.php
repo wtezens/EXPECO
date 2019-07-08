@@ -72,5 +72,5 @@
     </v-content>
     @stop
 @section('script')
-    <script src="{{asset('js/soporte/soporte.js?version=1.0.1')}}"></script>
+    <script src="{{asset('js/soporte/soporte.js?version=1.0.2')}}"></script>
     @stop

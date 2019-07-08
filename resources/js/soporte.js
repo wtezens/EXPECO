@@ -39,7 +39,7 @@ const app_soporte = new Vue({
             actionsUser: [
                 ['Cambiar contraseña', 'settings','/password'],
                 ['Cerrar Sesión', 'exit_to_app','/logout']
-            ]
+            ],
         }
     }
 });
