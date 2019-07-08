@@ -13,7 +13,7 @@ class GerentesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:colaborador');
+        $this->middleware(['auth:colaborador','role:general_manager']);
     }
 
     public function home(){

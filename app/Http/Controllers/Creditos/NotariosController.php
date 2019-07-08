@@ -10,7 +10,7 @@ class NotariosController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:colaborador');
+        $this->middleware(['auth:colaborador','role:credit_secretary']);
     }
 
     /**
