@@ -2152,8 +2152,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "FormNewUser",
+  name: "AppNewUsuario",
   data: function data() {
     return {
       y: 'top',
@@ -2167,8 +2180,8 @@ __webpack_require__.r(__webpack_exports__);
       }, function (v) {
         return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'el correo no es válido';
       }],
-      name: '',
-      surname: '',
+      nombres: '',
+      apellidos: '',
       nameRules: [function (v) {
         return !!v || 'ingrese los datos';
       }, function (v) {
@@ -2178,6 +2191,8 @@ __webpack_require__.r(__webpack_exports__);
       }],
       rol: 0,
       //role selected
+      agencia: '',
+      //seleccionar agencia
       requiredOption: [function (v) {
         return !!v || 'seleccione una opción';
       }],
@@ -2199,7 +2214,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('/soporte/validar/email', {
           email: this.email
         }).then(function (response) {
-          if (response.data.status === 'fail') {
+          if (response.data.estatus === 'fail') {
             swal({
               title: 'El correo proporcionado ya existe.',
               text: 'Ingrese un correo único.',
@@ -2231,15 +2246,18 @@ __webpack_require__.r(__webpack_exports__);
       if (this.$refs.form.validate()) {
         axios.post('/soporte/usuario/store', {
           email: this.email,
-          nombre: this.name,
-          apellido: this.surname,
+          nombre: this.nombres,
+          apellido: this.apellidos,
           role: this.rol,
+          agencia: this.agencia,
           password: this.password
         }).then(function (response) {
-          if (response.data.status === 'ok') {
+          console.log(response.data);
+
+          if (response.data.estatus === 'ok') {
             swal({
               type: 'success',
-              title: response.data.description,
+              title: response.data.descripcion,
               showConfirmButton: true,
               buttonsStyling: false,
               confirmButtonClass: 'v-btn primary'
@@ -2250,16 +2268,16 @@ __webpack_require__.r(__webpack_exports__);
             _this2.$root.total_users++;
 
             _this2.clear();
-          } else if (response.data.status === 'fail') {
+          } else if (response.data.estatus === 'fail') {
             swal({
               type: 'error',
-              title: response.data.description,
+              title: response.data.descripcion,
               text: 'Email Duplicate: No es posible registrar al usuario.',
               showConfirmButton: true,
               buttonsStyling: false,
               confirmButtonClass: 'v-btn primary'
             });
-          } else if (response.data.status === 'duplicate key') {
+          } else if (response.data.estatus === 'duplicate key') {
             swal({
               type: 'error',
               title: 'Datos duplicados.',
@@ -2268,7 +2286,7 @@ __webpack_require__.r(__webpack_exports__);
               buttonsStyling: false,
               confirmButtonClass: 'v-btn primary'
             });
-          } else if (response.data.status === 'a foreign key constraint fails') {
+          } else if (response.data.estatus === 'a foreign key constraint fails') {
             swal({
               type: 'error',
               title: 'Violación de Integridad.',
@@ -2277,7 +2295,7 @@ __webpack_require__.r(__webpack_exports__);
               buttonsStyling: false,
               confirmButtonClass: 'v-btn primary'
             });
-          } else if (response.data.status === 'incorrect type value') {
+          } else if (response.data.estatus === 'incorrect type value') {
             swal({
               type: 'error',
               title: 'Valores incorrectos.',
@@ -2291,7 +2309,7 @@ __webpack_require__.r(__webpack_exports__);
           if (error.response.data.errors) {
             _this2.errors = error.response.data.errors;
             _this2.alertErrors = true;
-          } else if (error.response.status === 403) {
+          } else if (error.response.estatus === 403) {
             swal({
               type: 'error',
               title: '403. Forbidden',
@@ -2299,7 +2317,7 @@ __webpack_require__.r(__webpack_exports__);
               buttonsStyling: false,
               confirmButtonClass: 'v-btn primary'
             });
-          } else if (error.response.status === 404) {
+          } else if (error.response.estatus === 404) {
             swal({
               type: 'error',
               title: '404: Fallo en la operación.',
@@ -2320,10 +2338,11 @@ __webpack_require__.r(__webpack_exports__);
     clear: function clear() {
       this.$refs.form.reset();
       this.email = '';
-      this.name = '';
-      this.surname = '';
+      this.nombres = '';
+      this.apellidos = '';
       this.rol = '';
       this.password = '';
+      this.agencia = '';
     },
 
     /**
@@ -4198,11 +4217,11 @@ var render = function() {
                                   required: ""
                                 },
                                 model: {
-                                  value: _vm.name,
+                                  value: _vm.nombres,
                                   callback: function($$v) {
-                                    _vm.name = $$v
+                                    _vm.nombres = $$v
                                   },
-                                  expression: "name"
+                                  expression: "nombres"
                                 }
                               })
                             ],
@@ -4225,11 +4244,11 @@ var render = function() {
                                   required: ""
                                 },
                                 model: {
-                                  value: _vm.surname,
+                                  value: _vm.apellidos,
                                   callback: function($$v) {
-                                    _vm.surname = $$v
+                                    _vm.apellidos = $$v
                                   },
-                                  expression: "surname"
+                                  expression: "apellidos"
                                 }
                               })
                             ],
@@ -4268,12 +4287,36 @@ var render = function() {
                           _c(
                             "v-flex",
                             {
-                              attrs: {
-                                xs12: "",
-                                sm12: "",
-                                md12: "",
-                                "pb-2": ""
-                              }
+                              attrs: { xs12: "", sm12: "", md6: "", "pb-2": "" }
+                            },
+                            [
+                              _c("v-select", {
+                                ref: "agencia",
+                                attrs: {
+                                  "validate-on-blur": "",
+                                  "prepend-icon": "list",
+                                  items: this.$root.agencias,
+                                  itemText: "nombre",
+                                  "item-value": "id",
+                                  label: "agencia",
+                                  rules: _vm.requiredOption
+                                },
+                                model: {
+                                  value: _vm.agencia,
+                                  callback: function($$v) {
+                                    _vm.agencia = $$v
+                                  },
+                                  expression: "agencia"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            {
+                              attrs: { xs12: "", sm12: "", md6: "", "pb-2": "" }
                             },
                             [
                               _c("v-text-field", {
@@ -46049,8 +46092,78 @@ var app_soporte = new Vue({
   data: function data() {
     return {
       left_menu: false,
-      actionsUser: [['Cambiar contraseña', 'settings', '/password'], ['Cerrar Sesión', 'exit_to_app', '/logout']]
+      actionsUser: [['Cambiar contraseña', 'settings', '/password'], ['Cerrar Sesión', 'exit_to_app', '/logout']],
+      users: [],
+      total_users: 0,
+      roles: [],
+      agencias: []
     };
+  },
+  created: function created() {
+    this.getUsers();
+    this.getRoles();
+    this.getAgencias();
+  },
+  methods: {
+    /**
+     * Obtenemos todos los usuarios del sistema
+     */
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios.get('/soporte/usuarios/').then(function (response) {
+        _this.users = response.data.datos;
+        _this.total_users = response.data.total;
+      })["catch"](function (error) {
+        if (error.response.status === 403) {
+          swal({
+            type: 'error',
+            title: '403. Forbidden',
+            text: 'No tiene autorización para realizar esta acción.',
+            buttonsStyling: false,
+            confirmButtonClass: 'v-btn primary'
+          });
+        } else if (error.response.status === 404) {
+          swal({
+            type: 'error',
+            title: 'Fallo en la operación.',
+            text: 'No se pudo completar la consulta.',
+            buttonsStyling: false,
+            confirmButtonClass: 'v-btn primary'
+          });
+        } else {
+          swal({
+            title: error.toString(),
+            buttonsStyling: false,
+            confirmButtonClass: 'v-btn primary'
+          });
+        }
+      });
+    },
+    getRoles: function getRoles() {
+      var _this2 = this;
+
+      axios.get('/soporte/list/roles').then(function (res) {
+        _this2.roles = res.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No pudimos obtener los roles.',
+          text: error.toString()
+        });
+      });
+    },
+    getAgencias: function getAgencias() {
+      var _this3 = this;
+
+      axios.get('/soporte/list/agencias').then(function (res) {
+        _this3.agencias = res.data;
+      })["catch"](function (error) {
+        swal({
+          title: 'No pudimos obtener las agencias.',
+          text: error.toString()
+        });
+      });
+    }
   }
 });
 

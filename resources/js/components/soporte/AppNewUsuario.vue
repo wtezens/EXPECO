@@ -50,7 +50,7 @@
                                     validate-on-blur
                                     prepend-icon="account_circle"
                                     ref="name"
-                                    v-model="name"
+                                    v-model="nombres"
                                     label="nombres"
                                     :rules="nameRules"
                                     required
@@ -62,7 +62,7 @@
                                     validate-on-blur
                                     prepend-icon="code"
                                     ref="surname"
-                                    v-model="surname"
+                                    v-model="apellidos"
                                     label="apellidos"
                                     :rules="nameRules"
                                     required
@@ -82,7 +82,20 @@
                                     :rules="requiredOption"
                                 ></v-select>
                             </v-flex>
-                            <v-flex xs12 sm12 md12 pb-2>
+                            <v-flex xs12 sm12 md6 pb-2>
+                                <v-select
+                                    ref="agencia"
+                                    validate-on-blur
+                                    prepend-icon="list"
+                                    v-bind:items="this.$root.agencias"
+                                    itemText="nombre"
+                                    item-value="id"
+                                    label="agencia"
+                                    v-model="agencia"
+                                    :rules="requiredOption"
+                                ></v-select>
+                            </v-flex>
+                            <v-flex xs12 sm12 md6 pb-2>
                                 <v-text-field
                                     validate-on-blur
                                     prepend-icon="lock"
@@ -113,7 +126,7 @@
 
 <script>
     export default {
-        name: "FormNewUser",
+        name: "AppNewUsuario",
         data:()=>{
             return {
                 y:'top',
@@ -128,8 +141,8 @@
                     v => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'el correo no es válido'
                 ],
 
-                name: '',
-                surname: '',
+                nombres: '',
+                apellidos: '',
                 nameRules: [
                     v => !!v || 'ingrese los datos',
                     v => v.length <=20 || 'nombre muy largo',
@@ -137,6 +150,7 @@
                 ],
 
                 rol: 0,     //role selected
+                agencia:'', //seleccionar agencia
                 requiredOption: [
                     v => !!v || 'seleccione una opción'
                 ],
@@ -156,7 +170,7 @@
                         email: this.email
                     })
                         .then(response => {
-                            if(response.data.status === 'fail') {
+                            if(response.data.estatus === 'fail') {
                                 swal({
                                     title: 'El correo proporcionado ya existe.',
                                     text: 'Ingrese un correo único.',
@@ -189,16 +203,19 @@
                 if(this.$refs.form.validate()) {
                     axios.post('/soporte/usuario/store', {
                         email: this.email,
-                        nombre: this.name,
-                        apellido: this.surname,
+                        nombre: this.nombres,
+                        apellido: this.apellidos,
                         role: this.rol,
+                        agencia: this.agencia,
                         password: this.password
+
                     })
                         .then(response => {
-                            if (response.data.status === 'ok') {
+                            console.log(response.data)
+                            if (response.data.estatus === 'ok') {
                                 swal({
                                     type: 'success',
-                                    title: response.data.description,
+                                    title: response.data.descripcion,
                                     showConfirmButton: true,
                                     buttonsStyling: false,
                                     confirmButtonClass: 'v-btn primary'
@@ -207,16 +224,16 @@
                                 this.$root.total_users++;
                                 this.clear();
 
-                            } else if (response.data.status === 'fail') {
+                            } else if (response.data.estatus === 'fail') {
                                 swal({
                                     type: 'error',
-                                    title: response.data.description,
+                                    title: response.data.descripcion,
                                     text: 'Email Duplicate: No es posible registrar al usuario.',
                                     showConfirmButton: true,
                                     buttonsStyling: false,
                                     confirmButtonClass: 'v-btn primary'
                                 });
-                            }else if(response.data.status==='duplicate key'){
+                            }else if(response.data.estatus==='duplicate key'){
                                 swal({
                                     type: 'error',
                                     title: 'Datos duplicados.',
@@ -225,7 +242,7 @@
                                     buttonsStyling:false,
                                     confirmButtonClass:'v-btn primary'
                                 })
-                            } else if(response.data.status==='a foreign key constraint fails'){
+                            } else if(response.data.estatus==='a foreign key constraint fails'){
                                 swal({
                                     type: 'error',
                                     title: 'Violación de Integridad.',
@@ -234,7 +251,7 @@
                                     buttonsStyling:false,
                                     confirmButtonClass:'v-btn primary'
                                 })
-                            }else if(response.data.status==='incorrect type value'){
+                            }else if(response.data.estatus==='incorrect type value'){
                                 swal({
                                     type: 'error',
                                     title: 'Valores incorrectos.',
@@ -249,7 +266,7 @@
                             if (error.response.data.errors) {
                                 this.errors = error.response.data.errors;
                                 this.alertErrors = true;
-                            }else if(error.response.status===403){
+                            }else if(error.response.estatus===403){
                                 swal({
                                     type:'error',
                                     title:'403. Forbidden',
@@ -257,7 +274,7 @@
                                     buttonsStyling:false,
                                     confirmButtonClass:'v-btn primary'
                                 })
-                            }else if(error.response.status===404){
+                            }else if(error.response.estatus===404){
                                 swal({
                                     type:'error',
                                     title:'404: Fallo en la operación.',
@@ -278,10 +295,11 @@
             clear () {
                 this.$refs.form.reset();
                 this.email = '';
-                this.name = '';
-                this.surname = '';
+                this.nombres = '';
+                this.apellidos = '';
                 this.rol = '';
                 this.password = '';
+                this.agencia='';
             },
             /**
              * Convierte el objeto cadena en un string

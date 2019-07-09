@@ -37,9 +37,79 @@ const app_soporte = new Vue({
         return {
             left_menu: false,
             actionsUser: [
-                ['Cambiar contraseña', 'settings','/password'],
-                ['Cerrar Sesión', 'exit_to_app','/logout']
+                ['Cambiar contraseña', 'settings', '/password'],
+                ['Cerrar Sesión', 'exit_to_app', '/logout']
             ],
+            users: [],
+            total_users: 0,
+            roles: [],
+            agencias:[],
+        };
+    },
+    created: function () {
+        this.getUsers();
+        this.getRoles();
+        this.getAgencias();
+    },
+        methods: {
+            /**
+             * Obtenemos todos los usuarios del sistema
+             */
+            getUsers: function () {
+                axios.get('/soporte/usuarios/')
+                    .then(response => {
+                        this.users = response.data.datos;
+                        this.total_users = response.data.total;
+                    })
+                    .catch(error => {
+                        if (error.response.status === 403) {
+                            swal({
+                                type: 'error',
+                                title: '403. Forbidden',
+                                text: 'No tiene autorización para realizar esta acción.',
+                                buttonsStyling: false,
+                                confirmButtonClass: 'v-btn primary'
+                            })
+                        } else if (error.response.status === 404) {
+                            swal({
+                                type: 'error',
+                                title: 'Fallo en la operación.',
+                                text: 'No se pudo completar la consulta.',
+                                buttonsStyling: false,
+                                confirmButtonClass: 'v-btn primary'
+                            })
+                        } else {
+                            swal({
+                                title: error.toString(),
+                                buttonsStyling: false,
+                                confirmButtonClass: 'v-btn primary'
+                            })
+                        }
+                    })
+            },
+            getRoles() {
+                axios.get('/soporte/list/roles')
+                    .then(res => {
+                        this.roles = res.data;
+                    })
+                    .catch(error => {
+                        swal({
+                            title: 'No pudimos obtener los roles.',
+                            text: error.toString()
+                        })
+                    })
+            },
+            getAgencias() {
+                axios.get('/soporte/list/agencias')
+                    .then(res => {
+                        this.agencias = res.data;
+                    })
+                    .catch(error => {
+                        swal({
+                            title: 'No pudimos obtener las agencias.',
+                            text: error.toString()
+                        })
+                    })
+            }
         }
-    }
 });
