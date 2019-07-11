@@ -36,7 +36,7 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
 
-                            <v-btn icon slot="activator" class="navbar_button green--text2"
+                            <v-btn icon slot="activator" class="navbar_button blue--text"
                                    :to="{name:'usuario.new'}"
                             >
                                 <v-icon>add</v-icon>
@@ -45,10 +45,10 @@
                         </v-tooltip>
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
-                            <v-btn icon slot="activator" class="navbar_button green--text2"
+                            <v-btn icon slot="activator" class="navbar_button blue--text"
                                    :to="{name:'usuario.show'}"
                             >
-                                <v-icon>visibility</v-icon>
+                                <v-icon>search</v-icon>
                             </v-btn>
                             <span>Ver usuarios</span>
                         </v-tooltip>
@@ -78,7 +78,7 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   :to="{name:'notario.create'}"
+                                   :to="{name:'notario.new'}"
                             >
                                 <v-icon>add</v-icon>
                             </v-btn>
@@ -89,13 +89,14 @@
                             <v-btn icon slot="activator" class="navbar_button blue--text"
                                    :to="{name:'notario.show'}"
                             >
-                                <v-icon>visibility</v-icon>
+                                <v-icon>search</v-icon>
                             </v-btn>
                             <span>Ver notarios</span>
                         </v-tooltip>
                     </v-card-actions>
                 </v-card>
             </v-flex>
+
 
             <v-flex xs12 sm6 md4 pa-1 class="d-flex">
                 <v-card class="elevation-3 hover bt-box-card">
@@ -119,7 +120,7 @@
                     <v-card-actions>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   :to="{name:'reporte.show'}"
+                                   :to="{name:'reporte.new'}"
                             >
                                 <v-icon>add</v-icon>
                             </v-btn>
@@ -128,9 +129,9 @@
                         <v-spacer></v-spacer>
                         <v-tooltip bottom class="px-3">
                             <v-btn icon slot="activator" class="navbar_button blue--text"
-                                   @click="test"
+                                   :to="{name:'reporte.show'}"
                             >
-                                <v-icon>visibility</v-icon>
+                                <v-icon>search</v-icon>
                             </v-btn>
                             <span>Ver Reportes</span>
                         </v-tooltip>

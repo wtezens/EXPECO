@@ -16,7 +16,9 @@ Vue.use(Vuetify);
 import dashboardSoporte from "./components/soporte/dashboardSoporte";
 import AppFooter from "./components/AppFooter";
 import AppChangePassword from "./components/login/AppChangePassword";
+import AppCardUser from "./components/soporte/card-users";
 
+Vue.component('card-users', AppCardUser);
 Vue.component('AppChangePassword', AppChangePassword);
 Vue.component('app-footer', AppFooter);
 Vue.component('home', dashboardSoporte);

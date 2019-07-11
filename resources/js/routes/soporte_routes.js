@@ -3,6 +3,9 @@ import ChangePassword from '../components/login/AppChangePassword'
 import dashboardSoporte from '../components/soporte/dashboardSoporte'
 import AppNewUsuario from '../components/soporte/AppNewUsuario'
 import AppShowUsuario from '../components/soporte/AppShowUsuario'
+import AppNewNotario from '../components/soporte/AppNewNotario'
+import AppNewReporte from   '../components/soporte/AppNewReporte'
+
 const routes = [
     {
         path:'/',
@@ -32,6 +35,17 @@ const routes = [
         name:'usuario.show',
         component:AppShowUsuario,
     },
+
+    {
+        path:'/notario/new',
+        name:'notario.new',
+        component:AppNewNotario,
+    },
+    {
+        path:'/reporte/nuevo',
+        name:'reporte.new',
+        component:AppNewReporte,
+    }
 ];
 
 export default routes
