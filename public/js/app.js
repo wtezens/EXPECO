@@ -2620,93 +2620,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
-  props: ['New'],
   data: function data() {
     return {
       dialog: false,
@@ -2718,7 +2633,9 @@ __webpack_require__.r(__webpack_exports__);
       nuevo_saldo: '',
       avaluo: '',
       seguro_sp: '',
+      //seguro sobre prestamo
       interes_sp: '',
+      //interes sobre prestamo
       seguro_vida: '',
       saldo_actual: '',
       saldo_ahorro: '',
@@ -2750,7 +2667,6 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  mounted: function mounted() {},
   methods: {
     CalcularDatos: function CalcularDatos() {
       if (this.$refs.form.validate()) {
@@ -2837,27 +2753,24 @@ __webpack_require__.r(__webpack_exports__);
        */
       var porcentaje = 0.0015;
       var MontoPrestamo = parseFloat(this.monto_prestamo);
-      var monto = (MontoPrestamo - 10000) * porcentaje;
-      /*if(MontoPrestamo<10000){
-          return 0;
-      }else{
-          let monto=(MontoPrestamo - 10000) * porcentaje;
-          let entero = parseInt(monto);
-          let decimal = monto - entero;
-          if(decimal ===0.5){
-              return monto;
-          }else if(decimal>0.5){
-              return entero + 2;
-          }
-          else if(decimal==0){
-              return monto;
-          }
-          else{
-              return entero+1.5;
-          }
-      }*/
 
-      return monto;
+      if (MontoPrestamo < 10000) {
+        return 0;
+      } else {
+        var monto = (MontoPrestamo - 10000) * porcentaje;
+        var entero = parseInt(monto);
+        var decimal = monto - entero;
+
+        if (decimal === 0.5) {
+          return monto;
+        } else if (decimal > 0.5) {
+          return entero + 2;
+        } else if (decimal == 0) {
+          return monto;
+        } else {
+          return entero + 1.5;
+        }
+      }
     },
     ConsultaElectronica: function ConsultaElectronica() {
       var monto = 20.00 + 20 * this.finca_extra;
@@ -3478,115 +3391,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
-  props: ['New'],
   data: function data() {
     return {
       dialog: false,
@@ -3604,7 +3410,9 @@ __webpack_require__.r(__webpack_exports__);
       nuevo_saldo: '',
       avaluo: '',
       seguro_sp: '',
+      //seguro sobre prestamo
       interes_sp: '',
+      //interes sobre prestamo
       seguro_vida: '',
       saldo_actual: '',
       saldo_ahorro: '',
@@ -3657,11 +3465,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/creditos/getNotaries').then(function (res) {
-      _this.notarios = res.data;
+    axios.get('/creditos/getNotaries').then(function (response) {
+      _this.notarios = response.data;
     })["catch"](function (error) {
       swal({
-        title: error.toString()
+        title: _this.OnErrorMessages(error.response),
+        text: 'Ref. Notarios - Code: ' + error.response.status,
+        buttonsStyling: false,
+        confirmButtonClass: 'v-btn error'
       });
     });
   },
@@ -3677,26 +3488,27 @@ __webpack_require__.r(__webpack_exports__);
             _this2.nombre_asociado = response.data.nombre;
           } else {
             swal({
-              title: 'El registro no existe',
+              title: 'El registro no existe.',
               type: 'warning',
               html: '<strong>Debe registrar al asociado para continuar, </strong>' + '<b><a href="#/asociado/create">Registrar</a></b>',
               showCloseButton: true,
               buttonsStyling: false,
-              confirmButtonClass: 'v-btn primary'
+              confirmButtonClass: 'v-btn error'
             });
           }
         })["catch"](function (error) {
           swal({
-            title: error.toString(),
+            title: _this2.OnErrorMessages(error.response),
+            text: 'Ref. Asociado - Code: ' + error.response.status,
             buttonsStyling: false,
-            confirmButtonClass: 'v-btn primary'
+            confirmButtonClass: 'v-btn error'
           });
         });
       } else {
         swal({
           title: 'cif incorrecto',
           buttonsStyling: false,
-          confirmButtonClass: 'v-btn primary'
+          confirmButtonClass: 'v-btn error'
         });
       }
     },
@@ -3779,9 +3591,10 @@ __webpack_require__.r(__webpack_exports__);
             _this3.alertErrors = true;
           } else {
             swal({
-              title: error.toString(),
+              title: _this3.OnErrorMessages(error.response),
+              text: 'Ref. Credit Storage - Code: ' + error.response.status,
               buttonsStyling: false,
-              confirmButtonClass: 'v-btn primary'
+              confirmButtonClass: 'v-btn error'
             });
           }
         });
@@ -3812,6 +3625,32 @@ __webpack_require__.r(__webpack_exports__);
       this.garantia = '';
       this.desembolso = '';
       this.nuevo = 0;
+    },
+
+    /*Codigos de Errores
+    * var @error HTTP*/
+    OnErrorMessages: function OnErrorMessages(error) {
+      switch (error.status) {
+        case 404:
+          return 'No se ha podido encontrar el recurso solicitado.';
+          break;
+
+        case 403:
+          return 'No tiene acceso para acceder a este recurso.';
+          break;
+
+        case 419:
+          return 'Su sessión ha expirado, recargue la página.';
+          break;
+
+        case 500:
+          return 'Error del servidor.';
+          break;
+
+        default:
+          return error.statusText;
+          break;
+      }
     }
   },
   computed: {
@@ -9209,13 +9048,9 @@ var render = function() {
                 },
                 [
                   _c("div", [
-                    _vm.New
-                      ? _c("h3", { staticClass: "headline" }, [
-                          _vm._v("DATOS DEL EXPEDIENTE")
-                        ])
-                      : _c("h3", { staticClass: "headline white--text" }, [
-                          _vm._v("Actualizar Registro")
-                        ])
+                    _c("h3", { staticClass: "headline" }, [
+                      _vm._v("DATOS DEL EXPEDIENTE")
+                    ])
                   ])
                 ]
               ),
@@ -55533,10 +55368,7 @@ var routes = [{
 }, {
   path: '/creditos/create',
   name: 'creditos.create',
-  component: _components_creditos_AppCreditosCreate__WEBPACK_IMPORTED_MODULE_3__["default"],
-  props: {
-    New: true
-  }
+  component: _components_creditos_AppCreditosCreate__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/expediente/:idexpediente',
   name: 'expediente.show',

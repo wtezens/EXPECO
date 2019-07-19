@@ -246,5 +246,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/app.js?version=1.0.18')}}"></script>
+    <script src="{{asset('js/app.js?version=1.0.19')}}"></script>
 @stop

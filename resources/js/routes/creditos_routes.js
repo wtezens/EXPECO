@@ -30,7 +30,6 @@ const routes = [
         path:'/creditos/create',
         name:'creditos.create',
         component: CreditosCreate,
-        props: { New:true }
     },
     {
         path:'/expediente/:idexpediente',

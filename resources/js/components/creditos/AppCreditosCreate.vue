@@ -15,28 +15,13 @@
             <v-card>
                 <v-card-title primary-title class="center blue-grey lighten-4">
                     <div>
-                        <h3 class="headline" v-if="New">DATOS DEL EXPEDIENTE</h3>
-                        <h3 class="headline white--text" v-else>Actualizar Registro</h3>
+                        <h3 class="headline">DATOS DEL EXPEDIENTE</h3>
                     </div>
                 </v-card-title>
                 <v-divider class="green"></v-divider>
                 <v-card-text>
                     <v-form id="form_case_file" ref="form" v-model="valido" lazy-validation>
                         <v-layout row wrap>
-                            <!--v-flex xs6 sm4 md2 lg2 xl1 px-1 order-xs1 order-sm1 order-md1 order-lg-1 py-1>
-                                <v-text-field
-                                        validate-on-blur
-                                        autofocus
-                                        ref="expediente"
-                                        v-model="expediente"
-                                        v-on:change="onChangeExpediente"
-                                        label="No. expediente:"
-                                        mask="##########"
-                                        required
-                                        :rules="expedienteRules"
-                                >
-                                </v-text-field>
-                            </v-flex-->
                             <v-flex xs6 sm4 md1 lg2 xl1 px-1 order-xs2 order-sm3 order-md2 order-lg-2 py-1>
                                 <v-text-field
                                         validate-on-blur
@@ -541,109 +526,15 @@
                             </v-flex>
                         </v-layout>
                     </v-container>
-
-                    <!--v-content>
-                        <v-container fluid>
-                            <v-layout row wrap>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Monto base</h1>
-                                    <p class="blue--text">Q. <span v-text="monto_prestamo" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Fincas Adicionales</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoFincaExtra" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Honorarios Abogado</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoHonorariosNotario"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">IVA 12%</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoIVA"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos(papeleria)</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosPapeleria"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos Protocolo</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosProtocolo"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Timbre Notarial</h1>
-                                    <p class="blue--text">Q. <span v-text="TimbreNotarial"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Cuota Arancel</h1>
-                                    <p class="blue--text">Q. <span v-text="CuotaArancel"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Prima Arancel</h1>
-                                    <p class="blue--text">Q. <span v-text="PrimaArancel"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Consulta Electónica</h1>
-                                    <p class="blue--text">Q. <span v-text="ConsultaElectronica"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Referencia Registro</h1>
-                                    <p class="blue--text">Q. <span v-text="ReferenciaRGP"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Imprevistos 10%</h1>
-                                    <p class="blue--text">Q. <span v-text="Imprevistos"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Razón Registral</h1>
-                                    <p class="blue--text">Q. <span v-text="RazonRegistral"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">N&uacute;mero de Escrituras</h1>
-                                    <p class="blue--text"><span v-text="escrituras"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">N&uacute;mero de Contratos</h1>
-                                    <p class="blue--text"><span v-text="contratos"></span></p>
-                                </v-flex>
-                            </v-layout>
-
-                            <v-divider></v-divider>
-                            <v-list three-line subheader>
-                                <v-subheader class="pink--text text--darken-3">Totales</v-subheader>
-                            </v-list>
-                            <v-layout row wrap>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos generados</h1>
-                                    <p class="blue--text">Q. <span v-text="TotalGastos" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos escrituraci&oacute;n</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosEscrituracion"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Total ampliaci&oacute;n</h1>
-                                    <p class="blue--text">Q. <span v-text="TotalAmpliacion"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Nuevo saldo</h1>
-                                    <p class="blue--text">Q. <span v-text="NuevoSaldo"></span></p>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-content-->
                 </v-card>
             </v-dialog>
         </v-layout>
-
     </v-layout>
 </template>
 
 <script>
     export default {
         name: "AppCreditosCreate",
-        props:[
-            'New'
-        ],
         data:()=>{
             return{
                 dialog: false,
@@ -659,8 +550,8 @@
                 monto_prestamo:'',
                 nuevo_saldo:'',
                 avaluo:'',
-                seguro_sp:'',
-                interes_sp:'',
+                seguro_sp:'', //seguro sobre prestamo
+                interes_sp:'',//interes sobre prestamo
                 seguro_vida:'',
                 saldo_actual:'',
                 saldo_ahorro:'',
@@ -671,6 +562,7 @@
                 Registrado:'',
                 Desembolso:'',
                 nuevo:0,
+
                 //RULES
                 expedienteRules:[
                     v => !!v || 'ingrese no. de expediente',
@@ -703,12 +595,15 @@
         },
         mounted(){
             axios.get('/creditos/getNotaries')
-                .then(res => {
-                    this.notarios =res.data;
+                .then(response => {
+                    this.notarios = response.data;
                 })
                 .catch(error => {
                     swal({
-                        title: error.toString()
+                        title: this.OnErrorMessages(error.response),
+                        text:'Ref. Notarios - Code: ' + error.response.status,
+                        buttonsStyling:false,
+                        confirmButtonClass:'v-btn error'
                     })
                 });
         },
@@ -722,29 +617,30 @@
                                 this.nombre_asociado = response.data.nombre;
                             }else{
                                 swal({
-                                    title: 'El registro no existe',
+                                    title: 'El registro no existe.',
                                     type: 'warning',
                                     html:
                                     '<strong>Debe registrar al asociado para continuar, </strong>' +
                                     '<b><a href="#/asociado/create">Registrar</a></b>',
                                     showCloseButton:true,
                                     buttonsStyling:false,
-                                    confirmButtonClass:'v-btn primary'
+                                    confirmButtonClass:'v-btn error'
                                 })
                             }
                         })
                         .catch(error => {
                             swal({
-                                title: error.toString(),
+                                title: this.OnErrorMessages(error.response),
+                                text:'Ref. Asociado - Code: ' + error.response.status,
                                 buttonsStyling:false,
-                                confirmButtonClass:'v-btn primary'
+                                confirmButtonClass:'v-btn error'
                             })
                         });
                 }else{
                     swal({
                         title:'cif incorrecto',
                         buttonsStyling:false,
-                        confirmButtonClass:'v-btn primary'
+                        confirmButtonClass:'v-btn error'
                     })
                 }
             },
@@ -828,9 +724,10 @@
                                 this.alertErrors=true;
                             }else{
                                 swal({
-                                    title:error.toString(),
+                                    title: this.OnErrorMessages(error.response),
+                                    text:'Ref. Credit Storage - Code: ' + error.response.status,
                                     buttonsStyling:false,
-                                    confirmButtonClass:'v-btn primary'
+                                    confirmButtonClass:'v-btn error'
                                 })
                             }
                         });
@@ -861,6 +758,27 @@
                 this.garantia='';
                 this.desembolso='';
                 this.nuevo=0;
+            },
+            /*Codigos de Errores
+            * var @error HTTP*/
+            OnErrorMessages(error){
+                switch (error.status) {
+                    case 404:
+                        return 'No se ha podido encontrar el recurso solicitado.';
+                        break;
+                    case 403:
+                        return 'No tiene acceso para acceder a este recurso.';
+                        break;
+                    case 419:
+                        return 'Su sessión ha expirado, recargue la página.';
+                        break;
+                    case 500:
+                        return 'Error del servidor.';
+                        break;
+                    default:
+                        return error.statusText;
+                        break;
+                }
             }
         },
         computed:{
@@ -868,12 +786,12 @@
              * REGLAMENTO DE NOTARIOS REVISADO Y APROBADO POR EL CONSEJO EL 30 DE SEPTIEMBRE DE 2014 Art. 16.2
              */
             MontoFincaExtra: function () {
-                let monto=parseInt(this.finca_extra)*50;
-                return this.roundedNumeric(monto,2);
+                let monto = parseInt(this.finca_extra) * 50;
+                return this.roundedNumeric(monto, 2);
             },
             MontoHonorariosNotario: function () {
                 //Parseamos la cadena a punto Flotante
-                let MontoPrestamo=parseFloat(this.monto_prestamo);
+                let MontoPrestamo = parseFloat(this.monto_prestamo);
 
                 if (MontoPrestamo >499.99 && MontoPrestamo <=5000.99){
                     return 125.00;
@@ -903,16 +821,16 @@
                 /**
                  * SOBRE LOS HONORARIOS
                  */
-                let iva= 0.12;
-                let monto=this.MontoHonorariosNotario*iva
-                return this.roundedNumeric(monto,2);
+                let iva = 0.12;
+                let monto = this.MontoHonorariosNotario * iva
+                return this.roundedNumeric(monto, 2);
             },
             GastosProtocolo:function () {
-                let protocolo=95.00;
+                let protocolo = 95.00;
                 return protocolo;
             },
             GastosPapeleria: function(){
-                let papeleria =150.00;
+                let papeleria = 150.00;
                 return papeleria;
             },
             CuotaArancel: function () {
@@ -924,31 +842,32 @@
                  * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
                  */
 
-                let porcentaje =0.0015;
+                let porcentaje = 0.0015;
                 let MontoPrestamo = parseFloat(this.monto_prestamo);
                 if(MontoPrestamo<10000){
                     return 0;
                 }else{
-                    let monto=(MontoPrestamo - 10000) * porcentaje;
+                    let monto = (MontoPrestamo - 10000) * porcentaje;
                     let entero = parseInt(monto);
                     let decimal = monto - entero;
-                    if(decimal ===0.5){
+
+                    if(decimal === 0.5){
                         return monto;
-                    }else if(decimal>0.5){
+                    }else if(decimal > 0.5){
                         return entero + 2;
                     }
-                    else if(decimal==0){
+                    else if(decimal == 0){
                         return monto;
                     }
                     else{
-                        return entero+1.5;
+                        return entero + 1.5;
                     }
                 }
             },
             ConsultaElectronica:function () {
                 let monto = 20.00 + (20 * this.finca_extra);
 
-                return this.roundedNumeric(monto,2);
+                return this.roundedNumeric(monto, 2);
             },
             ReferenciaRGP:function () {
                 /**

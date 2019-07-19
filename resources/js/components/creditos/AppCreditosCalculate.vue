@@ -179,8 +179,7 @@
                         <v-toolbar-title>Datos para la resoluci&oacute;n</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
-
-                        <v-container fluid>
+                    <v-container fluid>
                             <v-layout row wrap>
                                 <v-flex xs12 md4 class="px-3">
                                     <v-subheader>Informacion del Financiamiento</v-subheader>
@@ -419,101 +418,15 @@
                                 </v-flex>
                             </v-layout>
                         </v-container>
-
-                    <!--v-content>
-                        <v-container fluid>
-                            <v-layout row wrap>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Monto base</h1>
-                                    <p class="blue--text">Q. <span v-text="monto_prestamo" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Fincas Adicionales</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoFincaExtra" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Honorarios Abogado</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoHonorariosNotario"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">IVA 12%</h1>
-                                    <p class="blue--text">Q. <span v-text="MontoIVA"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos(papeleria)</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosPapeleria"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos Protocolo</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosProtocolo"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Timbre Notarial</h1>
-                                    <p class="blue--text">Q. <span v-text="TimbreNotarial"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Cuota Arancel</h1>
-                                    <p class="blue--text">Q. <span v-text="CuotaArancel"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Prima Arancel</h1>
-                                    <p class="blue--text">Q. <span v-text="PrimaArancel"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Consulta Electónica</h1>
-                                    <p class="blue--text">Q. <span v-text="ConsultaElectronica"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Referencia Registro</h1>
-                                    <p class="blue--text">Q. <span v-text="ReferenciaRGP"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Imprevistos 10%</h1>
-                                    <p class="blue--text">Q. <span v-text="Imprevistos"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Razón Registral</h1>
-                                    <p class="blue--text">Q. <span v-text="RazonRegistral"></span></p>
-                                </v-flex>
-                            </v-layout>
-
-                            <v-divider></v-divider>
-                            <v-list three-line subheader>
-                                <v-subheader class="pink--text text--darken-3">Totales</v-subheader>
-                            </v-list>
-                            <v-layout row wrap>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos generados</h1>
-                                    <p class="blue--text">Q. <span v-text="TotalGastos" ></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Gastos escrituraci&oacute;n</h1>
-                                    <p class="blue--text">Q. <span v-text="GastosEscrituracion"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Total ampliaci&oacute;n</h1>
-                                    <p class="blue--text">Q. <span v-text="TotalAmpliacion"></span></p>
-                                </v-flex>
-                                <v-flex xs6 sm4 md3 lg3>
-                                    <h1 class="subheading">Nuevo saldo</h1>
-                                    <p class="blue--text">Q. <span v-text="NuevoSaldo"></span></p>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-content-->
                 </v-card>
             </v-dialog>
         </v-layout>
-
     </v-layout>
 </template>
 
 <script>
     export default {
         name: "AppCreditosCreate",
-        props:[
-            'New'
-        ],
         data:()=>{
             return{
                 dialog: false,
@@ -525,8 +438,8 @@
                 monto_prestamo:'',
                 nuevo_saldo:'',
                 avaluo:'',
-                seguro_sp:'',
-                interes_sp:'',
+                seguro_sp:'',//seguro sobre prestamo
+                interes_sp:'',//interes sobre prestamo
                 seguro_vida:'',
                 saldo_actual:'',
                 saldo_ahorro:'',
@@ -551,9 +464,6 @@
                     v => v.length <=2 || 'cantidad excedida'
                 ]
             }
-        },
-        mounted(){
-
         },
         methods:{
             CalcularDatos(){
@@ -585,12 +495,12 @@
              * REGLAMENTO DE NOTARIOS REVISADO Y APROBADO POR EL CONSEJO EL 30 DE SEPTIEMBRE DE 2014 Art. 16.2
              */
             MontoFincaExtra: function () {
-                let monto=parseInt(this.finca_extra)*50;
-                return this.roundedNumeric(monto,2);
+                let monto = parseInt(this.finca_extra) * 50;
+                return this.roundedNumeric(monto, 2);
             },
             MontoHonorariosNotario: function () {
                 //Parseamos la cadena a punto Flotante
-                let MontoPrestamo=parseFloat(this.monto_prestamo);
+                let MontoPrestamo = parseFloat(this.monto_prestamo);
 
                 if (MontoPrestamo >499.99 && MontoPrestamo <=5000.99){
                     return 125.00;
@@ -620,16 +530,16 @@
                 /**
                  * SOBRE LOS HONORARIOS
                  */
-                let iva= 0.12;
-                let monto=this.MontoHonorariosNotario*iva
-                return this.roundedNumeric(monto,2);
+                let iva = 0.12;
+                let monto = this.MontoHonorariosNotario * iva
+                return this.roundedNumeric(monto, 2);
             },
             GastosProtocolo:function () {
-                let protocolo=95.00;
+                let protocolo = 95.00;
                 return protocolo;
             },
             GastosPapeleria: function(){
-                let papeleria =150.00;
+                let papeleria = 150.00;
                 return papeleria;
             },
             CuotaArancel: function () {
@@ -641,33 +551,32 @@
                  * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
                  */
 
-                let porcentaje =0.0015;
+                let porcentaje = 0.0015;
                 let MontoPrestamo = parseFloat(this.monto_prestamo);
-                let monto=(MontoPrestamo - 10000) * porcentaje;
-                /*if(MontoPrestamo<10000){
+                if(MontoPrestamo<10000){
                     return 0;
                 }else{
-                    let monto=(MontoPrestamo - 10000) * porcentaje;
+                    let monto = (MontoPrestamo - 10000) * porcentaje;
                     let entero = parseInt(monto);
                     let decimal = monto - entero;
-                    if(decimal ===0.5){
+
+                    if(decimal === 0.5){
                         return monto;
-                    }else if(decimal>0.5){
+                    }else if(decimal > 0.5){
                         return entero + 2;
                     }
-                    else if(decimal==0){
+                    else if(decimal == 0){
                         return monto;
                     }
                     else{
-                        return entero+1.5;
+                        return entero + 1.5;
                     }
-                }*/
-                return monto;
+                }
             },
             ConsultaElectronica:function () {
                 let monto = 20.00 + (20 * this.finca_extra);
 
-                return this.roundedNumeric(monto,2);
+                return this.roundedNumeric(monto, 2);
             },
             ReferenciaRGP:function () {
                 /**
