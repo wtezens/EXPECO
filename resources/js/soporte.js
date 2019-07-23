@@ -16,9 +16,11 @@ Vue.use(Vuetify);
 import dashboardSoporte from "./components/soporte/dashboardSoporte";
 import AppFooter from "./components/AppFooter";
 import AppChangePassword from "./components/login/AppChangePassword";
-import AppCardUser from "./components/soporte/card-users";
+import AppShowNotario from "./components/soporte/AppShowNotario";
+import AppNewReporte from "./components/soporte/AppNewReporte";
 
-Vue.component('card-users', AppCardUser);
+Vue.component('AppNewReporte', AppNewReporte);
+Vue.component('AppShowNotario', AppShowNotario);
 Vue.component('AppChangePassword', AppChangePassword);
 Vue.component('app-footer', AppFooter);
 Vue.component('home', dashboardSoporte);
@@ -42,8 +44,8 @@ const app_soporte = new Vue({
                 ['Cambiar contraseña', 'settings', '/password'],
                 ['Cerrar Sesión', 'exit_to_app', '/logout']
             ],
-            users: [],
             total_users: 0,
+            // users:[],
             roles: [],
             agencias:[],
         };

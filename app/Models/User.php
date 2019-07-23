@@ -13,13 +13,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'usuario', 'nombres', 'apellidos', 'password','estado','role_id','agency_id','email'
+        'usuario', 'nombres', 'apellidos', 'password','estado','role_id','agency_id','email','estado','creado_por'
     ];
 
     /**
      * @var array
      */
-    protected $hidden = ['password','remember_token','session_id','estado'];
+    protected $hidden = ['password','remember_token','session_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTos
@@ -46,5 +46,9 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    public function users(){
+        return $this->hasMany('\App\Models\User');
     }
 }

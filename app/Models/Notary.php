@@ -12,14 +12,14 @@ class Notary extends Authenticatable
     /**
      * @var array
      */
-    protected $hidden = ['password', 'remember_token','estado','session_id'];
+    protected $hidden = ['password', 'remember_token','session_id'];
 
 
     /**
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email','telefono','direccion','password'
+        'nombre', 'email','telefono','direccion','password','estado', 'creado_por'
     ];
 
 

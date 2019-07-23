@@ -5,6 +5,8 @@ import AppNewUsuario from '../components/soporte/AppNewUsuario'
 import AppShowUsuario from '../components/soporte/AppShowUsuario'
 import AppNewNotario from '../components/soporte/AppNewNotario'
 import AppNewReporte from   '../components/soporte/AppNewReporte'
+import AppShowNotario from '../components/soporte/AppShowNotario'
+import AppShowReporte from  '../components/soporte/AppShowReporte'
 
 const routes = [
     {
@@ -35,7 +37,11 @@ const routes = [
         name:'usuario.show',
         component:AppShowUsuario,
     },
-
+    {
+        path:'/notario/show',
+        name:'notario.show',
+        component:AppShowNotario,
+    },
     {
         path:'/notario/new',
         name:'notario.new',
@@ -45,6 +51,11 @@ const routes = [
         path:'/reporte/nuevo',
         name:'reporte.new',
         component:AppNewReporte,
+    },
+    {
+        path:'/reporte/show',
+        name:'reporte.show',
+        component:AppShowReporte,
     }
 ];
 
