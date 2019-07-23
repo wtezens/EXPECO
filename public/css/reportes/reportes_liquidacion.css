@@ -1,0 +1,102 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+h3{
+    color:white;
+    margin-top: 85px
+}
+
+thead tr th{
+    background: #d8d8d8;
+    word-break: break-word;
+}
+
+table {
+    width: 100%;
+    background: white;
+    margin-bottom: 1.25em;
+    border: solid 0.05em #000;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table tr th,
+table tr td {
+    font-size: 0.43em;
+    color: #222222;
+    border: 0.05em solid #000;
+    padding: 2px 0 2px 0;
+    text-align: center;
+    margin: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+table tr.even,
+table tr.alt,
+table tr:nth-of-type(even) {
+    /*background: #f9f9f9;*/
+    background: #fff;
+}
+
+.pull-left {
+    float: left!important;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.v-btn {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    align-items: center;
+    border-radius: 2px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    justify-content: center;
+    margin: 6px 8px;
+    padding: 6px 8px;
+    min-width: 88px;
+    outline: 0;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s cubic-bezier(.25,.8,.5,1),color 1ms;
+    user-select: none;
+    vertical-align: middle;
+}
+.primary {
+    background-color: #1976d2 !important;
+    border-color: #1976d2 !important;
+    color:#fff !important;
+}
+.v-btn__content {
+    align-items: center;
+    border-radius: inherit;
+    color: inherit;
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+    white-space: nowrap;
+    width: inherit;
+}
+/*http://w3.unpocodetodo.info/css3/adaptativas.php*/
+
+.text-right{
+    text-align:right!important;
+}

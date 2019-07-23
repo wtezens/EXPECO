@@ -122,14 +122,14 @@ class LiquidacionesController extends Controller
             ->get();
 
 
-        //$view=view('reportes.liquidacion_pdf', compact('datos_credito','datos_liquidacion'));
-        //$pdf=\App::make('dompdf.wrapper');
-        //$pdf->loadHTML($view)->setPaper(array(0,0,612.00, 900.00),'landscape');
+        $view=view('reportes.liquidacion_pdf', compact('datos_credito','datos_liquidacion'));
+        $pdf=\App::make('dompdf.wrapper');
+        $pdf->loadHTML($view)->setPaper([0,0,585.00, 937.00],'landscape');
 
-        //return $pdf->stream();
+        return $pdf->stream();
 
         //return $datos_credito;
-        return view('reportes.liquidacion_pdf',compact('datos_credito','datos_liquidacion'));
+        //return view('reportes.liquidacion_pdf',compact('datos_credito','datos_liquidacion'));
     }
 
 
