@@ -186,9 +186,34 @@ Route::prefix('colaborador')->group(function (){
  * RUTAS SOPORTE                                                                    *
  ************************************************************************************/
 Route::prefix('soporte')->group(function (){
-    Route::get('/panel','Soporte\SoporteController@home')->name('soporte.home');
-});
 
+    Route::get ('/panel','Soporte\SoporteController@home')->name('soporte.home');
+
+//---------------------------RUTAS ROLES Y AGENCIAS ------------------------------//
+    Route::get ( '/list/roles',             'Soporte\UsuariosController@getRoles')->name('listado_roles');
+    Route::get ( '/list/agencias',          'Soporte\UsuariosController@getAgencias')->name('listado_agencias');
+
+//---------------------------RUTAS PARA VALIDAR EMAIL ------------------------------//
+    Route::post( '/validar/email',          'Soporte\UsuariosController@validateEmail')->name('validar_email');
+
+//---------------------------RUTAS PARA NUEVO USUARIO------------------------------//
+    Route::get ( '/usuarios',               'Soporte\UsuariosController@getUsers')->name('usuarios');
+    Route::post( '/usuario/store',          'Soporte\UsuariosController@storeUser')->name('nuevo_usuario');
+
+    /*----------------------- RUTAS PARA VER LOS USUARIOS --------------------------*/
+    Route::post('/user/show',               'Soporte\UsuariosController@show');
+    Route::post('user/{user}/estado',       'Soporte\UsuariosController@updateUserState')
+        ->where( 'user','[0-9]+')->name('cambiar_estado');
+
+/*------------------------------RUTAS NOTARIOS-----------------------------------*/
+    Route::post( '/validar/emailNotary',    'Soporte\UsuariosController@validateEmailNotary')->name('validar_email');
+    Route::get ( '/notarios',               'Soporte\UsuariosController@getNotarios')->name('notarios');
+    Route::post( '/notarios/store',         'Soporte\UsuariosController@storeNotary')->name('nuevo_usuario');
+    Route::post( '/notario/show',           'Soporte\UsuariosController@showNotaries');
+    Route::post( '/notario/{notary}/estado','Soporte\UsuariosController@updateNotaryState')
+    ->where('notary','[0-9]+')->name('cambiar_estado');
+
+});
 Route::prefix('notario')->group(function (){
     /**************************************************************************
      * LOGIN NOTARIO                                                          *
