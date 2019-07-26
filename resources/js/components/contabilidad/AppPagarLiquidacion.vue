@@ -17,7 +17,7 @@
             </v-btn>
         </v-snackbar>
         <v-layout row align-center justify-center>
-            <v-flex xs12 sm12 md10 lg8 xl6>
+            <v-flex xs12 sm12 md10 lg10 xl6>
                 <v-toolbar flat class="diagradient">
                     <v-toolbar-title class="white--text">LISTOS A LIQUIDAR</v-toolbar-title>
                     <v-divider
@@ -36,6 +36,7 @@
                         :rows-per-page-text="RegPorPagina"
                 >
                     <template slot="items" slot-scope="props">
+                        <td class="text-xl-left font-weight-medium" v-text="props.item.id"></td>
                         <td class="text-xl-left font-weight-medium" v-text="props.item.correlativo"></td>
                         <td class="text-xl-left font-weight-medium" v-text="formatDate(props.item.creado)"></td>
                         <td class="text-xl-left font-weight-medium" v-text="props.item.nombre"></td>
@@ -48,12 +49,6 @@
                             >
                                 visibility
                             </v-icon>
-                            <!--v-icon
-                                    class="mr-2 green--text text--darken-2"
-                                    @click="showItem(props.item.id)"
-                            >
-                                done_all
-                            </v-icon-->
                             <v-btn flat outline small class="green--text2" @click="SubmitLiquidar(props.item.id)"
                             >Liquidar</v-btn>
                         </td>
@@ -115,6 +110,7 @@
                 },
                 RegPorPagina:'Registros por página',
                 headers: [
+                    {text:'No.', value:'id'},
                     {text:'Correlativo.', value:'correlativo'},
                     {text: 'Generado', value:'creado'},
                     {text: 'Notario', value:'nombre'},
@@ -141,7 +137,8 @@
                 return cadena.toString();
             },
             recibirNuevosDatos:function () {
-                this.getLiquidados();
+                //this.getLiquidados();
+
             },
             getLiquidados:function () {
                 axios.get('/contabilidad/liquidar')

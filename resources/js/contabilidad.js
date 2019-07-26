@@ -14,10 +14,11 @@ Vue.use(VueRouter);
 
 import AppFooter from './components/AppFooter'
 import AppChangePassword from './components/login/AppChangePassword'
+import AppRealizarPagoLiquidacion from './components/contabilidad/AppEfectuarPagoLiquidacion'
 
 Vue.component('app-footer', AppFooter);
 Vue.component('app-change-password',AppChangePassword);
-Vue.component('app-realizar-pago-liquidacion', require('./components/contabilidad/AppEfectuarPagoLiquidacion'));
+Vue.component('app-realizar-pago-liquidacion', AppRealizarPagoLiquidacion);
 
 /**
  * CREDITOS

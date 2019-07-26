@@ -138,11 +138,4 @@
             </tr>
         </tbody>
     </table>
-    
-    <div class="container">
-        <a href="{{route('descarga.liquidacion', $datos_liquidacion->correlativo)}}" class="v-btn primary">
-            Descargar
-        </a>
-    </div>
-
 @endsection

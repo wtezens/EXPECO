@@ -2,6 +2,10 @@ import DashboardContabilidad from '../components/contabilidad/dashboardContabili
 import ExpedienteShow from '../components/contabilidad/AppExpedienteShow'
 import Logout from '../components/login/AppLogout'
 import ChangePassword from '../components/login/AppFormChangePassword'
+import NewAnticipo from '../components/contabilidad/AppNewAnticipo'
+import AnticipoShow from '../components/contabilidad/AppListAnticipos'
+import LiquidarCreate from '../components/contabilidad/AppPagarLiquidacion'
+import LiquidadosShow from '../components/contabilidad/AppYaLiquidados'
 
 const routes = [
     {
@@ -23,23 +27,23 @@ const routes = [
     {
         path:'/anticipo/new',
         name:'anticipo.new',
-        component:require('../components/contabilidad/AppNewAnticipo'),
+        component: NewAnticipo,
         props:{New:true}
     },
     {
         path:'/anticipo/show',
         name:'anticipo.show',
-        component:require('../components/contabilidad/AppListAnticipos'),
+        component: AnticipoShow,
     },
     {
         path:'/liquidar',
         name:'liquidar.create',
-        component:require('../components/contabilidad/AppPagarLiquidacion'),
+        component: LiquidarCreate,
     },
     {
         path:'/liquidados',
         name:'liquidar.show',
-        component:require('../components/contabilidad/AppYaLiquidados'),
+        component: LiquidadosShow,
     },
     {
         path:'/password',

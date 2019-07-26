@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2738,11 +2738,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppPagarLiquidacion",
   data: function data() {
@@ -2760,6 +2755,9 @@ __webpack_require__.r(__webpack_exports__);
       },
       RegPorPagina: 'Registros por página',
       headers: [{
+        text: 'No.',
+        value: 'id'
+      }, {
         text: 'Correlativo.',
         value: 'correlativo'
       }, {
@@ -2794,8 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
     convertToString: function convertToString(cadena) {
       return cadena.toString();
     },
-    recibirNuevosDatos: function recibirNuevosDatos() {
-      this.getLiquidados();
+    recibirNuevosDatos: function recibirNuevosDatos() {//this.getLiquidados();
     },
     getLiquidados: function getLiquidados() {
       var _this = this;
@@ -6059,7 +6056,7 @@ var render = function() {
         [
           _c(
             "v-flex",
-            { attrs: { xs12: "", sm12: "", md10: "", lg8: "", xl6: "" } },
+            { attrs: { xs12: "", sm12: "", md10: "", lg10: "", xl6: "" } },
             [
               _c(
                 "v-toolbar",
@@ -6100,6 +6097,11 @@ var render = function() {
                       key: "items",
                       fn: function(props) {
                         return [
+                          _c("td", {
+                            staticClass: "text-xl-left font-weight-medium",
+                            domProps: { textContent: _vm._s(props.item.id) }
+                          }),
+                          _vm._v(" "),
                           _c("td", {
                             staticClass: "text-xl-left font-weight-medium",
                             domProps: {
@@ -48847,7 +48849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
 /* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
-/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
+/* harmony import */ var _components_contabilidad_AppEfectuarPagoLiquidacion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/contabilidad/AppEfectuarPagoLiquidacion */ "./resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue");
+/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -48863,16 +48866,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidacion', __webpack_require__(/*! ./components/contabilidad/AppEfectuarPagoLiquidacion */ "./resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidacion', _components_contabilidad_AppEfectuarPagoLiquidacion__WEBPACK_IMPORTED_MODULE_5__["default"]);
 /**
  * CREDITOS
  */
 
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_5__["default"]
+  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
 var app_contabilidad = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#contabilidad',
@@ -48920,6 +48924,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_contabilidad_AppExpedienteShow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/contabilidad/AppExpedienteShow */ "./resources/js/components/contabilidad/AppExpedienteShow.vue");
 /* harmony import */ var _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue");
 /* harmony import */ var _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue");
+/* harmony import */ var _components_contabilidad_AppNewAnticipo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/contabilidad/AppNewAnticipo */ "./resources/js/components/contabilidad/AppNewAnticipo.vue");
+/* harmony import */ var _components_contabilidad_AppListAnticipos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/contabilidad/AppListAnticipos */ "./resources/js/components/contabilidad/AppListAnticipos.vue");
+/* harmony import */ var _components_contabilidad_AppPagarLiquidacion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/contabilidad/AppPagarLiquidacion */ "./resources/js/components/contabilidad/AppPagarLiquidacion.vue");
+/* harmony import */ var _components_contabilidad_AppYaLiquidados__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/contabilidad/AppYaLiquidados */ "./resources/js/components/contabilidad/AppYaLiquidados.vue");
+
+
+
+
 
 
 
@@ -48942,22 +48954,22 @@ var routes = [{
 }, {
   path: '/anticipo/new',
   name: 'anticipo.new',
-  component: __webpack_require__(/*! ../components/contabilidad/AppNewAnticipo */ "./resources/js/components/contabilidad/AppNewAnticipo.vue"),
+  component: _components_contabilidad_AppNewAnticipo__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: {
     New: true
   }
 }, {
   path: '/anticipo/show',
   name: 'anticipo.show',
-  component: __webpack_require__(/*! ../components/contabilidad/AppListAnticipos */ "./resources/js/components/contabilidad/AppListAnticipos.vue")
+  component: _components_contabilidad_AppListAnticipos__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: '/liquidar',
   name: 'liquidar.create',
-  component: __webpack_require__(/*! ../components/contabilidad/AppPagarLiquidacion */ "./resources/js/components/contabilidad/AppPagarLiquidacion.vue")
+  component: _components_contabilidad_AppPagarLiquidacion__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
   path: '/liquidados',
   name: 'liquidar.show',
-  component: __webpack_require__(/*! ../components/contabilidad/AppYaLiquidados */ "./resources/js/components/contabilidad/AppYaLiquidados.vue")
+  component: _components_contabilidad_AppYaLiquidados__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
   path: '/password',
   name: 'password.change',
@@ -49030,14 +49042,38 @@ if (token) {
 
 /***/ }),
 
-/***/ 6:
-/*!********************************************!*\
-  !*** multi ./resources/js/contabilidad.js ***!
-  \********************************************/
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/ecosaba.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/ecosaba.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!****************************************************************************************************!*\
+  !*** multi ./resources/js/contabilidad.js ./resources/sass/app.scss ./resources/sass/ecosaba.scss ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad.js */"./resources/js/contabilidad.js");
+__webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad.js */"./resources/js/contabilidad.js");
+__webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\sass\ecosaba.scss */"./resources/sass/ecosaba.scss");
 
 
 /***/ })
