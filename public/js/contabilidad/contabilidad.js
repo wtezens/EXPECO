@@ -49000,7 +49000,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('AppChangePassword', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidacion', _components_contabilidad_AppEfectuarPagoLiquidacion__WEBPACK_IMPORTED_MODULE_5__["default"]);
 /**
  * CREDITOS
