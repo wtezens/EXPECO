@@ -3228,6 +3228,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "dashboardContabilidad",
   data: function data() {
@@ -3235,21 +3264,64 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {},
   methods: {
-    test: function test() {
-      alert('hola');
-    },
-    formatDate: function formatDate(date) {
-      if (date == null || date == undefined) {
-        return '-';
-      } else {
-        var only_date = date.split(' ');
-        var fecha = only_date[0].split('-');
-        var monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.", "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
-        var day = fecha[2];
-        var monthIndex = fecha[1] - 1;
-        var year = fecha[0];
-        return day + ' ' + monthNames[parseInt(monthIndex)] + ' ' + year;
-      }
+    reporte_general: function reporte_general() {
+      var _this = this;
+
+      var swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'v-btn info',
+        cancelButtonClass: 'v-btn error',
+        buttonsStyling: false
+      });
+      swalWithBootstrapButtons({
+        title: '¿Solicitar Reporte General?',
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then(function (result) {
+        if (result.value) {
+          axios.get('/contabilidad/reporte/general').then(function (response) {
+            if (response.data.estatus === 'ok') {
+              swal({
+                type: 'success',
+                title: response.data.descripcion,
+                text: 'Espere un momento mientras se procesa su solicitud',
+                showConfirmButton: true,
+                buttonsStyling: false,
+                confirmButtonClass: 'v-btn primary'
+              });
+            }
+          })["catch"](function (error) {
+            if (error.response.data.errors) {
+              _this.$emit("errors", error.response.data.errors);
+            } else if (error.response.status === 403) {
+              swal({
+                type: 'error',
+                title: '403. Forbidden',
+                text: 'No tiene autorización para realizar esta acción.',
+                buttonsStyling: false,
+                confirmButtonClass: 'v-btn primary'
+              });
+            } else if (error.response.status === 404) {
+              swal({
+                type: 'error',
+                title: 'Fallo en la operación.',
+                text: 'Es posible que el registro ya contenga un número de cuenta.',
+                buttonsStyling: false,
+                confirmButtonClass: 'v-btn primary'
+              });
+            } else {
+              swal({
+                title: error.toString(),
+                buttonsStyling: false,
+                confirmButtonClass: 'v-btn primary'
+              });
+            }
+          });
+        } else if ( // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel) {}
+      });
     },
     showItem: function showItem(item) {
       window.open('/colaborador/creditos#/expediente/' + item);
@@ -3562,7 +3634,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css":
 /*!********************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/material-design-icons/iconfont/material-icons.css ***!
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./node_modules/material-design-icons/iconfont/material-icons.css ***!
   \********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3573,7 +3645,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.eot */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot")) + "); /* For IE6-8 */\n  src: local('Material Icons'),\n       local('MaterialIcons-Regular'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff2 */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2")) + ") format('woff2'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff")) + ") format('woff'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.ttf */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf")) + ") format('truetype');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n\n  /* Support for IE. */\n  -webkit-font-feature-settings: 'liga';\n          font-feature-settings: 'liga';\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.eot */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot")) + "); /* For IE6-8 */\n  src: local('Material Icons'),\n       local('MaterialIcons-Regular'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff2 */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2")) + ") format('woff2'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff")) + ") format('woff'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.ttf */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf")) + ") format('truetype');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n\n  /* Support for IE. */\n  font-feature-settings: 'liga';\n}\n", ""]);
 
 // exports
 
@@ -3582,7 +3654,7 @@ exports.push([module.i, "@font-face {\n  font-family: 'Material Icons';\n  font-
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& ***!
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3592,7 +3664,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.hover{\n    cursor: pointer;\n}*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.hover{\n    cursor: pointer;\n}*/\n", ""]);
 
 // exports
 
@@ -3797,7 +3869,7 @@ module.exports = "/fonts/vendor/material-design-icons/iconMaterialIcons-Regular.
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../postcss-loader/src??ref--7-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--5-1!../../postcss-loader/src??ref--5-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -4214,13 +4286,13 @@ process.umask = function() { return 0; };
 
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& ***!
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -6813,7 +6885,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("h3", { staticClass: "title center  mb-0" }, [
-                      _vm._v("Reportes")
+                      _vm._v("Reporte General")
                     ])
                   ]),
                   _vm._v(" "),
@@ -6840,51 +6912,25 @@ var render = function() {
                   _c(
                     "v-card-actions",
                     [
-                      _c(
-                        "v-tooltip",
-                        { staticClass: "px-3", attrs: { bottom: "" } },
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "navbar_button blue--text",
-                              attrs: {
-                                slot: "activator",
-                                icon: "",
-                                to: { name: "liquidar.show" }
-                              },
-                              slot: "activator"
-                            },
-                            [_c("v-icon", [_vm._v("add")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Nuevo anticipo")])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
                       _c("v-spacer"),
                       _vm._v(" "),
                       _c(
-                        "v-tooltip",
-                        { staticClass: "px-3", attrs: { bottom: "" } },
+                        "v-btn",
+                        {
+                          staticClass: "navbar_button green--text2",
+                          attrs: {
+                            slot: "activator",
+                            depressed: "",
+                            small: ""
+                          },
+                          on: { click: _vm.reporte_general },
+                          slot: "activator"
+                        },
                         [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "navbar_button blue--text",
-                              attrs: { slot: "activator", icon: "" },
-                              on: { click: _vm.test },
-                              slot: "activator"
-                            },
-                            [_c("v-icon", [_vm._v("visibility")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Ver anticipos")])
-                        ],
-                        1
+                          _vm._v(
+                            "\n                        Solicitar\n                    "
+                          )
+                        ]
                       )
                     ],
                     1
@@ -6960,7 +7006,7 @@ var render = function() {
                             {
                               staticClass: "navbar_button blue--text",
                               attrs: { slot: "activator", icon: "" },
-                              on: { click: _vm.test },
+                              on: { click: function($event) {} },
                               slot: "activator"
                             },
                             [_c("v-icon", [_vm._v("add")])],
@@ -6983,7 +7029,7 @@ var render = function() {
                             {
                               staticClass: "navbar_button blue--text",
                               attrs: { slot: "activator", icon: "" },
-                              on: { click: _vm.test },
+                              on: { click: function($event) {} },
                               slot: "activator"
                             },
                             [_c("v-icon", [_vm._v("visibility")])],
@@ -6991,6 +7037,92 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("span", [_vm._v("Ver anticipos")])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "", "pt-3": "" } },
+        [
+          _c(
+            "v-flex",
+            { attrs: { xs12: "" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "elevation-3" },
+                [
+                  _c(
+                    "v-card-title",
+                    { attrs: { "primary-title": "" } },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "title blue--text text--darken-4" },
+                        [_vm._v("Acciones")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider", { staticClass: "primary" })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-layout",
+                    { attrs: { row: "", wrap: "" } },
+                    [
+                      _c(
+                        "v-flex",
+                        { attrs: { xs12: "", sm6: "", md3: "" } },
+                        [
+                          _c(
+                            "v-responsive",
+                            {
+                              staticClass: "blue--text",
+                              attrs: { height: "50px" }
+                            },
+                            [
+                              _c(
+                                "v-layout",
+                                { attrs: { "fill-height": "" } },
+                                [
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", flexbox: "" } },
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            outline: "",
+                                            color: "black"
+                                          },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Reporte General")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
@@ -48601,10 +48733,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/dashboardContabilidad.vue?vue&type=style&index=0&id=663aab58&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboardContabilidad_vue_vue_type_style_index_0_id_663aab58_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -49042,38 +49174,14 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/ecosaba.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/ecosaba.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!****************************************************************************************************!*\
-  !*** multi ./resources/js/contabilidad.js ./resources/sass/app.scss ./resources/sass/ecosaba.scss ***!
-  \****************************************************************************************************/
+/*!********************************************!*\
+  !*** multi ./resources/js/contabilidad.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad.js */"./resources/js/contabilidad.js");
-__webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\sass\ecosaba.scss */"./resources/sass/ecosaba.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad.js */"./resources/js/contabilidad.js");
 
 
 /***/ })

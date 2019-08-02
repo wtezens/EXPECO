@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2eadcb270e4a6b1a5dd6fdc18aa21463",
+    "content-hash": "cd402cfc75f88a8099eb35e2a61377ba",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -877,16 +877,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.12",
+            "version": "3.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "e1816f793c6abd33e3858ecb3b056da9a7dd5d73"
+                "reference": "7d47c7af2ddcf93b4fee4f167e10702e918f69f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/e1816f793c6abd33e3858ecb3b056da9a7dd5d73",
-                "reference": "e1816f793c6abd33e3858ecb3b056da9a7dd5d73",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/7d47c7af2ddcf93b4fee4f167e10702e918f69f1",
+                "reference": "7d47c7af2ddcf93b4fee4f167e10702e918f69f1",
                 "shasum": ""
             },
             "require": {
@@ -941,7 +941,7 @@
                 "php",
                 "phpspreadsheet"
             ],
-            "time": "2019-04-17T17:22:54+00:00"
+            "time": "2019-07-16T08:40:48+00:00"
         },
         {
             "name": "markbaker/complex",

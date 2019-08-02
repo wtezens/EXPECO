@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/',function (){
-    return view('index');
-});
+Route::get('/', function (){ return view('index'); });
 
 Route::get('/colaborador',function (){
     return redirect('/colaborador/login');
@@ -121,6 +119,10 @@ Route::prefix('contabilidad')->group(function (){
     Route::post('/pagar/liquidacion/{correlativo}',
         'Contabilidad\LiquidacionesController@EfectuarFechaPagoLiquidacion')
         ->where('correlativo','^\d{0,8}$');
+
+
+    //---------------------OBTENCION DE REPORTES-------------//
+    Route::get('/reporte/general', 'Contabilidad\ReportesController@ReporteGeneral');
 });
 
 /*************************************************************************************
@@ -331,3 +333,13 @@ Route::get('/enviar',function (){
 
     //return new \App\Mail\BienvenidoColaborador();
 });
+
+Route::get('creditos',function(){
+    (new \App\Exports\AllCreditsExport())->store('reporte_general.xlsx');
+    return "correcto";
+});
+
+/*\Illuminate\Support\Facades\DB::listen(function ($query){
+   echo "<pre>{$query->sql}</pre>";
+   echo "<pre>{$query->time}</pre>";
+});*/

@@ -81,4 +81,20 @@ class Credit extends Model
     public function advance(){
         return $this->hasOne('\App\Models\Advance');
     }
+
+    /*
+     * SCOPE ACTIVE
+     * return unicamente los creditos activos
+     */
+    public static function active(){
+        return static::where('estado', 1);
+    }
+
+    /*
+     * SCOPE UNACTIVE
+     * return unicamente los creditos no activos
+     */
+    public static function unactive(){
+        return static::where('estado', 0);
+    }
 }

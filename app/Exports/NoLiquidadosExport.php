@@ -2,13 +2,13 @@
 
 namespace App\Exports;
 
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use Maatwebsite\Excel\Concerns\WithEvents;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class NoLiquidadosExport implements FromCollection, Responsable, WithHeadings, ShouldAutoSize, WithEvents
 {
@@ -26,7 +26,7 @@ class NoLiquidadosExport implements FromCollection, Responsable, WithHeadings, S
         $this->idAgency=session('agency_id');
 
         return DB::table('no_liquidados')
-            ->select('expediente','monto_credito','cif','asociado','notario','created_at',)
+            ->select('expediente','monto_credito','cif','asociado','notario','created_at')
             ->where('agency_id',$this->idAgency)
             ->get();
 
@@ -48,7 +48,7 @@ class NoLiquidadosExport implements FromCollection, Responsable, WithHeadings, S
 
     public function headings(): array {
         return [
-          'Expediente',
+            'Expediente',
             'Monto',
             'Cif',
             'Asociado',
