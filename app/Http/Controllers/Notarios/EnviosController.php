@@ -21,17 +21,18 @@ class EnviosController extends Controller
     public function envioRevision($agencia){
         $this->notario = session('identificador');
 
-        $envio=Credit::select('credits.id as expediente','partners.id as cif','partners.nombre as asociado')
+        $envio = Credit::select('credits.id as expediente','partners.id as cif','partners.nombre as asociado')
             ->join('partners','credits.partner_id','=','partners.id')
             ->whereNotIn('credits.id',function ($subq){
                 $subq->from('credit_report')
                     ->selectRaw('credit_id')
                     ->where('report_id','=',2);
             })
-            ->where('agency_id',$agencia)
             ->whereNotNull('credits.numero_escritura')
-            ->where('notary_id',$this->notario)
-            ->limit(15)
+            ->where('agency_id', $agencia)
+            ->where('notary_id', $this->notario)
+            ->where('estado', 1)// activo
+            ->limit(20)
             ->get();
 
         return $envio;
@@ -39,7 +40,7 @@ class EnviosController extends Controller
 
 
     public function generarEnvioRevision($agencia_id, EnvioRequest $request){
-        $correlativo=$agencia_id.now()->format('ymdhis');
+        $correlativo = $agencia_id.now()->format('ymdhis');
 
         DB::beginTransaction();
         try{
@@ -93,7 +94,7 @@ class EnviosController extends Controller
             'credits.monto_credito')
             ->Join('partners','partners.id','=','credits.partner_id')
             ->Join('credit_report','credit_report.credit_id','=','credits.id')
-            ->where('credit_report.correlativo',$correlativo)
+            ->where('credit_report.correlativo', $correlativo)
             ->get();
 
         $view=view('reportes.envio_a_revision_pdf',compact('reporte'));

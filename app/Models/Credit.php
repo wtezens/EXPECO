@@ -86,7 +86,7 @@ class Credit extends Model
      * SCOPE ACTIVE
      * return unicamente los creditos activos
      */
-    public static function active(){
+    public static function activo(){
         return static::where('estado', 1);
     }
 
@@ -94,7 +94,7 @@ class Credit extends Model
      * SCOPE UNACTIVE
      * return unicamente los creditos no activos
      */
-    public static function unactive(){
+    public static function inactivo(){
         return static::where('estado', 0);
     }
 }

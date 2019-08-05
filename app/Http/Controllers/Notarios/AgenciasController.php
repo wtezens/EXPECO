@@ -17,9 +17,9 @@ class AgenciasController extends Controller
         /**
          * obtenemos el identificador del notario
          */
-        $idlic=session('identificador');
+        $idlic = session('identificador');
 
-        $agencias=Agency::select('agencies.id as numero','agencies.nombre as descripcion')
+        $agencias = Agency::select('agencies.id as numero','agencies.nombre as descripcion')
             ->get();
 
         return $agencias;

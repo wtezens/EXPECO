@@ -37,7 +37,8 @@ class EnviosController extends Controller
             })
             ->where('agency_id', $this->Agencia)
             ->where('notary_id', $notario_id)
-            ->limit(19)
+            ->where('estado', 1)//activo
+            ->limit(20)
             ->get();
 
         return $envio;
