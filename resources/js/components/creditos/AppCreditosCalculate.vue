@@ -142,6 +142,13 @@
                                             >
                                             </v-text-field>
                                         </v-flex>
+                                        <v-flex xs6 sm4 md4 lg3 xl3 px-1 >
+                                            <p>Garantia registrada</p>
+                                            <v-radio-group ref="radio" v-model="Registrado" row name="registrado" :rules="requiredOption">
+                                                <v-radio color="info" label="Si" value="Registrada" checked></v-radio>
+                                                <v-radio color="info" label="No" value="No Registrada"></v-radio>
+                                            </v-radio-group>
+                                        </v-flex>
                                     </v-layout>
                                 </fieldset>
                             </v-flex>
@@ -445,6 +452,7 @@
                 saldo_ahorro:'',
                 saldo_aportacion:'',
                 finca_extra:'',
+                Registrado:'',
 
                 //RULES
                 montoRules: [
@@ -462,6 +470,9 @@
                     v => !!v || 'ingrese un dato',
                     v => /^\d{0,2}$/.test(v)||'cantidad inválida',
                     v => v.length <=2 || 'cantidad excedida'
+                ],
+                requiredOption:[
+                    v => !!v || 'seleccione una opción',
                 ]
             }
         },
@@ -487,6 +498,8 @@
                 this.finca_extra='';
                 this.saldo_ahorro='';
                 this.saldo_aportacion='';
+                this.Registrado = '';
+                this.$refs.radio.reset();
                 //this.$refs.form.reset();
             }
         },
@@ -543,59 +556,89 @@
                 return papeleria;
             },
             CuotaArancel: function () {
-                return 160.00;
+                if(this.Registrado == 'Registrada'){
+                    return 160.00;
+                }
+
+                return 0.00;
             },
             PrimaArancel:function () {
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * APLICA CUANDO EL MONTO DEL CRÉDITO O AMPLIACIÓN SUPERA LOS Q.10,000.00
                  * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
                  */
 
-                let porcentaje = 0.0015;
-                let MontoPrestamo = parseFloat(this.monto_prestamo);
-                if(MontoPrestamo<10000){
-                    return 0;
-                }else{
-                    let monto = (MontoPrestamo - 10000) * porcentaje;
-                    let entero = parseInt(monto);
-                    let decimal = monto - entero;
+                if (this.Registrado == 'Registrada'){
+                    let porcentaje = 0.0015;
+                    let MontoPrestamo = parseFloat(this.monto_prestamo);
+                    if(MontoPrestamo<10000){
+                        return 0;
+                    }else{
+                        let monto = (MontoPrestamo - 10000) * porcentaje;
+                        let entero = parseInt(monto);
+                        let decimal = monto - entero;
 
-                    if(decimal === 0.5){
-                        return monto;
-                    }else if(decimal > 0.5){
-                        return entero + 2;
-                    }
-                    else if(decimal == 0){
-                        return monto;
-                    }
-                    else{
-                        return entero + 1.5;
+                        if(decimal === 0.5){
+                            return monto;
+                        }else if(decimal > 0.5){
+                            return entero + 2;
+                        }
+                        else if(decimal == 0){
+                            return monto;
+                        }
+                        else{
+                            return entero + 1.5;
+                        }
                     }
                 }
+
+                return 0.00;
             },
             ConsultaElectronica:function () {
-                let monto = 20.00 + (20 * this.finca_extra);
+                //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+                if(this.Registrado == 'Registrada'){
+                    let monto = 20.00 + (20 * this.finca_extra);
+                    return this.roundedNumeric(monto, 2);
+                }
 
-                return this.roundedNumeric(monto, 2);
+                return 0.00;
             },
             ReferenciaRGP:function () {
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * REGISTRO GENERAL DE LA PROPIEDAD
                  */
-                return 10.00;
+                if(this.Registrado== 'Registrada'){
+                    return 10.00;
+                }
+
+                return 0.00;
             },
             Imprevistos:function(){
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * @imprevisto int = 0.1
                  * (CuotaArancel + PrimaArancel+ConsultaElectronica+ReferenciaRGP)* Imprevisto(%)
                  */
-                let porcentaje = 0.1;
-                let monto = (this.CuotaArancel+this.PrimaArancel+this.ConsultaElectronica+this.ReferenciaRGP)*porcentaje;
+                if(this.Registrado == 'Registrada'){
+                    let porcentaje = 0.1;
+                    let monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
 
-                return this.roundedNumeric(monto,2);
+                    return this.roundedNumeric(monto,2);
+                }
+
+                return 0.00;
             },
             RazonRegistral:function () {
-                return 50.00;
+                //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+
+                if(this.Registrado == 'Registrada'){
+
+                    return 50.00;
+                }
+
+                return 0.00;
             },
             GastosEscrituracion:function () {
                 /**

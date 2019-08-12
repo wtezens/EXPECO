@@ -50,6 +50,7 @@ class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, Shoul
                 'credits.credito_id',
                 DB::raw("DATE_FORMAT(credits.created_at,        '%Y-%m-%d') as fecha_creado"),
                 DB::raw("DATE_FORMAT(liquidations.created_at,   '%Y-%m-%d') as liquidacion_creada"),
+                'liquidations.fecha_pago',
                 DB::raw("DATE_FORMAT(advances.updated_at,       '%Y-%m-%d') as fecha_anticipo"),
                 DB::raw("DATE_FORMAT(credits.updated_at,        '%Y-%m-%d') as fecha_actualizado"),
                 'advances.cantidad as anticipo',
@@ -64,7 +65,7 @@ class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, Shoul
                 'credits.gasto_papeleria','credits.consulta_electronica','credits.honorario_notario',
                 'credits.honorario_registro','credits.diferencia','credits.ajuste_liquidacion',
                 'credits.liquidation_id','credits.cuenta','credits.credito_id',
-                'credits.created_at','liquidations.created_at','advances.updated_at',
+                'credits.created_at','liquidations.created_at','liquidations.fecha_pago','advances.updated_at',
                 'credits.updated_at','advances.cantidad','agencies.nombre','notaries.nombre'
             )
             ->orderBy('credits.created_at');
@@ -99,6 +100,7 @@ class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, Shoul
             'No. credito',
             'Creado',
             'Liquidacion creada',
+            'Liquidacion Pagada',
             'Fecha anticipo',
             'Actualizado',
             'Anticipo',

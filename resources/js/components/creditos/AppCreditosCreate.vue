@@ -657,80 +657,106 @@
             },
             submit(){
                 if(this.$refs.form.validate()){
-                    axios.post('/creditos/expediente/store',{
-                        cif: this.cif,
-                        notario: this.notario,
-                        montoCredito: this.monto_prestamo,
-                        montoAmpliacion: this.TotalAmpliacion,
-                        gastosCobrados:this.GastosEscrituracion,
-                        contratos:this.contratos,
-                        escrituras:this.escrituras,
-                        desembolso:this.Desembolso,
-                        garantia: this.Registrado,
-                        nuevo:this.CreditoNuevo
+
+                    const swalWithBootstrapButtons = swal.mixin({
+                        confirmButtonClass: 'v-btn info',
+                        cancelButtonClass: 'v-btn error',
+                        buttonsStyling: false,
                     })
-                        .then(response =>{
-                            this.dialog=false;
-                            if(response.data.estatus==='ok'){
-                                this.$root.panel.total_creditos++;
-                                this.$root.panel.pendientes++;
-                                this.clear();
-                                swal({
-                                    type: 'success',
-                                    title: 'Datos guardados correctamente.',
-                                    html:
-                                        '<h4 class="subheading">No. de Expediente: </h4><h3 class="headline blue--text">'
-                                        +response.data.correlativo+'</h3>',
-                                    showConfirmButton: true,
-                                    allowOutsideClick:false,
-                                    allowEscapeKey:false,
-                                    buttonsStyling:false,
-                                    confirmButtonClass:'v-btn success'
+
+                    swalWithBootstrapButtons({
+                        title: '¿Guardar registro?',
+                        text:'Se creará un número de expediente!',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Si',
+                        cancelButtonText: 'Cancelar',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.value) {
+
+                            axios.post('/creditos/expediente/store',{
+                                cif: this.cif,
+                                notario: this.notario,
+                                montoCredito: this.monto_prestamo,
+                                montoAmpliacion: this.TotalAmpliacion,
+                                gastosCobrados:this.GastosEscrituracion,
+                                contratos:this.contratos,
+                                escrituras:this.escrituras,
+                                desembolso:this.Desembolso,
+                                garantia: this.Registrado,
+                                nuevo:this.CreditoNuevo
+                            })
+                                .then(response =>{
+                                    this.dialog=false;
+                                    if(response.data.estatus==='ok'){
+                                        this.$root.panel.total_creditos++;
+                                        this.$root.panel.pendientes++;
+                                        this.clear();
+                                        swal({
+                                            type: 'success',
+                                            title: 'Datos guardados correctamente.',
+                                            html:
+                                                '<h4 class="subheading">No. de Expediente: </h4><h3 class="headline blue--text">'
+                                                +response.data.correlativo+'</h3>',
+                                            showConfirmButton: true,
+                                            allowOutsideClick:false,
+                                            allowEscapeKey:false,
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn success'
+                                        });
+
+                                    } else if(response.data.estatus==='duplicate key'){
+                                        swal({
+                                            type: 'error',
+                                            title: 'Datos duplicados.',
+                                            text:'El registro ya existe!',
+                                            showConfirmButton: true,
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    } else if(response.data.estatus==='a foreign key constraint fails'){
+                                        swal({
+                                            type: 'error',
+                                            title: 'Violación de Integridad.',
+                                            text:'No se puede añadir o actualizar una fila secundaria.',
+                                            showConfirmButton: true,
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    }else if(response.data.estatus==='incorrect type value'){
+                                        swal({
+                                            type: 'error',
+                                            title: 'Valores incorrectos.',
+                                            text:'El tipo de valor esperado es incorrecto',
+                                            showConfirmButton: true,
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    }
+                                })
+                                .catch(error=>{
+                                    this.dialog=false;
+                                    if(error.response.data.errors){
+                                        this.errors = error.response.data.errors;
+                                        this.alertErrors=true;
+                                    }else{
+                                        swal({
+                                            title: this.OnErrorMessages(error.response),
+                                            text:'Ref. Credit Storage - Code: ' + error.response.status,
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn error'
+                                        })
+                                    }
                                 });
 
-                            } else if(response.data.estatus==='duplicate key'){
-                                swal({
-                                    type: 'error',
-                                    title: 'Datos duplicados.',
-                                    text:'El registro ya existe!',
-                                    showConfirmButton: true,
-                                    buttonsStyling:false,
-                                    confirmButtonClass:'v-btn primary'
-                                })
-                            } else if(response.data.estatus==='a foreign key constraint fails'){
-                                swal({
-                                    type: 'error',
-                                    title: 'Violación de Integridad.',
-                                    text:'No se puede añadir o actualizar una fila secundaria.',
-                                    showConfirmButton: true,
-                                    buttonsStyling:false,
-                                    confirmButtonClass:'v-btn primary'
-                                })
-                            }else if(response.data.estatus==='incorrect type value'){
-                                swal({
-                                    type: 'error',
-                                    title: 'Valores incorrectos.',
-                                    text:'El tipo de valor esperado es incorrecto',
-                                    showConfirmButton: true,
-                                    buttonsStyling:false,
-                                    confirmButtonClass:'v-btn primary'
-                                })
-                            }
-                        })
-                        .catch(error=>{
-                            this.dialog=false;
-                            if(error.response.data.errors){
-                                this.errors = error.response.data.errors;
-                                this.alertErrors=true;
-                            }else{
-                                swal({
-                                    title: this.OnErrorMessages(error.response),
-                                    text:'Ref. Credit Storage - Code: ' + error.response.status,
-                                    buttonsStyling:false,
-                                    confirmButtonClass:'v-btn error'
-                                })
-                            }
-                        });
+                        } else if (
+                            // Read more about handling dismissals
+                            result.dismiss === swal.DismissReason.cancel
+                        ) {
+                            this.$emit("updateCuenta",true);
+                        }
+                    })
                 }
             },
             roundedNumeric(value, decimals){
@@ -833,60 +859,96 @@
                 let papeleria = 150.00;
                 return papeleria;
             },
+            /**
+             * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+             * @returns {number}
+             * @constructor
+             */
             CuotaArancel: function () {
-                return 160.00;
+                if(this.Registrado == 'Registrada'){
+                    return 160.00;
+                }
+
+                return 0.00;
             },
             PrimaArancel:function () {
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * APLICA CUANDO EL MONTO DEL CRÉDITO O AMPLIACIÓN SUPERA LOS Q.10,000.00
                  * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
                  */
 
-                let porcentaje = 0.0015;
-                let MontoPrestamo = parseFloat(this.monto_prestamo);
-                if(MontoPrestamo<10000){
-                    return 0;
-                }else{
-                    let monto = (MontoPrestamo - 10000) * porcentaje;
-                    let entero = parseInt(monto);
-                    let decimal = monto - entero;
+                if(this.Registrado == 'Registrada'){
+                    let porcentaje = 0.0015;
+                    let MontoPrestamo = parseFloat(this.monto_prestamo);
+                    if(MontoPrestamo<10000){
+                        return 0;
+                    }else{
+                        let monto = (MontoPrestamo - 10000) * porcentaje;
+                        let entero = parseInt(monto);
+                        let decimal = monto - entero;
 
-                    if(decimal === 0.5){
-                        return monto;
-                    }else if(decimal > 0.5){
-                        return entero + 2;
-                    }
-                    else if(decimal == 0){
-                        return monto;
-                    }
-                    else{
-                        return entero + 1.5;
+                        if(decimal === 0.5){
+                            return monto;
+                        }else if(decimal > 0.5){
+                            return entero + 2;
+                        }
+                        else if(decimal == 0){
+                            return monto;
+                        }
+                        else{
+                            return entero + 1.5;
+                        }
                     }
                 }
+
+                return 0.00;
             },
             ConsultaElectronica:function () {
-                let monto = 20.00 + (20 * this.finca_extra);
+                //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+                if(this.Registrado == 'Registrada'){
+                    let monto = 20.00 + (20 * this.finca_extra);
+                    return this.roundedNumeric(monto, 2);
+                }
 
-                return this.roundedNumeric(monto, 2);
+                return 0.00;
             },
             ReferenciaRGP:function () {
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * REGISTRO GENERAL DE LA PROPIEDAD
                  */
-                return 10.00;
+                if(this.Registrado== 'Registrada'){
+                    return 10.00;
+                }
+
+                return 0.00;
             },
             Imprevistos:function(){
                 /**
+                 * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
                  * @imprevisto int = 0.1
                  * (CuotaArancel + PrimaArancel + ConsultaElectronica + ReferenciaRGP) * Imprevisto(%)
                  */
-                let porcentaje = 0.1;
-                let monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
 
-                return this.roundedNumeric(monto,2);
+                if(this.Registrado == 'Registrada'){
+                    let porcentaje = 0.1;
+                    let monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
+
+                    return this.roundedNumeric(monto,2);
+                }
+
+                return 0.00;
             },
             RazonRegistral:function () {
-                return 50.00;
+                //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+
+                if(this.Registrado == 'Registrada'){
+
+                    return 50.00;
+                }
+
+                return 0.00;
             },
             GastosEscrituracion:function () {
                 /**

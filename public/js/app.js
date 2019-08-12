@@ -2620,6 +2620,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCreditosCreate",
   data: function data() {
@@ -2641,6 +2648,7 @@ __webpack_require__.r(__webpack_exports__);
       saldo_ahorro: '',
       saldo_aportacion: '',
       finca_extra: '',
+      Registrado: '',
       //RULES
       montoRules: [function (v) {
         return !!v || 'ingrese monto';
@@ -2664,6 +2672,9 @@ __webpack_require__.r(__webpack_exports__);
         return /^\d{0,2}$/.test(v) || 'cantidad inválida';
       }, function (v) {
         return v.length <= 2 || 'cantidad excedida';
+      }],
+      requiredOption: [function (v) {
+        return !!v || 'seleccione una opción';
       }]
     };
   },
@@ -2688,7 +2699,9 @@ __webpack_require__.r(__webpack_exports__);
       this.saldo_actual = '';
       this.finca_extra = '';
       this.saldo_ahorro = '';
-      this.saldo_aportacion = ''; //this.$refs.form.reset();
+      this.saldo_aportacion = '';
+      this.Registrado = '';
+      this.$refs.radio.reset(); //this.$refs.form.reset();
     }
   },
   computed: {
@@ -2744,55 +2757,84 @@ __webpack_require__.r(__webpack_exports__);
       return papeleria;
     },
     CuotaArancel: function CuotaArancel() {
-      return 160.00;
+      if (this.Registrado == 'Registrada') {
+        return 160.00;
+      }
+
+      return 0.00;
     },
     PrimaArancel: function PrimaArancel() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * APLICA CUANDO EL MONTO DEL CRÉDITO O AMPLIACIÓN SUPERA LOS Q.10,000.00
        * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
        */
-      var porcentaje = 0.0015;
-      var MontoPrestamo = parseFloat(this.monto_prestamo);
+      if (this.Registrado == 'Registrada') {
+        var porcentaje = 0.0015;
+        var MontoPrestamo = parseFloat(this.monto_prestamo);
 
-      if (MontoPrestamo < 10000) {
-        return 0;
-      } else {
-        var monto = (MontoPrestamo - 10000) * porcentaje;
-        var entero = parseInt(monto);
-        var decimal = monto - entero;
-
-        if (decimal === 0.5) {
-          return monto;
-        } else if (decimal > 0.5) {
-          return entero + 2;
-        } else if (decimal == 0) {
-          return monto;
+        if (MontoPrestamo < 10000) {
+          return 0;
         } else {
-          return entero + 1.5;
+          var monto = (MontoPrestamo - 10000) * porcentaje;
+          var entero = parseInt(monto);
+          var decimal = monto - entero;
+
+          if (decimal === 0.5) {
+            return monto;
+          } else if (decimal > 0.5) {
+            return entero + 2;
+          } else if (decimal == 0) {
+            return monto;
+          } else {
+            return entero + 1.5;
+          }
         }
       }
+
+      return 0.00;
     },
     ConsultaElectronica: function ConsultaElectronica() {
-      var monto = 20.00 + 20 * this.finca_extra;
-      return this.roundedNumeric(monto, 2);
+      //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+      if (this.Registrado == 'Registrada') {
+        var monto = 20.00 + 20 * this.finca_extra;
+        return this.roundedNumeric(monto, 2);
+      }
+
+      return 0.00;
     },
     ReferenciaRGP: function ReferenciaRGP() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * REGISTRO GENERAL DE LA PROPIEDAD
        */
-      return 10.00;
+      if (this.Registrado == 'Registrada') {
+        return 10.00;
+      }
+
+      return 0.00;
     },
     Imprevistos: function Imprevistos() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * @imprevisto int = 0.1
        * (CuotaArancel + PrimaArancel+ConsultaElectronica+ReferenciaRGP)* Imprevisto(%)
        */
-      var porcentaje = 0.1;
-      var monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
-      return this.roundedNumeric(monto, 2);
+      if (this.Registrado == 'Registrada') {
+        var porcentaje = 0.1;
+        var monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
+        return this.roundedNumeric(monto, 2);
+      }
+
+      return 0.00;
     },
     RazonRegistral: function RazonRegistral() {
-      return 50.00;
+      //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+      if (this.Registrado == 'Registrada') {
+        return 50.00;
+      }
+
+      return 0.00;
     },
     GastosEscrituracion: function GastosEscrituracion() {
       /**
@@ -3525,77 +3567,97 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       if (this.$refs.form.validate()) {
-        axios.post('/creditos/expediente/store', {
-          cif: this.cif,
-          notario: this.notario,
-          montoCredito: this.monto_prestamo,
-          montoAmpliacion: this.TotalAmpliacion,
-          gastosCobrados: this.GastosEscrituracion,
-          contratos: this.contratos,
-          escrituras: this.escrituras,
-          desembolso: this.Desembolso,
-          garantia: this.Registrado,
-          nuevo: this.CreditoNuevo
-        }).then(function (response) {
-          _this3.dialog = false;
+        var swalWithBootstrapButtons = swal.mixin({
+          confirmButtonClass: 'v-btn info',
+          cancelButtonClass: 'v-btn error',
+          buttonsStyling: false
+        });
+        swalWithBootstrapButtons({
+          title: '¿Guardar registro?',
+          text: 'Se creará un número de expediente!',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Si',
+          cancelButtonText: 'Cancelar',
+          reverseButtons: true
+        }).then(function (result) {
+          if (result.value) {
+            axios.post('/creditos/expediente/store', {
+              cif: _this3.cif,
+              notario: _this3.notario,
+              montoCredito: _this3.monto_prestamo,
+              montoAmpliacion: _this3.TotalAmpliacion,
+              gastosCobrados: _this3.GastosEscrituracion,
+              contratos: _this3.contratos,
+              escrituras: _this3.escrituras,
+              desembolso: _this3.Desembolso,
+              garantia: _this3.Registrado,
+              nuevo: _this3.CreditoNuevo
+            }).then(function (response) {
+              _this3.dialog = false;
 
-          if (response.data.estatus === 'ok') {
-            _this3.$root.panel.total_creditos++;
-            _this3.$root.panel.pendientes++;
+              if (response.data.estatus === 'ok') {
+                _this3.$root.panel.total_creditos++;
+                _this3.$root.panel.pendientes++;
 
-            _this3.clear();
+                _this3.clear();
 
-            swal({
-              type: 'success',
-              title: 'Datos guardados correctamente.',
-              html: '<h4 class="subheading">No. de Expediente: </h4><h3 class="headline blue--text">' + response.data.correlativo + '</h3>',
-              showConfirmButton: true,
-              allowOutsideClick: false,
-              allowEscapeKey: false,
-              buttonsStyling: false,
-              confirmButtonClass: 'v-btn success'
-            });
-          } else if (response.data.estatus === 'duplicate key') {
-            swal({
-              type: 'error',
-              title: 'Datos duplicados.',
-              text: 'El registro ya existe!',
-              showConfirmButton: true,
-              buttonsStyling: false,
-              confirmButtonClass: 'v-btn primary'
-            });
-          } else if (response.data.estatus === 'a foreign key constraint fails') {
-            swal({
-              type: 'error',
-              title: 'Violación de Integridad.',
-              text: 'No se puede añadir o actualizar una fila secundaria.',
-              showConfirmButton: true,
-              buttonsStyling: false,
-              confirmButtonClass: 'v-btn primary'
-            });
-          } else if (response.data.estatus === 'incorrect type value') {
-            swal({
-              type: 'error',
-              title: 'Valores incorrectos.',
-              text: 'El tipo de valor esperado es incorrecto',
-              showConfirmButton: true,
-              buttonsStyling: false,
-              confirmButtonClass: 'v-btn primary'
-            });
-          }
-        })["catch"](function (error) {
-          _this3.dialog = false;
+                swal({
+                  type: 'success',
+                  title: 'Datos guardados correctamente.',
+                  html: '<h4 class="subheading">No. de Expediente: </h4><h3 class="headline blue--text">' + response.data.correlativo + '</h3>',
+                  showConfirmButton: true,
+                  allowOutsideClick: false,
+                  allowEscapeKey: false,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn success'
+                });
+              } else if (response.data.estatus === 'duplicate key') {
+                swal({
+                  type: 'error',
+                  title: 'Datos duplicados.',
+                  text: 'El registro ya existe!',
+                  showConfirmButton: true,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              } else if (response.data.estatus === 'a foreign key constraint fails') {
+                swal({
+                  type: 'error',
+                  title: 'Violación de Integridad.',
+                  text: 'No se puede añadir o actualizar una fila secundaria.',
+                  showConfirmButton: true,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              } else if (response.data.estatus === 'incorrect type value') {
+                swal({
+                  type: 'error',
+                  title: 'Valores incorrectos.',
+                  text: 'El tipo de valor esperado es incorrecto',
+                  showConfirmButton: true,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              }
+            })["catch"](function (error) {
+              _this3.dialog = false;
 
-          if (error.response.data.errors) {
-            _this3.errors = error.response.data.errors;
-            _this3.alertErrors = true;
-          } else {
-            swal({
-              title: _this3.OnErrorMessages(error.response),
-              text: 'Ref. Credit Storage - Code: ' + error.response.status,
-              buttonsStyling: false,
-              confirmButtonClass: 'v-btn error'
+              if (error.response.data.errors) {
+                _this3.errors = error.response.data.errors;
+                _this3.alertErrors = true;
+              } else {
+                swal({
+                  title: _this3.OnErrorMessages(error.response),
+                  text: 'Ref. Credit Storage - Code: ' + error.response.status,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn error'
+                });
+              }
             });
+          } else if ( // Read more about handling dismissals
+          result.dismiss === swal.DismissReason.cancel) {
+            _this3.$emit("updateCuenta", true);
           }
         });
       }
@@ -3705,56 +3767,91 @@ __webpack_require__.r(__webpack_exports__);
       var papeleria = 150.00;
       return papeleria;
     },
+
+    /**
+     * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+     * @returns {number}
+     * @constructor
+     */
     CuotaArancel: function CuotaArancel() {
-      return 160.00;
+      if (this.Registrado == 'Registrada') {
+        return 160.00;
+      }
+
+      return 0.00;
     },
     PrimaArancel: function PrimaArancel() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * APLICA CUANDO EL MONTO DEL CRÉDITO O AMPLIACIÓN SUPERA LOS Q.10,000.00
        * @porcentaje int = 0.0015 sobre la cantidad pasada de los 10,000.00
        */
-      var porcentaje = 0.0015;
-      var MontoPrestamo = parseFloat(this.monto_prestamo);
+      if (this.Registrado == 'Registrada') {
+        var porcentaje = 0.0015;
+        var MontoPrestamo = parseFloat(this.monto_prestamo);
 
-      if (MontoPrestamo < 10000) {
-        return 0;
-      } else {
-        var monto = (MontoPrestamo - 10000) * porcentaje;
-        var entero = parseInt(monto);
-        var decimal = monto - entero;
-
-        if (decimal === 0.5) {
-          return monto;
-        } else if (decimal > 0.5) {
-          return entero + 2;
-        } else if (decimal == 0) {
-          return monto;
+        if (MontoPrestamo < 10000) {
+          return 0;
         } else {
-          return entero + 1.5;
+          var monto = (MontoPrestamo - 10000) * porcentaje;
+          var entero = parseInt(monto);
+          var decimal = monto - entero;
+
+          if (decimal === 0.5) {
+            return monto;
+          } else if (decimal > 0.5) {
+            return entero + 2;
+          } else if (decimal == 0) {
+            return monto;
+          } else {
+            return entero + 1.5;
+          }
         }
       }
+
+      return 0.00;
     },
     ConsultaElectronica: function ConsultaElectronica() {
-      var monto = 20.00 + 20 * this.finca_extra;
-      return this.roundedNumeric(monto, 2);
+      //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+      if (this.Registrado == 'Registrada') {
+        var monto = 20.00 + 20 * this.finca_extra;
+        return this.roundedNumeric(monto, 2);
+      }
+
+      return 0.00;
     },
     ReferenciaRGP: function ReferenciaRGP() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * REGISTRO GENERAL DE LA PROPIEDAD
        */
-      return 10.00;
+      if (this.Registrado == 'Registrada') {
+        return 10.00;
+      }
+
+      return 0.00;
     },
     Imprevistos: function Imprevistos() {
       /**
+       * Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
        * @imprevisto int = 0.1
        * (CuotaArancel + PrimaArancel + ConsultaElectronica + ReferenciaRGP) * Imprevisto(%)
        */
-      var porcentaje = 0.1;
-      var monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
-      return this.roundedNumeric(monto, 2);
+      if (this.Registrado == 'Registrada') {
+        var porcentaje = 0.1;
+        var monto = (this.CuotaArancel + this.PrimaArancel + this.ConsultaElectronica + this.ReferenciaRGP) * porcentaje;
+        return this.roundedNumeric(monto, 2);
+      }
+
+      return 0.00;
     },
     RazonRegistral: function RazonRegistral() {
-      return 50.00;
+      //Si el contrato es registrado cobrar gastos del registro de lo contrario no cobrar gastos del registro
+      if (this.Registrado == 'Registrada') {
+        return 50.00;
+      }
+
+      return 0.00;
     },
     GastosEscrituracion: function GastosEscrituracion() {
       /**
@@ -7508,6 +7605,64 @@ var render = function() {
                                               expression: "finca_extra"
                                             }
                                           })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          attrs: {
+                                            xs6: "",
+                                            sm4: "",
+                                            md4: "",
+                                            lg3: "",
+                                            xl3: "",
+                                            "px-1": ""
+                                          }
+                                        },
+                                        [
+                                          _c("p", [
+                                            _vm._v("Garantia registrada")
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-radio-group",
+                                            {
+                                              ref: "radio",
+                                              attrs: {
+                                                row: "",
+                                                name: "registrado",
+                                                rules: _vm.requiredOption
+                                              },
+                                              model: {
+                                                value: _vm.Registrado,
+                                                callback: function($$v) {
+                                                  _vm.Registrado = $$v
+                                                },
+                                                expression: "Registrado"
+                                              }
+                                            },
+                                            [
+                                              _c("v-radio", {
+                                                attrs: {
+                                                  color: "info",
+                                                  label: "Si",
+                                                  value: "Registrada",
+                                                  checked: ""
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("v-radio", {
+                                                attrs: {
+                                                  color: "info",
+                                                  label: "No",
+                                                  value: "No Registrada"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
                                         ],
                                         1
                                       )

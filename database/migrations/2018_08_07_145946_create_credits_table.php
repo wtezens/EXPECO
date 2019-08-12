@@ -46,7 +46,6 @@ class CreateCreditsTable extends Migration
 
             $table->timestamps();
             $table->unique('credito_id');
-            $table->unique('cuenta');
             $table->foreign('partner_id')
                 ->references('id')
                 ->on('partners')
