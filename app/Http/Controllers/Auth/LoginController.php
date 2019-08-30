@@ -76,11 +76,11 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if($user->session_id){
+        /*if($user->session_id){
             Session::getHandler()->destroy($user->session_id);
         }
         $user->session_id = session()->getId();
-        $user->save();
+        $user->save();*/
 
         session(['identificador' => $user->id]);
         if ($request->ajax()){

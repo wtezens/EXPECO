@@ -1,25 +1,8 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function (){ return view('index'); });
-
-Route::get('/colaborador',function (){
-    return redirect('/colaborador/login');
-});
-
-Route::get('/notario',function (){
-    return redirect('/notario/login');
-});
+Route::get('/colaborador', function (){ return redirect('/colaborador/login'); });
+Route::get('/notario', function (){ return redirect('/notario/login'); });
 
 /*************************************************************************************
  * RUTAS  DEPARTAMENTO DE CREDITOS                                                   *
@@ -284,62 +267,14 @@ Route::prefix('notario')->group(function (){
     //-------------------------------LISTAR NO LIQUIDADOS-----------------------//
     Route::get('/liquidaciones','Notarios\LiquidacionesController@ListadoLiquidaciones');
 
-
     //
     Route::get('/nota/expediente/{expediente}','Notarios\EnviosController@NotaExpediente')
     ->where('expediente','^[0-9]+$');
-
 });
 
-Route::get('/test',function (\App\Exports\NoLiquidadosExport $noLiquidadosExport, \Illuminate\Http\Request $request){
-    //$envio=\Illuminate\Support\Facades\DB::table('no_liquidados')->where('agency_id',3)->get();
 
-    //return $noLiquidadosExport;
-
-    //return \App\Models\User::whereNotNull('session_id')->first();
-
-    //return \App\Models\Partner::where('id',6632)->with('credits')->with('agency')->get();
-    $sqlQuery='select partners.id as cif, partners.nombre as asociado, partners.cuenta,
-  credits.id,credits.monto_credito,credits.monto_ampliacion,
-  credits.created_at,notaries.nombre as notario, agencies.nombre as agencia
-from partners join credits on partners.id = credits.partner_id
-  join notaries on credits.notary_id = notaries.id
-  join agencies on credits.agency_id = agencies.id
-where partners.id=6632';
-    //return \Illuminate\Support\Facades\DB::select(\Illuminate\Support\Facades\DB::raw($sqlQuery));
-
-    return $request->ip();
+Route::prefix('forms')->group( function () {
+    Route::get('history','Historicos\HistoricosController@index');
+    Route::post('store','Historicos\HistoricosController@store');
+    Route::get('partner/{id}','Historicos\HistoricosController@verifyCif');
 });
-
-Route::get('/enviar',function (){
-
-    /*Mail::send('emails.test',[],function ($message){
-    //       $message->to('wilmertezen@gmail.com','Notario')
-    //       ->subject('Mail Testing');
-    //       $message->from('expeco.ecosabarl@gmail.com','Administración');
-    //    });*/
-    //
-    //    Mail::to('wilmer.tezen@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    Mail::to('elvira.patzan@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    Mail::to('floridalma.puluc@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    Mail::to('yeimi.castro@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-    Mail::to('mayra.sequen@ecosabarl.com')->send(new \App\Mail\BienvenidoColaborador());
-
-    if(Mail::failures()){
-        return 'email incorrecto';
-    }else{
-        return 'email exitoso';
-    }
-
-    //return new \App\Mail\BienvenidoColaborador();
-});
-
-Route::get('creditos',function(){
-    (new \App\Exports\AllCreditsExport())->store('reporte_general.xlsx');
-    return "correcto";
-});
-
-/*\Illuminate\Support\Facades\DB::listen(function ($query){
-   echo "<pre>{$query->sql}</pre>";
-   echo "<pre>{$query->time}</pre>";
-});*/
