@@ -278,4 +278,6 @@ Route::prefix('forms')->group( function () {
     Route::post('store','Historicos\HistoricosController@store');
     Route::get('partner/{id}','Historicos\HistoricosController@verifyCif');
     Route::post('asociado/store','Historicos\HistoricosController@partnerStore');
+    Route::get('/expediente/{expediente}','Historicos\HistoricosController@show')
+        ->where('idexpediente','^\d+$');
 });

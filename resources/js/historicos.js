@@ -30,6 +30,7 @@ const historicos = new Vue({
             alertErrors:false,
             dialog_asociado_create:false,
             errors:[],
+            resultado:[],
             valido: true,
             dialog: true,
 
@@ -240,8 +241,8 @@ const historicos = new Vue({
                                     confirmButtonClass:'v-btn primary'
                                 })
                             }*/
-                            console.log(response);
-
+                            this.clear();
+                            window.open('/forms/expediente/'+response.data);
                         })
                         .catch(error=>{
                             if(error.response.data.errors){
@@ -304,5 +305,41 @@ const historicos = new Vue({
         reemplazarCadena(cadena){
             return cadena.toString();
         },
+        clear(){
+                this.credito= '',
+                this.cif= '',
+                this.cuenta= '',
+                this.monto_prestamo= '',
+                this.monto_ampliacion= '';
+                this.gasto_cobrado= '';
+                this.contratos= '';
+                this.escrituras= '';
+                this.Registrado= '';
+                this.Desembolso= '';
+                this.numero_de_escritura= '';
+                this.fecha_de_escrituracion= '';
+                this.timbre_notarial= '';
+                this.gasto_papeleria= '';
+                this.consulta_electronica= '';
+                this.honorario_notario= '';
+                this.honorario_registro= '';
+                this.diferencia= '';
+                this.ajuste_liquidacion= '';
+                this.fecha_creacion= '';
+
+                //Estatus
+                this.estatus_1= '';
+                this.estatus_2= '';
+                this.estatus_3= '';
+                this.estatus_4= '';
+                this.estatus_5= '';
+                this.estatus_6= '';
+                this.estatus_7= '';
+                this.estatus_8= '';
+                this.estatus_9= '';
+                this.estatus_10= '';
+
+                this.cantidad_anticipo= '';
+        }
     }
 });

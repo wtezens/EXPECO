@@ -41585,6 +41585,7 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       alertErrors: false,
       dialog_asociado_create: false,
       errors: [],
+      resultado: [],
       valido: true,
       dialog: true,
       snackbar: false,
@@ -41795,7 +41796,9 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
                     confirmButtonClass:'v-btn primary'
                 })
             }*/
-            console.log(response);
+            _this2.clear();
+
+            window.open('/forms/expediente/' + response.data);
           })["catch"](function (error) {
             if (error.response.data.errors) {
               _this2.errors = error.response.data.errors;
@@ -41856,6 +41859,36 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     reemplazarCadena: function reemplazarCadena(cadena) {
       return cadena.toString();
+    },
+    clear: function clear() {
+      this.credito = '', this.cif = '', this.cuenta = '', this.monto_prestamo = '', this.monto_ampliacion = '';
+      this.gasto_cobrado = '';
+      this.contratos = '';
+      this.escrituras = '';
+      this.Registrado = '';
+      this.Desembolso = '';
+      this.numero_de_escritura = '';
+      this.fecha_de_escrituracion = '';
+      this.timbre_notarial = '';
+      this.gasto_papeleria = '';
+      this.consulta_electronica = '';
+      this.honorario_notario = '';
+      this.honorario_registro = '';
+      this.diferencia = '';
+      this.ajuste_liquidacion = '';
+      this.fecha_creacion = ''; //Estatus
+
+      this.estatus_1 = '';
+      this.estatus_2 = '';
+      this.estatus_3 = '';
+      this.estatus_4 = '';
+      this.estatus_5 = '';
+      this.estatus_6 = '';
+      this.estatus_7 = '';
+      this.estatus_8 = '';
+      this.estatus_9 = '';
+      this.estatus_10 = '';
+      this.cantidad_anticipo = '';
     }
   }
 });

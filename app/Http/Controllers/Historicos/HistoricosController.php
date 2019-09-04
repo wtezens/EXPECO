@@ -150,6 +150,9 @@ class HistoricosController extends Controller
 
         //    'cantidad_anticipo' => 'nullable|numeric'
 
+
+        return $credit->id;
+
     }
 
     public function verifyCif($cif){
@@ -204,5 +207,14 @@ class HistoricosController extends Controller
                 return $e;
             }
         }
+    }
+
+    public function show($id)
+    {
+        $credito = Credit::with('statuses')->with('notary:id,nombre')
+            ->with('partner')->where('id', $id)
+            ->get();
+
+        return $credito;
     }
 }

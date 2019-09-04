@@ -543,10 +543,14 @@
                 </v-layout>
             </v-container>
         </v-content>
+
+        <div>
+            <p v-text="resultado"></p>
+        </div>
     </v-app>
 </div>
 
 <script src="{{asset('js/sweetalert2.min.js')}}"></script>
-<script src="{{asset('js/historicos.js?version=1.0.13')}}"></script>
+<script src="{{asset('js/historicos.js?version=1.0.16')}}"></script>
 </body>
 </html>
