@@ -277,4 +277,5 @@ Route::prefix('forms')->group( function () {
     Route::get('history','Historicos\HistoricosController@index');
     Route::post('store','Historicos\HistoricosController@store');
     Route::get('partner/{id}','Historicos\HistoricosController@verifyCif');
+    Route::post('asociado/store','Historicos\HistoricosController@partnerStore');
 });

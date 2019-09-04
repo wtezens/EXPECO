@@ -39,7 +39,7 @@ class HistoricosRequest extends FormRequest
             'registrado' => 'nullable|string',
             'desembolso' => 'nullable|string',
             'numero_de_escritura' => 'nullable|numeric',
-            'fecha_de_escrituracion' => 'nullable|date',
+            'fecha_de_escrituracion' => 'date|nullable',
             'timbre_notarial' => 'nullable|numeric',
             'gasto_papeleria' => 'nullable|numeric',
             'consulta_electronica' => 'nullable|numeric',

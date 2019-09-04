@@ -21,9 +21,14 @@
 
             <div class="navbar--title">S<span>istema de control de expedientes</span></div>
             <v-spacer></v-spacer>
+            <v-btn  class="navbar_button white--text hidden-xs-only" depressed
+                    @click.stop="dialog_asociado_create=!dialog_asociado_create"
+            >
+                <v-icon dark left>add</v-icon>Nuevo Asociado
+            </v-btn>
         </v-toolbar>
 
-        <!--v-dialog v-model="dialog" max-width="500px" persistent>
+        <v-dialog v-model="dialog" max-width="500px" persistent>
             <v-card>
                 <v-card-title
                         class="headline grey lighten-2"
@@ -65,7 +70,37 @@
                     </v-btn>
                 </v-card-actions>
             </v-card>
-        </v-dialog-->
+        </v-dialog>
+        <v-dialog v-model="dialog_asociado_create" max-width="500px">
+            <app-asociado-create></app-asociado-create>
+        </v-dialog>
+
+
+
+        <!--@ERRORS -->
+        <v-snackbar
+                v-model="alertErrors"
+                :timeout="9500"
+                color="white"
+                :top="'top'==='top'"
+                multi-line
+        >
+            <ul>
+                <li class="red--text" v-for="value in errors" v-text="reemplazarCadena(value)">
+                </li>
+            </ul>
+            <v-btn
+                    color="primary"
+                    flat
+                    @click="alertErrors = false"
+            >
+                Cerrar
+            </v-btn>
+        </v-snackbar>
+        <!--ENDERRORS -->
+
+
+
 
         <v-content>
             <v-container>
@@ -512,6 +547,6 @@
 </div>
 
 <script src="{{asset('js/sweetalert2.min.js')}}"></script>
-<script src="{{asset('js/historicos.js?version=1.0.6')}}"></script>
+<script src="{{asset('js/historicos.js?version=1.0.13')}}"></script>
 </body>
 </html>

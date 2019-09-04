@@ -1,3 +1,5 @@
+import AppFooter from "./components/AppFooter";
+
 require('./vuetify');
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10,15 +12,24 @@ import Vuetify from 'vuetify'
 
 Vue.use(Vuetify);
 
+
+/**
+ * COMPONENTS
+ */
+import AsociadoCreate from './components/historicos/AppAsociadoCreate'
+Vue.component('app-asociado-create', AsociadoCreate);
+
 /**
  * HISTORICOS
  */
 
 const historicos = new Vue({
-
     el: '#historicos',
     data: ()=> {
         return {
+            alertErrors:false,
+            dialog_asociado_create:false,
+            errors:[],
             valido: true,
             dialog: true,
 
@@ -169,98 +180,97 @@ const historicos = new Vue({
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
+                    axios.post('/forms/store',{
+                        notario: this.notario,
+                        agencia: this.agencia,
+                        credito: this.credito,
+                        cif: this.cif,
+                        cuenta_ahorro: this.cuenta,
+                        monto_prestamo: this.monto_prestamo,
+                        monto_ampliacion: this.monto_ampliacion,
+                        gasto_cobrado: this.gasto_cobrado,
+                        contratos: this.contratos,
+                        escrituras: this.escrituras,
+                        registrado: this.Registrado,
+                        desembolso: this.Desembolso,
+                        numero_de_escritura: this.numero_de_escritura,
+                        fecha_de_escrituracion: this.process_dates(this.fecha_de_escrituracion),
+                        timbre_notarial: this.timbre_notarial,
+                        gasto_papeleria: this.gasto_papeleria,
+                        consulta_electronica: this.consulta_electronica,
+                        honorario_notario: this.honorario_notario,
+                        honorario_registro: this.honorario_registro,
+                        diferencia: this.diferencia,
+                        ajuste_liquidacion: this.ajuste_liquidacion,
+                        fecha_creacion: this.process_dates(this.fecha_creacion),
+                        //Estatus
+                        estatus_1: this.process_dates(this.estatus_1),
+                        estatus_2: this.process_dates(this.estatus_2),
+                        estatus_3: this.process_dates(this.estatus_3),
+                        estatus_4: this.process_dates(this.estatus_4),
+                        estatus_5: this.process_dates(this.estatus_5),
+                        estatus_6: this.process_dates(this.estatus_6),
+                        estatus_7: this.process_dates(this.estatus_7),
+                        estatus_8: this.process_dates(this.estatus_8),
+                        estatus_9: this.process_dates(this.estatus_9),
+                        estatus_10: this.process_dates(this.estatus_10),
+                        cantidad_anticipo: this.cantidad_anticipo,
+                    })
+                        .then(response=>{
+                            /*if(response.data.estatus==='fail'){
+                                swal({
+                                    title:response.data.descripcion,
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                })
+                            }else if(response.data.estatus==='ok'){
+                                this.clear();
+                                swal({
+                                    type: 'success',
+                                    title: 'Datos guardados correctamente.',
+                                    showConfirmButton: true,
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                });
+                                this.$emit("updated",true);
+                            }else{
+                                swal({
+                                    title:response.data.descripcion,
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                })
+                            }*/
+                            console.log(response);
 
-                    if(this.$refs.form.validate()){
-                        axios.post('/forms/store',{
-                            notario: this.notario,
-                            agencia: this.agencia,
-                            credito: this.credito,
-                            cif: this.cif,
-                            cuenta_ahorro: this.cuenta,
-                            monto_prestamo: this.monto_prestamo,
-                            monto_ampliacion: this.monto_ampliacion,
-                            contratos: this.contratos,
-                            escrituras: this.escrituras,
-                            registrado: this.Registrado,
-                            desembolso: this.Desembolso,
-                            numero_de_escritura: this.numero_de_escritura,
-                            fecha_de_escrituracion: this.fecha_de_escrituracion,
-                            timbre_notarial: this.timbre_notarial,
-                            gasto_papeleria: this.gasto_papeleria,
-                            consulta_electronica: this.consulta_electronica,
-                            honorario_notario: this.honorario_notario,
-                            honorario_registro: this.honorario_registro,
-                            diferencia: this.diferencia,
-                            ajuste_liquidacion: this.ajuste_liquidacion,
-                            fecha_creacion: this.process_dates(this.fecha_creacion),
-                            //Estatus
-                            estatus_1: this.process_dates(this.estatus_1),
-                            estatus_2: this.process_dates(this.estatus_2),
-                            estatus_3: this.process_dates(this.estatus_3),
-                            estatus_4: this.process_dates(this.estatus_4),
-                            estatus_5: this.process_dates(this.estatus_5),
-                            estatus_6: this.process_dates(this.estatus_6),
-                            estatus_7: this.process_dates(this.estatus_7),
-                            estatus_8: this.process_dates(this.estatus_8),
-                            estatus_9: this.process_dates(this.estatus_9),
-                            estatus_10: this.process_dates(this.estatus_10),
-                            cantidad_anticipo: this.cantidad_anticipo,
                         })
-                            .then(response=>{
-                                /*if(response.data.estatus==='fail'){
-                                    swal({
-                                        title:response.data.descripcion,
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    })
-                                }else if(response.data.estatus==='ok'){
-                                    this.clear();
-                                    swal({
-                                        type: 'success',
-                                        title: 'Datos guardados correctamente.',
-                                        showConfirmButton: true,
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    });
-                                    this.$emit("updated",true);
-                                }else{
-                                    swal({
-                                        title:response.data.descripcion,
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    })
-                                }*/
-                                console.log(response);
-
-                            })
-                            .catch(error=>{
-                                if(error.response.data.errors){
-                                    this.$emit("errors",error.response.data.errors);
-                                }else if(error.response.status===403){
-                                    swal({
-                                        type:'error',
-                                        title:'403. Forbidden',
-                                        text:'No tiene autorización para realizar esta acción.',
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    })
-                                }else if(error.response.status===404){
-                                    swal({
-                                        type:'error',
-                                        title:'Fallo en la operación.',
-                                        text:'No pudimos completar la acción con los datos enviados.',
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    })
-                                }else{
-                                    swal({
-                                        title:error.toString(),
-                                        buttonsStyling:false,
-                                        confirmButtonClass:'v-btn primary'
-                                    })
-                                }
-                            })
-                    }
+                        .catch(error=>{
+                            if(error.response.data.errors){
+                                this.errors = error.response.data.errors;
+                                this.alertErrors=true;
+                            }else if(error.response.status===403){
+                                swal({
+                                    type:'error',
+                                    title:'403. Forbidden',
+                                    text:'No tiene autorización para realizar esta acción.',
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                })
+                            }else if(error.response.status===404){
+                                swal({
+                                    type:'error',
+                                    title:'Fallo en la operación.',
+                                    text:'No pudimos completar la acción con los datos enviados.',
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                })
+                            }else{
+                                swal({
+                                    title:error.toString(),
+                                    buttonsStyling:false,
+                                    confirmButtonClass:'v-btn primary'
+                                })
+                            }
+                        })
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
@@ -290,6 +300,9 @@ const historicos = new Vue({
                     return error.statusText;
                     break;
             }
-        }
+        },
+        reemplazarCadena(cadena){
+            return cadena.toString();
+        },
     }
 });
