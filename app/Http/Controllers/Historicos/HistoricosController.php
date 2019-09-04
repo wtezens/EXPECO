@@ -38,7 +38,7 @@ class HistoricosController extends Controller
         $credit->user_id = 1;
 
         //nullable
-        if($request->cuenta>0){
+        if($request->cuenta_ahorro>0){
             $credit->cuenta = $request->cuenta_ahorro;
         }
 
