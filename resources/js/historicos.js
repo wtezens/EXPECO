@@ -241,6 +241,13 @@ const historicos = new Vue({
                                     confirmButtonClass:'v-btn primary'
                                 })
                             }*/
+                            swal({
+                                type: 'success',
+                                title: 'Datos guardados correctamente.',
+                                showConfirmButton: true,
+                                buttonsStyling:false,
+                                confirmButtonClass:'v-btn primary'
+                            });
                             this.clear();
                             window.open('/forms/expediente/'+response.data);
                         })

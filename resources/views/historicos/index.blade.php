@@ -551,6 +551,6 @@
 </div>
 
 <script src="{{asset('js/sweetalert2.min.js')}}"></script>
-<script src="{{asset('js/historicos.js?version=1.0.16')}}"></script>
+<script src="{{asset('js/historicos.js?version=1.0.17')}}"></script>
 </body>
 </html>

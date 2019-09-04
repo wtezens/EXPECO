@@ -41796,6 +41796,14 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
                     confirmButtonClass:'v-btn primary'
                 })
             }*/
+            swal({
+              type: 'success',
+              title: 'Datos guardados correctamente.',
+              showConfirmButton: true,
+              buttonsStyling: false,
+              confirmButtonClass: 'v-btn primary'
+            });
+
             _this2.clear();
 
             window.open('/forms/expediente/' + response.data);
