@@ -41737,6 +41737,7 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         reverseButtons: true
       }).then(function (result) {
         if (result.value) {
+          _this2.valido = false;
           axios.post('/forms/store', {
             notario: _this2.notario,
             agencia: _this2.agencia,
@@ -41806,6 +41807,7 @@ var historicos = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
             _this2.clear();
 
+            _this2.valido = true;
             window.open('/forms/expediente/' + response.data);
           })["catch"](function (error) {
             if (error.response.data.errors) {

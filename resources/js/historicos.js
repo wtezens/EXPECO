@@ -181,6 +181,7 @@ const historicos = new Vue({
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
+                    this.valido = false;
                     axios.post('/forms/store',{
                         notario: this.notario,
                         agencia: this.agencia,
@@ -249,6 +250,7 @@ const historicos = new Vue({
                                 confirmButtonClass:'v-btn primary'
                             });
                             this.clear();
+                            this.valido=true;
                             window.open('/forms/expediente/'+response.data);
                         })
                         .catch(error=>{
