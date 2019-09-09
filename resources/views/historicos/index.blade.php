@@ -145,7 +145,7 @@
 
                                     <v-tab-item>
                                         <v-layout row wrap>
-                                            <v-flex xs12 md4 pt-4 px-4>
+                                            <v-flex xs12 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         prepend-icon="plus_one"
@@ -157,7 +157,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 pt-4 px-4>
+                                            <v-flex xs12 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         prepend-icon="person"
@@ -170,7 +170,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 pt-4 px-4>
+                                            <v-flex xs12 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="cuenta"
@@ -183,7 +183,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm4 px-4>
+                                            <v-flex xs6 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="monto_prestamo"
@@ -196,7 +196,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm4 px-4>
+                                            <v-flex xs6 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="monto_ampliacion"
@@ -209,7 +209,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm4 px-4>
+                                            <v-flex xs6 sm6 md4 pt-4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="gasto_cobrado"
@@ -222,7 +222,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm4 md3 px-4>
+                                            <v-flex xs6 sm6 md3 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="contratos"
@@ -234,7 +234,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm4 md3 px-4>
+                                            <v-flex xs6 sm6 md3 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="escrituras"
@@ -253,14 +253,14 @@
                                                     <v-radio color="info" label="No" value="No Registrada"></v-radio>
                                                 </v-radio-group>
                                             </v-flex>
-                                            <v-flex xs12 sm6 md4 px-2>
+                                            <v-flex xs12 sm8 md4 px-2>
                                                 <p>Tipo desembolso (*)</p>
                                                 <v-radio-group v-model="Desembolso" row name="desembolso" :rules="requiredOption">
                                                     <v-radio color="green" label="Sin Previa Ins." value="Normal"></v-radio>
                                                     <v-radio color="green" label="Previa Ins." value="Previa Inscripcion"></v-radio>
                                                 </v-radio-group>
                                             </v-flex>
-                                            <v-flex xs12 md3 px-4>
+                                            <v-flex xs12 sm6 md3 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="numero_de_escritura"
                                                               v-model="numero_de_escritura"
@@ -271,7 +271,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md3 px-4>
+                                            <v-flex xs12 sm6 md3 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="fecha_de_escrituracion"
                                                               v-model="fecha_de_escrituracion"
@@ -283,7 +283,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm3 px-4>
+                                            <v-flex xs6 sm4 md3 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="timbre_notarial"
@@ -296,7 +296,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs6 sm3 px-4>
+                                            <v-flex xs6 sm4 md3 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="gasto_papeleria"
@@ -309,7 +309,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="consulta_electronica"
@@ -322,7 +322,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="honorario_notario"
@@ -335,7 +335,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="honorario_registro"
@@ -348,7 +348,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="diferencia"
@@ -361,7 +361,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="ajuste_liquidacion"
@@ -374,7 +374,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="fecha_creacion"
                                                               v-model="fecha_creacion"
@@ -390,7 +390,7 @@
                                     </v-tab-item>
                                     <v-tab-item>
                                         <v-layout row wrap>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_1"
                                                               v-model="estatus_1"
@@ -402,7 +402,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_2"
                                                               v-model="estatus_2"
@@ -414,7 +414,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_3"
                                                               v-model="estatus_3"
@@ -426,7 +426,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_4"
                                                               v-model="estatus_4"
@@ -438,7 +438,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_5"
                                                               v-model="estatus_5"
@@ -450,7 +450,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_6"
                                                               v-model="estatus_6"
@@ -462,7 +462,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_7"
                                                               v-model="estatus_7"
@@ -474,7 +474,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_8"
                                                               v-model="estatus_8"
@@ -486,7 +486,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_9"
                                                               v-model="estatus_9"
@@ -498,7 +498,7 @@
                                                 >
                                                 </v-text-field>
                                             </v-flex>
-                                            <v-flex xs12 md4 px-4>
+                                            <v-flex xs12 sm4 md4 px-4>
                                                 <v-text-field validate-on-blur
                                                               ref="estatus_10"
                                                               v-model="estatus_10"
