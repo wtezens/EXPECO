@@ -11,7 +11,11 @@
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="{{asset('css/vuetify.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/app.css?version=1.0.08')}}" rel="stylesheet">
-
+    <style type="text/css">
+        .required {
+            color: darkred !important;
+        }
+    </style>
 </head>
 <body>
 <div id="historicos">
@@ -159,7 +163,7 @@
                                                         prepend-icon="person"
                                                         ref="cif"
                                                         v-model="cif"
-                                                        label="Cif"
+                                                        label="Cif (*)"
                                                         :rules="RulesCif"
                                                         required
                                                         v-on:change="onChangeCif"
@@ -183,7 +187,7 @@
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="monto_prestamo"
-                                                        label="Monto pr&eacute;stamo"
+                                                        label="Monto pr&eacute;stamo (*)"
                                                         suffix="Q. "
                                                         v-model="monto_prestamo"
                                                         :rules="defaultMontoRules"
@@ -196,7 +200,7 @@
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="monto_ampliacion"
-                                                        label=" Monto ampliaci&oacute;n"
+                                                        label=" Monto ampliaci&oacute;n (*)"
                                                         suffix="Q. "
                                                         v-model="monto_ampliacion"
                                                         :rules="defaultMontoRules"
@@ -209,7 +213,7 @@
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="gasto_cobrado"
-                                                        label="Gastos cobrados"
+                                                        label="Gastos cobrados (*)"
                                                         suffix="Q. "
                                                         v-model="gasto_cobrado"
                                                         :rules="defaultMontoRules"
@@ -222,7 +226,7 @@
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="contratos"
-                                                        label="No. de contratos:"
+                                                        label="No. de contratos (*)"
                                                         v-model="contratos"
                                                         :rules="defaultCantidadRules"
                                                         mask="##"
@@ -234,7 +238,7 @@
                                                 <v-text-field
                                                         validate-on-blur
                                                         ref="escrituras"
-                                                        label="No. de escrituras:"
+                                                        label="No. de escrituras (*)"
                                                         v-model="escrituras"
                                                         :rules="defaultCantidadRules"
                                                         mask="##"
@@ -243,14 +247,14 @@
                                                 </v-text-field>
                                             </v-flex>
                                             <v-flex xs12 sm4 md2 px-2>
-                                                <p>Garantia registrada</p>
+                                                <p>Garantia registrada (*)</p>
                                                 <v-radio-group v-model="Registrado" row name="registrado" :rules="requiredOption">
                                                     <v-radio color="info" label="Si" value="Registrada" checked></v-radio>
                                                     <v-radio color="info" label="No" value="No Registrada"></v-radio>
                                                 </v-radio-group>
                                             </v-flex>
                                             <v-flex xs12 sm6 md4 px-2>
-                                                <p>Tipo desembolso</p>
+                                                <p>Tipo desembolso (*)</p>
                                                 <v-radio-group v-model="Desembolso" row name="desembolso" :rules="requiredOption">
                                                     <v-radio color="green" label="Sin Previa Ins." value="Normal"></v-radio>
                                                     <v-radio color="green" label="Previa Ins." value="Previa Inscripcion"></v-radio>
@@ -526,6 +530,7 @@
                                         </v-layout>
                                     </v-tab-item>
                                 </v-tabs>
+                                <span  class="red--text px-4">* Datos obligatorios</span>
                                 <v-layout row justify-center>
                                     <v-flex md4>
                                         <v-btn block flat class="green--text2"
