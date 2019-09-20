@@ -3257,10 +3257,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "dashboardContabilidad",
   data: function data() {
-    return {};
+    return {
+      valido: true,
+      dialog: false,
+      requiredOption: [function (v) {
+        return !!v || 'Este campo es requerido';
+      }],
+      notario: '',
+      agencia: ''
+    };
   },
   created: function created() {},
   methods: {
@@ -3307,7 +3362,7 @@ __webpack_require__.r(__webpack_exports__);
               swal({
                 type: 'error',
                 title: 'Fallo en la operación.',
-                text: 'Es posible que el registro ya contenga un número de cuenta.',
+                text: 'Woops! No se pudo encontrar la ruta especificada.',
                 buttonsStyling: false,
                 confirmButtonClass: 'v-btn primary'
               });
@@ -3322,6 +3377,81 @@ __webpack_require__.r(__webpack_exports__);
         } else if ( // Read more about handling dismissals
         result.dismiss === swal.DismissReason.cancel) {}
       });
+    },
+    reporte_especifico: function reporte_especifico() {
+      var _this2 = this;
+
+      if (this.$refs.form.validate()) {
+        this.dialog = false;
+        var swalWithBootstrapButtons = swal.mixin({
+          confirmButtonClass: 'v-btn info',
+          cancelButtonClass: 'v-btn error',
+          buttonsStyling: false
+        });
+        swalWithBootstrapButtons({
+          title: '¿Solicitar Reporte Especifico?',
+          type: 'info',
+          showCancelButton: true,
+          confirmButtonText: 'Si',
+          cancelButtonText: 'Cancelar',
+          reverseButtons: true
+        }).then(function (result) {
+          if (result.value) {
+            axios.post('/contabilidad/reporte/especifico', {
+              agencia: _this2.agencia,
+              notario: _this2.notario
+            }).then(function (response) {
+              if (response.data.estatus === 'ok') {
+                swal({
+                  type: 'success',
+                  title: response.data.descripcion,
+                  text: 'Espere un momento mientras se procesa su solicitud',
+                  showConfirmButton: true,
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              }
+
+              _this2.notario = '';
+              _this2.agencia = '';
+
+              _this2.$refs.form.reset();
+            })["catch"](function (error) {
+              if (error.response.data.errors) {
+                _this2.$emit("errors", error.response.data.errors);
+              } else if (error.response.status === 403) {
+                swal({
+                  type: 'error',
+                  title: '403. Forbidden',
+                  text: 'No tiene autorización para realizar esta acción.',
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              } else if (error.response.status === 404) {
+                swal({
+                  type: 'error',
+                  title: 'Fallo en la operación.',
+                  text: 'Woops! No se pudo encontrar la ruta especificada.',
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              } else {
+                swal({
+                  title: error.toString(),
+                  buttonsStyling: false,
+                  confirmButtonClass: 'v-btn primary'
+                });
+              }
+            });
+          } else if ( // Read more about handling dismissals
+          result.dismiss === swal.DismissReason.cancel) {
+            _this2.notario = '';
+            _this2.agencia = '';
+
+            _this2.$refs.form.reset();
+          }
+        });
+      }
     },
     showItem: function showItem(item) {
       window.open('/colaborador/creditos#/expediente/' + item);
@@ -3664,7 +3794,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.hover{\n    cursor: pointer;\n}*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.hover{\n    cursor: pointer;\n}*/\n", ""]);
 
 // exports
 
@@ -7110,9 +7240,13 @@ var render = function() {
                                             outline: "",
                                             color: "black"
                                           },
-                                          on: { click: function($event) {} }
+                                          on: {
+                                            click: function($event) {
+                                              _vm.dialog = !_vm.dialog
+                                            }
+                                          }
                                         },
-                                        [_vm._v("Reporte General")]
+                                        [_vm._v("Reporte Específico")]
                                       )
                                     ],
                                     1
@@ -7128,6 +7262,125 @@ var render = function() {
                       )
                     ],
                     1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { "max-width": "500px" },
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline grey lighten-2" }, [
+                _vm._v(
+                  "\n                Seleccione una agencia y un notario\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    {
+                      ref: "form",
+                      attrs: { id: "reporte", "lazy-validation": "" },
+                      model: {
+                        value: _vm.valido,
+                        callback: function($$v) {
+                          _vm.valido = $$v
+                        },
+                        expression: "valido"
+                      }
+                    },
+                    [
+                      _c(
+                        "v-flex",
+                        { attrs: { xs12: "" } },
+                        [
+                          _c("v-select", {
+                            attrs: {
+                              "validate-on-blur": "",
+                              items: _vm.$root.agencias,
+                              "item-text": "nombre",
+                              "item-value": "id",
+                              label: "Agencia:",
+                              rules: _vm.requiredOption
+                            },
+                            model: {
+                              value: _vm.agencia,
+                              callback: function($$v) {
+                                _vm.agencia = $$v
+                              },
+                              expression: "agencia"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-flex",
+                        { attrs: { xs12: "" } },
+                        [
+                          _c("v-select", {
+                            attrs: {
+                              "validate-on-blur": "",
+                              items: _vm.$root.notarios,
+                              "item-text": "nombre",
+                              "item-value": "id",
+                              label: "Notario:",
+                              rules: _vm.requiredOption
+                            },
+                            model: {
+                              value: _vm.notario,
+                              callback: function($$v) {
+                                _vm.notario = $$v
+                              },
+                              expression: "notario"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "warning",
+                      attrs: { text: "" },
+                      on: { click: _vm.reporte_especifico }
+                    },
+                    [_vm._v("\n                    Aceptar\n                ")]
                   )
                 ],
                 1
@@ -49026,8 +49279,14 @@ var app_contabilidad = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         return v.length <= 10 || 'ingrese menos de 10 digitos';
       }, function (v) {
         return /^[0-9]+$/.test(v) || 'el número debe ser válido';
-      }]
+      }],
+      notarios: [],
+      agencias: []
     };
+  },
+  created: function created() {
+    this.getNotarios();
+    this.getAgencias();
   },
   methods: {
     buscarExpediente: function buscarExpediente() {
@@ -49036,6 +49295,60 @@ var app_contabilidad = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         this.dialog_search = false;
         this.$refs.expediente.reset();
         this.expediente = '';
+      }
+    },
+    getNotarios: function getNotarios() {
+      var _this = this;
+
+      axios.get('/contabilidad/getNotaries').then(function (response) {
+        _this.notarios = response.data;
+      })["catch"](function (error) {
+        swal({
+          title: _this.OnErrorMessages(error.response),
+          text: 'Ref. Notarios - Code: ' + error.response.status,
+          buttonsStyling: false,
+          confirmButtonClass: 'v-btn error'
+        });
+      });
+    },
+    getAgencias: function getAgencias() {
+      var _this2 = this;
+
+      axios.get('/contabilidad/getAgencies').then(function (response) {
+        _this2.agencias = response.data;
+      })["catch"](function (error) {
+        swal({
+          title: _this2.OnErrorMessages(error.response),
+          text: 'Ref. Agencias - Code: ' + error.response.status,
+          buttonsStyling: false,
+          confirmButtonClass: 'v-btn error'
+        });
+      });
+    },
+
+    /*Codigos de Errores
+        * var @error HTTP*/
+    OnErrorMessages: function OnErrorMessages(error) {
+      switch (error.status) {
+        case 404:
+          return 'No se ha podido encontrar el recurso solicitado.';
+          break;
+
+        case 403:
+          return 'No tiene acceso para acceder a este recurso.';
+          break;
+
+        case 419:
+          return 'Su sessión ha expirado, recargue la página.';
+          break;
+
+        case 500:
+          return 'Error del servidor.';
+          break;
+
+        default:
+          return error.statusText;
+          break;
       }
     }
   }

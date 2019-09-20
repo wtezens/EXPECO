@@ -46,9 +46,15 @@ const app_contabilidad = new Vue({
                 v => !!v || 'Ingrese un número',
                 v => v.length <=10 || 'ingrese menos de 10 digitos',
                 v => /^[0-9]+$/.test(v)||'el número debe ser válido'
-            ]
+            ],
+            notarios: [],
+            agencias: []
 
         };
+    },
+    created(){
+        this.getNotarios();
+        this.getAgencias();
     },
     methods:{
         buscarExpediente(){
@@ -57,6 +63,55 @@ const app_contabilidad = new Vue({
                 this.dialog_search=false;
                 this.$refs.expediente.reset();
                 this.expediente='';
+            }
+        },
+        getNotarios(){
+            axios.get('/contabilidad/getNotaries')
+                .then(response => {
+                    this.notarios = response.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: this.OnErrorMessages(error.response),
+                        text:'Ref. Notarios - Code: ' + error.response.status,
+                        buttonsStyling:false,
+                        confirmButtonClass:'v-btn error'
+                    })
+                });
+        },
+        getAgencias(){
+            axios.get('/contabilidad/getAgencies')
+                .then(response => {
+                    this.agencias = response.data;
+                })
+                .catch(error => {
+                    swal({
+                        title: this.OnErrorMessages(error.response),
+                        text:'Ref. Agencias - Code: ' + error.response.status,
+                        buttonsStyling:false,
+                        confirmButtonClass:'v-btn error'
+                    })
+                });
+        },
+        /*Codigos de Errores
+            * var @error HTTP*/
+        OnErrorMessages(error){
+            switch (error.status) {
+                case 404:
+                    return 'No se ha podido encontrar el recurso solicitado.';
+                    break;
+                case 403:
+                    return 'No tiene acceso para acceder a este recurso.';
+                    break;
+                case 419:
+                    return 'Su sessión ha expirado, recargue la página.';
+                    break;
+                case 500:
+                    return 'Error del servidor.';
+                    break;
+                default:
+                    return error.statusText;
+                    break;
             }
         }
     }

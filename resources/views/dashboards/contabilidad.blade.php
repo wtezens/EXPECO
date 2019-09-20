@@ -241,5 +241,5 @@
 @stop
 
 @section('script')
-    <script src="{{asset('js/contabilidad/contabilidad.js?version=1.0.42')}}"></script>
+    <script src="{{asset('js/contabilidad/contabilidad.js?version=1.0.43')}}"></script>
 @stop

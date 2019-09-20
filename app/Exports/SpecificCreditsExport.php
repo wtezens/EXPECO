@@ -10,14 +10,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, ShouldQueue
+class SpecificCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, ShouldQueue
 {
     use Exportable;
 
+    public $agency_id;
+    public $notary_id;
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder
-     */
+    public function __construct($agency_id, $notary_id)
+    {
+        $this->agency_id = $agency_id;
+        $this->notary_id = $notary_id;
+    }
+
+
     public function query()
     {
         return Credit::query()
@@ -59,6 +65,8 @@ class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, Shoul
                 'notaries.nombre as notario'
             )
             ->where('credits.estado', 1)
+            ->where('credits.agency_id', $this->agency_id)
+            ->where('credits.notary_id', $this->notary_id)
             ->groupBy('credits.id', 'credits.partner_id','partners.nombre',
                 'credits.monto_credito','credits.monto_ampliacion','credits.monto_cobrado',
                 'credits.numero_escritura','credits.fecha_escritura','credits.timbre_notarial',
@@ -109,5 +117,4 @@ class AllCreditsExport implements FromQuery, WithHeadings, ShouldAutoSize, Shoul
             'Notario'
         ];
     }
-
 }

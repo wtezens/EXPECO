@@ -190,8 +190,8 @@
                                 <v-layout fill-height >
                                     <v-flex xs12 flexbox>
                                         <v-btn outline color="black"
-                                               @click=""
-                                        >Reporte General</v-btn>
+                                               @click="dialog=!dialog"
+                                        >Reporte Espec&iacute;fico</v-btn>
                                     </v-flex>
                                 </v-layout>
                                 <!--v-container fill-height fluid>
@@ -204,6 +204,53 @@
                 </v-card>
             </v-flex>
         </v-layout>
+
+        <!--Reporte Especifico-->
+        <v-dialog v-model="dialog" max-width="500px">
+            <v-card>
+                <v-card-title
+                        class="headline grey lighten-2"
+                >
+                    Seleccione una agencia y un notario
+                </v-card-title>
+                <v-card-text>
+                    <v-form id="reporte" ref="form" v-model="valido" lazy-validation>
+                        <v-flex xs12>
+                            <v-select
+                                    validate-on-blur
+                                    v-bind:items="$root.agencias"
+                                    item-text="nombre"
+                                    item-value="id"
+                                    label="Agencia:"
+                                    v-model="agencia"
+                                    :rules="requiredOption"
+                            ></v-select>
+                        </v-flex>
+                        <v-flex xs12>
+                            <v-select
+                                    validate-on-blur
+                                    v-bind:items="$root.notarios"
+                                    item-text="nombre"
+                                    item-value="id"
+                                    label="Notario:"
+                                    v-model="notario"
+                                    :rules="requiredOption"
+                            ></v-select>
+                        </v-flex>
+                    </v-form>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                            class="warning"
+                            text
+                            @click="reporte_especifico"
+                    >
+                        Aceptar
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -212,7 +259,13 @@
         name: "dashboardContabilidad",
         data(){
             return{
-
+                valido: true,
+                dialog:false,
+                requiredOption:[
+                    v => !!v || 'Este campo es requerido',
+                ],
+                notario:'',
+                agencia:'',
             }
         },
         created(){
@@ -263,7 +316,7 @@
                                     swal({
                                         type:'error',
                                         title:'Fallo en la operación.',
-                                        text:'Es posible que el registro ya contenga un número de cuenta.',
+                                        text:'Woops! No se pudo encontrar la ruta especificada.',
                                         buttonsStyling:false,
                                         confirmButtonClass:'v-btn primary'
                                     })
@@ -282,6 +335,81 @@
 
                     }
                 })
+            },
+            reporte_especifico(){
+                if(this.$refs.form.validate()){
+                    this.dialog=false;
+                    const swalWithBootstrapButtons = swal.mixin({
+                        confirmButtonClass: 'v-btn info',
+                        cancelButtonClass: 'v-btn error',
+                        buttonsStyling: false,
+                    })
+
+                    swalWithBootstrapButtons({
+                        title: '¿Solicitar Reporte Especifico?',
+                        type: 'info',
+                        showCancelButton: true,
+                        confirmButtonText: 'Si',
+                        cancelButtonText: 'Cancelar',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.value) {
+                            axios.post('/contabilidad/reporte/especifico',{
+                                agencia: this.agencia,
+                                notario: this.notario
+                            })
+                                .then (response=>{
+                                    if(response.data.estatus==='ok') {
+                                        swal({
+                                            type: 'success',
+                                            title: response.data.descripcion,
+                                            text:'Espere un momento mientras se procesa su solicitud',
+                                            showConfirmButton: true,
+                                            buttonsStyling: false,
+                                            confirmButtonClass: 'v-btn primary'
+                                        });
+                                    }
+                                    this.notario='';
+                                    this.agencia='';
+                                    this.$refs.form.reset();
+                                })
+                                .catch(error=>{
+                                    if(error.response.data.errors){
+                                        this.$emit("errors",error.response.data.errors);
+                                    }else if(error.response.status===403){
+                                        swal({
+                                            type:'error',
+                                            title:'403. Forbidden',
+                                            text:'No tiene autorización para realizar esta acción.',
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    }else if(error.response.status===404){
+                                        swal({
+                                            type:'error',
+                                            title:'Fallo en la operación.',
+                                            text:'Woops! No se pudo encontrar la ruta especificada.',
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    }else{
+                                        swal({
+                                            title:error.toString(),
+                                            buttonsStyling:false,
+                                            confirmButtonClass:'v-btn primary'
+                                        })
+                                    }
+                                })
+                        } else if (
+                            // Read more about handling dismissals
+                            result.dismiss === swal.DismissReason.cancel
+                        ) {
+                            this.notario='';
+                            this.agencia='';
+                            this.$refs.form.reset();
+                        }
+                    })
+                }
             },
             showItem(item){
                 window.open('/colaborador/creditos#/expediente/'+item);

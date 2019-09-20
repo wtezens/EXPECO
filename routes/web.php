@@ -103,9 +103,19 @@ Route::prefix('contabilidad')->group(function (){
         'Contabilidad\LiquidacionesController@EfectuarFechaPagoLiquidacion')
         ->where('correlativo','^\d{0,8}$');
 
+    //---------------------- Lista de notarios por agencia-----------------------//
+    Route::get('/getNotaries', 'Contabilidad\ContabilidadController@Notarios');
+
+    //---------------------- Lista de agencias-----------------------//
+    Route::get('/getAgencies', 'Contabilidad\ContabilidadController@Agencias');
+
 
     //---------------------OBTENCION DE REPORTES-------------//
     Route::get('/reporte/general', 'Contabilidad\ReportesController@ReporteGeneral');
+
+    //---------------------REPORTES ESPECIFICOS-------------//
+    /**reporte por agencia y notario**/
+    Route::post('/reporte/especifico', 'Contabilidad\ReportesController@ReporteEspecifico');
 });
 
 /*************************************************************************************
