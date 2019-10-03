@@ -1,11 +1,5 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/ecosaba.css": "/css/ecosaba.css",
     "/js/contabilidad/contabilidad.js": "/js/contabilidad/contabilidad.js",
-    "/js/gerencia/secretaria_gerencia.js": "/js/gerencia/secretaria_gerencia.js",
-    "/js/gerentes/gerentes.js": "/js/gerentes/gerentes.js",
-    "/js/jefeagencia/jefe_agencia.js": "/js/jefeagencia/jefe_agencia.js",
-    "/js/login/login.js": "/js/login/login.js",
-    "/js/notario/notarios.js": "/js/notario/notarios.js"
+    "/js/gerentes/gerentes.js": "/js/gerentes/gerentes.js"
 }

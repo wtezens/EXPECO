@@ -4407,7 +4407,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.DatosExpediente = response.data[0];
         } else {
           swal({
-            title: 'El registro no existe',
+            title: 'No pudimos obtener el expediente solicitado!',
             type: 'error',
             buttonsStyling: false,
             confirmButtonClass: 'v-btn primary'

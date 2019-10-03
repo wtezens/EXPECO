@@ -1,30 +1,37 @@
+import DashboardGerentes from '../components/gerentes/dashboardGerentes';
+import AnticiposCreate from '../components/gerentes/AppAnticipoCreate'
+import AnticipoList from '../components/gerentes/AppListAnticipos'
+import Logout from '../components/login/AppLogout'
+import ChangePassword from '../components/login/AppFormChangePassword'
+
+
 const routes = [
     {
         path:'/',
         name:'home',
-        component: require('../components/gerentes/dashboardGerentes')
+        component: DashboardGerentes
     },
     {
         path:'/logout',
         name:'gerentes.logout',
-        component:require('../components/login/AppLogout'),
+        component: Logout,
         props: {redirect:'/gerentes/panel'}
     },
     {
         path:'/password',
         name:'password.change',
-        component:require('../components/login/AppFormChangePassword'),
+        component: ChangePassword,
         props:{colaborador:true}
     },
     {
         path:'/anticipo/create',
         name:'anticipo.create',
-        component:require('../components/gerentes/AppAnticipoCreate'),
+        component: AnticiposCreate,
     },
     {
         path:'/anticipo/show',
         name:'anticipo.show',
-        component:require('../components/gerentes/AppListAnticipos'),
+        component: AnticipoList,
     }
 ];
 

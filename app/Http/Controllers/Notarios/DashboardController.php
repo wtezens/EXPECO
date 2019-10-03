@@ -27,8 +27,9 @@ class DashboardController extends Controller
 
         $this->notario = session('identificador');
 
-        $total_creditos = Credit::where('notary_id',$this->notario)->count();
-        $liquidados = Credit::whereNotNull('liquidation_id')->where('notary_id',$this->notario)->count();
+        $total_creditos = Credit::activo()->where('notary_id',$this->notario)->count();
+
+        $liquidados = Credit::activo()->whereNotNull('liquidation_id')->where('notary_id',$this->notario)->count();
         $pendientes = $total_creditos - $liquidados;
 
         return array('creditos'=>$total_creditos,'liquidados'=>$liquidados,'pendientes'=>$pendientes);

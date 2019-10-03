@@ -28,7 +28,7 @@ class CreditosController extends Controller
          */
         $this->authorize('contabilidad', $datos);
 
-        return Credit::with('statuses')->with('partner')->with('advance')
+        return Credit::activo()->with('statuses')->with('partner')->with('advance')
             ->where('id',$id)->get();
     }
 
@@ -38,7 +38,7 @@ class CreditosController extends Controller
      * @return array
      */
     public function validarExpediente($expediente){
-        $credito = Credit::find($expediente);
+        $credito = Credit::activo()->where('id', $expediente)->first();
 
         if(empty($credito)){
             return array('status'=>'fail');

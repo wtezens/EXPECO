@@ -27,7 +27,7 @@ class CreditosController extends Controller
      */
     public function show($id)
     {
-        $datos = Credit::find($id);
+        $datos = Credit::activo()->where('id',$id)->first();
 
         /**
          * PoliticaNotarioCredito

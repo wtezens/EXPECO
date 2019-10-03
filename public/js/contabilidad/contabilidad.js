@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2223,6 +2223,25 @@ __webpack_require__.r(__webpack_exports__);
       window.open('/contabilidad/liquidacion/' + item);
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AppFormReporteCasosLiquidados"
 });
 
 /***/ }),
@@ -5821,6 +5840,30 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48648,6 +48691,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true& */ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true&");
+/* harmony import */ var _AppFormReporteCasosLiquidados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js& */ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AppFormReporteCasosLiquidados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c8464ec0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormReporteCasosLiquidados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormReporteCasosLiquidados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true& ***!
+  \***************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue?vue&type=template&id=c8464ec0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFormReporteCasosLiquidados_vue_vue_type_template_id_c8464ec0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/contabilidad/AppListAnticipos.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/contabilidad/AppListAnticipos.vue ***!
@@ -49235,7 +49347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
 /* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
 /* harmony import */ var _components_contabilidad_AppEfectuarPagoLiquidacion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/contabilidad/AppEfectuarPagoLiquidacion */ "./resources/js/components/contabilidad/AppEfectuarPagoLiquidacion.vue");
-/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
+/* harmony import */ var _components_contabilidad_AppFormReporteCasosLiquidados__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/contabilidad/AppFormReporteCasosLiquidados */ "./resources/js/components/contabilidad/AppFormReporteCasosLiquidados.vue");
+/* harmony import */ var _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./routes/contabilidad_routes */ "./resources/js/routes/contabilidad_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -49252,6 +49365,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('AppChangePassword', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidacion', _components_contabilidad_AppEfectuarPagoLiquidacion__WEBPACK_IMPORTED_MODULE_5__["default"]);
@@ -49261,7 +49375,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-realizar-pago-liquidac
 
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_6__["default"]
+  routes: _routes_contabilidad_routes__WEBPACK_IMPORTED_MODULE_7__["default"]
 });
 var app_contabilidad = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#contabilidad',
@@ -49487,14 +49601,14 @@ if (token) {
 
 /***/ }),
 
-/***/ 0:
-/*!********************************************!*\
-  !*** multi ./resources/js/contabilidad.js ***!
-  \********************************************/
+/***/ 2:
+/*!*****************************************!*\
+  !*** multi ./resources/js/contabilidad ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad.js */"./resources/js/contabilidad.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecosaba\expeco\resources\js\contabilidad */"./resources/js/contabilidad.js");
 
 
 /***/ })

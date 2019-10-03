@@ -38,7 +38,7 @@ class LiquidacionesController extends Controller
             ->where('agency_id',$idagencia)
             ->where('notary_id',$this->notario)
             ->orderBy('credits.id')
-            ->limit(15)
+            ->limit(25)
             ->get();
 
         return $envio;

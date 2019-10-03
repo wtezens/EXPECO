@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports;
+namespace App\Exports\Contabilidad;
 
 use App\Models\Credit;
 use Illuminate\Support\Facades\DB;

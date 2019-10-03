@@ -116,6 +116,9 @@ Route::prefix('contabilidad')->group(function (){
     //---------------------REPORTES ESPECIFICOS-------------//
     /**reporte por agencia y notario**/
     Route::post('/reporte/especifico', 'Contabilidad\ReportesController@ReporteEspecifico');
+
+    /**REPORTE DE CASOS POR NOTARIO Y AGENCIA LIQUIDADOS**/
+    Route::post('/reporte/casosliquidados', 'Contabilidad\ReportesController@ReporteCasosPorNotarioYAgencia');
 });
 
 /*************************************************************************************

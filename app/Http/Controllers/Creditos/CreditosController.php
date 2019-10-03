@@ -40,9 +40,13 @@ class CreditosController extends Controller
 
         $this->idAgencia = session('agency_id');
 
-        $total_creditos = Credit::where('agency_id',$this->idAgencia)->count();
-        $total_liquidados = Credit::whereNotNull('liquidation_id')->where('agency_id',$this->idAgencia)->count();
+        $total_creditos = Credit::activo()->where('agency_id', $this->idAgencia)->count();
+
+        $total_liquidados = Credit::activo()->whereNotNull('liquidation_id')
+            ->where('agency_id',$this->idAgencia)->count();
+
         $pendientes = $total_creditos - $total_liquidados;
+
         $agencia = Agency::select('nombre')->where('id',$this->idAgencia)->get();
 
         return array('total_creditos'=>$total_creditos,'total_liquidados'=>$total_liquidados,
@@ -120,7 +124,7 @@ class CreditosController extends Controller
      */
     public function show($id)
     {
-        $credito = Credit::with('statuses')->with('notary:id,nombre')
+        $credito = Credit::activo()->with('statuses')->with('notary:id,nombre')
             ->with('partner')->where('id', $id)
             ->get();
 

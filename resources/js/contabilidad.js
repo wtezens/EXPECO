@@ -15,6 +15,7 @@ Vue.use(VueRouter);
 import AppFooter from './components/AppFooter'
 import AppChangePassword from './components/login/AppChangePassword'
 import AppRealizarPagoLiquidacion from './components/contabilidad/AppEfectuarPagoLiquidacion'
+import AppFormReporteCasosLiquidados from './components/contabilidad/AppFormReporteCasosLiquidados'
 
 Vue.component('app-footer', AppFooter);
 Vue.component('AppChangePassword',AppChangePassword);

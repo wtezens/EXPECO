@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2414,7 +2414,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css":
 /*!********************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/material-design-icons/iconfont/material-icons.css ***!
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./node_modules/material-design-icons/iconfont/material-icons.css ***!
   \********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2425,7 +2425,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.eot */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot")) + "); /* For IE6-8 */\n  src: local('Material Icons'),\n       local('MaterialIcons-Regular'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff2 */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2")) + ") format('woff2'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff")) + ") format('woff'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.ttf */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf")) + ") format('truetype');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n\n  /* Support for IE. */\n  -webkit-font-feature-settings: 'liga';\n          font-feature-settings: 'liga';\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.eot */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot")) + "); /* For IE6-8 */\n  src: local('Material Icons'),\n       local('MaterialIcons-Regular'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff2 */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2")) + ") format('woff2'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.woff */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff")) + ") format('woff'),\n       url(" + escape(__webpack_require__(/*! ./MaterialIcons-Regular.ttf */ "./node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf")) + ") format('truetype');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n\n  /* Support for IE. */\n  font-feature-settings: 'liga';\n}\n", ""]);
 
 // exports
 
@@ -2630,7 +2630,7 @@ module.exports = "/fonts/vendor/material-design-icons/iconMaterialIcons-Regular.
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../postcss-loader/src??ref--7-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--5-1!../../postcss-loader/src??ref--5-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-design-icons/iconfont/material-icons.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -45782,8 +45782,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes_gerentes_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/gerentes_routes */ "./resources/js/routes/gerentes_routes.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppFooter */ "./resources/js/components/AppFooter.vue");
+/* harmony import */ var _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue");
+/* harmony import */ var _routes_gerentes_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/gerentes_routes */ "./resources/js/routes/gerentes_routes.js");
 __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -45792,22 +45798,24 @@ __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
  */
 
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Vuetify = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-Vue.use(Vuetify);
-Vue.component('app-footer', __webpack_require__(/*! ./components/AppFooter.vue */ "./resources/js/components/AppFooter.vue"));
-Vue.component('app-change-password', __webpack_require__(/*! ./components/login/AppChangePassword */ "./resources/js/components/login/AppChangePassword.vue"));
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-footer', _components_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app-change-password', _components_login_AppChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /**
  * GERENTES
  */
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: _routes_gerentes_routes__WEBPACK_IMPORTED_MODULE_1__["default"]
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  routes: _routes_gerentes_routes__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
-var app_gerentes = new Vue({
+var app_gerentes = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#gerentes',
   router: router,
   data: function data() {
@@ -45830,32 +45838,42 @@ var app_gerentes = new Vue({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_gerentes_dashboardGerentes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/gerentes/dashboardGerentes */ "./resources/js/components/gerentes/dashboardGerentes.vue");
+/* harmony import */ var _components_gerentes_AppAnticipoCreate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/gerentes/AppAnticipoCreate */ "./resources/js/components/gerentes/AppAnticipoCreate.vue");
+/* harmony import */ var _components_gerentes_AppListAnticipos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/gerentes/AppListAnticipos */ "./resources/js/components/gerentes/AppListAnticipos.vue");
+/* harmony import */ var _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue");
+/* harmony import */ var _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue");
+
+
+
+
+
 var routes = [{
   path: '/',
   name: 'home',
-  component: __webpack_require__(/*! ../components/gerentes/dashboardGerentes */ "./resources/js/components/gerentes/dashboardGerentes.vue")
+  component: _components_gerentes_dashboardGerentes__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/logout',
   name: 'gerentes.logout',
-  component: __webpack_require__(/*! ../components/login/AppLogout */ "./resources/js/components/login/AppLogout.vue"),
+  component: _components_login_AppLogout__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: {
     redirect: '/gerentes/panel'
   }
 }, {
   path: '/password',
   name: 'password.change',
-  component: __webpack_require__(/*! ../components/login/AppFormChangePassword */ "./resources/js/components/login/AppFormChangePassword.vue"),
+  component: _components_login_AppFormChangePassword__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: {
     colaborador: true
   }
 }, {
   path: '/anticipo/create',
   name: 'anticipo.create',
-  component: __webpack_require__(/*! ../components/gerentes/AppAnticipoCreate */ "./resources/js/components/gerentes/AppAnticipoCreate.vue")
+  component: _components_gerentes_AppAnticipoCreate__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: '/anticipo/show',
   name: 'anticipo.show',
-  component: __webpack_require__(/*! ../components/gerentes/AppListAnticipos */ "./resources/js/components/gerentes/AppListAnticipos.vue")
+  component: _components_gerentes_AppListAnticipos__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
@@ -45921,7 +45939,7 @@ if (token) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 1:
 /*!****************************************!*\
   !*** multi ./resources/js/gerentes.js ***!
   \****************************************/

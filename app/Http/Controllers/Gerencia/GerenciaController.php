@@ -29,7 +29,7 @@ class GerenciaController extends Controller
      */
     public function show($id){
 
-        $credito= Credit::find($id);
+        $credito= Credit::activo()->where('id',$id)->first();
 
         $this->authorize('gerencia',$credito);
 

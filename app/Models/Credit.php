@@ -87,7 +87,7 @@ class Credit extends Model
      * return unicamente los creditos activos
      */
     public static function activo(){
-        return static::where('estado', 1);
+        return static::where('estado', '<>', 0);
     }
 
     /*
