@@ -1,11 +1,11 @@
-@extends('login')
+@extends('login2')
 
 @section('route')
-    <v-flex xs12>
+    <!--v-flex xs12>
         <v-btn block
                color="primary"
                @click="submitColaborador"
                :disabled="!valido"
         >Ingresar</v-btn>
-    </v-flex>
+    </v-flex-->
 @endsection

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DBC_CONNECTION', 'Creditos'),
+    'default' => env('DBC_CONNECTION', 'credits'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
         #Primary/Default database connection
         #MySQL conection
 
-        'Creditos' => [
+        'credits' => [
             'driver' => 'mysql',
             'host' => env('DBC_HOST', '127.0.0.1'),
             'port' => env('DBC_PORT', '3306'),
@@ -56,7 +56,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-        
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
