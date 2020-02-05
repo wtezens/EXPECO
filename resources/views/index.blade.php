@@ -10,6 +10,7 @@
     <link href="{{asset('icono.png')}}" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="{{asset('iconfont/material-icons.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/ecosaba.css')}}">
+    <title>ECOSABA</title>
 </head>
     <body>
     <nav class="nav" id="menu">
